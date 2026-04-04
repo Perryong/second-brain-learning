@@ -1,0 +1,22 @@
+# Obsidian workspace state (changes every session - not useful to track)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian cache
+.obsidian/cache
+
+# Plugin binaries (large, auto-updated by Obsidian)
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+
+# Copilot plugin data (may contain API keys)
+.obsidian/plugins/copilot/data.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
