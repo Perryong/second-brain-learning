@@ -690,6 +690,6 @@ gcc exploit.c -o exploit && ./exploit
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Common Linux Privesc](https://tryhackme.com/room/commonlinuxprivesc) | TryHackMe | SUID, sudo misconfigs, writable /etc/passwd, cron jobs, path hijacking |
-| [Internal](https://tryhackme.com/room/internal) | TryHackMe | Linux privesc via SSH private key discovery after pivoting through internal services |
-| [0day](https://tryhackme.com/room/0day) | TryHackMe | Shellshock (CVE-2014-6271) CGI exploit → Linux kernel PrivEsc (overlayfs) |
+| [[Common Linux Privesc]] | TryHackMe | SUID, sudo misconfigs, writable /etc/passwd, cron jobs, path hijacking |
+| [[Internal]] | TryHackMe | Linux privesc via SSH private key discovery after pivoting through internal services |
+| [[0day]] | TryHackMe | Shellshock (CVE-2014-6271) CGI exploit → Linux kernel PrivEsc (overlayfs) |

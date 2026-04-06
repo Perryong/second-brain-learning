@@ -587,7 +587,7 @@ evil-winrm -i TARGET_IP -u USERNAME -p "PASSWORD"
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Windows Privilege Escalation](https://tryhackme.com/room/windowsprivesc20) | TryHackMe | Comprehensive guide: service misconfigs, AlwaysInstallElevated, scheduled tasks, credential harvesting from IIS/PuTTY/PowerShell history |
-| [Steel Mountain](https://tryhackme.com/room/steelmountain) | TryHackMe | Rejetto HFS exploit (CVE-2014-6287) → unquoted service path / insecure service binary for PrivEsc |
-| [Alfred](https://tryhackme.com/room/alfred) | TryHackMe | Jenkins exploit → Meterpreter → token impersonation (incognito) → SYSTEM |
-| [Internal](https://tryhackme.com/room/internal) | TryHackMe | WordPress exploit → Jenkins on internal port → SSH privkey → root (full internal pentest) |
+| [[Windows Privilege Escalation]] | TryHackMe | Comprehensive guide: service misconfigs, AlwaysInstallElevated, scheduled tasks, credential harvesting from IIS/PuTTY/PowerShell history |
+| [[Steel Mountain]] | TryHackMe | Rejetto HFS exploit (CVE-2014-6287) → unquoted service path / insecure service binary for PrivEsc |
+| [[Alfred]] | TryHackMe | Jenkins exploit → Meterpreter → token impersonation (incognito) → SYSTEM |
+| [[Internal]] | TryHackMe | WordPress exploit → Jenkins on internal port → SSH privkey → root (full internal pentest) |

@@ -388,9 +388,9 @@ reg save HKLM\SYSTEM C:\system.bak
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Archetype](https://app.hackthebox.com/machines/Archetype) | HackTheBox | Lateral movement via SMB/WinRM using recovered credentials; credential reuse chain |
-| [Responder](https://app.hackthebox.com/machines/Responder) | HackTheBox | NTLM relay via LFI + UNC path → WinRM access (mirrors the relay chain in Module 22-24) |
-| [Attacking Kerberos](https://tryhackme.com/room/attackingkerberos) | TryHackMe | Pass-the-Ticket and Golden Ticket in practice |
+| [[Archetype]] | HackTheBox | Lateral movement via SMB/WinRM using recovered credentials; credential reuse chain |
+| [[Responder]] | HackTheBox | NTLM relay via LFI + UNC path → WinRM access (mirrors the relay chain in Module 22-24) |
+| [[Attacking Kerberos]] | TryHackMe | Pass-the-Ticket and Golden Ticket in practice |
 
 ---
 

@@ -529,11 +529,11 @@ use auxiliary/server/socks_proxy
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Metasploit](https://tryhackme.com/room/metasploitintro) | TryHackMe | msfdb init, msfconsole basics, auxiliary modules, MS17-010 (EternalBlue) exploit |
-| [Metasploit: Exploitation](https://tryhackme.com/room/metasploitexploitation) | TryHackMe | db_nmap integration, vulnerability scanning, msfvenom payload generation |
-| [Metasploit: Meterpreter](https://tryhackme.com/room/meterpreter) | TryHackMe | Meterpreter in-memory architecture, process migration, channel commands |
-| [Alfred](https://tryhackme.com/room/alfred) | TryHackMe | Jenkins exploit → Meterpreter shell → token impersonation (getsystem via incognito) |
-| [AV Evasion: Shellcode](https://tryhackme.com/room/avevasionshellcode) | TryHackMe | msfvenom shellcode generation, encoding/packing to evade AV |
+| [[Metasploit]] | TryHackMe | msfdb init, msfconsole basics, auxiliary modules, MS17-010 (EternalBlue) exploit |
+| [[Metasploit Exploitation]] | TryHackMe | db_nmap integration, vulnerability scanning, msfvenom payload generation |
+| [[Metasploit  Meterpreter]] | TryHackMe | Meterpreter in-memory architecture, process migration, channel commands |
+| [[Alfred]] | TryHackMe | Jenkins exploit → Meterpreter shell → token impersonation (getsystem via incognito) |
+| [[AV Evasion Shellcode]] | TryHackMe | msfvenom shellcode generation, encoding/packing to evade AV |
 
 ---
 

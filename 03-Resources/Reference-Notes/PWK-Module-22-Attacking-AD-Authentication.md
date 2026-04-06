@@ -355,11 +355,11 @@ hashcat -m 1000 hashes.dcsync rockyou.txt -r best64.rule --force
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Attacking Kerberos](https://tryhackme.com/room/attackingkerberos) | TryHackMe | Full Kerberos attack chain: AS-REP Roasting, Kerberoasting, Pass-the-Ticket, Golden/Silver Ticket, Skeleton Key |
-| [VulnNet: Roasted](https://tryhackme.com/room/vulnnetroasted) | TryHackMe | AS-REP Roasting + Kerberoasting in a real AD environment (impacket tools) |
-| [RazorBlack](https://tryhackme.com/room/raz0rblack) | TryHackMe | Multiple Kerberos vectors including AS-REP Roasting and hash cracking |
-| [AD Certificate Templates](https://tryhackme.com/room/adcertificatetemplates) | TryHackMe | CVE-2022-26923 ADCS privilege escalation (certificate-based DA path) |
-| [Archetype](https://app.hackthebox.com/machines/Archetype) | HackTheBox | MSSQL xp_cmdshell → SMB credential reuse → WinRM → DCSync (full credential chain) |
+| [[Attacking Kerberos]] | TryHackMe | Full Kerberos attack chain: AS-REP Roasting, Kerberoasting, Pass-the-Ticket, Golden/Silver Ticket, Skeleton Key |
+| [[VulnNet Roasted]] | TryHackMe | AS-REP Roasting + Kerberoasting in a real AD environment (impacket tools) |
+| [[RazorBlack]] | TryHackMe | Multiple Kerberos vectors including AS-REP Roasting and hash cracking |
+| [[AD Certificate Templates]] | TryHackMe | CVE-2022-26923 ADCS privilege escalation (certificate-based DA path) |
+| [[Archetype]] | HackTheBox | MSSQL xp_cmdshell → SMB credential reuse → WinRM → DCSync (full credential chain) |
 
 ---
 

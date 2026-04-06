@@ -413,10 +413,10 @@ Invoke-BloodHound -CollectionMethod All -OutputDirectory C:\Users\user\Desktop
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Active Directory Basics](https://tryhackme.com/room/activedirectorybasics) | TryHackMe | Domain structure, users/groups/OUs, GPOs, trusts — foundational AD concepts |
-| [Attacking Kerberos](https://tryhackme.com/room/attackingkerberos) | TryHackMe | Kerbrute user enumeration, AS-REP Roasting, Kerberoasting setup and context |
-| [VulnNet: Roasted](https://tryhackme.com/room/vulnnetroasted) | TryHackMe | Real AD domain: full enumeration pipeline from null session → SMB shares → credential discovery |
-| [RazorBlack](https://tryhackme.com/room/raz0rblack) | TryHackMe | AD enumeration leading into authentication attacks |
+| [[Active Directory Basics]] | TryHackMe | Domain structure, users/groups/OUs, GPOs, trusts — foundational AD concepts |
+| [[Attacking Kerberos]] | TryHackMe | Kerbrute user enumeration, AS-REP Roasting, Kerberoasting setup and context |
+| [[VulnNet Roasted]] | TryHackMe | Real AD domain: full enumeration pipeline from null session → SMB shares → credential discovery |
+| [[RazorBlack]] | TryHackMe | AD enumeration leading into authentication attacks |
 
 ---
 

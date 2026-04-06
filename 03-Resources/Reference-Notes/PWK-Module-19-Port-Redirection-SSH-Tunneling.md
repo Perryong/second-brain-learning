@@ -626,7 +626,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 | Room / Machine | Platform | What it practices |
 |----------------|----------|-------------------|
-| [Wreath](https://tryhackme.com/room/wreath) | TryHackMe | Full multi-hop pivoting course: SSH -L/-R, Socat, Chisel, sshuttle, plink.exe across a 3-machine network |
-| [Extending Your Network](https://tryhackme.com/room/extendingyournetwork) | TryHackMe | Port forwarding and firewall fundamentals (conceptual grounding) |
-| [Game Zone](https://tryhackme.com/room/gamezone) | TryHackMe | SSH reverse tunnel to expose internal SQLi service to Kali (SSH -R pattern) |
-| [Badbyte](https://tryhackme.com/room/badbyte) | TryHackMe | SSH tunneling to reach internal services on a segmented target |
+| [[Wreath]] | TryHackMe | Full multi-hop pivoting course: SSH -L/-R, Socat, Chisel, sshuttle, plink.exe across a 3-machine network |
+| [[Extending Your Network]] | TryHackMe | Port forwarding and firewall fundamentals (conceptual grounding) |
+| [[Game Zone]] | TryHackMe | SSH reverse tunnel to expose internal SQLi service to Kali (SSH -R pattern) |
+| [[Badbyte]] | TryHackMe | SSH tunneling to reach internal services on a segmented target |
