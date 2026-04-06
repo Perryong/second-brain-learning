@@ -580,3 +580,14 @@ evil-winrm -i TARGET_IP -u USERNAME -p "PASSWORD"
 - [HackTricks - Windows Local PrivEsc](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation)
 - [PrintSpoofer / GodPotato](https://github.com/BeichenDream/GodPotato) — SeImpersonatePrivilege exploitation
 - [IppSec](https://www.youtube.com/@ippsec) — search any Windows box for PrivEsc workflow
+
+---
+
+## Practice Labs
+
+| Room / Machine | Platform | What it practices |
+|----------------|----------|-------------------|
+| [Windows Privilege Escalation](https://tryhackme.com/room/windowsprivesc20) | TryHackMe | Comprehensive guide: service misconfigs, AlwaysInstallElevated, scheduled tasks, credential harvesting from IIS/PuTTY/PowerShell history |
+| [Steel Mountain](https://tryhackme.com/room/steelmountain) | TryHackMe | Rejetto HFS exploit (CVE-2014-6287) → unquoted service path / insecure service binary for PrivEsc |
+| [Alfred](https://tryhackme.com/room/alfred) | TryHackMe | Jenkins exploit → Meterpreter → token impersonation (incognito) → SYSTEM |
+| [Internal](https://tryhackme.com/room/internal) | TryHackMe | WordPress exploit → Jenkins on internal port → SSH privkey → root (full internal pentest) |

@@ -619,3 +619,14 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 - [PayloadsAllTheThings - Pivoting](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Network%20Pivoting%20Techniques/README.md)
 - [HackTricks - Tunneling](https://book.hacktricks.xyz/generic-methodologies-and-resources/tunneling-and-port-forwarding)
 - [IppSec](https://www.youtube.com/@ippsec) — search "pivoting", "tunneling", "proxychains"
+
+---
+
+## Practice Labs
+
+| Room / Machine | Platform | What it practices |
+|----------------|----------|-------------------|
+| [Wreath](https://tryhackme.com/room/wreath) | TryHackMe | Full multi-hop pivoting course: SSH -L/-R, Socat, Chisel, sshuttle, plink.exe across a 3-machine network |
+| [Extending Your Network](https://tryhackme.com/room/extendingyournetwork) | TryHackMe | Port forwarding and firewall fundamentals (conceptual grounding) |
+| [Game Zone](https://tryhackme.com/room/gamezone) | TryHackMe | SSH reverse tunnel to expose internal SQLi service to Kali (SSH -R pattern) |
+| [Badbyte](https://tryhackme.com/room/badbyte) | TryHackMe | SSH tunneling to reach internal services on a segmented target |

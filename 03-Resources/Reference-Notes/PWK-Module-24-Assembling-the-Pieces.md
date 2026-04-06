@@ -478,4 +478,14 @@ DCSRV1 (Domain Admin)
 
 ---
 
+## Practice Labs
+
+| Room / Machine | Platform | What it practices |
+|----------------|----------|-------------------|
+| [Archetype](https://app.hackthebox.com/machines/Archetype) | HackTheBox | End-to-end Windows AD chain: MSSQL → SMB → WinRM → cred reuse → domain compromise |
+| [Unified](https://app.hackthebox.com/machines/Unified) | HackTheBox | Log4Shell (CVE-2021-44228) initial foothold → MongoDB credential extraction → admin panel RCE |
+| [Wreath](https://tryhackme.com/room/wreath) | TryHackMe | Multi-machine network: initial foothold → pivoting → internal target exploitation (full chain) |
+
+---
+
 *From: PWK Module 24*

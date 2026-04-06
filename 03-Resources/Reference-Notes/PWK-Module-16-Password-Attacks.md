@@ -427,3 +427,13 @@ hashcat --help | grep -i "ntlm"
 - [Hashcat example hashes](https://hashcat.net/wiki/doku.php?id=example_hashes) — identify mode by example
 - [SecLists wordlists](https://github.com/danielmiessler/SecLists/tree/master/Passwords)
 - [HackTricks - Password Attacks](https://book.hacktricks.xyz/generic-methodologies-and-resources/brute-force)
+
+---
+
+## Practice Labs
+
+| Room / Machine | Platform | What it practices |
+|----------------|----------|-------------------|
+| [Password Attacks](https://tryhackme.com/room/passwordattacks) | TryHackMe | CUPP/crunch/cewl wordlist generation, Hydra/Medusa brute-force, hash cracking with hashcat |
+| [Brute](https://tryhackme.com/room/recovery) | TryHackMe | HTTP brute-force and credential stuffing |
+| [Game Zone](https://tryhackme.com/room/gamezone) | TryHackMe | sqlmap hash extraction → hashcat cracking (john hash format) |
