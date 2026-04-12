@@ -12,7 +12,6 @@ IDOR stands for Insecure Direct Object Reference and is a type of access control
 
 This type of vulnerability can occur when a web server receives user-supplied input to retrieve objects (files, data, documents), too much trust has been placed on the input data, and it is not validated on the server-side to confirm the requested object belongs to the user requesting it.
 
-
 What does IDOR stand for? *Insecure Direct Object Reference*
 
 ### An IDOR Example 
@@ -24,7 +23,6 @@ Curiosity gets the better of you, and you try changing the user_id value to 1000
 Using what you've learnt above, click on the View Site button and try and receive a flag by discovering and exploiting an IDOR vulnerability. 
 
 ```
-
 
 Changing the order ID from 1234 to 1000 has displayed another user's invoice, confirming an IDOR vulnerability on the website.
 THM{IDOR-VULN-FOUND}
@@ -42,7 +40,6 @@ See the image below as a graphical example of this process:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/5f2cbe5c4ab4a274420bc9a9afc9202d.png)
 
-
 What is a common type of encoding used by websites?
 *base64*
 
@@ -52,15 +49,12 @@ Hashed IDs
 
 Hashed IDs are a little bit more complicated to deal with than encoded ones, but they may follow a predictable pattern, such as being the hashed version of the integer value. For example, the Id number 123 would become 202cb962ac59075b964b07152d234b70 if md5 hashing were in use.
 
-
 It's worthwhile putting any discovered hashes through a web service such as https://crackstation.net/ (which has a database of billions of hash to value results) to see if we can find any matches. 
-
 
 What is a common algorithm used for hashing IDs?
 *md5*
 
 ### Finding IDORs in Unpredictable IDs 
-
 
 Unpredictable IDs
 
@@ -70,11 +64,9 @@ What is the minimum number of accounts you need to create to check for IDORs bet
 
 ### Where are IDORs located 
 
-
 Where are they located?
 
 The vulnerable endpoint you're targeting may not always be something you see in the address bar. It could be content your browser loads in via an AJAX request or something that you find referenced in a JavaScript file. 
-
 
 Sometimes endpoints could have an unreferenced parameter that may have been of some use during development and got pushed to production. For example, you may notice a call to /user/details displaying your user information (authenticated through your session). But through an attack known as parameter mining, you discover a parameter called user_id that you can use to display other users' information, for example, /user/details?user_id=123.
 
@@ -82,29 +74,19 @@ Sometimes endpoints could have an unreferenced parameter that may have been of s
 
 Begin by pressing the Start Machine button; once started, click the below link and open it in a new browser tab:
 
-
 https://10-10-92-241.p.thmlabs.com
-
 
 Firstly you'll need to log in. To do this, click on the customer's section and create an account. Once logged in, click on the Your Account tab. 
 
-
 The Your Account section gives you the ability to change your information such as username, email address and password. You'll notice the username and email fields pre-filled in with your information.  
 
-
 We'll start by investigating how this information gets pre-filled. If you open your browser developer tools, select the network tab and then refresh the page, you'll see a call to an endpoint with the path /api/v1/customer?id={user_id}.
-
 
 This page returns in JSON format your user id, username and email address. We can see from the path that the user information shown is taken from the query string's id parameter (see below image).
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/5d71d3fe747a8c8934564feddfc69f75.png)
 
-
 You can try testing this id parameter for an IDOR vulnerability by changing the id to another user's id. Try selecting users with IDs 1 and 3 and then answer the questions below.
-
-![[Pasted image 20220820215501.png]]
-
-![[Pasted image 20220820215528.png]]
 
 What is the username for user id 1? *adam84*
 
@@ -115,8 +97,4 @@ https://10-10-92-241.p.thmlabs.com/api/v1/customer?id=3
 What is the email address for user id 3? *j@fakemail.thm*
 
 [[Authentication Bypass]]
-
-
-
-
 

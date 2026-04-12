@@ -28,7 +28,6 @@ In this room, we will be focusing on APT (Advanced Persistent Threat) activity a
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/a621a765e342bc8ea4a36d3e2b132123.png)
 
-
 ### Applying Threat Intel to the Red Team 
 
 As previously mentioned, the red team will leverage CTI to aid in adversary emulation and support evidence of an adversary's behaviors.
@@ -68,7 +67,6 @@ There are several public white papers and documents if you are interested in rea
     https://www.crest-approved.org/membership/tiber-eu/
     https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/pf/ms/sb-tiber-eu.pdf
 
-
 ### TTP Mapping 
 
 TTP Mapping is employed by the red cell to map adversaries' collected TTPs to a standard cyber kill chain. Mapping TTPs to a kill chain aids the red team in planning an engagement to emulate an adversary.
@@ -93,8 +91,6 @@ ATT&CK provides a basic summary of a group's collected TTPs. We can use ATT&CK N
 To use the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/): navigate to the groups summary page, next to "Techniques Used," navigate to "ATT&CK Navigator Layers," from the dropdown navigate to "view." An ATT&CK Navigator layer should have opened with the selected group's TTPs highlighted in a new tab.
 
 Going through the Navigator layer, we can assign various TTPs we want to employ during the engagement. Below is a compiled kill chain with mapped TTPs for APT39.
-
-
 
     Reconnaissance:
         No identified TTPs, use internal team methodology
@@ -133,22 +129,14 @@ Other open-source and enterprise threat intelligence platforms can aid red teame
     Ontic
     CrowdStrike Falcon
 
-
-
 Read the above and use MITRE ATT&CK Navigator to answer the questions below using a Carbanak layer.
 *No answer needed*
-
-
 
 How many Command and Control techniques are employed by Carbanak? (https://mitre-attack.github.io/attack-navigator//#layerURL=https%3A%2F%2Fattack.mitre.org%2Fgroups%2FG0008%2FG0008-enterprise-layer.json)
 
 *2*
 
-
-
 What signed binary did Carbanak use for defense evasion? *Rundll32*
-
-
 
 What Initial Access technique is employed by Carbanak?  *Valid Accounts*
 
@@ -157,7 +145,6 @@ What Initial Access technique is employed by Carbanak?  *Valid Accounts*
 CTI can also be used during engagement execution, emulating the adversary's behavioral characteristics, such as
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/adab90abe046bb7103326e85cdaaefd3.png)
-
 
     C2 Traffic
         User Agents
@@ -198,7 +185,6 @@ The task flow in this room logically follows the same path you would take as a r
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/81e64f0adc04572709b847154a5f0d29.png)
 
-
     Identify framework and general kill chain
     Determine targeted adversary
     Identify adversary's TTPs and IOCs
@@ -228,8 +214,6 @@ Open the provided ATT&CK Navigator layer and identify matched TTPs to the cyber 
 
 To complete the challenge, you must submit one technique name per kill chain section.
 
-![[Pasted image 20220908233028.png]]
-
 Once the chain is complete and you have received the flag, submit it below.
 ( PowerShell, Spearphishing Attachment, External Remote Services, BITS Jobs, DNS, Keylogging)
 
@@ -254,7 +238,6 @@ Each red team will have its methodology of collecting and digesting threat intel
 When planning an engagement, remember that it is crucial to look at scenarios from all perspectives: offensive, defensive, and the adversary's.
 
 Threat intelligence allows us as the red team to look deeper into an adversary's behavior by using the blue team's methodology to our advantage.
-
 
 Read the above and continue learning!
 *No answer needed*

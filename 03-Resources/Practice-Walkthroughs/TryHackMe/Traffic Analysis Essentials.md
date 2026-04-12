@@ -6,12 +6,9 @@ Learn Network Security and Traffic Analysis foundations and take a step into pro
 
 ### Introduction 
 
-
-
 Network Security is a set of operations for protecting data, applications, devices and systems connected to the network. It is accepted as one of the significant subdomains of cyber security. It focuses on the system design, operation and management of the architecture/infrastructure to provide network accessibility, integrity, continuity and reliability. Traffic analysis (often called Network Traffic Analysis) is a subdomain of the Network Security domain, and its primary focus is investigating the network data to identify problems and anomalies. 
 
 This room will cover the foundations of Network Security and Traffic analysis and introduce the essential concepts of these disciplines to help you step into Traffic/Packet Analysis. We suggest completing the "Network Fundamentals" module before starting working in this room.
-
 
 ### Network Security and Network Data 
 
@@ -100,14 +97,11 @@ Incident Response
 	An organised approach to addressing and managing a security breach. It contains a set of actions to identify, contain, and eliminate incidents.
 Behavioural Analysis	An organised approach to addressing system and user behaviours, creating baselines and traffic profiles for specific patterns to detect anomalies, threats, vulnerabilities, and attacks.
 
-
 Which Security Control Level covers contain creating security policies?
 *Administrative*
 
-
 Which Access Control element works with data metrics to manage data flow?
 *Load Balancing*
-
 
 Which technology helps correlate different tool outputs and data sources?
 *SOAR*
@@ -155,12 +149,6 @@ The widespread usage of security tools/services and an increasing shift to cloud
 
 Now you know what Traffic Analysis is and how it operates. Now use the static site to simulate a traffic analysis operation and find the flags.
 
-
-![[Pasted image 20221204235651.png]]
-
-![[Pasted image 20221204235745.png]]
-![[Pasted image 20221204235949.png]]
-
 Block 10.10.99.62 and 10.10.99.99
 
 Level-1 is simulating the identification and filtering of malicious IP addresses.
@@ -169,22 +157,15 @@ What is the flag?
 Red dots represent malicious packets!
 *THM{PACKET_MASTER}*
 
-
-
 Level-2 is simulating the identification and filtering of malicious IP and Port addresses.
 
 What is the flag?
  Are they any suspicious ports? A quick search can help if you don't recognise the used ports. Any recurring numbers in ports?
- ![[Pasted image 20221205000133.png]]
- ![[Pasted image 20221205000143.png]]
- ![[Pasted image 20221205001206.png]]
- 
+    
  Ports: 2222, 4444, 7777
 *THM{DETECTION_MASTER}*
 
 ### Conclusion 
-
-
 
 Congratulations! You just finished the "Traffic Analysis Essentials" room.
 
@@ -194,6 +175,5 @@ In this room, we covered the foundations of the network security and traffic ana
     Network Traffic Analysis
 
 Now, you are ready to complete the "Network Security and Traffic Analysis" module.
-
 
 [[OpenCTI]]

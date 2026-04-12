@@ -141,7 +141,6 @@ Task Completed
 + Apache/2.4.7 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
 + OPTIONS: Allowed HTTP Methods: GET, HEAD, POST, OPTIONS .
 
-
 Engagement Tools
 
 Using Comments search with burp
@@ -335,7 +334,6 @@ if [ "$SHLVL" = 1 ]; then
     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 fi
 
-
 ftp> more .bashrc
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -459,7 +457,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 ftp> more .profile
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
@@ -483,7 +480,6 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
 
 ftp> more examples.desktop
 [Desktop Entry]
@@ -725,7 +721,6 @@ Comment[zh_TW]=Ubuntu 的範例內容
 URL=file:///usr/share/example-content/
 Icon=folder
 X-Ubuntu-Gettext-Domain=example-content
-
 
 ftp> 
 
@@ -1026,7 +1021,6 @@ ls
 html  html2  html4  reno2.jpg  reno.jpg
 www-data@bobloblaw-VirtualBox:~$ You haven't rooted me yet? Jeez
 
-
 www-data@bobloblaw-VirtualBox:~$ python3 -m http.server
 python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 ...
@@ -1184,7 +1178,6 @@ int main() {
 
 replace 
 
-
 #include <stdlib.h>
 
 int main(){
@@ -1244,10 +1237,6 @@ Resolving deltas: 100% (17/17), done.
 └─$ firefox index.html    
 ```
 
-![[Pasted image 20230901111539.png]]
-
-![[Pasted image 20230901112603.png]]
-
 User Flag  
 
 *THM{C0NGR4t$_g3++ing_this_fur}*
@@ -1255,6 +1244,5 @@ User Flag
 Root Flag
 
 *THM{G00D_J0B_G3++1NG+H3R3!}*
-
 
 [[Lesson Learned]]

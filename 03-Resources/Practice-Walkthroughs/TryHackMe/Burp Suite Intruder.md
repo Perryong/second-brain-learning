@@ -35,7 +35,6 @@ We will take a closer look at some of these sub-tabs in the upcoming tasks. For 
 
 1. Fuzzing is when we take a set of data and apply it to a parameter to test functionality or to see if something exists. For example, we may choose to "fuzz for endpoints" in a web application; this would involve taking each word in a wordlist and adding it to the end of a request to see how the web server responds (e.g. http://MACHINE_IP/WORD_GOES_HERE).
 
-
 Which section of the Options sub-tab allows you to control what information will be captured in the Intruder results?
 *attack results*
 
@@ -64,13 +63,10 @@ GIF showing how to select positions
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d9e176315f8850e719252ed/room-content/35caa3d4e70aae2084966b1928c3db5f.gif)
 
-
 Have a play around with the positions selector. Make sure that you are comfortable with the processes of adding, clearing, and automatically selecting positions.
 *No answer needed*
 
 Clear all selected positions. *No answer needed*
-
-
 
 Select the value of the "Host" header and add it as a position.
 
@@ -84,8 +80,6 @@ Your editor should be back looking like it did in the first screenshot of this t
 *No answer needed*
 
 ###  Introduction 
-
-
 
 Let's switch to the "Positions" sub-tab and look in the "Attack types" drop-down menu.
 
@@ -122,7 +116,6 @@ Referer: http://MACHINE_IP/support/login/
 Upgrade-Insecure-Requests: 1
 
 username=§pentester§&password=§Expl01ted§              
-
 
 There are two positions defined here, targeting the username and password body parameters.
 
@@ -181,7 +174,6 @@ Upgrade-Insecure-Requests: 1
 
 username=§pentester§&password=§Expl01ted§              
 
-
 If we use Battering ram to attack this, Intruder will take each payload and substitute it into every position at once.
 
 With the two positions that we have above, Intruder would use the three words from before (burp, suite, and intruder) to make three requests:
@@ -196,8 +188,6 @@ Request Number
 
 As can be seen in the table, each item in our list of payloads gets put into every position for each request. True to the name, Battering ram just throws payloads at the target to see what sticks.
 
-
-
 As a hypothetical question: you need to perform a Battering Ram Intruder attack on the example request above.
 
 If you have a wordlist with two words in it (admin and Guest) and the positions in the request template look like this:
@@ -208,8 +198,6 @@ What would the body parameters of the first request that Burp Suite sends be?
 *username=admin&password=admin*
 
 ### Pitchfork 
-
-
 
 Two down, two more to go!
 
@@ -235,7 +223,6 @@ Request Number
 See how Pitchfork takes the first item from each list and puts them into the request, one per position? It then repeats this for the next request: taking the second item from each list and substituting it into the template. Intruder will keep doing this until one (or all) of the lists run out. Ideally, our payload sets should be identical lengths when working in Pitchfork, as Intruder will stop testing as soon as one of the lists is complete. For example, if we have two lists, one with 100 lines and one with 90 lines, Intruder will only make 90 requests, and the final ten items in the first list will not get tested.
 
 This attack type is exceptionally useful when forming things like credential stuffing attacks (we have just encountered a small-scale version of this). We will be looking more into these later in the room.
-
 
 What is the maximum number of payload sets we can load into Intruder in Pitchfork mode? *20*
 
@@ -278,8 +265,6 @@ Cluster Bomb will iterate through every combination of the provided payload sets
 
 That said, this is another extremely useful attack type for any kind of credential bruteforcing where a username isn't known.
 
-
-
 We have three payload sets. The first set contains 100 lines; the second contains 2 lines; and the third contains 30 lines.
 
 How many requests will Intruder make using these payload sets in a Cluster Bomb attack? *6000* (Multiply the number of lines in each payload set together. See how very small numbers can add up fast...?)
@@ -309,7 +294,6 @@ By contrast, the options for a Numbers payload type allows us to change options 
 
 When combined, these sections allow us to perfectly tailor our payload sets for any attack we wish to carry out.
 
-
 Which payload type lets us load a list of words into a payload set? *Simple list*
 
 Which Payload Processing rule could we use to add characters at the end of each payload in the set? *Add suffix*
@@ -322,9 +306,7 @@ Let's try to gain access to the support portal: /support/login.
 
 This is a fairly typical login portal. Looking at the source code for the form, we can see that there are no protective measures in place:
 
-
 Support Login Form Source Code
-
 
 ```
 <form method="POST">
@@ -348,10 +330,7 @@ Bastion Hosting was hit with a cyber attack three months ago. The attack resulte
 
 As we have a list of known usernames, each associated with a password, we can avoid a straight bruteforce and instead use a credential stuffing attack. This will (blessedly) be much quicker when using the rate-limited version of Intruder.
 
-
 Download and unzip the BastionHostingCreds.zip zipfile. It doesn't matter whether you do this by clicking the download link in the task or by using the files hosted on your deployed machine. *No answer needed*
-
-
 
 The zip file should contain four wordlists:
 
@@ -371,18 +350,12 @@ Activate the Burp Proxy and try to log in, catching the request in your proxy.
 Note: It doesn't matter what credentials you use here -- we just need the request.
 *No answer needed*
 
-
-
 Send the request from the Proxy to Intruder by right-clicking and selecting "Send to Intruder" or by using the Ctrl + I shortcut.  *No answer needed*
-
-
 
 Looking in the "Positions" sub-tab, we should see that the auto-selection should have chosen the username and password parameters, so we don't need to do anything else in terms of defining our positions. If you have already visited certain other pages on the site, then you may have a session cookie. If so, this will also be selected -- make sure to clear your positions and select only the username and passwords fields if this happens to you.
 
 We also need the Attack type to be "Pitchfork":
 ![](https://assets.muirlandoracle.co.uk/thm/modules/burp/94051c86063c.png)
-
-
 
 Let's switch over to the "Payloads" sub-tab. We should find that we have two payload sets available:
 
@@ -402,12 +375,10 @@ This process can be seen here:
 
 *No answer needed*
 
-
 We have done all we need to do for this very simple attack, so go ahead and click the "Start Attack" button. A warning about the rate-limiting in Burp Community will appear. Click "Ok" and start the attack!
 
 Note: This will take a few minutes to complete in Burp Community -- hence the relatively small lists in use
 *No answer needed*
-
 
 Once the attack has completed, we will be presented with a new window giving us the results -- but we have a new problem. Burp sent 100 requests: how are we supposed to know which one(s), if any, are valid?
 
@@ -427,8 +398,6 @@ As you may have guessed, the request with the shorter response length was made w
 Note: These are selected randomly from the list at machine boot and so will be different every time you deploy a new instance of the machine.
 
 Well done, you have successfully bruteforced the support login page with a credential stuffing attack! *No answer needed*
-
-![[Pasted image 20220822164002.png]]
 
 *found m.rivera:letmein1*
 
@@ -450,16 +419,13 @@ What happens if we use intruder to fuzz the/support/ticket/NUMBER  endpoint? One
 
 Let's try fuzzing this endpoint!
 
-
 Which attack type is best suited for this task? *sniper*
-
 
 Configure an appropriate position and payload (the tickets are stored at values between 1 and 100), then start the attack.
 
 You should find that at least five tickets will be returned with a status code of 200, indicating that they exist. *No answer needed*
 
 Either using the Response tab in the Attack Results window or by looking at each successful (i.e. 200 code) request manually in your browser, find the ticket that contains the flag.
-![[Pasted image 20220822165335.png]]
 What is the flag? (ticket 83) *THM{MTMxNTg5NTUzMWM0OWRlYzUzMDVjMzJl}*
 
 ### CSRF Token Bypass 
@@ -495,7 +461,6 @@ Content-Length: 3922
 </form>
 ```
 
-
 We have the same username and password fields as before, but now there is also a session cookie set in the response, as well as a CSRF (Cross-Site Request Forgery) token included in the form as a hidden field. If we refresh the page, we should see that both of these change with each request: this means that we will need to extract valid values for both every time we make a request.
 
 In other words, every time we attempt to log in, we will need unique values for the session cookie and loginToken hidden form input.
@@ -509,8 +474,6 @@ Navigate to  http://10.10.75.215/admin/login/.
 
 Activate the Burp Proxy and attempt to log in. Capture the request and send it to Intruder. *No answer needed*
 
-
-
 Configure the positions the same way as we did for bruteforcing the support login:
 
     Set the attack type to be "Pitchfork".
@@ -519,8 +482,6 @@ Configure the positions the same way as we did for bruteforcing the support logi
 ![](https://assets.muirlandoracle.co.uk/thm/modules/burp/b9e8aefea3ce.png)
 
 *No answer needed*
-
-
 
 Now switch over to the Payloads sub-tab and load in the same username and password wordlists we used for the support login attack.
 
@@ -544,8 +505,6 @@ There are a lot of steps here, comparatively speaking, so the following GIF show
 
 ![](https://assets.muirlandoracle.co.uk/thm/modules/burp/creatingMacro.gif)
 
-
-
 Now that we have a macro defined, we need to set Session Handling rules that define how the macro should be used.
 
     Still in the "Sessions" sub-tab of Project Options, scroll up to the "Session Handling Rules" section and choose to "Add" a new rule.
@@ -564,8 +523,6 @@ Again, here is a GIF showing these steps of the process:
 ![](https://assets.muirlandoracle.co.uk/thm/modules/burp/configuringSessionHandlerP1.gif)
 
 *No answer needed*
-
-
 
 Now we need to switch back over to the Details tab and look at the "Rule Actions" section.
 
@@ -587,7 +544,6 @@ The following GIF demonstrates this final stage of the process:
 
 *No answer needed*
 
-
 Click "Ok", and we're done! *No answer needed*
 
 Phew, that was a long process!
@@ -597,8 +553,6 @@ You should now have a macro defined that will substitute in the CSRF token and s
 Note: You should be getting 302 status code responses for every request in this attack. If you see 403 errors, then your macro is not working properly.
 *No answer needed*
 
-
-
 As with the support login credential stuffing attack we carried out, the response codes here are all the same (302 Redirects). Once again, order your responses by Length to find the valid credentials. Your results won't be quite as clear-cut as last time -- you will see quite a few different response lengths: however, the response that indicates a successful login should still stand out as being quite significantly shorter.
 *No answer needed*
 
@@ -606,10 +560,6 @@ Use the credentials you just found to log in (you may need to refresh the login 
 *No answer needed*
 
 *to work*
-
-![[Pasted image 20220822173623.png]]
-
-![[Pasted image 20220822173841.png]]
 
 *found admin -> o.bennett:bella1*
 
@@ -621,10 +571,8 @@ This room looked at how to use the Intruder aspect of the Burp Suite framework w
 
 In the next room of the module, we will be looking at some of Burp Suite's lesser-known tools.
 
-
 I can use Intruder! *No answer needed*
 
-![[Pasted image 20220822174211.png]]
 [Bonus Question -- Optional] Use Intruder to automate the column enumeration of the Union SQLi in the Repeater Extra Mile exercise.
 
 [[Burp Suite Extender]]

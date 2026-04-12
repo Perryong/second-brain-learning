@@ -97,16 +97,11 @@ There are multiple utilities available that make observing processes easier; inc
 
 Processes are at the core of most internal Windows components. The following tasks will extend the information about processes and how they're used in Windows.
 
-
 Open the provided file: "Logfile.PML" in Procmon and answer the questions below.
 *No answer needed*
 
-![[Pasted image 20220910235717.png]]
-
 What is the process ID of "notepad.exe"? You can filter by the process name in Procmon.
 *5984*
-
-![[Pasted image 20220910235817.png]]
 
 What is the parent process ID of the previous process? Found in the event properties of the process.
 *3412*
@@ -140,16 +135,11 @@ Context Structure
 
 Threads may seem like bare-bones and simple components, but their function is critical to processes.
 
-
 Open the provided file: "Logfile.PML" in Procmon and answer the questions below.
-
-![[Pasted image 20220910235926.png]]
 
 What is the thread ID of the first thread created by notepad.exe?
 Listed as the operation Thread Create.
 *5908*
-
-![[Pasted image 20220911000217.png]]
 
 What is the stack argument of the previous thread? 
 Listed as Thread in the event properties.
@@ -181,25 +171,17 @@ Although this concept does not directly translate to Windows internals or concep
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/6346370db43e6cc74c2e7602d286e42c.png)
 
-
 Read the above and answer the questions below.
 *No answer needed*
 
-
-
 What is the total theoretical maximum virtual address space of a 32-bit x86 system?
 *4 gb*
-
-![[Pasted image 20220911000439.png]]
 
 What default setting flag can be used to reallocate user process address space?
 *increaseuserva*
 
 Open the provided file: "Logfile.PML" in Procmon and answer the questions below.
 *No answer needed*
-
-
-![[Pasted image 20220911000650.png]]
 
 What is the base address of "notepad.exe"?
 Listed as the operation Load Image.
@@ -293,23 +275,16 @@ if (hinstDLL != NULL)
 
 In malicious code, threat actors will often use run-time dynamic linking more than load-time dynamic linking. This is because a malicious program may need to transfer files between memory regions, and transferring a single DLL is more manageable than importing using other file requirements.
 
-
 Open the provided file: "Logfile.PML" in Procmon and answer the questions below.
 *No answer needed*
-
-![[Pasted image 20220911000848.png]]
 
 What is the base address of "ntdll.dll" loaded from "notepad.exe"?
 Listed in the operation Load Image of ntdl.dll.
 *0x7ffd0be20000*
 
-![[Pasted image 20220911000925.png]]
-
 What is the size of "ntdll.dll" loaded from "notepad.exe"?
 Found in the Process tab of event properties.
 *0x1ec000*
-
-![[Pasted image 20220911001202.png]]
 
 How many DLLs were loaded by "notepad.exe"?
 Filter by the operation "Load Image" in Procmon.
@@ -405,18 +380,13 @@ Section
 .debug
 	Contains debug information 
 
-
 Read the above and answer the questions below.
 *No answer needed*
-
-
 
 What PE component prints the message "This program cannot be run in DOS mode"?
 *DOS stub*
 Open "notepad.exe" in Detect It Easy and answer the questions below.
 *No answer needed*
-
-![[Pasted image 20220911001534.png]]
 
 What is the entry point reported by DiE?
 *000000014001acd0*
@@ -426,15 +396,11 @@ What is the value of "NumberOfSections"?
 
 What is the virtual address of ".data"?
 Found in the Section tab of the PE window.
-![[Pasted image 20220911001650.png]]
-
-![[Pasted image 20220911001834.png]]
 
 *00024000*
 
 What string is located at the offset "0001f99c"?
 Found in the Strings tab of the PE window.
-![[Pasted image 20220911002036.png]]
 
 *Microsoft.Notepad*
 
@@ -469,7 +435,6 @@ Access to "owned memory locations"
 Applications started in user mode or "userland" will stay in that mode until a system call is made or interfaced through an API. When a system call is made, the application will switch modes. Pictured right is a flow chart describing this process.
 
 When looking at how languages interact with the Win32 API, this process can become further warped; the application will go through the language runtime before going through the API. The most common example is C# executing through the CLR before interacting with the Win32 API and making system calls.
-
 
 We will inject a message box into our local process to demonstrate a proof-of-concept to interact with memory.
 
@@ -528,18 +493,13 @@ remoteThread = CreateRemoteThread(
 ); 
 ```
 
-
 Open a command prompt and execute the provided file: "inject-poc.exe" and answer the questions below.
 *No answer needed*
-
-![[Pasted image 20220910235124.png]]
 
 Enter the flag obtained from the executable below.
 *THM{1Nj3c7_4lL_7H3_7h1NG2}*
 
 ### Conclusion 
-
-
 
 Windows internals are core to how the Windows operating system works. These internals cannot change without compromising how the operating system operates at a bare-bones level. Because of this, the Windows internals are a rewarding target for attackers.
 
@@ -549,11 +509,7 @@ Many of the concepts covered in this room can even translate to Unix counter-par
 
 Overall, Windows internals are here to stay; both the red and blue teams need to be aware of their capabilities, including how and why they are used.
 
-
 Read the above and continue learning!
 
-
 [[Living Off the Land]]
-
-
 

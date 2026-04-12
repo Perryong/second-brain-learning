@@ -641,14 +641,11 @@ Welcome to Ubuntu 19.10 (GNU/Linux 5.3.0-64-generic x86_64)
   Memory usage: 22%               IP address for ens160: 10.129.247.247
   Swap usage:   0%
 
-
 0 updates can be installed immediately.
 0 of these updates are security updates.
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
-
 
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
@@ -696,12 +693,6 @@ pwnd
 
 ```
 
-![[Pasted image 20221108080711.png]]
-
-![[Pasted image 20221108081036.png]]
-![[Pasted image 20221108084539.png]]
-![[Pasted image 20221108084605.png]]
-
 Besides SSH and HTTP, what other service is hosted on this box? 
 *ftp*
 This service can be configured to allow login with any password for specific username. What is that username? 
@@ -720,8 +711,5 @@ Submit user flag
 *ec9b13ca4d6229cd5cc1e09980965bf7*
 Submit root flag 
 *dd6e058e814260bc70e9bbdef2715849*
-
-
-
 
 [[Oopsie]]

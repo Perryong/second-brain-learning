@@ -17,7 +17,6 @@ In this introductory room, the following learning objectives are covered:
     How to use the interactive mode of Osquery to interact with the operating system
     How to join two tables to get a single answer
 
-
 Note: It is highly beneficial if you're already familiar with SQL queries. If not, check out this [SQL Tutorial](https://www.w3schools.com/sql/sql_intro.asp).
 
 ###  Connect with the Lab 
@@ -112,9 +111,7 @@ osquery> .table
 
     
 
-
 ```
-
 
 To list all the tables with the term user in them, we will use .tables user as shown below: 
 
@@ -130,7 +127,6 @@ osquery> .table user
   => user_ssh_keys
   => userassist
   => users
-
 
 ```
 
@@ -153,7 +149,6 @@ root@analyst$ osqueryi
 Using a virtual database. Need help, type '.help'
 osquery> .schema users
 CREATE TABLE users(`uid` BIGINT, `gid` BIGINT, `uid_signed` BIGINT, `gid_signed` BIGINT, `username` TEXT, `description` TEXT, `directory` TEXT, `shell` TEXT, `uuid` TEXT, `type` TEXT, `is_hidden` INTEGER HIDDEN, `pid_with_namespace` INTEGER HIDDEN, PRIMARY KEY (`uid`, `username`, `uuid`, `pid_with_namespace`)) WITHOUT ROWID;
-
 
 ```
 
@@ -207,11 +202,9 @@ You are connected to a transient 'in-memory' virtual database.
 .
 .
 
-
 ```
 
 The schema API online documentation can be used to view a complete list of tables, columns, types, and column descriptions. 
-
 
 How many tables are returned when we query "table process" in the interactive mode of Osquery?
 ```
@@ -221,7 +214,6 @@ osquery> .tables process
   => processes
 ```
 *3*
-
 
 Looking at the schema of the processes table, which column displays the process id for the particular process?
 ```
@@ -579,7 +571,6 @@ Let's break down the important information we could find in this schema document
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/ee06ba38daf23aa4cdc7bae4af288a0c.png)
 
-
 You have enough information to navigate this resource to retrieve any necessary information confidently. 
 
 ```
@@ -695,20 +686,15 @@ osquery> .table
   => ycloud_instance_metadata
 ```
 
-
 In Osquery version 5.5.1, how many common tables are returned, when we select both Linux and Window Operating system?
-![[Pasted image 20221126181250.png]]
 *56*
 
 In Osquery version 5.5.1, how many tables for MAC OS are available?
-![[Pasted image 20221126181317.png]]
 *180*
 In the Windows Operating system, which table is used to display the installed programs?
-![[Pasted image 20221126181432.png]]
 *programs*
 
 In Windows Operating system, which column contains the registry value within the registry table?
-![[Pasted image 20221126181549.png]]
 *data*
 
 ### Creating SQL queries 
@@ -747,7 +733,6 @@ identifying_number =
 
         
 
-
 ```
 
 In the above example LIMIT was used followed by the number to limit the results to display.
@@ -773,7 +758,6 @@ install_location = C:\Program Files\7-Zip\
 
         
 
-
 ```
 
 The above query will list the name, version, install location, and installed date of the programs on the endpoint. This will still return many results, depending on how busy the endpoint is. 
@@ -794,7 +778,6 @@ Using a virtual database. Need help, type '.help'
 osquery>select count(*) from programs;
 count(*) = 160
 
-
 ```
 
 WHERE Clause
@@ -802,7 +785,6 @@ WHERE Clause
 Optionally, you can use a WHERE clause to narrow down the list of results returned based on specified criteria. The following query will first get the user table and only display the result for the user James, as shown below:
 
 Query: SELECT * FROM users WHERE username='James';
-
 
 ```
 
@@ -824,7 +806,6 @@ description =
        type = local
 
         
-
 
 ```
 
@@ -870,7 +851,6 @@ W1017 12:38:29.730041 45744 virtual_table.cpp:965] Table file was queried withou
 W1017 12:38:29.730041 45744 virtual_table.cpp:976] Please see the table documentation: https://osquery.io/schema/#file
 Error: constraint failed
 
-
 ```
 
 Joining Tables using JOIN Function
@@ -890,9 +870,7 @@ CREATE TABLE users(`uid` BIGINT, `gid` BIGINT, `uid_signed` BIGINT, `gid_signed`
 osquery>.schema processes
 CREATE TABLE processes(`pid` BIGINT, `name` TEXT, `path` TEXT, `cmdline` TEXT, `state` TEXT, `cwd` TEXT, `root` TEXT, `uid` BIGINT, `gid` BIGINT, `euid` BIGINT, `egid` BIGINT, `suid` BIGINT, `sgid` BIGINT, `on_disk` INTEGER, `wired_size` BIGINT, `resident_size` BIGINT, `total_size` BIGINT, `user_time` BIGINT, `system_time` BIGINT, `disk_bytes_read` BIGINT, `disk_bytes_written` BIGINT, `start_time` BIGINT, `parent` BIGINT, `pgroup` BIGINT, `threads` INTEGER, `nice` INTEGER, `elevated_token` INTEGER, `secure_process` INTEGER, `protection_type` TEXT, `virtual_process` INTEGER, `elapsed_time` BIGINT, `handle_count` BIGINT, `percent_processor_time` BIGINT, `upid` BIGINT HIDDEN, `uppid` BIGINT HIDDEN, `cpu_type` INTEGER HIDDEN, `cpu_subtype` INTEGER HIDDEN, `translated` INTEGER HIDDEN, `cgroup_path` TEXT HIDDEN, `phys_footprint` BIGINT HIDDEN, PRIMARY KEY (`pid`)) WITHOUT ROWID;
 
-
 ```
-
 
 Looking at both schemas, uid in users table is meant to identify the user record, and in the processes table, the column uid represents the user responsible for executing the particular process. We can join both tables using this uid field as shown below:
 
@@ -926,7 +904,6 @@ osquery>select p.pid, p.name, p.path, u.username from processes p JOIN users u o
 +-------+-------------------+---------------------------------------+----------+
 
         
-
 
 ```
 
@@ -1084,7 +1061,6 @@ Using Osquery, how many programs are installed on this host?
 Using Osquery, what is the description for the user James?
 *Creative Artist*
 
-
 When we run the following search query, what is the full SID of the user with RID '1009'?
 
 Query: select path, key, name from registry where key = 'HKEY_USERS';
@@ -1095,7 +1071,6 @@ When we run the following search query, what is the Internet Explorer browser ex
 Query: select * from ie_extensions;
 	
 	*C:\Windows\System32\ieframe.dll*
-
 
 After running the following query, what is the full name of the program returned?
 
@@ -1530,7 +1505,6 @@ osquery> select path from autoexec where name='batstartup.bat';
 Which table stores the evidence of process execution in Windows OS?
 *userassist*
 
-
 One of the users seems to have executed a program to remove traces from the disk; what is the name of that program?
 *DiskWipe.exe*
 
@@ -1540,14 +1514,11 @@ Create a search query to identify the VPN installed on this host. What is name o
 How many services are running on this host?
 *214*
 
-
 A table autoexec contains the list of executables that are automatically executed on the target machine. There seems to be a batch file that runs automatically. What is the name of that batch file (with the extension .bat)?
 *batstartup.bat*
-
 
 What is the full path of the batch file found in the above question? (Last in the List)
 
 	*C:\Users\James\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\batstartup.bat*
-
 
 [[Splunk Basics]]

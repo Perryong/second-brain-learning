@@ -61,11 +61,8 @@ Email harvesting is the process of obtaining email addressesfrom public, paid, o
 
 An attacker would also use social media websites such as LinkedIn, Facebook, Twitter, and Instagram to collect information on a specific victim he would want to attack or the company. The information found on social media can be beneficial for an attacker to conduct a phishing attack.
 
-
 What is the name of the Intel Gathering Tool that is a web-based interface to the common tools and resources for open-source intelligence?
 *OSINT Framework*
-
-
 
 What is the definition for the email gathering process during the stage of reconnaissance?
 *Email harvesting*
@@ -114,7 +111,6 @@ https://www.csoonline.com/article/3534693/cybercriminal-group-mails-malicious-us
 
     Watering hole attack. A watering hole attack is a targeted attack designed to aim at a specific group of people by compromising the website they are usually visiting and then redirecting them to the malicious website of an attacker's choice. The attacker would look for a known vulnerability for the website and try to exploit it. The attacker would encourage the victims to visit the website by sending "harmless" emails pointing out the malicious URL to make the attack work more efficiently. After visiting the website, the victim would unintentionally download malware or a malicious application to their computer. This type of attack is called a drive-by download. An example can be a malicious pop-up asking to download a fake Browser extension.
 
-
 What is the name of the attack when it is performed against a specific group of people, and the attacker seeks to infect the website that the mentioned group of people is constantly visiting.
 *Watering hole attack*
 
@@ -137,8 +133,6 @@ These are examples of how an attacker carries out exploitation:
     Exploit software, hardware, or even human vulnerabilities. 
     An attacker triggers the exploit for server-based vulnerabilities. 
 
-
-
 Can you provide the name for a cyberattack targeting a software vulnerability that is unknown to the antivirus or software vendors?
 *zero-day*
 
@@ -150,7 +144,6 @@ As you have learned from the Weaponization phase, the backdoor lets an attacker 
 
 Once the attacker gets access to the system, he would want to reaccess the system if he loses the connection to it or if he got detected and got the initial access removed, or if the system is later patched. He will no longer have access to it. That is when the attacker needs to install a [persistent backdoor](https://www.offensive-security.com/metasploit-unleashed/persistent-backdoors/). A persistent backdoor will let the attacker access the system he compromised in the past. You can check out the Persistence Room on TryHackMe to learn how an attacker can achieve persistence. 
 https://www.offensive-security.com/metasploit-unleashed/meterpreter-service/
-![[Pasted image 20221018123442.png]]
 
 The persistence can be achieved through:
 
@@ -169,10 +162,8 @@ You can read more about the Registry Run Keys / Startup Folder persistence on on
 
 In this phase, the attacker can also use the Timestomping technique to avoid detection by the forensic investigator and also to make the malware appear as a part of a legitimate program. The [Timestomping](https://attack.mitre.org/techniques/T1070/006/) technique lets an attacker modify the file's timestamps, including the modify, access, create and change times. 
 
-
 Can you provide the technique used to modify file time attributes to hide new or changes to existing files?
 *Timestomping*
-
 
 Can you name the malicious script planted by an attacker on the webserver to maintain access to the compromised system and enables the webserver to be accessed remotely?
 *web shell*
@@ -192,7 +183,6 @@ The most common C2 channels used by adversaries nowadays:
 
 Important to note that an adversary or another compromised host can be the owner of the C2 infrastructure.
 
-
 What is the C2 communication where the victim makes regular DNS requests to a DNS server and domain which belong to an attacker. 
 *DNS Tunneling*
 
@@ -210,14 +200,12 @@ After going through six phases of the attack, "Megatron" can finally achieve his
     Deleting the backups and shadow copies. Shadow Copy is a Microsoft technology that can create backup copies, snapshots of computer files, or volumes. 
     Overwrite or corrupt data.
 
-
 Can you provide a technology included in Microsoft Windows that can create backup copies or snapshots of files or volumes on the computer, even when they are in use? 
 *shadow copy*
 
 ### Practice Analysis 
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/60c7fac321aca20049602d2b/room-content/fa43d6564e4f34c5cb3037a016c2515a.jpg)
-
 
 We really hope you enjoyed this room. In order to strengthen your knowledge, let's do a practice analysis. 
 
@@ -226,7 +214,6 @@ Here is the real-world scenario for you to tackle:
 The infamous Target cyber-attack, which led to one of the largest data breaches in history took place on November 27, 2013.
 
 On December 19th, 2013, Target released a [statement](https://corporate.target.com/press/releases/2013/12/target-confirms-unauthorized-access-to-payment-car) confirming the breach, stating that approximately 40 million credit and debit card accounts were impacted between Nov. 27 and Dec. 15, 2013. Target had to pay the fine of $18.5 million under the terms of the multistate [settlement agreement](https://illinoisattorneygeneral.gov/pressroom/2017_05/17-AVC-0008TargetCorporation.pdf). This is considered to be the largest data-breach settlement in history.
-
 
 How did the data breach happen? Deploy the static site attached to this task and apply your skills to build the Cyber Kill Chain of this scenario. Here are some tips to help you complete the practical:
 
@@ -241,10 +228,8 @@ How did the data breach happen? Deploy the static site attached to this task and
 
 2. Use the ‘Check answers’ button to verify whether the answers are correct (where wrong answers will be underlined in red).
 
-![[Pasted image 20221018130537.png]]
 What is the flag after you complete the static site? 
 *THM{7HR347_1N73L_12_4w35om3}*
-
 
 ### Conclusion 
 
@@ -259,6 +244,5 @@ The traditional Cyber Kill Chain was designed to secure the network perimeter an
 Since the main focus of the framework is on malware delivery and network security, the traditional Cyber Kill Chain will not be able to identify Insider Threats. According to [CISA](https://www.cisa.gov/defining-insider-threats), "The Insider Threat is the potential for an insider to use their authorized access or understanding of an organization to harm that organization."
 
 We recommend not only relying on the traditional Cyber Kill Chain model but also referring to MITRE ATT&CK as well as [Unified Kill Chain](https://unifiedkillchain.com/) to apply a more comprehensive approach to your defence methodologies. 
-
 
 [[iOS Forensics]]

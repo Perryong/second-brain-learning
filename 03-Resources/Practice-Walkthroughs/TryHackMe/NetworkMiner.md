@@ -8,7 +8,6 @@ Learn how to use NetworkMiner to analyse recorded traffic files and practice net
 
 NetworkMiner is an open-source traffic sniffer, pcap handler and protocol analyser. Developed and still maintained by Netresec.
 
-
 The official description;
 
  
@@ -23,19 +22,15 @@ NetworkMiner makes it easy to perform advanced Network Traffic Analysis (NTA) by
 
 NetworkMiner has, since the first release in 2007, become a popular tool among incident response teams as well as law enforcement. NetworkMiner is today used by companies and organizations all over the world."
 
-
 For this room, you will be expected to have basic Linux familiarity and Network fundamentals (ports, protocols and traffic data). We suggest completing the "Network Fundamentals" path before starting working in this room.
 
-
 The room aims to provide a general network forensics overview and work with NetworkMiner to investigate captured traffic.
-
 
 Note:  VMs attached to this challenge. You don't need SSH or RDP; the room provides a "Split View" feature.
 
 Note: There are two different NetworkMiner versions are available in the attached VM. Use the required version according to the tasks.
 
 Note: Exercise files are located in the folder on the desktop.
-
 
 Open the tool folder and double click on the .exe file.
 
@@ -55,12 +50,9 @@ Network Forensics is a specific subdomain of the Forensics domain, and it focuse
 
 Briefly, it is the action of recording packets of network traffic and creating investigatable sources and establishing a root–cause analysis of an event. The ultimate goal is to provide sufficient information to detect malicious activities, security breaches, policy/regulation compliance, system health and user behaviour.
 
-
 The investigation process identifies communicated hosts in terms of time, frequency, protocol, application and data.
 
-
 The investigation tries to answer the 5W;
-
 
     Who (Source IP and port)
     What (Data/payload)
@@ -70,12 +62,9 @@ The investigation tries to answer the 5W;
 
 Note that the network evidence capture and investigation process should be systematic. Having enough data and the right timeline capture for a successful network forensics investigation is crucial.
 
-
 Network Forensics Use Cases
 
-
 The most common network forensics use cases are explained below;
-
 
     Network discovery: Discovering the network to overview connected devices, rogue hosts and network load. 
 
@@ -89,9 +78,7 @@ The most common network forensics use cases are explained below;
 
 Advantages of Network Forensics 
 
-
 General advantages of network forensics are explained below;
-
 
     Availability of network-based evidence in the wild: Capturing network traffic is collecting evidence, so it is easier than other types of evidence collections such as logs and IOCs.
 
@@ -103,12 +90,9 @@ General advantages of network forensics are explained below;
 
     It is possible to gather evidence for memory and non-residential malicious activities: The malware/threat might reside in the memory to avoid detection. However, the series of commands and connections live in the network. So it is possible to detect non-residential threats with network forensics tools and tactics.
 
-
 Challenges of Network Forensics
 
-
 General challenges of the network forensics are explained below;
-
 
     Deciding what to do: One of the most difficult challenges of network forensics is "Deciding what to do". There are several purposes of carving networks; SOC, IH/IR and Threat Hunting. Observing, trapping, catching, or stopping an anomalous activity is also possible. 
 
@@ -128,12 +112,9 @@ General challenges of the network forensics are explained below;
 
     Lack of logs: Network forensics is not limited to investigating the network traffic data. Network devices and event logs are crucial in event correlation and investigation hypotheses. This fact is known by the attackers/threats as well; therefore these logs are often erased by them, in order to make the investigation more difficult.
 
-
 Sources of Network Forensics Evidence
 
-
 Capturing proper network traffic requires knowledge and tools. Usually, there is a single chance of gathering the live traffic as evidence. There are multiple evidence resources to gather network forensics data.
-
 
     TAPS
     InLine Devices
@@ -151,7 +132,6 @@ Capturing proper network traffic requires knowledge and tools. Usually, there is
 
 Primary Purposes of Network Forensics 
 
-
 There are two primary purposes in Network Forensics investigations.
 
  
@@ -160,9 +140,7 @@ There are two primary purposes in Network Forensics investigations.
 
     Incident Handling/Response and Threat Hunting: During/Post-incident investigation activities on understanding the reason for the incident, detecting malicious and suspicious activity, and investigating the data flow content.
 
-
 Investigated Data Types in Network Forensics
-
 
 There are three main data types investigated in Network Forensics
 
@@ -174,7 +152,6 @@ There are three main data types investigated in Network Forensics
 
 NetworkMiner is capable of processing and handling packet pictures and live traffic. Therefore, we will focus on live and captured traffic in this room. Both of these data sources are valuable for forensics investigations. 
 
-
 Traffic investigation actions fall under network forensics's "Traffic Analysis" subdomain. However, the main purpose of the NetworkMiner is to investigate the overall flow/condition of the limited amount of traffic, not for a long in-depth live traffic investigation. Therefore we will focus on how to use NetworkMiner for this purpose. In-depth traffic and packet analysis will be covered in the rooms below;
 
     Wireshark
@@ -184,7 +161,6 @@ Traffic investigation actions fall under network forensics's "Traffic Analysis" 
 ### What is NetworkMiner? 
 
 NetworkMiner in a Nutshell
-
 
 Capability	Description
 
@@ -205,20 +181,15 @@ Credential grabbing
 Clear text keyword parsing
 	It can extract cleartext keywords and strings from the parsed pcap file.
 
-
 We are using NetworkMiner free edition in this room, but a Professional edition has much more features. You can see the differences between free and professional versions here.
-
 
 Operating Modes
 
-
 There are two main operating modes;
-
 
     Sniffer Mode: Although it has a sniffing feature, it is not intended to use as a sniffer. The sniffier feature is available only on Windows. However, the rest of the features are available in Windows and Linux OS. Based on experience, the sniffing feature is not as reliable as other features. Therefore we suggest not using this tool as a primary sniffer. Even the official description of the tool mentions that this tool is a "Network Forensics Analysis Tool", but it can be used as a "sniffer". In other words, it is a Network Forensic Analysis Tool with but has a sniffer feature, but it is not a dedicated sniffer like Wireshark and tcpdump. 
 
     Packet Parsing/Processing: NetworkMiner can parse traffic captures to have a quick overview and information on the investigated capture. This operation mode is mainly suggested to grab the "low hanging fruit" before diving into a deeper investigation.
-
 
 Pros and Cons
  
@@ -237,7 +208,6 @@ Pros
 
 Cons
 
-
     Not useful in active sniffing
     Not useful for large pcap investigation
     Limited filtering
@@ -248,7 +218,6 @@ Cons
 Differences Between Wireshark and NetworkMiner
 
 NetworkMiner and Wireshark have similar base features, but they separate in use purpose. Although main functions are identical, some of the features are much stronger for specific use cases.
-
 
 The best practice is to record the traffic for offline analysis, quickly overview the pcap with NetworkMiner and go deep with Wireshark for further investigation.
 
@@ -359,7 +328,6 @@ You can search for keywords inside frames with the help of the filtering bar. It
     "AnyWord"
     "RegExe"
 
-
 DNS
 
 The DNS menu shows DNS queries with details. This section provides information on;
@@ -396,29 +364,20 @@ The right-click menu is helpful in this part as well. You can easily copy the us
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/888d7b45713c75d2eb8a1687d2b16e6b.png)
 
-
-
 Use mx-3.pcap
 
 What is the total number of frames?
 *460*
-![[Pasted image 20221011114913.png]]
 
 How many IP addresses use the same MAC address with host 145.253.2.203?
 *2*
-![[Pasted image 20221011115302.png]]
-![[Pasted image 20221011115409.png]]
 
 How many packets were sent from host 65.208.228.223?
 *72*
-![[Pasted image 20221011120709.png]]
 What is the name of the webserver banner under host 65.208.228.223?
 *Apache*
-![[Pasted image 20221011120750.png]]
 
 Use mx-4.pcap
-![[Pasted image 20221011120830.png]]
-![[Pasted image 20221011120918.png]]
 
 	What is the extracted username?
 	*#B\Administrator*
@@ -514,37 +473,28 @@ The anomalies menu shows detected anomalies in the processed pcap. Note that Net
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/b7960a4440fd9eb7367b0fc6b2b5ec7b.png)
 
-
-
 Use mx-7 pcap
 
 What is the name of the Linux distro mentioned in the file associated with frame 63075? 
  NetworkMiner 2.7 can help.
 *CentOS*
-![[Pasted image 20221011122514.png]]
 
 What is the header of the page associated with frame 75942?
 *Password-Ned AB*
-![[Pasted image 20221011123751.png]]
 
 What is the source address of the image "ads.bmp.2E5F0FD9.bmp"?
 *80.239.178.187*
-![[Pasted image 20221011124004.png]]
-
 
 What is the frame number of the possible TLS anomaly?
 *36255*
-![[Pasted image 20221011124125.png]]
 
 Use mx-9 file
 
 Look at the messages. Which platform sent a password reset email?
 *facebook*
-![[Pasted image 20221011130220.png]]
 
 What is the email address of Branson Matheson?
 *branson@sandsite.org*
-![[Pasted image 20221011130319.png]]
 
 ###  Version Differences 
 
@@ -554,23 +504,17 @@ What is the email address of Branson Matheson?
 
 As always, it wouldn't be surprising to see a feature improvement as the version goes up. Unsurprisingly version upgrades provide stability, security fixes and features. Here the feature part is quite tricky. Feature upgrades can represent implementing new features and updating the existing feature (optimisation, alteration or operation mode modification). You can always check the changelog here.
 
-
 Since there are some significant differences between the versions, the given VM has both of the major versions (v1.6 and v2.7).
-
 
 Of course, as the program version increases, it is expected to increase feature increase and scope. Here are the significant differences between versions 1.6 and 2.7. Here are the differences;
 
-
-
 Mac Address Processing
-
 
 NetworkMiner versions after version 2 can process MAC address specific correlation as shown in the picture below. This option will help you identify if there is a MAC Address conflict. This feature is not available before version 2.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/d1588f5c22ae8160fe21a766a719241a.png)
 
 Sent/Received Packet Processing
-
 
 NetwrokMiner versions up to version 1.6. can handle packets in much detail. These options will help you investigate the sent/received
 
@@ -580,25 +524,20 @@ packets in a more detailed format. This feature is not available after version 1
 
 Frame Processing
 
-
 NetworkMiner versions up to version 1.6. can handle frames. This option provides the number of frames and essential details about the frames. This feature is not available after version 1.6.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/ac78e75cdfa166646029ae0d8166a320.png)
 
 Parameter Processing
 
-
 NetworkMiner versions after version 2 can handle parameters in a much more extensive form. Therefore version 1.6.xx catches fewer parameters than version 2.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/ce0f46889c838a759888cb5336278fcc.png)
 Cleartext Processing
 
-
 NetworkMiner versions up to version 1.6. can handle cleartext data. This option provides all extracted cleartext data in a single tab; it is beneficial to investigate cleartext data about the traffic data. However, it is impossible to match the cleartext data and packets. This feature is not available after version 1.6.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/b5631ad5ee54c314297b1f343b2f2913.png)
-
 
 Which version can detect duplicate MAC addresses?
 *2.7*
@@ -617,41 +556,31 @@ Exercises
 
 You've learned what NetworkMiner is and how to use it. Let's put this into practice!
 
-
-
 Use case1.pcap
 (using 2.7)
 What is the OS name of the host 131.151.37.122?
 *Windows - Windows NT 4*
-![[Pasted image 20221011131419.png]]
 
 Investigate the hosts 131.151.37.122 and 131.151.32.91.
 How many data bytes were received from host 131.151.32.91 to host 131.151.37.122 through port 1065?
 You can review transferred bytes by investigating the sessions section under the host tab.
 *192*
-![[Pasted image 20221011131636.png]]
-![[Pasted image 20221011131655.png]]
 
 Investigate the hosts 131.151.37.122 and 131.151.32.21.
 How many data bytes were received from host 131.151.37.122 to host 131.151.32.21 through port 143?
 You can review transferred bytes by investigating the sessions section under the host tab.
 *20769*
-![[Pasted image 20221011131915.png]]
 
 What is the sequence number of frame 9?
 Using different versions of NM can help you. The attached VM has two NM instances.
 *2AD77400* (maybe 1.6 version)
-![[Pasted image 20221011132211.png]]
 
 yep doesn't found with version 2.7 so moving into v1.6
-
-![[Pasted image 20221011132407.png]]
 
 nice :)
 What is the number of the detected "content types"?
 Parameters can help you.
 *2*
-![[Pasted image 20221011133442.png]]
 
 Use case2.pcap
 Investigate the files.
@@ -659,26 +588,19 @@ Investigate the files.
 What is the USB product's brand name?
 Investigate the files. No need for external research.
 *asix*
-![[Pasted image 20221011133905.png]]
 
 What is the name of the phone model?
 Investigate the files and images. No need for external research.
 *Lumia 535*
 
-![[Pasted image 20221011152828.png]]
 What is the source IP of the fish image?
 *50.22.95.9*
-![[Pasted image 20221011153236.png]]
 What is the password of the "homer.pwned.se@gmx.com"?
 *spring2015*
-![[Pasted image 20221011153359.png]]
 What is the DNS Query of frame 62001?
 *pop.gmx.com*
-![[Pasted image 20221011153507.png]]
 
 ###  Conclusion 
-
-
 
 Congratulations! You just finished the NetworkMiner room. 
 
@@ -692,8 +614,6 @@ If you like this content, make sure you visit the following rooms later on THM;
     Wireshark https://tryhackme.com/room/wireshark
     Snort https://tryhackme.com/room/snort
     Brim https://tryhackme.com/room/brim
-
-
 
 [[hoaxshell]]
 [[Wireshark Packet Operations]]

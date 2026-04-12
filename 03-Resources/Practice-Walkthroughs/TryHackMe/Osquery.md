@@ -29,7 +29,6 @@ Learning Osquery will be beneficial if you are looking to enter into this field 
 
 Note: It is highly beneficial if you're already familiar with SQL queries. If not, check out this [SQL Tutorial](https://www.w3schools.com/sql/sql_intro.asp).
 
-
 Ready to learn Osquery!
 *No answer needed*
 
@@ -53,7 +52,6 @@ If you wish to install Osquery on your local machine or local virtual machine, p
     Install on FreeBSD
 
 Refer to the documentation on the Osquery daemon (osqueryd) information and all the command-line flags [here](https://osquery.readthedocs.io/en/latest/installation/cli-flags/). 
-
 
 Attached VM was started. Ready to proceed. 
 *No answer needed*
@@ -105,7 +103,6 @@ To read more about command-line flags, refer to this page, https://osquery.readt
 Interacting with the shell to get quick schema information for a table is good but not ideal when you want schema information for multiple tables. 
 
 For that, the schema API online documentation can be used to view a complete list of tables, columns, types, and column descriptions. 
-
 
 ```
 osquery> .version
@@ -194,7 +191,6 @@ You are connected to a transient 'in-memory' virtual database.
 What is the meta-command to set the output to show one value per line?
 *.mode line*
 
-
 What are the 2 meta-commands to exit osqueryi?
 *.quit,.exit*
 
@@ -219,7 +215,6 @@ A breakdown of the information listed on the schema API page is explained below.
 
 You have enough information to confidently navigate this resource to retrieve any information you'll need. 
 
-![[Pasted image 20220905130039.png]]
 What table would you query to get the version of Osquery installed on the Windows endpoint?
 *osquery_info*
 
@@ -464,7 +459,6 @@ osquery> select pid, name, path from osquery_info join processes using (pid);
 
 Please refer to the Osquery [documentation](https://osquery.readthedocs.io/en/stable/introduction/sql/) for more information regarding SQL and creating queries specific to Osquery. 
 
-
 What is the query to show the username field from the users table where the username is 3 characters long and ends with 'en'? (use single quotes in your answer)
 
 `select username from users where username like '%en';`
@@ -573,7 +567,6 @@ tryhackme@WIN-FG4Q5UQP406:~$ /usr/bin/fleet serve \--mysql_address=127.0.0.1:330
 {"component":"service","err":null,"level":"info","method":"Login","took":"383.2505ms","ts":"2022-09-05T20:04:02.7686251Z","user":"thmosquery"}
 ```
 
-![[Pasted image 20220905150524.png]]
 What is the Osquery Enroll Secret?
 *k3hFh30bUrU7nAC3DmsCCyb1mT8HoDkt*
 
@@ -637,13 +630,8 @@ C:\Users\Administrator\Desktop\launcher\windows>launcher.exe --hostname=127.0.0.
 {"caller":"distributed.cpp:117","component":"osquery","level":"stderr","msg":"I0905 13:07:19.683728  1192 distributed.cpp:117] Executing distributed query: kolide_label_query_9: select 1 from os_version where platform = 'centos' or name like '%centos%'","severity":"info","ts":"2022-09-05T20:07:19.6837291Z"}
 ```
 
-![[Pasted image 20220905150841.png]]
-
 What is the Osquery version?
 *4.2.0*
-
-![[Pasted image 20220905151052.png]]
-
 
 What is the path for the running osqueryd.exe process?
 `C:\Users\Administrator\Desktop\launcher\windows\osqueryd.exe`
@@ -660,13 +648,10 @@ Below are 2 repos of Osquery extensions that you can play with.
 
 The Polylogyx extension is available in the attached VM, and you will load and interact with this extension in the upcoming tasks. 
 
-
 According to the polylogyx readme, how many 'features' does the plug-in add to the Osquery core?
 *25*
 
 ### Linux and Osquery 
-
-
 
 For this exercise, use the Ubuntu terminal and launch Osquery. 
 
@@ -691,7 +676,6 @@ osquery> SELECT * FROM users WHERE username="bravo";
 | 1002 | 1002 | 1002       | 1002       | bravo    | ,,,         | /home/bravo | /bin/bash |      |
 +------+------+------------+------------+----------+-------------+-------------+-----------+------+
 ```
-
 
 What is the uid for the bravo user?
 *1002*
@@ -783,8 +767,6 @@ osquery> select * from yara WHERE sigfile='/var/osquery/yara/scanner.yara' and p
 
 ### Windows and Osquery 
 
-
-
 For this exercise, use either Kolide Fleet or the Windows CMD/PowerShell. 
 
 Note: For the questions which involve the Polylogyx osq-ext-bin extension, you'll need to interact with Osquery via the command line. 
@@ -799,8 +781,6 @@ Resources for Polylogx osq-ext-bin:
 
     https://github.com/polylogyx/osq-ext-bin/blob/master/README.md
     https://github.com/polylogyx/osq-ext-bin/tree/master/tables-schema
-
-
 
 What is the description for the Windows Defender Service?
 ```
@@ -917,7 +897,6 @@ Lastly, look at other community projects for Osquery listed at https://osquery.i
 ![](https://assets.tryhackme.com/additional/osquery/osquery_comm_projs.png)
 
 The repo on enterprise threat hunting with [Osquery + MITRE ATT&CK](https://github.com/jesusgavancho/osquery-attck) is definitely worth your attention. 
-
 
 Leveled up with Osquery!
 *No answer needed*

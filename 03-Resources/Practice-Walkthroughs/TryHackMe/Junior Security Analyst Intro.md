@@ -35,7 +35,6 @@ An overview of the Security Operations Center (SOC) Three-Tier Model:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/60c7fac321aca20049602d2b/room-content/87ed54f19940d35dac02e598129ea704.PNG)
 
-
 What will be your role as a Junior Security Analyst?
 *Triage Specialist*
 
@@ -83,25 +82,16 @@ The first thing almost every Junior (Associate) Security Analyst does on their s
 
 Are you ready to immerse yourself into the role of a Junior Security Analyst for a little bit? 
 
-
-![[Pasted image 20221129094020.png]]
 What was the malicious IP address in the alerts?
 What alert message shows an unauthorized connection attempt?
 *221.181.185.159*
-![[Pasted image 20221129094107.png]]
 
-![[Pasted image 20221129094150.png]]
 https://www.abuseipdb.com/
 
-
 To whom did you escalate the event associated with the malicious IP address?
-![[Pasted image 20221129094401.png]]
 *Will Griffin*
 
-
 After blocking the malicious IP address on the firewall, what message did the malicious actor leave for you?
-![[Pasted image 20221129094434.png]]
-![[Pasted image 20221129094504.png]]
 *THM{UNTIL-WE-MEET-AGAIN}*
 
 [[Volatility]]

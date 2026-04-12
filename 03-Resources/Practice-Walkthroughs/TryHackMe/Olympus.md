@@ -562,7 +562,6 @@ Table: chats
 
 [*] ending @ 17:39:15 /2023-04-29/
 
-
 go to http://chat.olympus.thm/uploads/1505fa8a8d00136243bd333c44118103.php
 
 revshell
@@ -618,15 +617,11 @@ www-data@olympus:/home/zeus$ cat zeus.txt
 cat zeus.txt
 Hey zeus !
 
-
 I managed to hack my way back into the olympus eventually.
 Looks like the IT kid messed up again !
 I've now got a permanent access as a super user to the olympus.
 
-
-
 						- Prometheus.
-
 
 www-data@olympus:/home/zeus$ /usr/bin/cputils
 /usr/bin/cputils
@@ -773,7 +768,6 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-109-generic x86_64)
 33 updates can be applied immediately.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 
@@ -801,7 +795,6 @@ linpeas.sh           100%[====================>] 808.69K   564KB/s    in 1.4s
 
 zeus@olympus:/tmp$ chmod +x linpeas.sh
 zeus@olympus:/tmp$ ./linpeas.sh 
-
 
 ╔══════════╣ Searching root files in home dirs (limit 30)
 /home/
@@ -837,9 +830,6 @@ config	root.flag  snap
 # cat root.flag	
                     ### Congrats !! ###
 
-
-
-
                             (
                 .            )        )
                          (  (|              .
@@ -866,18 +856,10 @@ config	root.flag  snap
                    \..`_       -+-       _'  )
                       . `--=.._____..=--'. ./          
 
-
-
-
                 You did it, you defeated the gods.
                         Hope you had fun !
 
-
-
                    flag{D4mN!_Y0u_G0T_m3_:)_}
-
-
-
 
 PS : Prometheus left a hidden flag, try and find it ! I recommend logging as root over ssh to look for it ;)
 
@@ -941,21 +923,13 @@ Here is the final flag ! Congrats !
 
 flag{Y0u_G0t_m3_g00d!}
 
-
 As a reminder, here is a usefull regex :
 
 grep -irl flag{
 
-
-
-
 Hope you liked the room ;)
 
-
-
 ```
-
-![[Pasted image 20230429160708.png]]
 
 What is Flag 1?
 

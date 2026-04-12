@@ -122,7 +122,6 @@ Progress: 4614 / 4615 (99.98%)==================================================
 2022/11/01 13:28:57 Finished
 ===============================================================
 
-
 the script will now
 only search if any entry exists with the username admin . In this case, we got lucky. There is indeed an
 account called admin , which will validate our SQL Injection and return the 1 value for the $count variable,
@@ -150,7 +149,6 @@ a
 
 ' or "x"="x"#
 a
-
 
 Congratulations!
 
@@ -194,10 +192,7 @@ What switch do we use with Gobuster to specify we're looking to discover directo
  What symbol do we use to comment out parts of the code? 
  *#*
 
-![[Pasted image 20221101123641.png]]
-
 Submit root flag 
 *e3d0796d002a446c0e622226f42e9672*
-
 
 [[Redeemer]]

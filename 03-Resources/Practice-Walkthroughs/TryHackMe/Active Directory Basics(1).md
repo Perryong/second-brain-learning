@@ -51,7 +51,6 @@ Password 	Password321
 
 Note: When connecting via RDP, use THM\Administrator as the username to specify you want to log in using the user Administrator on the THM domain.
 
-
 Since we will be connecting to the target machine via RDP, this is also a good time to start the AttackBox (unless you are using your own machine).
 
 In a Windows domain, credentials are stored in a centralised repository called...
@@ -64,7 +63,6 @@ The server in charge of running the Active Directory services is called... *Doma
 └─$ xfreerdp /u:THM\Administrator /p:'Password321' /v:10.10.59.104 /size:90%
 
 ```
-![[Pasted image 20220825085659.png]]
 *error when enter a wrong ip *
 
 ```correct ip from machine
@@ -145,7 +143,6 @@ You are probably wondering why we have both groups and OUs. While both are used 
     OUs are handy for applying policies to users and computers, which include specific configurations that pertain to sets of users depending on their particular role in the enterprise. Remember, a user can only be a member of a single OU at a time, as it wouldn't make sense to try to apply two different sets of policies to a single user.
     Security Groups, on the other hand, are used to grant permissions over resources. For example, you will use groups if you want to allow some users to access a shared folder or network printer. A user can be a part of many groups, which is needed to grant access to multiple resources.
 
-
 Which group normally administrates all computers and resources in a domain?
 *Organizational Units *
 
@@ -213,7 +210,6 @@ Note: When connecting via RDP, use `THM\phillip` as the username to specify you 
 
 While you may be tempted to go to Active Directory Users and Computers to try and test Phillip's new powers, he doesn't really have the privileges to open it, so you'll have to use other methods to do password resets. In this case, we will be using Powershell to do so:
 
-
 Windows PowerShell (As Phillip)
 
 ```
@@ -247,8 +243,6 @@ Windows PowerShell                                                              
 PS C:\Users\phillip> Set-ADUser -ChangePasswordAtLogon $true -Identity sophie -Verbose                                  VERBOSE: Performing the operation "Set" on target "CN=Sophie,OU=Sales,OU=THM,DC=thm,DC=local".  
 ```
 
-![[Pasted image 20220825111542.png]]
-
 What was the flag found on Sophie's desktop? *THM{thanks_for_contacting_support}*
 
 The process of granting privileges to a user over some OU or other AD Object is called...
@@ -281,11 +275,6 @@ Since we are tidying up our AD, let's create two separate OUs for Workstations a
 
 Now, move the personal computers and laptops to the Workstations OU and the servers to the Servers OU from the Computers container. Doing so will allow us to configure policies for each OU later.
 
-![[Pasted image 20220825112928.png]]
-
-![[Pasted image 20220825112953.png]]
-
-
 After organising the available computers, how many ended up in the Workstations OU?
 *7*
 
@@ -316,7 +305,6 @@ As you can see, you can also apply Security Filtering to GPOs so that they are o
 
 The Settings tab includes the actual contents of the GPO and lets us know what specific configurations it applies. As stated before, each GPO has configurations that apply to computers only and configurations that apply to users only. In this case, the Default Domain Policy only contains Computer Configurations:
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/c9293853549d5126b77bf2de8086e076.png)
 
 Feel free to explore the GPO and expand on the available items using the "show" links on the right side of each configuration. In this case, the Default Domain Policy indicates really basic configurations that should apply to most domains, including password and account lockout policies:
@@ -330,8 +318,6 @@ Since this GPO applies to the whole domain, any change to it would affect all co
 This will open a new window where we can navigate and edit all the available configurations. To change the minimum password length, go to Computer Configurations -> Policies -> Windows Setting -> Security Settings -> Account Policies -> Password Policy and change the required policy value:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/bd3665c2569aa8fbe4f7482a5750f018.png)
-
-![[Pasted image 20220825114333.png]]
 
 As you can see, plenty of policies can be established in a GPO. While explaining every single of them would be impossible in a single room, do feel free to explore a bit, as some of the policies are straightforward. If more information on any of the policies is needed, you can double-click them and read the Explain tab on each of them:
 
@@ -373,8 +359,6 @@ Let's create a new GPO called Restrict Control Panel Access and open it for edit
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/9b333a11d12f05dd4413e3f208aab363.png)
 
-![[Pasted image 20220825115509.png]]
-
 Notice we have enabled the Prohibit Access to Control Panel and PC settings policy.
 
 Once the GPO is configured, we will need to link it to all of the OUs corresponding to users who shouldn't have access to the Control Panel of their PCs. In this case, we will link the Marketing, Management and Sales OUs by dragging the GPO to each of them:
@@ -382,8 +366,6 @@ Once the GPO is configured, we will need to link it to all of the OUs correspond
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/4a8f727788731b7fbf87fc079682d1a6.png)
 
 *drag the gpo to the uo*
-
-![[Pasted image 20220825115847.png]]
 
 Auto Lock Screen GPO
 
@@ -394,8 +376,6 @@ While this solution should work, an alternative consists of simply applying the 
 Note: You might notice that if our GPO is applied to the root domain, it will also be inherited by other OUs like Sales or Marketing. Since these OUs contain users only, any Computer Configuration in our GPO will be ignored by them.
 
 Let's create a new GPO, call it Auto Lock Screen, and edit it. The policy to achieve what we want is located in the following route:
-
-![[Pasted image 20220825120348.png]]
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/44c0cde18837cb6333c78749356ac0ee.png)
 
@@ -464,7 +444,6 @@ NetNTLM works using a challenge-response mechanism. The entire process is as fol
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/2eab5cacbd0d3e9dc9afb86169b711ec.png)
 
-
     The client sends an authentication request to the server they want to access.
     The server generates a random number and sends it as a challenge to the client.
     The client combines their NTLM password hash with the challenge (and other known data) to generate a response to the challenge and sends it back to the server for verification.
@@ -476,12 +455,9 @@ Note that the user's password (or hash) is never transmitted through the network
 
 Note: The described process applies when using a domain account. If a local account is used, the server can verify the response to the challenge itself without requiring interaction with the domain controller since it has the password hash stored locally on its SAM.
 
-
 Will a current version of Windows use NetNTLM as the preferred authentication protocol by default? (yay/nay) *nay*
 
-
 When referring to Kerberos, what type of ticket allows us to request further tickets known as TGS? *Ticket Granting Ticket*
-
 
 When using NetNTLM, is a user's password transmitted over the network at any point? (yay/nay) *nay*
 
@@ -526,7 +502,6 @@ The direction of the one-way trust relationship is contrary to that of the acces
 Two-way trust relationships can also be made to allow both domains to mutually authorise users from the other. By default, joining several domains under a tree or a forest will form a two-way trust relationship.
 
 It is important to note that having a trust relationship between domains doesn't automatically grant access to all resources on other domains. Once a trust relationship is established, you have the chance to authorise users across different domains, but it's up to you what is actually authorised or not.
-
 
 What is a group of Windows domains that share the same namespace called?
 *tree*

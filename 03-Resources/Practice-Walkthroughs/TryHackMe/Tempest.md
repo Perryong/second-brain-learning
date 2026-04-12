@@ -112,9 +112,7 @@ powershell.exe
 ```shell-session
 PS C:\Users\user\Desktop\Incident Files> ls
 
-
     Directory: C:\Users\user\Desktop\Incident Files
-
 
 Mode                LastWriteTime         Length Name
 ––––                –––––––––––––         –––––– ––––
@@ -303,7 +301,6 @@ Options:
   --version        Show version information
   -?, -h, --help   Show help and usage information
 
-
 PS C:\Tools\EvtxECmd> .\EvtxECmd.exe -f 'C:\Users\user\Desktop\Incident Files\sysmon.evtx' --csv 'C:\Users\user\Desktop\Incident Files' --csvf sysmon.csv
 EvtxECmd version 1.0.0.0
 
@@ -356,15 +353,7 @@ we must export the log file's contents into XML via Event Viewer
 
 wait till get a msg successfully 
 
-
-
 ```
-
-![[Pasted image 20230318115911.png]]
-
-![[Pasted image 20230318120129.png]]
-
-![[Pasted image 20230318121231.png]]
 
 What is the SHA256 hash of the capture.pcapng file?
 
@@ -377,7 +366,6 @@ What is the SHA256 hash of the sysmon.evtx file?
 What is the SHA256 hash of the windows.evtx file?
 
 *D0279D5292BC5B25595115032820C978838678F4333B725998CFE9253E186D60*
-
 
 ### Initial Access - Malicious Document
 
@@ -527,13 +515,7 @@ there are 2 ports 8080 and 80
 
 resolvecyber.xyz:80
 
-
-
 ```
-
-![[Pasted image 20230318134235.png]]
-
-![[Pasted image 20230318135849.png]]
 
 The malicious execution of the payload wrote a file on the system. What is the full target path of the payload?
 
@@ -612,9 +594,7 @@ uri
 
 Nim httpclient/1.6.6
 
-
 ```
-
 
 What is the URL of the malicious payload embedded in the document?
 
@@ -692,7 +672,6 @@ dir C:\Users -
 
     Directory: C:\Users
 
-
 Mode                LastWriteTime         Length Name                                                                   
 ----                -------------         ------ ----                                                                   
 d-----        6/20/2022   9:06 PM                benimaru                                                               
@@ -720,7 +699,6 @@ Members
 Administrator
 rimuru
 The command completed successfully.
-
 
 bmV0IHVzZXIgYmVuaW1hcnUgLSBVc2VyIG5hbWUgICAgICAgICAgICAgICAgICAgIGJlbmltYXJ1DQpGdWxsIE5hbWUgICAgICAgICAgICAgICAgICAgIA0KQ29tbWVudCAgICAgICAgICAgICAgICAgICAgICANClVzZXIncyBjb21tZW50ICAgICAgICAgICAgICAgDQpDb3VudHJ5L3JlZ2lvbiBjb2RlICAgICAgICAgIDAwMCAoU3lzdGVtIERlZmF1bHQpDQpBY2NvdW50IGFjdGl2ZSAgICAgICAgICAgICAgIFllcw0KQWNjb3VudCBleHBpcmVzICAgICAgICAgICAgICBOZXZlcg0KDQpQYXNzd29yZCBsYXN0IHNldCAgICAgICAgICAgIDYvMjAvMjAyMiA5OjE4OjA0IFBNDQpQYXNzd29yZCBleHBpcmVzICAgICAgICAgICAgIE5ldmVyDQpQYXNzd29yZCBjaGFuZ2VhYmxlICAgICAgICAgIDYvMjAvMjAyMiA5OjE4OjA0IFBNDQpQYXNzd29yZCByZXF1aXJlZCAgICAgICAgICAgIE5vDQpVc2VyIG1heSBjaGFuZ2UgcGFzc3dvcmQgICAgIFllcw0KDQpXb3Jrc3RhdGlvbnMgYWxsb3dlZCAgICAgICAgIEFsbA0KTG9nb24gc2NyaXB0ICAgICAgICAgICAgICAgICANClVzZXIgcHJvZmlsZSAgICAgICAgICAgICAgICAgDQpIb21lIGRpcmVjdG9yeSAgICAgICAgICAgICAgIA0KTGFzdCBsb2dvbiAgICAgICAgICAgICAgICAgICA2LzIxLzIwMjIgMToxNDo0OSBBTQ0KDQpMb2dvbiBob3VycyBhbGxvd2VkICAgICAgICAgIEFsbA0KDQpMb2NhbCBHcm91cCBNZW1iZXJzaGlwcyAgICAgICpSZW1vdGUgTWFuYWdlbWVudCBVc2UqVXNlcnMgICAgICAgICAgICAgICAgDQpHbG9iYWwgR3JvdXAgbWVtYmVyc2hpcHMgICAgICpOb25lICAgICAgICAgICAgICAgICANClRoZSBjb21tYW5kIGNvbXBsZXRlZCBzdWNjZXNzZnVsbHkuDQoNCg==
 
@@ -756,7 +734,6 @@ dir C:\Users\benimaru -
 
     Directory: C:\Users\benimaru
 
-
 Mode                LastWriteTime         Length Name                                                                   
 ----                -------------         ------ ----                                                                   
 d-r---        6/20/2022   4:13 PM                3D Objects                                                             
@@ -782,7 +759,6 @@ ZGlyIEM6XHVzZXJzXGJlbmltYXJ1XERlc2t0b3AgLSANCg0KICAgIERpcmVjdG9yeTogQzpcdXNlcnNc
 dir C:\users\benimaru\Desktop - 
 
     Directory: C:\users\benimaru\Desktop
-
 
 Mode                LastWriteTime         Length Name                                                                   
 ----                -------------         ------ ----                                                                   
@@ -843,7 +819,6 @@ dir C:\Users\benimaru\Downloads\ch.exe -
 
     Directory: C:\Users\benimaru\Downloads
 
-
 Mode                LastWriteTime         Length Name                                                                   
 ----                -------------         ------ ----                                                                   
 -a----        6/21/2022   1:17 AM        8230912 ch.exe                                                                 
@@ -863,7 +838,6 @@ C:\Windows\system32\wsmprovhost.exe -Embedding
 https://research.splunk.com/endpoint/2eed004c-4c0d-11ec-93e8-3e22fbd008af/
 
 evilwinrm
-
 
 ```
 
@@ -934,7 +908,6 @@ from clement
 https://github.com/itm4n/PrintSpoofer
 
 "C:\Users\benimaru\Downloads\spf.exe" -c C:\ProgramData\final.exe
-
 
 ```
 
@@ -1067,7 +1040,6 @@ User accounts for \\
 Administrator            benimaru                 DefaultAccount           
 Guest                    rimuru                   WDAGUtilityAccount       
 The command completed with one or more errors.
-
 
 d2hvYW1pIC9wcml2IC0gDQpQUklWSUxFR0VTIElORk9STUFUSU9ODQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNClByaXZpbGVnZSBOYW1lICAgICAgICAgICAgICAgICAgICAgICAgICAgIERlc2NyaXB0aW9uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTdGF0ZSAgDQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gPT09PT09PQ0KU2VDcmVhdGVUb2tlblByaXZpbGVnZSAgICAgICAgICAgICAgICAgICAgQ3JlYXRlIGEgdG9rZW4gb2JqZWN0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlQXNzaWduUHJpbWFyeVRva2VuUHJpdmlsZWdlICAgICAgICAgICAgIFJlcGxhY2UgYSBwcm9jZXNzIGxldmVsIHRva2VuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUxvY2tNZW1vcnlQcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgICBMb2NrIHBhZ2VzIGluIG1lbW9yeSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VJbmNyZWFzZVF1b3RhUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgQWRqdXN0IG1lbW9yeSBxdW90YXMgZm9yIGEgcHJvY2VzcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlVGNiUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFjdCBhcyBwYXJ0IG9mIHRoZSBvcGVyYXRpbmcgc3lzdGVtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZVNlY3VyaXR5UHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICAgICBNYW5hZ2UgYXVkaXRpbmcgYW5kIHNlY3VyaXR5IGxvZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VUYWtlT3duZXJzaGlwUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgVGFrZSBvd25lcnNoaXAgb2YgZmlsZXMgb3Igb3RoZXIgb2JqZWN0cyAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlTG9hZERyaXZlclByaXZpbGVnZSAgICAgICAgICAgICAgICAgICAgIExvYWQgYW5kIHVubG9hZCBkZXZpY2UgZHJpdmVycyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZVN5c3RlbVByb2ZpbGVQcml2aWxlZ2UgICAgICAgICAgICAgICAgICBQcm9maWxlIHN5c3RlbSBwZXJmb3JtYW5jZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VTeXN0ZW10aW1lUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICAgQ2hhbmdlIHRoZSBzeXN0ZW0gdGltZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlUHJvZmlsZVNpbmdsZVByb2Nlc3NQcml2aWxlZ2UgICAgICAgICAgIFByb2ZpbGUgc2luZ2xlIHByb2Nlc3MgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUluY3JlYXNlQmFzZVByaW9yaXR5UHJpdmlsZWdlICAgICAgICAgICBJbmNyZWFzZSBzY2hlZHVsaW5nIHByaW9yaXR5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VDcmVhdGVQYWdlZmlsZVByaXZpbGVnZSAgICAgICAgICAgICAgICAgQ3JlYXRlIGEgcGFnZWZpbGUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlQ3JlYXRlUGVybWFuZW50UHJpdmlsZWdlICAgICAgICAgICAgICAgIENyZWF0ZSBwZXJtYW5lbnQgc2hhcmVkIG9iamVjdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUJhY2t1cFByaXZpbGVnZSAgICAgICAgICAgICAgICAgICAgICAgICBCYWNrIHVwIGZpbGVzIGFuZCBkaXJlY3RvcmllcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VSZXN0b3JlUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICAgICAgUmVzdG9yZSBmaWxlcyBhbmQgZGlyZWN0b3JpZXMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlU2h1dGRvd25Qcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgICAgIFNodXQgZG93biB0aGUgc3lzdGVtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZURlYnVnUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICAgICAgICBEZWJ1ZyBwcm9ncmFtcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VBdWRpdFByaXZpbGVnZSAgICAgICAgICAgICAgICAgICAgICAgICAgR2VuZXJhdGUgc2VjdXJpdHkgYXVkaXRzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlU3lzdGVtRW52aXJvbm1lbnRQcml2aWxlZ2UgICAgICAgICAgICAgIE1vZGlmeSBmaXJtd2FyZSBlbnZpcm9ubWVudCB2YWx1ZXMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUNoYW5nZU5vdGlmeVByaXZpbGVnZSAgICAgICAgICAgICAgICAgICBCeXBhc3MgdHJhdmVyc2UgY2hlY2tpbmcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VVbmRvY2tQcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgICAgICAgUmVtb3ZlIGNvbXB1dGVyIGZyb20gZG9ja2luZyBzdGF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlTWFuYWdlVm9sdW1lUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgIFBlcmZvcm0gdm9sdW1lIG1haW50ZW5hbmNlIHRhc2tzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUltcGVyc29uYXRlUHJpdmlsZWdlICAgICAgICAgICAgICAgICAgICBJbXBlcnNvbmF0ZSBhIGNsaWVudCBhZnRlciBhdXRoZW50aWNhdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VDcmVhdGVHbG9iYWxQcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgQ3JlYXRlIGdsb2JhbCBvYmplY3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlVHJ1c3RlZENyZWRNYW5BY2Nlc3NQcml2aWxlZ2UgICAgICAgICAgIEFjY2VzcyBDcmVkZW50aWFsIE1hbmFnZXIgYXMgYSB0cnVzdGVkIGNhbGxlciAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZVJlbGFiZWxQcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgICAgICBNb2RpZnkgYW4gb2JqZWN0IGxhYmVsICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VJbmNyZWFzZVdvcmtpbmdTZXRQcml2aWxlZ2UgICAgICAgICAgICAgSW5jcmVhc2UgYSBwcm9jZXNzIHdvcmtpbmcgc2V0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVuYWJsZWQNClNlVGltZVpvbmVQcml2aWxlZ2UgICAgICAgICAgICAgICAgICAgICAgIENoYW5nZSB0aGUgdGltZSB6b25lICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbmFibGVkDQpTZUNyZWF0ZVN5bWJvbGljTGlua1ByaXZpbGVnZSAgICAgICAgICAgICBDcmVhdGUgc3ltYm9saWMgbGlua3MgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRW5hYmxlZA0KU2VEZWxlZ2F0ZVNlc3Npb25Vc2VySW1wZXJzb25hdGVQcml2aWxlZ2UgT2J0YWluIGFuIGltcGVyc29uYXRpb24gdG9rZW4gZm9yIGFub3RoZXIgdXNlciBpbiB0aGUgc2FtZSBzZXNzaW9uIEVuYWJsZWQNCg==
 

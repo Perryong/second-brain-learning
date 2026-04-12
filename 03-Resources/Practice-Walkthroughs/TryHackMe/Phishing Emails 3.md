@@ -19,8 +19,6 @@ Warning: The samples throughout this room contain information from actual spam a
 
 ### What information should we collect? 
 
-
-
 In this task, we will outline the steps performed when analyzing a suspicious or malicious email. 
 
 Below is a checklist of the pertinent information an analyst (you) is to collect from the email header:
@@ -42,7 +40,6 @@ Below is a checklist of the artifacts an analyst (you) needs to collect from the
     The hash value of the attachment (hash type MD5 or SHA256, preferably the latter)
 
 Warning: Be careful not to click on any links or attachments in the email accidentally.
-
 
 ### Email header analysis 
 
@@ -99,11 +96,8 @@ You can use other tools that provide the same functionality and more, such as [U
 
 ![](https://assets.tryhackme.com/additional/phishing2/talos.png)
 
-
-
 What is the official site name of the bank that capitai-one.com tried to resemble?
 External research required.
-![[Pasted image 20221011222011.png]]
 
 *capitalone.com* (using talos urlscan not work because is not the correct so just google it and th first is correct)
 
@@ -151,7 +145,6 @@ Obtain the file's SHA256 hash
 user@machine$ sha256sum Double\ Jackpot\ Slots\ Las\ Vegas.dot
 c650f397a9193db6a2e1a273577d8d84c5668d03c06ba99b17e4f6617af4ee83  Double Jackpot Slots Las Vegas.dot
 
-
 ```
 
 There are many tools available to help us with this, but we'll focus on two primarily; they are listed below:
@@ -174,7 +167,6 @@ Per the site, "Analyze suspicious files and URLs to detect types of malware, aut
 
 Another tool/company worth mentioning is[ Reversing Labs](https://www.reversinglabs.com/), which also has a file reputation service. 
 https://register.reversinglabs.com/file_reputation
-
 
 How can you manually get the location of a hyperlink?
 *Copy Link Location*
@@ -300,7 +292,6 @@ Note: I didn't perform further analysis on the domain name or the IP address. Ne
 
 To expand on classification codes briefly, not all phishing emails can be categorized as the same. A classification code allows us to tag a case with a specific code, such as Whaling (high-value target). Not all phishing emails will target a high-value target, such as a Chief Financial Officer (CFO). 
 
-
 Look at the Strings output. What is the name of the EXE file?
 *454326_PDF.exe*
 
@@ -352,31 +343,20 @@ open it with thunderbird
 
 ```
 
-![[Pasted image 20221014131854.png]]
-
 What brand was this email tailored to impersonate?
 *netflix*
 
-
 What is the From email address?
-![[Pasted image 20221014132552.png]]
 
 	*N e t f l i x<JGQ47wazXe1xYVBrkeDg-JOg7ODDQwWdR@JOg7ODDQwWdR-yVkCaBkTNp.gogolecloud.com*
 
-
 What is the originating IP? Defang the IP address. 
 CyberChef can help you with this.
-![[Pasted image 20221014132329.png]]
 
 *209[.]85[.]167[.]226*
 
-
-
 From what you can gather, what do you think will be a domain of interest? Defang the domain.
 CyberChef can help you with this.
-
-![[Pasted image 20221014132221.png]]
-
 
 What is the shortened URL? Defang the URL.
 *etekno[.]xyz*
@@ -386,11 +366,7 @@ CyberChef can help you with this.
 
 **using phishtool**
 
-![[Pasted image 20221014133831.png]]
-
 ###  Phishing Case 2 
-
-
 
 Scenario: You are a Level 1 SOC Analyst. Several suspicious emails have been forwarded to you from other coworkers. You must obtain details from each email for your team to implement the appropriate rules to prevent colleagues from receiving additional spam/phishing emails. 
 
@@ -400,16 +376,12 @@ Task: Investigate the analysis and answer the questions below.
 
 Link: https://app.any.run/tasks/8bfd4c58-ec0d-4371-bfeb-52a334b69f59
 
-![[Pasted image 20221014134155.png]]
-
 What does AnyRun classify this email as?
 *Suspicious activity*
-
 
 What is the name of the PDF file?
 *Payment-updateid.pdf*
 
-![[Pasted image 20221014135004.png]]
 ```
 press text report
 
@@ -421,26 +393,15 @@ and this is the link to get sha256 and more info
 What is the SHA 256 hash for the PDF file?
 *CC6F1A04B10BCB168AEEC8D870B97BD7C20FC161E8310B5BCE1AF8ED420E2C24*
 
-
 What two IP addresses are classified as malicious? Defang the IP addresses. (answer: IP_ADDR,IP_ADDR)
 CyberChef can help you with this.
-![[Pasted image 20221014135415.png]]
-
-![[Pasted image 20221014135436.png]]
-
-![[Pasted image 20221014135455.png]]
 
 *2[.]16[.]107[.]24,2[.]16[.]107[.]83*
-
-![[Pasted image 20221014135909.png]]
 
 What Windows process was flagged as Potentially Bad Traffic?
 *svchost.exe*
 
-
 ### Phishing Case 3 
-
-
 
 Scenario: You are a Level 1 SOC Analyst. Several suspicious emails have been forwarded to you from other coworkers. You must obtain details from each email for your team to implement the appropriate rules to prevent colleagues from receiving additional spam/phishing emails. 
 
@@ -450,47 +411,33 @@ Task: Investigate the analysis and answer the questions below.
 
 Link: https://app.any.run/tasks/82d8adc9-38a0-4f0e-a160-48a5e09a6e83
 
-![[Pasted image 20221014140251.png]]
-
-![[Pasted image 20221014140329.png]]
-
 ```
 text report
 
 https://any.run/report/5f94a66e0ce78d17afc2dd27fc17b44b3ffc13ac5f42d3ad6a5dcfb36715f3eb/82d8adc9-38a0-4f0e-a160-48a5e09a6e83?_gl=1*7iitki*_ga*NjgzNjk4ODY4LjE2NTk0NjQ5NTI.*_ga_53KB74YDZR*MTY2NTc3Mjg3My42LjEuMTY2NTc3NDA5Ni4zNi4wLjA.&_ga=2.166689148.357482081.1665772874-683698868.1659464952
-
 
 MALICIOUS
 
     Equation Editor starts application (CVE-2017-11882)
         EQNEDT32.EXE (PID: 1068)
 
-
 ```
 What is this analysis classified as?
 *Malicious activity*
 
-
 What is the name of the Excel file?
 *CBJ200620039539.xlsx*
-
 
 What is the SHA 256 hash for the file?
 *5F94A66E0CE78D17AFC2DD27FC17B44B3FFC13AC5F42D3AD6A5DCFB36715F3EB*
 
-![[Pasted image 20221014181933.png]]
-
 What domains are listed as malicious? Defang the URLs & submit answers in alphabetical order. (answer: URL1,URL2,URL3)
 *findresults[.]site,biz9holdings[.]com,ww38[.]findresults[.]site*
-
 
 What IP addresses are listed as malicious? Defang the IP addresses & submit answers from lowest to highest. (answer: IP1,IP2,IP3)
 *103[.]224[.]182[.]251,204[.]11[.]56[.]48,75[.]2[.]11[.]242*
 
-
-
 What vulnerability does this malicious attachment attempt to exploit?
 *CVE-2017-11882*
-
 
 [[HeartBleed]]

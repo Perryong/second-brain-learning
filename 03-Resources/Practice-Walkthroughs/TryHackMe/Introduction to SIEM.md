@@ -247,7 +247,6 @@ What type of alert may require tuning?
 
 *false alarm*
 
-
 ### Lab Work
 
 Lab Work
@@ -262,11 +261,7 @@ Click on Start Suspicious Activity, which process caused the alert?
 
 This process is a well-known mining software (https://www.cudominer.com/)
 
-![[Pasted image 20221213155803.png]]
-![[Pasted image 20221213164258.png]]
-
 *cudominer.exe*
-
 
 Find the event that caused the alert, which user was responsible for the process execution?  
 
@@ -278,8 +273,6 @@ What is the hostname of the suspect user?
 
 Examine the rule and the suspicious process; which term matched the rule that caused the alert?  
 
-![[Pasted image 20221213164413.png]]
-
 *miner*
 
 What is the best option that represents the event? Choose from the following:
@@ -288,14 +281,9 @@ What is the best option that represents the event? Choose from the following:
 
 - True-Positive  
 
-![[Pasted image 20221213164503.png]]
-
-
 *True-Positive*
 
 Selecting the right ACTION will display the FLAG. What is the FLAG?
-
-![[Pasted image 20221213164519.png]]
 
 *THM{000_SIEM_INTRO}*
 
@@ -310,6 +298,5 @@ In this room, we have covered what SIEM is, its capabilities, and what visibilit
 -   [InvestigatingwithSplunk](https://tryhackme.com/room/investigatingwithsplunk)
 -   [InvestgatingwithELK](https://tryhackme.com/room/investigatingwithelk101)
 -   [ItsyBitsy](https://tryhackme.com/room/itsybitsy)
-
 
 [[Wazuh]]

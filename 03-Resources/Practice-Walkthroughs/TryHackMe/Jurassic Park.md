@@ -4,7 +4,6 @@ A Jurassic Park CTF
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/9d1b176b68fbab2dcf90877eaf9a866c.jpeg)
 
-
 ### Jurassic Park CTF
 
  Start Machine
@@ -109,7 +108,6 @@ Completed NSE at 12:33, 0.00s elapsed
 Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 21.24 seconds
-
 
 view-source:http://10.10.87.126/shop.php
 
@@ -382,7 +380,6 @@ what do you want to use for writable directory?
 
 https://www.netsecfocus.com/oscp/2021/05/06/The_Journey_to_Try_Harder-_TJnull-s_Preparation_Guide_for_PEN-200_PWK_OSCP_2.0.html#overview
 
-
 using ssh
 
 ┌──(kali㉿kali)-[~/nappy/DX1]
@@ -405,8 +402,6 @@ Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-1072-aws x86_64)
 62 packages can be updated.
 45 updates are security updates.
 
-
-
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
@@ -421,7 +416,6 @@ dennis@ip-10-10-85-176:~$ cat flag1.txt
 Congrats on finding the first flag.. But what about the rest? :O
 
 b89f2d69c56b9981ac92dd267f
-
 
 dennis@ip-10-10-85-176:~$ grep -iR flag
 test.sh:cat /root/flag5.txt
@@ -474,7 +468,6 @@ flag1.txt:Congrats on finding the first flag.. But what about the rest? :O
 
 dennis@ip-10-10-85-176:~$ cat /boot/grub/fonts/flagTwo.txt
 96ccd6b429be8c9a4b501c7a0b117b0a
-
 
 dennis@ip-10-10-85-176:~$ cat .bash_history 
 Flag3:b4973bbc9053807856ec815db25fb3f1
@@ -585,12 +578,7 @@ ubuntu:!:17943:0:99999:7:::
 mysql:!:17943:0:99999:7:::
 dennis:$6$z2jJDHk8$2kdOlS5PLeeETO0DdUJ.tYHptXAQX2pCUNc6rmHCZNJkuHsY7Y5tcE5yxSSZK850Z4EjgPh6WXldhs4SWPYsB.:17943:0:99999:7:::
 
-
 ```
-
-![[Pasted image 20230114125950.png]]
-
-![[Pasted image 20230114132102.png]]
 
 What is the SQL database called which is serving the shop information?  
 
@@ -629,6 +617,5 @@ Whats the contents of the fifth flag?
 Enumerate your privileges.
 
 *2a7074e491fcacc7eeba97808dc5e2ec*
-
 
 [[DX1 Liberty Island]]

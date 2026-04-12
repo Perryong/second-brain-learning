@@ -96,7 +96,6 @@ What is the normal parent process of services.exe?
 What is the name of the network utility tool introduced in this task?
 *TCPView*
 
-
 ### Endpoint Logging and Monitoring
 
 From the previous task, we have learned basic knowledge about the Windows Operating system﻿ in terms of baseline processes and essential tools to analyze events and artefacts running on the machine. However, this only limits us from observing real-time events. With this, we will introduce the importance of endpoint logging, which enables us to audit significant events across different endpoints, collect and aggregate them for searching capabilities, and better automate the detection of anomalies.
@@ -191,7 +190,6 @@ Answer the questions below
 What is the PowerShell cmdlet for viewing Windows Event Logs?
 *Get-WinEvent*
 
-
 Provide the command used to enter OSQuery CLI.
 *osqueryi*
   
@@ -250,15 +248,7 @@ Investigation Activity
 
 ﻿We have tackled the foundations of endpoint security monitoring from previous tasks. Now, we will wear our Blue Team Hat and apply the concepts we discussed by investigating a suspicious activity detected on a workstation owned by one of your colleagues.
 
-![[Pasted image 20221212160041.png]]
-
-  ![[Pasted image 20221212160124.png]]
-![[Pasted image 20221212160141.png]]
-![[Pasted image 20221212160207.png]]
-![[Pasted image 20221212160230.png]]
-![[Pasted image 20221212160252.png]]
-![[Pasted image 20221212160308.png]]
-
+  
 
 Provide the flag for the simulated investigation activity.
 *THM{3ndp01nt_s3cur1ty!}*
@@ -288,6 +278,5 @@ You are now ready to deep-dive into the Endpoint Security Monitoring Module. To
 -   [Sysmon](https://tryhackme.com/room/sysmon)
 -   [OSQuery](https://tryhackme.com/room/osqueryf8)
 -   [Wazuh](https://tryhackme.com/room/wazuhct)
-
 
 [[Wireshark Traffic Analysis]]

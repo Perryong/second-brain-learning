@@ -64,7 +64,6 @@ Note: Splunk can take up to five minutes to fully load.
 
 If you want to install Splunk on your own machine, follow Splunk's official installation notes [here](https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchTutorial/InstallSplunk). 
 
-
 Virtual machine deployed. *No answer needed*
 
 ###  Navigating Splunk 
@@ -93,7 +92,6 @@ The next section is Explore Splunk. This panel contains quick links to add data 
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/explore-splunk.png)
 
-
 The last section is the Home Dashboard. By default, no dashboards are displayed. You can choose from a range of dashboards readily available within your Splunk instance. You can select a dashboard from the dropdown menu or by visiting the dashboards listing page.
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-add-dashboard.gif)
@@ -103,7 +101,6 @@ You can also create dashboards and add them to the Home Dashboard. The dashboard
 Please review the Splunk documentation on Navigating Splunk [here](https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchTutorial/NavigatingSplunk). 
 
 In the next section, we'll look at Splunk Apps a bit further. 
-
 
 I'm ready to look at Splunk apps.
 *No answer needed* 
@@ -121,7 +118,6 @@ The above image is the navigation for the Search app. Each app will have its own
 Let's draw our attention back to the Splunk Home page. In the Apps panel, there is a cog icon. By clicking the cog, you will be redirected to the Manage Apps page. From this page, you can change various settings (properties) for the installed apps. Let's look at the properties for the Search & Reporting app by clicking on Edit properties.
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-app-properties.png)
-
 
 You can change the app's display name, whether the app should check for updates, and whether the app should be visible in the Apps panel or not. 
 
@@ -181,9 +177,6 @@ Now time to upload an add-on into the Splunk instance.
 
 There is a Splunk add-on on the desktop. Upload this add-on into the Splunk instance. Restart Splunk when prompted to.
 
-![[Pasted image 20220906103524.png]]
-
-![[Pasted image 20220906103429.png]]
 What is the 'Folder name' for the add-on?
 *TA-microsoft-sysmon* (after upload .gz)
 
@@ -228,8 +221,6 @@ Another way we can add data to the Splunk instance is from Settings > Data Input
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-data-inputs.gif)
 
-
-
 Upload the Splunk tutorial data on the desktop. How many events are in this source?
 
 Note: Make sure you upload the data once only.
@@ -237,8 +228,6 @@ Note: Make sure you upload the data once only.
 As you can see, there are A LOT more logs we can add to the Splunk instance. 
 
 Now it's your turn to add some data to the Splunk instance so we can start querying them. 
-
-![[Pasted image 20220906105105.png]]
 
 *109,864* (upload tutorial.zip and choose segment value 1 next next and search)
 
@@ -261,7 +250,6 @@ Click on the magnifying glass to initiate the search.
 Note: The output you see might be different for you.
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-search-results-new.png)
-
 
 If you want to focus on a specific source or sourcetype, you can specify that within the Search bar. (see below image)
 
@@ -294,7 +282,6 @@ Before:
 After:
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-sysmon-2.png)
-
 
 Some of these fields are specific to Sysmon. Refer to the Sysmon room if you are not familiar with Sysmon Event IDs.   
 
@@ -396,9 +383,6 @@ The Splunk Quick Reference Guide has more tips on searching and filtering in Spl
 
 In the next section, we'll look at tools that can help us create Splunk queries to search specific attack patterns. 
 
-![[Pasted image 20220906111952.png]]
-
-
  Use Splunk to Search for the phrase 'failed password' using tutorialdata.zip as the source. 
 *No answer needed*
 What is the sourcetype?
@@ -407,11 +391,9 @@ What is the sourcetype?
 In the search result, look at the Patterns tab. 
 *No answer needed*
 
-
 What is the last username in this tab?
 *myuan*
 
-![[Pasted image 20220906112111.png]]
 Search for failed password events for this specific username. How many events are returned?
 *16* (in my case 32 cz upload 2 times)
 
@@ -469,15 +451,8 @@ The Sigma rule for 'User Added to Local Administrators' is converted to a Splunk
 
 The best way to get familiar and comfortable with Sigma and YAML files is to inspect that repo and look at Sigma rules and create some of your own. 
 
-![[Pasted image 20220906113235.png]]
-
 Use the Select document feature. What is the Splunk query for 'sigma: APT29'?
 `CommandLine="*-noni -ep bypass $*"`
-
-![[Pasted image 20220906113706.png]]
-
-![[Pasted image 20220906113639.png]]
-
 
 Use the Github Sigma repo. What is the Splunk query for 'CACTUSTORCH Remote Thread Creation'?
 
@@ -543,7 +518,6 @@ Refer to the Splunk documentation on dashboards and visualizations:
 
 In the next section, we'll briefly touch on alerts in Splunk. 
 
-![[Pasted image 20220906115058.png]]
 What is the highest EventID?
 *11*
 
@@ -579,7 +553,6 @@ Please reference the Splunk documentation on Alerting here to fully understand t
 
 [Here](https://docs.splunk.com/Documentation/SplunkCloud/8.1.2012/Alert/Alertexamples) is the direct link to Alert examples.
 
-
 I have a general understanding on how to create an alert in Splunk.
 *No answer needed*
 
@@ -595,10 +568,7 @@ When you're ready for more advanced Splunk, head over to the Splunk BOTSv1 and B
 
 ![|222](https://assets.tryhackme.com/additional/splunk-overview/splunk-bots.png)
 
-
-
 I know the fundamentals of Splunk.
 *No answer needed*
-
 
 [[Osquery]]

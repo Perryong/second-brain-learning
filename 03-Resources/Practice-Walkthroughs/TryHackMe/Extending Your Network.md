@@ -77,8 +77,7 @@ Action
 
            DROP           PASS         
 
-
-Answ: ![[Pasted image 20220818084905.png]] 
+Answ:  
   
 What is the flag? *THM{FIREWALLS_RULE}*
 

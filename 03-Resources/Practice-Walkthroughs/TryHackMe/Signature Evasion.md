@@ -55,13 +55,10 @@ We have the location of a signature; how human-readable it is will be determined
 
 Now… no one wants to spend hours going back and forth trying to track down bad bytes; let’s automate it! In the next task, we will look at a few FOSS (Free and Open-Source Software) solutions to aid us in identifying signatures in compiled code.
 
-
 	Using the knowledge gained throughout this task, split the binary found in C:\Users\Student\Desktop\Binaries\shell.exe using a native utility discussed in this task. Recursively determine if the split binary is detected until you have obtained the nearest kilobyte of the first signature.
-
 
 Move the binary to a different folder without an exclusion to test against Defender
 *No answer needed*
-
 
 To the nearest kibibyte, what is the first detected byte?
 Un kibibyte (KiB) es una unidad de almacenaje de data que equivale a 2 a la 10 potencia, o 1024 bytes. Un kilobyte se puede estimar que es 10^3 o 1000 bytes
@@ -90,7 +87,6 @@ This script will result in 1 binaries being written to "C:\Users\TryHackMe"!
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 
         
-
 
 ```
 
@@ -183,10 +179,7 @@ C:\>amsitrigger.exe --help
 
 For our uses we only need to supply a file and the preferred format to report signatures.
 
-![[Pasted image 20220917120127.png]]
-
 In the next task we will discuss how you can use the information gathered from these tools to break signatures.
-
 
 	Using the knowledge gained throughout this task, identify bad bytes found in C:\Users\Student\Desktop\Binaries\shell.exe using ThreatCheck and the Defender engine. ThreatCheck may take up to 15 minutes to find the offset, in this case you can leave it running in the background, continue with the next task, and come back when it finishes.
 
@@ -438,8 +431,6 @@ Original String
 
 Below is the original string that is detected
 
-![[Pasted image 20220917123836.png]]
-
 Obfuscated Method
 
 Below is the new class used to replace and concatenate the string.
@@ -474,13 +465,7 @@ This is almost no different than as discussed in Obfuscation Principles; however
 
 Using the knowledge you have accrued throughout this task, obfuscate the following PowerShell snippet, using AmsiTrigger to visual signatures.
 
-![[Pasted image 20220917123956.png]]
-
 Once sufficiently obfuscated, submit the snippet to the webserver at http://10.10.154.253/challenge-1.html. The file name must be saved as challenge-1.ps1. If correctly obfuscated a flag will appear in an alert pop-up
-
-![[Pasted image 20220917132507.png]]
-
-![[Pasted image 20220917132555.png]]
 
 What flag is found after uploading a properly obfuscated snippet?
 *THM{70_D373C7_0r_70_N07_D373C7}*  [64 page](https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20workshops/DEFCON-27-Workshop-Anthony-Rose-Introduction-to-AMSI-Bypasses-and-Sandbox-Evasion-Notes.pdf)
@@ -555,7 +540,6 @@ Below is the Shannon entropy scale for a standard English paragraph.
 
 Shannon entropy: 4.587362034903882
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/96630d6dbe47ad3204cc121e9b5bf84e.png)
 Below is the Shannon entropy scale for a small script with random identifiers.
 
@@ -572,8 +556,6 @@ Note that entropy will generally never be used alone and only to support a hypot
 To see entropy in action, let’s look at how an EDR would use it to contribute to threat indicators.
 
 In the white paper, [An Empirical Assessment of Endpoint Detection and Response Systems against Advanced Persistent Threats Attack Vectors](https://www.mdpi.com/2624-800X/1/3/21/pdf), SentinelOne is shown to detect a DLL due to high entropy, specifically through AES encryption.
-
-
 
 	Using CyberChef, obtain the Shannon entropy of the file: C:\Users\Student\Desktop\Binaries\shell.exe.
 
@@ -615,10 +597,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 C:\Users\Student>copy "C:\Users\Student\Desktop\Binaries\shell.exe" \\10.11.81.220\public\
         1 file(s) copied.
 
-
 ```
-
-![[Pasted image 20220917135253.png]]
 
 Rounded to three decimal places, what is the Shannon entropy of the file?
 *6.354*
@@ -705,13 +684,8 @@ int main() {
 
 Once sufficiently obfuscated, submit the snippet to the webserver at http://MACHINE_IP/challenge-2.html. The file name must be saved as challenge-2.exe. If correctly obfuscated a flag will appear in an alert pop-up.
 
-
 What flag is found after uploading a properly obfuscated snippet?
 You can compile your snippet using `x86_64-w64-mingw32-gcc challenge.c -o challenge-2.exe`
-
-![[Pasted image 20220917141802.png]]
-
-![[Pasted image 20220917141923.png]]
 
 *THM{N0_1MP0r75_F0r_Y0U}*
 
@@ -734,8 +708,6 @@ Taking these notes into consideration, modify the provided binary to meet the sp
 
 Note: When considering library calls and leaked function, be conscious of the IAT table and strings of your binary.
 
-![[Pasted image 20220917142118.png]]
-![[Pasted image 20220917142146.png]]
 Once sufficiently obfuscated, compile the payload on the AttackBox or VM of your choice using GCC or other C compiler. The file name must be saved as challenge.exe. Once compiled, submit the executable to the webserver at http://10.10.245.34/. If your payload satisfies the requirements listed, it will be ran and a beacon will be sent to the provided server IP and port.
 
 Note: It is also essential to change the C2Server and C2Port variables in the provided payload or this challenge will not properly work and you will not receive a shell back. 
@@ -743,7 +715,6 @@ Note: It is also essential to change the C2Server and C2Port variables in the pr
 Note: When compiling with GCC you will need to add compiler options for winsock2 and ws2tcpip. These libraries can be included using the compiler flags -lwsock32 and -lws2_32
 
 If you are still stuck we have provided a walkthrough of the solution below.
-
 
 What is the flag found on the Administrator desktop?
 
@@ -908,17 +879,11 @@ C:\Users\Administrator\Desktop>more flag.txt
 more flag.txt
 THM{08FU5C4710N_15 MY_10V3_14N6U463}
 
-
 ```
-
-![[Pasted image 20220917153846.png]]
 
 *THM{08FU5C4710N_15 MY_10V3_14N6U463}*
 
-
 ###  Conclusion 
-
-
 
 Signature evasion can kick off the process of preparing a malicious application to evade cutting-edge solutions and detection measures.
 
@@ -928,9 +893,6 @@ The techniques shown in this room are generally tool-agnostic and can be applied
 
 At this point, you can begin understanding other more advanced detection measures or analysis techniques and continue improving your offensive tool craft.
 
-
 Read the above and continue learning!
-
-
 
 [[Obfuscation Principles]]

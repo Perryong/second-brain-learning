@@ -6,7 +6,6 @@ Learn about the four core features of the Diamond Model of Intrusion Analysis: a
 
 ![](https://assets.tryhackme.com/additional/banners/Cyber%20Defence%20Frameworks%20icon%20and%20banner-02.svg)
 
-
 ### Introduction 
 
 What is The Diamond Model?
@@ -41,18 +40,13 @@ Adversary Customer is the entity that stands to benefit from the activity conduc
 
 As an example, an adversary customer could control different operators simultaneously. Each operator might have its capabilities and infrastructure.
 
-
 What is the term for a person/group that has the intention to perform malicious actions against cyber resources?
 *Adversary Operator*
-
-
 
 What is the term of the person or a group that will receive the benefits from the cyberattacks?
 *Adversary Customer*
 
 ### Victim 
-
-
 
 Victim – is a target of the adversary. A victim can be an organization, person, target email address, IP address, domain, etc. It's essential to understand the difference between the victim persona and the victim assets because they serve different analytic functions. 
 
@@ -62,13 +56,11 @@ Victim Personae are the people and organizations being targeted and whose assets
 
 Victim Assets are the attack surface and include the set of systems, networks, email addresses, hosts, IP addresses, social networking accounts, etc., to which the adversary will direct their capabilities.
 
-
 What is the term that applies to the Diamond Model for organizations or people that are being targeted?
 
 *Victim Personae*
 
 ### Capability 
-
 
 Capability – is also known as the skill, tools, and techniques used by the adversary in the event. The capability highlights the adversary’s tactics, techniques, and procedures (TTPs). 
 
@@ -84,7 +76,6 @@ An adversary must have the required capabilities. The capabilities can be malwar
 
 ### Infrastructure 
 
-
 Infrastructure – is also known as software or hardware. Infrastructure is the physical or logical interconnections that the adversary uses to deliver a capability or maintain control of capabilities. For example, a command and control centre (C2) and the results from the victim (data exfiltration). 
 
 The infrastructure can also be IP addresses, domain names, email addresses, or even a malicious USB device found in the street that is being plugged into a workstation. 
@@ -95,12 +86,8 @@ Type 2 Infrastructure is the infrastructure controlled by an intermediary. Somet
 
 Service Providers are organizations that provide services considered critical for the adversary availability of Type 1 and Type 2 Infrastructures, for example, Internet Service Providers, domain registrars, and webmail providers.
 
-
-
 To which type of infrastructure do malicious domains and compromised email accounts belong?
 *Type 2 Infrastructure*
-
-
 
 What type of infrastructure is most likely owned by an adversary? 
 *Type 1 Infrastructure*
@@ -127,7 +114,6 @@ Six possible meta-features can be added to the Diamond Model. Meta-features are 
     Methodology - This meta-feature will allow an analyst to describe the general classification of intrusion, for example, phishing, DDoS, breach, port scan, etc. 
     Resources - According to the Diamond Model, every intrusion event needs one or more external resources to be satisfied to succeed. Examples of the resources can include the following: software (e.g., operating systems, virtualization software, or Metasploit framework), knowledge (e.g., how to use Metasploit to execute the attack and run the exploit), information (e.g., a username/password to masquerade), hardware (e.g., servers, workstations, routers), funds (e.g., money to purchase domains), facilities (e.g., electricity or shelter), access (e.g., a network path from the source host to the victim and vice versa, network access from an Internet Service Provider (ISP)).
 
-
 What meta-feature does the axiom "Every malicious activity contains two or more phases which must be successfully executed in succession to achieve the desired result" belong to? 
 *phase*
 
@@ -139,11 +125,9 @@ To what meta-feature is this phrase applicable "Every intrusion event requires o
 
 ### Social-Political Component 
 
-
 The social-political component describes the needs and intent of the adversary, for example, financial gain, gaining acceptance in the hacker community, hacktivism, or espionage. 
 
 The scenario can be that the victim provides a “product”, for example, computing resources & bandwidth as a zombie in a botnet for crypto mining (producing new cryptocurrencies by solving cryptographic equations through the use of computers) purposes, while the adversary consumes their product or gets financial gain. 
-
 
 ###  Technology Component 
 
@@ -164,16 +148,10 @@ Ensure you have deployed the static site attached to this task. To complete the 
 Complete all eight areas of the diamond. What is the flag that is displayed to you?
 *THM{DIAMOND_MODEL_ATTACK_CHAIN}*
 
-![[Pasted image 20221203175131.png]]
-
 ###  Conclusion 
-
-
 
 We hope you enjoyed this room and will apply the Diamond Model concepts in disrupting threat activity using the Diamond Model and bringing valuable information to your team and business executives (C-Suite), an audience, customer, or client that is not technical.
 
 The Diamond Model is a scientific method to improve the efficiency and accuracy of intrusion analysis. With this in your arsenal, you will have opportunities to leverage real-time intelligence for network defence and predict adversary operations.
-
-
 
 [[Pyramid Of Pain]]

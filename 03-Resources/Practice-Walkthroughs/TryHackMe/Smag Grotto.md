@@ -2,7 +2,6 @@
 Follow the yellow brick road.
 ---
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/d4071f466e055d38d5a169cae9f12b33.png)
 
 Deploy the machine and get root privileges.
@@ -88,7 +87,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 ip/mail
 
 download pcap
-
 
 Network Migration
 
@@ -210,7 +208,6 @@ www-data@smag:/home/jake$ ls -l /opt/.backups/jake_id_rsa.pub.backup
 ls -l /opt/.backups/jake_id_rsa.pub.backup
 -rw-rw-rw- 1 root root 563 Jun  5  2020 /opt/.backups/jake_id_rsa.pub.backup
 
-
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ mkdir smag    
                                                                                                            
@@ -241,7 +238,6 @@ The key's randomart image is:
 |.+X .            |
 |o+o=             |
 +----[SHA256]-----+
-
 
 then go to 
 
@@ -299,11 +295,8 @@ uJr6zRgetaniyHVRqqL58uRasybBKz2T
 
 ```
 
-![[Pasted image 20220923183759.png]]
-
 What is the user flag?
 *iusGorV7EbmxM5AuIe2w499msaSuqU3j*
-
 
 What is the root flag?
 *uJr6zRgetaniyHVRqqL58uRasybBKz2T*

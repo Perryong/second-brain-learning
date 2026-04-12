@@ -380,15 +380,11 @@ Including hidden files, how many files are currently stored on the flash drive?
 
 Use Windows Explorer and open the flash drive.
 
-![[Pasted image 20230718134650.png]]
-
 *8*
 
 How many files were deleted in total?  
 
 The x Symbol might be hard to see; look closely in the File List Pane.
-
-![[Pasted image 20230718134755.png]]
 
 *6*
 
@@ -415,8 +411,6 @@ Upon receiving the artefacts and evidence from the crime scene at the Forensics 
 Answer the questions below
 
 Aside from FTK Imager, what is the directory name of the other tool located in the tools directory under Desktop?  
-
-![[Pasted image 20230718135028.png]]
 
 *exiftool-12.47*
 
@@ -534,12 +528,7 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
 
 FF D8 FF E1 .jpg
 
-
 ```
-
-![[Pasted image 20230718141113.png]]
-
-![[Pasted image 20230718141656.png]]
 
 *.jpg*
 
@@ -548,10 +537,6 @@ A phone was used to photograph the "hideout". What is the phone's model?
 *ONEPLUS A6013*
 
 A phone was used to photograph the "warehouse". What is the phone's model?  
-
-![[Pasted image 20230718141316.png]]
-
-![[Pasted image 20230718141735.png]]
 
 *Mi 9 Lite*
 
@@ -564,12 +549,7 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
 
 50 4B 03 04 ZIP
 
-
 ```
-
-![[Pasted image 20230718141846.png]]
-
-![[Pasted image 20230718141932.png]]
 
 *y*
 
@@ -580,7 +560,6 @@ Who was the point of contact of Mr William S. McClean in 2022?
 
 CSSC Annual Meetup: 09-09 / 9th of September
 Topic: Product Distribution Schedule
-
 
 ==========================================================
 
@@ -603,13 +582,11 @@ Shipment Details:
   - Meetup: 14°26'25.7"N 120°59'00.8"E
   - PoC: Karl Renato Abelardo / 09124329876 / karlrenatoabelardo@gmail.com
 
-
 ==========================================================
 
 Underground Community Creds:
 - DarkPool Marketplace: SerpentWhisperer86 / Cr1m$0nSh@d0w$3rp3nt5
 - Menacingly Marketplace: KingCrimson201 / Sh@d0wSerp3nt$C4rt3l
-
 
 ==========================================================
 
@@ -630,14 +607,11 @@ William, WSM
 
 DarkVault$Pandora=DONOTOPEN!K1ngCr1ms0n!
 
-
 ```
 
 *Karl Renato Abelardo*
 
 A meetup occurred in 2022. What are the GPS coordinates during that time?  
-
-![[Pasted image 20230718142249.png]]
 
 *14°26'25.7"N 120°59'00.8"E*
 
@@ -709,20 +683,15 @@ if __name__ == "__main__":
     historical_data_handler.run()
     execution_handler.run()
 
-
 ```
 
 *SwiftSpend Financial*
 
 In one of the documents that the suspect has yet to sign, who was listed as the beneficiary?
 
-![[Pasted image 20230718142734.png]]
-
 *Mr. Giovanni Vittorio DeVentura*
 
 What is the hidden flag?
-
-![[Pasted image 20230718142814.png]]
 
 *THM{sCr0LL_sCr0LL_cL1cK_cL1cK_4TT3NT10N_2_D3T41L5_15_CRUC14L!!}*
 
@@ -755,7 +724,5 @@ In which phase is a forensic analysis performed on the acquired digital evidence
 Which phase involves presenting forensic artefacts and evidence with proper documentation in a court of law?
 
 *Trial*
-
-
 
 [[Templated]]

@@ -377,10 +377,7 @@ root@toc:~# cat root.txt
 cat root.txt
 thm{7265616c6c696665}
 
-
 ```
-![[Pasted image 20230729183025.png]]
-
 
 Find and retrieve the user.txt flag  
 
@@ -410,6 +407,5 @@ I now understand where to find more information on this kind of vulnerability.
 
  Completed
  
-
 
 [[TwoMillion]]

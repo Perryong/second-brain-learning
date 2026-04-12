@@ -102,7 +102,6 @@ What is the exercise of representing adversary functions through predefined and 
 
 *Threat simulation*
 
-
 ### Task 3  Emulation Methodologies
 
 Threat emulation methodologies are strategies, plans and procedures used to simulate and test network defences and systems against adversaries. There are various methodologies, each with its unique approach and level of technicality, but all share the goal of discovering weaknesses in security. It is essential to know that no adversary is alike. However, they would follow a methodology and have their workflows. The methodologies described in this task seek to provide a knowledge base for organisations when dealing with threats and to plan their emulation exercises.
@@ -338,17 +337,6 @@ https://www2.fireeye.com/rs/848-DID-242/images/rpt_APT37.pdf
 
 THM{3$P1ON4G3_F0R_R34P3R}
 ```
-![[Pasted image 20230817204731.png]]
-![[Pasted image 20230817204753.png]]
-![[Pasted image 20230817204847.png]]
-![[Pasted image 20230817205005.png]]
-![[Pasted image 20230817205017.png]]
-![[Pasted image 20230817205124.png]]
-![[Pasted image 20230817205304.png]]
-![[Pasted image 20230817205319.png]]
-![[Pasted image 20230817205336.png]]
-
-![[Pasted image 20230817204657.png]]
 
 The emulation plan component determining which activities are to be conducted is known as the?
 
@@ -389,16 +377,6 @@ https://attack.mitre.org/groups/G0125/
 
 https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/
 ```
-![[Pasted image 20230817205635.png]]
-![[Pasted image 20230817205709.png]]
-![[Pasted image 20230817205807.png]]
-![[Pasted image 20230817205829.png]]
-![[Pasted image 20230817205842.png]]
-![[Pasted image 20230817211945.png]]
-![[Pasted image 20230817212100.png]]
-![[Pasted image 20230817212126.png]]
-![[Pasted image 20230817212144.png]]
-![[Pasted image 20230817212527.png]]
 
 Click the **View Site** button at the top of the task to launch the static site. What is flag three obtained after completing the exercise?  
 
@@ -421,6 +399,5 @@ Answer the questions below
 Power to Threat Emulation.
 
  Completed
-
 
 [[Dissecting PE Headers]]

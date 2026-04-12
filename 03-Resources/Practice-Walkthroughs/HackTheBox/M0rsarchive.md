@@ -270,10 +270,6 @@ No zipfiles found.
 999
 HTB{D0_y0u_L1k3_m0r53??}
 
-
-
 ```
-![[Pasted image 20230729195240.png]]
-![[Pasted image 20230729195559.png]]
 
 [[toc2]]

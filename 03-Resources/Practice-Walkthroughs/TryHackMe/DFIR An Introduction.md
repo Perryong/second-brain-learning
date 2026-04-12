@@ -84,15 +84,6 @@ Answer the questions below
 
 Complete the timeline creation exercise in the attached static site. What is the flag that you get after completion?
 
-![[Pasted image 20221215154604.png]]
-![[Pasted image 20221215154643.png]]
-![[Pasted image 20221215154835.png]]
-![[Pasted image 20221215155011.png]]
-![[Pasted image 20221215155056.png]]
-
-![[Pasted image 20221215155141.png]]
-![[Pasted image 20221215155152.png]]
-
 *THM{DFIR_REPORT_DONE}*
 
 ### DFIR Tools

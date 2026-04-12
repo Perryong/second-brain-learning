@@ -2,7 +2,6 @@
 The nightmare continues.. Search the artifacts on the endpoint, again, to determine if the employee used any of the Windows Printer Spooler vulnerabilities to elevate their privileges. 
 ---
 
-
 ![](https://assets.tryhackme.com/additional/printnightmare/pm-room-banner2.png)
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/855a6f35a14df6fb9a5e8b576c14e51d.png)
@@ -65,10 +64,8 @@ searching manually
 
 C:\Windows\System32\spool\SERVERS\printnightmare.gentilkiwi.com
 
-
 filter: show only the specifid providers
 Microsoft-Windows-PrintService
-
 
 File(s) mimispool.dll associated with printer \\printnightmare.gentilkiwi.com\Kiwi Legit Printer
 
@@ -76,7 +73,6 @@ using process monitor
 filter by process name by cmd.exe
 
 first result > properties > Parent PID 2640 and PID 5408 , filter by PID 2640 then see the process is spoolsv.exe
-
 
 so will be 5408,spoolsv.exe
 
@@ -89,48 +85,28 @@ then search for command line
 CommandLine: net localgroup administrators rjones /add
 ```
 
-![[Pasted image 20221117090731.png]]
-
-![[Pasted image 20221117094328.png]]
-
-![[Pasted image 20221117104116.png]]
-
-![[Pasted image 20221117105315.png]]
-
-![[Pasted image 20221117113307.png]]
-
-![[Pasted image 20221117113723.png]]
-
-![[Pasted image 20221117114702.png]]
-
 What remote address did the employee navigate to?
 Check the SMB traffic in the pcap file
 *20.188.56.147*
-
-
 
 Per the PCAP, which user returns a STATUS_LOGON_FAILURE error?
 Wireshark
 	
 	*THM-PRINTNIGHT0\r-jones*
 
-
 Which user successfully connects to an SMB share?
 	
 	*THM-PRINTNIGHT0/gentilguest*
-
 
 What is the first remote SMB share the endpoint connected to? What was the first filename? What was the second? (format: answer,answer,answer)
 Wireshark or Brim
 		
 		*\\printnightmare.gentilkiwi.com\IPC$,\srvsvc,\spoolss*
 
-
 From which remote SMB share was malicious DLL obtained? What was the path to the remote folder for the first DLL? How about the second? (format: answer,answer,answer)
 Many DLLs were downloaded but one stands out in association to a hack tool. Brim will be the most useful.
 
 	*\\printnightmare.gentilkiwi.com\print$,\x64\3\mimispool.dll,\W32X86\3\mimispool.dll*
-
 
 What was the first location the malicious DLL was downloaded to on the endpoint? What was the second?
 Check the event logs
@@ -141,20 +117,14 @@ What is the folder that has the name of the remote printer server the user conne
 	
 	*C:\Windows\System32\spool\SERVERS\printnightmare.gentilkiwi.com*
 
-
 What is the name of the printer the DLL added?
 Check Microsoft-Windows-PrintService
 *Kiwi Legit Printer*
 
-
 What was the process ID for the elevated command prompt? What was its parent process? (format: answer,answer)
 *5408,spoolsv.exe*
 
-
 What command did the user perform to elevate privileges?
 *net localgroup administrators rjones /add*
-
-
-
 
 [[PrintNightmare, again!]]

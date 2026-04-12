@@ -44,7 +44,6 @@ One of the most creative and effective ways that Blue Teamers have come up with 
 
 Sandboxes provide a safe and effective way to monitor what a suspicious-looking file does before running it on a production system (or allowing it to be sent to a production system). There are many commercial Sandboxes that may be in place in various parts of a network.
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/a2e2d18182fe38e0f8709aafae9c33bc.png)
 
 In the diagram above, there are three different sandboxes in place. It is not uncommon for there to be one, two, or even three Sandboxes in a corporate environment. Often you may find them in the following places:
@@ -72,7 +71,6 @@ We have provided a Windows development VM where you can develop your own Sandbox
 
 Username: Administrator
 Password: TryHackMe123!
-
 
 Sandboxes are a form of ______ Analysis
 *Dynamic*
@@ -169,12 +167,8 @@ The shellcode should then be hosted on the AttackBox via any HTTP Server. Python
 
 The code attached to this task has been tested and compiled using Visual Studio 2019 (or above). Download the dropper.cpp, and open it. It's important to note that there are several placeholder values on lines 16, 22, 24, 27, and 33 that you must update to make the code function properly. Once you have altered the values, compile the code for a 64-bit release.
 
-
-
 Read the above task to learn about Sandbox Evasion Techniques.
 *No answer needed*
-
-
 
 Download the task files and modify the .cpp file to retrieve the MSFVenom generated shellcode.
 *No answer needed*
@@ -183,8 +177,6 @@ Which Sandbox Evasion method would you use to abuse a Sandbox that runs for a sh
 
 Note: most Sandboxes are only allowed to run for a short period of time
 *Sleeping*
-
-
 
 Which Sandbox Evasion method would you use to check the Sandboxes system information for virtualised devices?
 
@@ -210,7 +202,6 @@ int main() {
 } 
 ```
 
-
 Testing our Code
 After this is done, we can compile and upload the code to Any.Run. You can read along with the following tests, and see their behaviour on Any.Run by following the links. This will serve as our test-ground for Sandbox evasion as it provides highly detailed information for us. Reviewing the two runs:
 
@@ -220,7 +211,6 @@ After this is done, we can compile and upload the code to Any.Run. You can read 
 Looking at the two results side by side, we notice no activity occurring in our Sleepy run.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/423f07b56f8ce5f9d353c3b96d0f0f35.png)
-
 
 Screenshot from Any.Run showing our Sleep bypass function worked as intended.
 
@@ -303,7 +293,6 @@ int main(){
 ```
 
 The code above invokes the new function, checkIP(), and if the IP Address returns TRUE, then invoke the downloadAndExecute() function to call the shellcode from our C2 server. If FALSE, return HTTP/418 - I'm a teapot!".
-
 
 Testing Our Code
 
@@ -445,7 +434,6 @@ This code can be broken down into the following steps:
     We convert the LPCWSTR to a normal string variable to check and see if the value is NULL (or, in the case of a string, "").
     Execute the comparison statement and return True or False depending on the device name.
 
-
 This will then call back to the Main() function which will then evaluate if it needs to download and execute our shellcode from the C2 Server. The Main function now looks like so:
 
 ```
@@ -476,17 +464,13 @@ Click Properties at the bottom of the list; this will open a new view. Expand th
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d5a2b006986bf3508047664/room-content/5c8865dcd04ae30c2fc6c41c42386484.png)
 
-
 To do so, click on the right side with all of the libraries referenced and add Netapi32.lib. Once it is added (like in the screenshot depicted above), press the "Apply" button and "Ok" to close the window and you are ready to continue development!
 
 Wrapping Up Implementations
 Now that you are more familiar with implementing various Sandbox Evasion techniques, we will be moving on to a Sandbox evasion challenge in the next task. You will be required to integrate multiple bypasses together to evade the "Custom" TryHackMe Sandbox. All source code has been provided in full to help those out who may not be as familiar with C++. 
 
-
 Read about implementing various Sandbox evasion techniques.
 *No answer needed*
-
-
 
 Which evasion method involves reaching out to a host to identify your IP Address?
 *Geolocation Filtering*
@@ -517,7 +501,6 @@ Sandbox Evasion Binary
 
 	When you are finished developing your payload and are ready to test your evasion methods,  you can find the binary to check your dropper in C:\Users\Administrator\Desktop\Materials\SandboxChecker.exe. Below is an example to show you how the program works: 
 
-
 ```
 C:\Users\Administrator\Desktop\Materials\> .\SandboxChecker.exe C:\Users\TryHackMe\Materials\SandboxEvasion.exe
 [+] Memory Check found!
@@ -526,8 +509,6 @@ C:\Users\Administrator\Desktop\Materials\> .\SandboxChecker.exe C:\Users\TryHack
 [+] Sleep Check found!
 Congratulations! Here is your flag:
 ```
-
-
 
 Create your own Sandbox Evasion executable using the code snippets in the task and the VM as reference.
 
@@ -539,18 +520,11 @@ Note: If you have done it right, the "Sleep Check" will take approximately one m
 
 Make sure your Sleep check is before your Domain Controller Check if you're having issues with it.
 
-![[Pasted image 20220911091828.png]]
-
-![[Pasted image 20220911091838.png]]
-![[Pasted image 20220911091923.png]]
-
 (found in dropper.cpp my code)
 
 *THM{6c1f95ec}*
 
 ### Wrapping Up 
-
-
 
 Wrapping Up
 
@@ -558,8 +532,6 @@ In this room, we covered some modern and historic Sandbox evasion techniques tha
 
 This is by no means a fully comprehensive list of all of the Sandbox Evasion methods out there; we highly encourage you to go out and develop your own Sandbox Evasion techniques with the foundational knowledge learned from this room.
 
-
 Read the closing task.
-
 
 [[Windows Internals]]

@@ -14,7 +14,6 @@ This room uses a modified version of the Blue and Ice boxes, as well as Sysmon l
 
 Before completing this room we recommend completing the Windows Event Log room. It is also recommended to complete the Blue and Ice rooms to get an understanding of vulnerabilities present however is not required to continue.
 
-
 Complete the prerequisites listed above and jump into task 2.
 *No answer needed*
 
@@ -28,7 +27,6 @@ Sysmon gathers detailed and high-quality logs as well as event tracing that assi
 
 Events within Sysmon are stored in Applications and Services Logs/Microsoft/Windows/Sysmon/Operational
 
-
 Sysmon Config Overview
 
 Sysmon requires a config file in order to tell the binary how to analyze the events that it is receiving. You can create your own Sysmon config or you can download a config. Here is an example of a high-quality config that works well for identifying anomalies created by SwiftOnSecurity: Sysmon-Config. Sysmon includes 24 different types of Event IDs, all of which can be used within the config to specify how the events should be handled and analyzed. Below we will go over a few of the most important Event IDs and show examples of how they are used within config files.
@@ -36,7 +34,6 @@ Sysmon requires a config file in order to tell the binary how to analyze the eve
 When creating or modifying configuration files you will notice that a majority of rules in sysmon-config will exclude events rather than include events. This will help filter out normal activity in your environment that will in turn decrease the number of events and alerts you will have to manually audit or search through in a SIEM. On the other hand, there are rulesets like the ION-Storm sysmon-config fork that takes a more proactive approach with it's ruleset by using a lot of include rules. You may have to modify configuration files to find what approach you prefer. Configuration preferences will vary depending on what SOC team so prepare to be flexible when monitoring.
 
 Note: As there are so many Event IDs Sysmon analyzes. we will only be going over a few of the ones that we think are most important to understand
-
 
 Event ID 1: Process Creation
 
@@ -51,7 +48,6 @@ This event will look for any processes that have been created. You can use this 
 ```
 
 The above code snippet is specifying the Event ID to pull from as well as what condition to look for. In this case, it is excluding the svchost.exe process from the event logs.
-
 
 Event ID 3: Network Connection
 
@@ -82,7 +78,6 @@ This event will look for DLLs loaded by processes, which is useful when hunting 
 
 The above code snippet will look for any DLLs that have been loaded within the \Temp\ directory. If a DLL is loaded within this directory it can be considered an anomaly and should be further investigateded. 
 
-
 Event ID 8: CreateRemoteThread
 
 The CreateRemoteThread Event ID will monitor for processes injecting code into other processes. The CreateRemoteThread function is used for legitimate tasks and applications. However, it could be used by malware to hide malicious activity. This event will use the SourceImage, TargetImage, StartAddress, and StartFunction XML tags.
@@ -98,7 +93,6 @@ The CreateRemoteThread Event ID will monitor for processes injecting code into o
 
 The above code snippet shows two ways of monitoring for CreateRemoteThread. The first method will look at the memory address for a specific ending condition which could be an indicator of a Cobalt Strike beacon. The second method will look for injected processes that do not have a parent process. This should be considered an anomaly and require further investigation. 
 
-
 Event ID 11: File Created
 
 This event ID is will log events when files are created or overwritten the endpoint. This could be used to identify file names and signatures of files that are written to disk. This event uses TargetFilename XML tags.
@@ -112,7 +106,6 @@ This event ID is will log events when files are created or overwritten the endpo
 ```
 
 The above code snippet is an example of a ransomware event monitor. This is just one example of a variety of different ways you can utilize Event ID 11.
-
 
 Event ID 12 / 13 / 14: Registry Event
 
@@ -128,7 +121,6 @@ This event looks for changes or modifications to the registry. Malicious activit
 
 The above code snippet will look for registry objects that are in the "`Windows\System\Scripts`" directory as this is a common directory for adversaries to place scripts to establish persistence.
 
-
 Event ID 15: FileCreateStreamHash
 
 This event will look for any files created in an alternate data stream. This is a common technique used by adversaries to hide malware. This event uses TargetFilename XML tags.
@@ -142,7 +134,6 @@ This event will look for any files created in an alternate data stream. This is 
 ```
 
 The above code snippet will look for files with the .hta extension that have been placed within an alternate data stream.
-
 
 Event ID 22: DNS Event
 
@@ -159,7 +150,6 @@ This event will log all DNS queries and events for analysis. The most common way
 The above code snippet will get exclude any DNS events with the .microsoft.com query. This will get rid of the noise that you see within the environment.  
 
 There are a variety of ways and tags that you can use to customize your configuration files. We will be using the ION-Storm and SwiftOnSecurity config files for the rest of this room however feel free to use your own configuration files. 
-
 
 Read the above and become familiar with the Sysmon Event IDs.
 *No answer needed*
@@ -186,7 +176,6 @@ Command Used: `Sysmon.exe -accepteula -i sysmonconfig-export.xml`
 C:\WINDOWS\system32>cd C:\Tools\Sysint
 
 C:\Tools\Sysint>Sysmon.exe -accepteula -i sysmonconfig-export.xml
-
 
 System Monitor v14.0 - System activity monitor
 By Mark Russinovich and Thomas Garnier
@@ -215,8 +204,6 @@ If installed correctly your event log should look similar to the following:
 
 ![](https://i.imgur.com/HtS0AOx.png)
 
-![[Pasted image 20220904232653.png]]
-
 For this room, we have already created an environment with Sysmon and configuration files for you. Deploy and use this machine for the remainder of this room. 
 
 Machine IP: MACHINE_IP
@@ -224,7 +211,6 @@ Machine IP: MACHINE_IP
 User: THM-Analyst
 
 Pass: 5TgcYzF84tcBSuL1Boa%dzcvf
-
 
 Deploy the machine and start Sysmon. 
 *No answer needed*
@@ -238,7 +224,6 @@ Command and Control (C2) Infrastructure are a set of programs used to communicat
 Obviously, this is only showcasing a small handful of events that could be triggered in an environment. The methodology will largely be the same for other threats. It really comes down to using an ample and efficient configuration file as it can do a lot of the heavy lifting for you.
 
 You can either download the event logs used for this task or you can open them from the Practice directory on the provided machine.
-
 
 Sysmon "Best Practices"
 
@@ -256,13 +241,11 @@ Sysmon offers a fairly open and configurable platform for you to use. Generally 
 
 	Knowing your environment is important when implementing any platform or tool. You should have a firm understanding of the network or environment you are working within to fully understand what is normal and what is suspicious in order to effectively craft your rules.
 
-
 Filtering Events with Event Viewer
 
 Event Viewer might not the best for filtering events and out-of-the-box offers limited control over logs. The main filter you will be using with Event Viewer is by filtering the EventID and keywords. You can also choose to filter by writing XML but this is a tedious process that doesn't scale well.
 
 To open the filter menu select Filter Current Log from the Actions menu. 
-
 
 ![](https://i.imgur.com/deaX35W.png)
 
@@ -270,7 +253,6 @@ If you have successfully opened the filter menu it should look like the menu bel
 ![](https://i.imgur.com/lJxPHBM.png)
 
 From this menu, we can add any filters or categories that we want.
-
 
 Filtering Events with PowerShell
 
@@ -291,7 +273,6 @@ Get-WinEvent -Path <Path to Log> -FilterXPath '*/System/EventID=3 and */EventDat
 ```
 
 ![](https://i.imgur.com/M5hjcA6.png)
-
 
 Read the above and practice filtering events.
 *No answer needed*
@@ -335,7 +316,6 @@ Do you trust the above certificate? (Y/T/N) Y
 ```practice
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath '*/System/EventID=3 and */EventData/Data[@Name="DestinationPort"] and */EventData/Data=4444'
 
-
    ProviderName: Microsoft-Windows-Sysmon
 
 TimeCreated                     Id LevelDisplayName Message
@@ -346,14 +326,10 @@ TimeCreated                     Id LevelDisplayName Message
 
 How many event ID 3 events are in `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Filtering.evtx`? *73,591*
 
-![[Pasted image 20220905000534.png]]
-
-
 What is the UTC time created of the first network event in `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Filtering.evtx`?
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Filtering.evtx -FilterXPath '*/System/EventID=3' -Oldest -MaxEvents 1 | Format-List
-
 
 TimeCreated  : 1/6/2021 1:35:52 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -413,7 +389,6 @@ Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx` i
 
 Once we identify the event it can give us some important information we can use for further investigation like the ProcessID and Image.
 
-
 Hunting for Open Ports with PowerShell
 
 To hunt for open ports with PowerShell we will be using the PowerShell module Get-WinEvent along with XPath queries. We can use the same  XPath queries that we used in the rule to filter out events from NetworkConnect with DestinationPort. The command line is typically used over the Event Viewer GUI because it can allow for further granular control and filtering that the GUI does not offer. For more information about using XPath and the command line for event viewing, check out the Windows Event Log room by Heavenraiza.
@@ -426,13 +401,11 @@ Get-WinEvent -Path <Path to Log> -FilterXPath '*/System/EventID=3 and */EventDat
 
 We can break this command down by its filters to see exactly what it is doing. It is first filtering by Event ID 3 which is the network connection ID. It is then filtering by the data name in this case DestinationPort as well as the specific port that we want to filter. We can adjust this syntax along with our events to get exactly what data we want in return.
 
-
 Read the above and practice hunting Metasploit with the provided event file.
 *No answer needed*
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath '*/System/EventID=3 and */EventData/Data[@Name="DestinationPort"] and */EventData/Data=4444'
-
 
    ProviderName: Microsoft-Windows-Sysmon
 
@@ -467,7 +440,6 @@ This is a very simple way of detecting Mimikatz activity that has bypassed anti-
 
 As this method will not be commonly used to hunt for anomalies we will not be looking at any event logs for this specific technique.
 
-
 Hunting Abnormal LSASS Behavior
 
 We can use the ProcessAccess event ID to hunt for abnormal LSASS behavior. This event along with LSASS would show potential LSASS abuse which usually connects back to Mimikatz some other kind of credential dumping tool. Look below for more detail on hunting with these techniques.
@@ -482,11 +454,9 @@ If LSASS is accessed by a process other than svchost.exe it should be considered
 </RuleGroup>
 ```
 
-
 Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_LSASS.evtx` in Event Viewer to view an attack using an obfuscated version of Mimikatz to dump credentials from memory.
 
 ![](https://i.imgur.com/S0T3AHM.png)
-
 
 We see the event that has the Mimikatz process accessed but we also see a lot of svchost.exe events? We can alter our config to exclude events with the SourceImage event coming from svhost.exe. Look below for a modified configuration rule to cut down on the noise that is present in the event logs.
 
@@ -504,7 +474,6 @@ We see the event that has the Mimikatz process accessed but we also see a lot of
 
 By modifying the configuration file to include this exception we have cut down our events significantly and can focus on only the anomalies.  This technique can be used throughout Sysmon and events to cut down on "noise" in logs.
 
-
 Detecting LSASS Behavior with PowerShell
 
 To detect abnormal LSASS behavior with PowerShell we will again be using the PowerShell module Get-WinEvent along with XPath queries. We can use the same XPath queries used in the rule to filter out the other processes from TargetImage. If we use this alongside a well-built configuration file with a precise rule it will do a lot of the heavy lifting for us and we only need to filter a small amount.
@@ -515,14 +484,11 @@ Get-WinEvent -Path <Path to Log> -FilterXPath '*/System/EventID=10 and */EventDa
 
 ![](https://i.imgur.com/IVi0BZf.png)
 
-
-
 Read the above and practice detecting Mimikatz with the provided evtx.
 *No answer needed*
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Mimikatz.evtx -FilterXPath '*/System/EventID=10 and */EventData/Data[@Name="TargetImage"] and */EventData/Data="C:\Windows\system32\lsass.exe"'
-
 
    ProviderName: Microsoft-Windows-Sysmon
 
@@ -561,7 +527,6 @@ For more information about the ports that this configuration file alerts on chec
 	</NetworkConnect>
 </RuleGroup>
 
-
 ```
 
 Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Rats.evtx` in Event Viewer to view a live rat being dropped onto the server.
@@ -569,7 +534,6 @@ Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Rats.evtx` in Even
 ![](https://i.imgur.com/h7NcexZ.png)
 
 In the above example, we are detecting a custom rat that operates on port 8080 this is a perfect example of why you want to be careful when excluding events in order to not miss potential malicious activity.
-
 
 Hunting for Common Back Connect Ports with PowerShell
 
@@ -581,13 +545,11 @@ Get-WinEvent -Path <Path to Log> -FilterXPath '*/System/EventID=3 and */EventDat
 
 ![](https://i.imgur.com/neewUuV.png)
 
-
 Read the Above and practice hunting rats and C2 servers with back connect ports. 
 *No answer needed*
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Rats.evtx -FilterXPath '*/System/EventID=3 and */EventData/Data[@Name="DestinationPort"] and */EventData/Data=8080'
-
 
    ProviderName: Microsoft-Windows-Sysmon
 
@@ -695,7 +657,6 @@ Persistence is used by attackers to maintain access to a machine once it is comp
 
 You can download the event logs used in this room from this task or you can open them in the Practice folder on the provided machine.
 
-
 Hunting Startup Persistence
 
 We will first be looking at the SwiftOnSecurity detections for a file being placed in the `\Startup\ or \Start Menu` directories. Below is a snippet of the config that will aid in event tracing for this technique. For more information about this technique check out MITRE ATT&CK [T1547](https://attack.mitre.org/techniques/T1547/).
@@ -720,7 +681,6 @@ When looking at the Event Viewer we see that persist.exe was placed in the Start
 ![](https://i.imgur.com/zipqQIF.png)
 
 Once you have identified that a suspicious binary or application has been placed in a startup location you can begin an investigation on the directory.
-
 
 Hunting Registry Key Persistence
 
@@ -748,7 +708,6 @@ If we wanted to investigate this anomaly we would need to look at the registry a
 
 ![](https://i.imgur.com/d6hLTud.png)
 
-
 Read the above and practice hunting persistence techniques.
 *No answer needed*
 
@@ -761,7 +720,6 @@ There are a number of evasion techniques used by malware authors to both evade a
 For more information about this technique check out MITRE ATT&CK [T1564](https://attack.mitre.org/techniques/T1564/004/) and [T1055](https://attack.mitre.org/techniques/T1055/).
 
 You can download the event logs used in this room from this task or you can open them in the Practice folder on the provided machine.
-
 
 Hunting Alternate Data Streams
 
@@ -785,7 +743,6 @@ Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_ADS.evtx` in Event
 
 As you can see the event will show us the location of the file name as well as the contents of the file this will be useful if an investigation is necessary.
 
-
 Detecting Remote Threads 
 
 Adversaries also commonly use remote threads to evade detections in combination with other techniques. Remote threads are created using the Windows API CreateRemoteThread and can be accessed using OpenThread and ResumeThread. This is used in multiple evasion techniques including DLL Injection, Thread Hijacking, and Process Hollowing. We will be using the Sysmon event ID 8 from the SwiftOnSecurity configuration file. The code snippet below from the rule will exclude common remote threads without including any specific attributes this allows for a more open and precise event rule. 
@@ -805,7 +762,6 @@ Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Detecting_RemoteThreads.ev
 
 As you can see in the above image powershell.exe is creating a remote thread and accessing notepad.exe this is obviously a PoC and could in theory execute any other kind of executable or DLL. The specific technique used in this example is called Reflective PE Injection. 
 
-
 Detecting Evasion Techniques with PowerShell
 
 We have already gone through a majority of the syntax required to use PowerShell with events. Like previous tasks, we will be using Get-WinEvent along with the XPath to filter and search for files that use an alternate data stream or create a remote thread. In both of the events, we will only need to filter by the EventID because the rule used within the configuration file is already doing a majority of the heavy lifting. 
@@ -822,7 +778,6 @@ Syntax: `Get-WinEvent -Path <Path to Log> -FilterXPath '*/System/EventID=8'`
 
 ![](https://i.imgur.com/PJNairD.png)
 
-
 Read the above and practice detecting evasion techniques
 *No answer needed*
 
@@ -832,20 +787,17 @@ Event files used within this task have been sourced from the EVTX-ATTACK-SAMPLES
 
 You can download the event logs used in this room from this task or you can open them in the Investigations folder on the provided machine.
 
-
 Investigation 1 - ugh, BILL THAT'S THE WRONG USB!
 
 In this investigation, your team has received reports that a malicious file was dropped onto a host by a malicious USB. They have pulled the logs suspected and have tasked you with running the investigation for it.
 
 Logs are located in `C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-1`.
 
-
 Investigation 2 - This isn't an HTML file? 
 
 Another suspicious file has appeared in your logs and has managed to execute code masking itself as an HTML file, evading your anti-virus detections. Open the logs and investigate the suspicious file.  
 
 Logs are located in `C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-2`.
-
 
 Investigation 3.1 - 3.2 - Where's the bouncer when you need him
 
@@ -855,17 +807,14 @@ Logs are located in `C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Inves
 
 and `C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.2`.
 
-
 Investigation 4 - Mom look! I built a botnet!
 
 As the adversary has gained a solid foothold onto your network it has been brought to your attention that they may have been able to set up C2 communications on some of the endpoints. Collect the logs and continue your investigation.
 
 Logs are located in `C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-4`.
 
-
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-1.evtx -FilterXPath '*/System/EventID=13 and */EventData/Data[@Name="Image"]="C:\Windows\system32\svchost.exe"' | FL
-
 
 TimeCreated  : 3/6/2018 6:57:51 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -886,7 +835,6 @@ What is the full registry key of the USB device calling svchost.exe in Investiga
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-1.evtx -FilterXPath '*/System/EventID=9' | fl
-
 
 TimeCreated  : 3/6/2018 6:57:51 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -939,7 +887,6 @@ What is the device name when being called by RawAccessRead in Investigation 1?
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-1.evtx -FilterXPath '*/System/EventID=9' | fl
 
-
 TimeCreated  : 3/6/2018 6:57:51 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 9
@@ -984,10 +931,7 @@ Message      : RawAccessRead detected:
                Image: \Device\HarddiskVolume3
                Device: %6
 
-
-
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-1.evtx -FilterXPath '*/System/EventID=1 and */EventData/Data[@Name="Image"]' | fl
-
 
 TimeCreated  : 3/6/2018 6:57:51 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -1083,7 +1027,6 @@ What is the first exe the process executes in Investigation 1?
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-2.evtx -FilterXPath '*/System/EventID=1' | fl
 
-
 TimeCreated  : 6/15/2019 7:14:32 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 1
@@ -1157,7 +1100,6 @@ What signed binary executed the payload in Investigation 2?
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-2.evtx -FilterXPath '*/System/EventID=3' | fl
 
-
 TimeCreated  : 6/15/2019 7:13:44 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 3
@@ -1190,7 +1132,6 @@ What back connect port is used in Investigation 2?
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.1.evtx -FilterXPath '*/System/EventID=3' | fl
-
 
 TimeCreated  : 2/12/2018 9:15:59 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -1274,7 +1215,6 @@ What is the hostname of the C2 server connecting to the endpoint in Investigatio
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.1.evtx -FilterXPath '*/System/EventID=13' | fl
 
-
 TimeCreated  : 2/12/2018 9:15:57 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 13
@@ -1356,7 +1296,6 @@ What PowerShell launch code was used to launch the payload in Investigation 3.1?
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.2.evtx -FilterXPath '*/System/EventID=3' | fl
-
 
 TimeCreated  : 2/5/2018 7:08:55 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -1479,7 +1418,6 @@ What is the IP of the adversary in Investigation 3.2?
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.2.evtx -FilterXPath '*/System/EventID=1 and */EventData/Data[@Name="Image"]="C:\Windows\System32\cmd.exe"' | fl
 
-
 TimeCreated  : 2/5/2018 7:08:53 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 1
@@ -1560,7 +1498,6 @@ What is the full path of the payload location in Investigation 3.2?
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.2.evtx -FilterXPath '*/System/EventID=1 and */EventData/Data[@Name="Image"]="C:\Windows\System32\schtasks.exe"' | fl
 
-
 TimeCreated  : 2/5/2018 7:08:53 AM
 ProviderName : Microsoft-Windows-Sysmon
 Id           : 1
@@ -1597,7 +1534,6 @@ What was the full command used to create the scheduled task in Investigation 3.2
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-3.2.evtx -FilterXPath '*/System/EventID=10 and */EventData/Data[@Name="SourceImage"]="C:\Windows\System32\lsass.exe"' | fl
-
 
 TimeCreated  : 2/5/2018 7:08:53 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -1637,7 +1573,6 @@ What process was accessed by schtasks.exe that would be considered suspicious be
 
 ```
 PS C:\Users\THM-Analyst> Get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Investigations\Investigation-4.evtx -FilterXPath '*/System/EventID=3' | fl
-
 
 TimeCreated  : 2/19/2018 5:14:25 AM
 ProviderName : Microsoft-Windows-Sysmon
@@ -1947,6 +1882,5 @@ What port is the adversary operating on in Investigation 4?
 
 What C2 is the adversary utilizing in Investigation 4?
 *empire*
-
 
 [[Windows Event Logs]]

@@ -124,7 +124,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 22.72 seconds
 
-
 <!--You can't win anyway... You see, I hold the winning card!-->
 <!DOCTYPE html>
 <!--"I won't even waste the usual Joker Venom on you, Brute, but give you something you can understand...lead!-->
@@ -553,7 +552,6 @@ https://github.com/phra/rustbuster
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sudo apt-get install libssl1.1
 
-
                                                                                   
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ ./rustbuster-v3.0.3-x86_64-unknown-linux-gnu -h
@@ -864,7 +862,6 @@ password incorrect--reenter:
 ┌──(witty㉿kali)-[~/Downloads/backups]
 └─$ zip2john backup.zip > hash
 
-
 ┌──(witty㉿kali)-[~/Downloads/backups]
 └─$ cat hash            
 backup.zip:$pkzip$8*1*1*0*0*1c*433a*6c2b37f221efe3d1f3cf416386a69e390b2d5cbdaf4c820dfdeed1c2*1*0*0*21*433a*3a1cf51b86e90000c96583ff28c3f66967627db8eb898947aefffbbf14d2d79afa*1*0*0*24*433b*e72d627b8f09c0b28e777a603b72dfe046d7928a2fad76ae291785873c827a5c76158220*1*0*0*24*433b*4612436e78ed4312b2183316d6c6d38376bee4ef1163039f3106650d09fd16dc1dd30681*1*0*8*24*433a*83046150d21c4832d6fc5ba494d8d6f79bcfa76e5919c5a97bcf890f06d2e540e258f9a3*1*0*8*24*433b*c50910b2036c8e097d626a162570c843e793af7df0bab242d73e98ee1a71c036588be383*1*0*8*24*433a*ace94169c2a3465b235e408520eaf5701e867474d6a32f2aa179972c95d4cf5e29942319*2*0*13*7*ebd78eb7*1beea*6b*0*13*433a*42420120b0cb36a12b6c31737d25a0f56d777d*$/pkzip$::backup.zip:site/libraries/vendor/phpmailer/phpmailer/VERSION, site/libraries/fof/version.txt, site/media/jui/js/jquery-noconflict.js, site/templates/protostar/error.php, site/templates/beez3/error.php, site/libraries/index.html, site/templates/index.html, site/administrator/cache/index.html:backup.zip
@@ -1099,22 +1096,15 @@ Aarti Singh: https://in.linkedin.com/in/aarti-singh-353698114
  |E|n|j|o|y| |H|A|C|K|I|N|G|			
  +-+-+-+-+-+ +-+-+-+-+-+-+-+
 
-
 ```
-
-![[Pasted image 20230310130631.png]]
-
-![[Pasted image 20230310171508.png]]
 
 Enumerate services on target machine.  
 
 What about nmap?
 
-
 What version of Apache is it?  
 
 *2.4.29*
-
 
 What port on this machine not need to be authenticated by user and password?  
 
@@ -1134,11 +1124,9 @@ When reading the secret file, We find with a conversation that seems contains at
 
 *joker*
 
-
 What port on this machine need to be authenticated by Basic Authentication Mechanism?  
 
 *8080*
-
 
 At this point we have one user and a url that needs to be aunthenticated, brute force it to get the password, what is that password?  
 
@@ -1156,7 +1144,6 @@ We need access to the administration of the site in order to get a shell, there 
 
 *backup.zip*
 
-
 We have the backup file and now we should look for some information, for example database, configuration files, etc ... But the backup file seems to be encrypted. What is the password?
 
 Use john to crack the zip hash
@@ -1166,7 +1153,6 @@ Use john to crack the zip hash
 Remember that... We need access to the administration of the site... Blah blah blah. In our new discovery we see some files that have compromising information, maybe db? ok what if we do a restoration of the database! Some tables must have something like user_table! What is the super duper user?  
 
 *admin*
-
 
 Super Duper User! What is the password?  
 
@@ -1180,7 +1166,6 @@ Maybe use error.php page on a template? Of course try it and execute 'id' comman
 
 *www-data*
 
-
 This user belongs to a group that differs on your own group, What is this group?
 
 Linux containers
@@ -1191,7 +1176,6 @@ Spawn a tty shell.
 
 python3
 
-
 In this question you should be do a basic research on how linux containers (LXD) work, it has a small online tutorial. Googling "lxd try it online".  
 
  Completed
@@ -1200,15 +1184,12 @@ Research how to escalate privileges using LXD permissions and check to see if th
 
 If there isn't an image already on the box, you may need to upload one...
 
-
 **The idea here is to mount the root of the OS file system on the container, this should give us access to the root directory.** Create the container with the privilege true and mount the root file system on /mnt in order to gain access to /root directory on host machine.  
 
 lxc init ... lxc config device ... lxc start ... lxc exec ...
 
-
 What is the name of the file in the /root directory?
 
 *final.txt*
-
 
 [[OWASP Top 10 - 2021]]

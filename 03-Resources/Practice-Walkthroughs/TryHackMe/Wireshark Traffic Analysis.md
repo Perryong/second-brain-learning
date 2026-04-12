@@ -25,7 +25,6 @@ Transmission Control Protocol (TCP) is a connection-oriented protocol requiring 
 
 User Datagram Protocol (UDP) is a connectionless protocol; UDP does not require a connection to be established. UDP is suitable for protocols that rely on fast queries, such as DNS, and for protocols that prioritise real-time communications, such as audio/video conferencing and broadcast.
 
-
 -   TCP connect scans
 -   SYN scans
 -   UDP scans
@@ -208,15 +207,12 @@ Detecting suspicious activities in chunked files is easy and a great way to lear
 
 Use the "Desktop/exercise-pcaps/nmap/Exercise.pcapng" file.What is the total number of the "TCP Connect" scans?
 
-![[Pasted image 20221211182759.png]]
-
 *1000*
   
 Which scan type is used to scan the TCP port 80?
 *TCP Connect*
   
 How many "UDP close port" messages are there?
-![[Pasted image 20221211183823.png]]
 
 *1083*
 
@@ -226,7 +222,6 @@ Remember, half of the traffic analysis is done by hand when using Wireshark. Fil
 	
 	udp.dstport==68
 	
-![[Pasted image 20221211184338.png]]
 
 *68*
 
@@ -410,19 +405,13 @@ Detecting suspicious activities in chunked files is easy and a great way to lear
 Use the "Desktop/exercise-pcaps/arp/Exercise.pcapng" file.  
 What is the number of ARP requests crafted by the attacker?
 
-![[Pasted image 20221211200214.png]]
-
 eth.src == 00:0c:29:e2:18:b4 and arp.opcode == 1
-
-![[Pasted image 20221211200245.png]]
 
 *284*
   
 What is the number of HTTP packets received by the attacker?
 
 eth.dst == 00:0c:29:e2:18:b4 and http
-
-![[Pasted image 20221211200434.png]]
 
 *90*  
 
@@ -432,10 +421,6 @@ Filter the site visited by the victim, then filter the post requests. Focusing o
 http.request.full_uri == "http://testphp.vulnweb.com/userinfo.php"
 
 not uname and pass (2) so 8 -2 = 6
-
-![[Pasted image 20221211200945.png]]
-
-![[Pasted image 20221211201037.png]]
 
 *6*
 
@@ -451,8 +436,6 @@ Special characters are displayed in HEX format. Make sure that you convert them 
 
 apply as filter:
 http.host == "testphp.vulnweb.com"
-
-![[Pasted image 20221211201324.png]]
 
 *Nice work!*
 
@@ -598,9 +581,6 @@ Filtering a pattern rather than actual value can help.
 
 dhcp.option.hostname contains "Galaxy"
 
-![[Pasted image 20221211214119.png]]
-
-
 *9a:81:41:cb:96:6c*
 
 How many NetBIOS registration requests does the "LIVALJM" workstation have?
@@ -608,17 +588,12 @@ How many NetBIOS registration requests does the "LIVALJM" workstation have?
 
 	nbns.name contains "LIVALJM" and nbns.flags.opcode==5
 
-![[Pasted image 20221211214402.png]]
-
 *16*
 
   
 Which host requested the IP address "172.16.13.85"?
 
 dhcp.option.requested_ip_address == 172.16.13.85
-
-![[Pasted image 20221211215441.png]]
-
 
 *Galaxy-A12*
 
@@ -628,15 +603,12 @@ What is the IP address of the user "u5"? (Enter the address in defanged format.
 
 kerberos.CNameString contains "u5"
 found ip 10.1.12.2 so defanging 10[.]1[.]12[.]2
-![[Pasted image 20221211215703.png]]
 
 *10[.]1[.]12[.]2*
   
 What is the hostname of the available host in the Kerberos packets?
 
 kerberos.CNameString
-
-![[Pasted image 20221211220203.png]]
 
 *xp1$*
 
@@ -729,9 +701,6 @@ Investigate the anomalous packets. Which protocol is used in ICMP tunnelling?
 data.len > 64 and icmp
 
 look data and see ssh .. i.e length 878
-![[Pasted image 20221211225232.png]]
-
-
 
 *ssh*
 
@@ -742,9 +711,6 @@ Investigate the anomalous packets. What is the suspicious main domain address th
 After filtering the packets, focus on the payload data in the packet bytes section. You might need to use the tool in full-screen mode/full-screen the VM.
 
 dns.qry.name.len > 15 and !mdns
-
-![[Pasted image 20221211225910.png]]
-
 
 *dataexfil[.]com*
 
@@ -847,7 +813,6 @@ FTP code 503.
 
 	ftp.response.code==530
 
-![[Pasted image 20221212111953.png]]
 *737*
 
   
@@ -856,24 +821,16 @@ Filtering the response code "213" can help.
 
 	ftp.response.code==213
 
-![[Pasted image 20221212112112.png]]
-
-
 *39424*
   
 The adversary uploaded a document to the FTP server. What is the filename?
 Follow TCP
-
-![[Pasted image 20221212112328.png]]
-
 
 *resume.doc*
   
 The adversary tried to assign special flags to change the executing permissions of the uploaded file. What is the command used by the adversary?
 
 Follow TCP and at the end is the command
-
-![[Pasted image 20221212112507.png]]
 
 *CHMOD 777*
 
@@ -1042,19 +999,6 @@ Investigate the user agents. What is the number of anomalous  "user-agent" type
 
 1) The answer is not the number of packets. It is the number of anomalous user-agent types. You need to filter the "user agent" info "as a column" and conduct a manual investigation of the packet details to spot the anomalies. 2) In addition to the obvious "non-standard" and modified user agent types: Does "Windows NT 6.4" exist?
 
-![[Pasted image 20221212114500.png]]
-
-![[Pasted image 20221212114818.png]]
-
-![[Pasted image 20221212115517.png]]
-
-
-![[Pasted image 20221212115454.png]]
-
-
-![[Pasted image 20221212115438.png]]
-
-
 There are 6 anomalous user-agents: Windows NT 6.4, nmap, Wfuzz, sqlmap, and Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0 (uploaded shell b374k.php), and log4j
 
 *6*
@@ -1062,9 +1006,6 @@ There are 6 anomalous user-agents: Windows NT 6.4, nmap, Wfuzz, sqlmap, and Mozi
   
 What is the packet number with a subtle spelling difference in the user agent field?
 Mozlila
-
-![[Pasted image 20221212120046.png]]
-
 
 *52*
 
@@ -1075,8 +1016,6 @@ Locate the "Log4j" attack starting phase. What is the packet number?
 http.request.method == "POST"
 
 jndi , found packet 444
-![[Pasted image 20221212120436.png]]
-
 
 *444*
   
@@ -1164,8 +1103,6 @@ Detecting suspicious activities in chunked files is easy and a great way to lear
 
 Answer the questions below
 
-![[Pasted image 20221212122312.png]]
-
 ```
 
 CLIENT_HANDSHAKE_TRAFFIC_SECRET f35fff3ca92d297cb03a5f158d65286c7afdd583e6392a84b13a9f7ac431a222 f4ce2a326ffa83c7c1f1fc00e142471438547a951cd6e383f6492a0aa386fcf8
@@ -1176,20 +1113,13 @@ CLIENT_TRAFFIC_SECRET_0 56fe125f02c940b756b92628f605a330585ef28f780514d680ed8852
 
 ```
 
-
 Use the "Desktop/exercise-pcaps/https/Exercise.pcap" file.  
 
 What is the frame number of the "Client Hello" message sent to "accounts.google.com"?
 "Protocol Details Pane --> TLS --> Handshake Protocol --> Extension: server_name" can help.
-![[Pasted image 20221212122555.png]]
 
 	(http.request or tls.handshake.type==1) and !(ssdp)
 server name and apply as column then look for frame number
-
-
-![[Pasted image 20221212123120.png]]
-
-![[Pasted image 20221212123212.png]]
 
 *16*
 
@@ -1199,17 +1129,11 @@ Import the key file to decrypt the traffic.
 
 http2
 
-![[Pasted image 20221212123404.png]]
-
-
 *115*
 
 Go to Frame 322. What is the authority header of the HTTP2 packet? (Enter the address in defanged format.)
 
 http2
-
-![[Pasted image 20221212123653.png]]
-
 
 *safebrowsing[.]googleapis[.]com*
   
@@ -1314,10 +1238,6 @@ Connection: Keep-Alive
 
 ```
 
-
-![[Pasted image 20221212124442.png]]
-
-
 *FLAG{THM-PACKETMASTER}*
 
 ###  Bonus: Hunt Cleartext Credentials!
@@ -1346,9 +1266,6 @@ Use the "Desktop/exercise-pcaps/bonus/Bonus-exercise.pcap" file.
 What is the packet number of the credentials using "HTTP Basic Auth"?
 "Tools --> Credentials" can help.
 
-![[Pasted image 20221212125251.png]]
-
-
 *237*
 
   
@@ -1357,8 +1274,6 @@ What is the packet number where "empty password" was submitted?
 packet number: show pass and username the same (clicking link)
 
 looking and packet 170 is empty pass, i.e 41 admin:moose,  admin:monica, admin:morley and so on.
-![[Pasted image 20221212125515.png]]
-
 
 *170*
 
@@ -1385,9 +1300,6 @@ Use the "Desktop/exercise-pcaps/bonus/Bonus-exercise.pcap" file.
 Select packet number 99. Create a rule for "IPFirewall (ipfw)". What is the rule for "denying source IPv4 address"?
 "Tools --> Firewall ACL Rules" can help.
 
-![[Pasted image 20221212130250.png]]
-
-
 *add deny ip from 10.121.70.151 to any in*
 
   
@@ -1395,10 +1307,6 @@ Select packet number 231. Create "IPFirewall" rules. What is the rule for "allow
 "Deny" option can help.
 
 untick deny to allow :)
-
-
-![[Pasted image 20221212130603.png]]
-
 
 *add allow MAC 00:d0:59:aa:af:80 any in*
 
@@ -1417,7 +1325,5 @@ Wireshark is a good tool for starting a network security investigation. However,
 -   [**Zeek**](https://tryhackme.com/room/zeekbro)
 -   [**Zeek Exercises**](https://tryhackme.com/room/zeekbroexercises)
 -   [**Brim**](https://tryhackme.com/room/brim)
-
-
 
 [[Brim]]

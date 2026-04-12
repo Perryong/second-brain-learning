@@ -140,7 +140,6 @@ search 185.10.68.235
 
 defanging ips 185[.]10[.]68[.]235,192[.]36[.]27[.]92
 
-
 filename
 filter.msi   from 185.10.68.235
 
@@ -164,14 +163,11 @@ Never null or empty.RegistryPrimary key, non-localized token.RootThe predefined 
 
 C:\ProgramData\Local\Google\rebol-view-278-3-1.exe,C:\ProgramData\Local\Google\exemple.rb
 
-
 ```
 
 What was the alert signature for **Malware Command and Control Activity Detected**?
 
 Brim
-
-![[Pasted image 20230413115321.png]]
 
 *ET MALWARE MirrorBlast CnC Activity M3*
 
@@ -205,21 +201,15 @@ Do a search in VirusTotal for the domain from question 4. What was the majority 
 
 Check Relations
 
-![[Pasted image 20230413120939.png]]
-
 *Windows Installer*
 
 Inspect the web traffic for the flagged IP address; what is the **user-agent** in the traffic?
-
-![[Pasted image 20230413121816.png]]
 
 *REBOL View 2.7.8.3.1*
 
 Retrace the attack; there were multiple IP addresses associated with this attack. What were two other IP addresses? Enter the IP addressed **defanged** and in numerical order. (**format: IPADDR,IPADDR**)
 
 Brim (HTTP logs) & VT (Community tab) can help you here. Cyberchef can defang.
-
-![[Pasted image 20230413124247.png]]
 
 	*185[.]10[.]68[.]235,192[.]36[.]27[.]92*
 
@@ -233,15 +223,11 @@ Inspect the traffic for the first downloaded file from the previous question. Tw
 
 Inspect the streams.
 
-![[Pasted image 20230413130820.png]]
-
 	*C:\ProgramData\001\arab.bin,C:\ProgramData\001\arab.exe*
 
 	Now do the same and inspect the traffic from the second downloaded file. Two files will be saved to the same directory. What is the full file path of the directory and the name of the two files? (format: C:\path\file.xyz,C:\path\file.xyz)
 
 Inspect the streams.
-
-![[Pasted image 20230413132148.png]]
 
 	*C:\ProgramData\Local\Google\rebol-view-278-3-1.exe,C:\ProgramData\Local\Google\exemple.rb*
 

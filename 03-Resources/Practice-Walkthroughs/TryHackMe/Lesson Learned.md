@@ -68,13 +68,8 @@ test' union select null-- -
 The username check solely verifies the presence of a single row resulting from the query. With the remaining portion of the query commented out, the password check is absent as well. Since UNION makes no sense in a DELETE statement, it got skipped too.
 ```
 
-![[Pasted image 20230829211658.png]]
-![[Pasted image 20230901095237.png]]
-
 What's the flag?
 
 *THM{aab02c6b76bb752456a54c80c2d6fb1e}*
-
-
 
 [[Windows Reversing Intro]]

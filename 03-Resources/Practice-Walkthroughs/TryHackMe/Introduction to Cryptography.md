@@ -65,7 +65,6 @@ You can guess that it is a quote. Who said it?
 
 Use quipqiup
 
-
 “Today is victory over yourself of yesterday; tomorrow is your victory over lesser men.” Miyamoto Musashi
 
 *Miyamoto Musashi*
@@ -286,7 +285,6 @@ In the example, the binary representation of the hexadecimal values is used to p
 --------- (XOR)
 22 (ciphertext in binary: 0001 0010)
 
-
 After the XOR operation, the binary result is converted back to hexadecimal to get the final ciphertext. The binary value `0011 0100` is equivalent to the hexadecimal value `34`, and the binary value `0001 0010` is equivalent to the hexadecimal value `22`.
 
 ```
@@ -319,7 +317,6 @@ quote01.txt.gpg  quote02  quote03.txt.gpg
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task02]
 └─$ ls
 msg.txt  quote01.txt.gpg  quote02  quote03.txt.gpg
-
 
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task02]
 └─$ gpg --symmetric --cipher-algo AES256 msg.txt    
@@ -390,8 +387,6 @@ Miyamoto Musashi
 
 ```
 
-![[Pasted image 20230213152033.png]]
-
 Decrypt the file `quote01` encrypted (using AES256) with the key `s!kR3T55` using `gpg`. What is the third word in the file?
 
 *waste*
@@ -403,7 +398,6 @@ Decrypt the file `quote02` encrypted (using AES256-CBC) with the key `s!kR3T
 Decrypt the file `quote03` encrypted (using CAMELLIA256) with the key `s!kR3T55` using `gpg`. What is the third word in the file?
 
 *understand*
-
 
 ### Asymmetric Encryption
 
@@ -584,11 +578,9 @@ So, a 300-digit decimal number would be approximately 1200 bits in size, which i
 
 In general, the number of digits in a decimal representation of an RSA key can be calculated as:
 
-
 `number of digits = (size of key in bits) / (bits per digit)`
 
 where `bits per digit` is typically taken as 4.
-
 
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task03/pkey_and_prkey]
 └─$ openssl genrsa -out private-key.pem 2048
@@ -708,7 +700,6 @@ kn�y�VRo.�`�D�D��&��ck
 └─$ cat decrypted.txt 
 go=d
 
-
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task03]
 └─$ ls
 ciphertext_message  pkey_and_prkey  private-key-bob.pem  public-key-alice.pem  public-key-bob.pem
@@ -720,8 +711,6 @@ ciphertext_message  pkey_and_prkey  private-key-bob.pem  public-key-alice.pem  p
 └─$ cat decrypted.txt 
 "Perception is strong and sight weak. In strategy it is important to see distant things as if they were close and to take a distanced view of close things."
 Miyamoto Musashi
-
-
 
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task03]
 └─$ openssl rsa -in private-key-bob.pem -text -noout
@@ -816,7 +805,6 @@ coefficient:
     56:e7:e2:ff:12:bd:06:c4:0a:a6:f4:36:d1:cf:93:
     a6:d5:75:d3:22:b7:3b:3a
 
-
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task03]
 └─$ cat public-key-alice.pem 
 -----BEGIN PUBLIC KEY-----
@@ -843,7 +831,6 @@ MQIDAQAB
 
 ```
 
-
 On the AttackBox, you can find the directory for this task located at `/root/Rooms/cryptographyintro/task03`; alternatively, you can use the task file from Task 2 to work on your own machine.
 
 Bob has received the file `ciphertext_message` sent to him from Alice. You can find the key you need in the same folder. What is the first word of the original plaintext?
@@ -863,7 +850,6 @@ Take a look at Bob’s private RSA key. What is the last byte of _q_?
 q is prime2. The answer should be two hexadecimal digits.
 
 *27*
-
 
 ### Diffie-Hellman Key Exchange
 
@@ -995,9 +981,7 @@ Generating DH parameters, 2048 bit long safe prime
         59:6c:4f
     G:    2 (0x2)
 
-
 ```
-
 
 On the AttackBox, you can find the directory for this task located at `/root/Rooms/cryptographyintro/task04`; alternatively, you can use the task file from Task 2 to work on your own machine.
 
@@ -1009,9 +993,7 @@ What is the prime number’s last byte (least significant byte)?
 
 The answer is two hexadecimal digits.
 
-
 *4f*
-
 
 ### Hashing
 
@@ -1128,7 +1110,6 @@ For example, the binary number 1101 could be represented as the hexadecimal numb
 98ea6e4f216f2fb4b69fff9b3a44842c38686ca685f3f55dc48c5d3fb1107be4  tst2.txt
 98ea6e4f216f2fb4b69fff9b3a44842c38686ca685f3f55dc48c5d3fb1107be4  tst.txt
 
-
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task05/sha_examples]
 └─$ hexdump tst.txt -C 
 00000000  68 69 0a                                          |hi.|
@@ -1146,7 +1127,6 @@ For example, the binary number 1101 could be represented as the hexadecimal numb
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task05/sha_examples]
 └─$ hmac256 1234 tst.txt
 331253ee0aa2f9c9e4d713c0a93196e4b1b48694d930695990abc7f69682d58f  tst.txt
-
 
 ┌──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task05]
 └─$ sha256sum *
@@ -1213,9 +1193,7 @@ notes: weekly payment
 └─$ hmac256 3RfDFz82 order.txt 
 c7e4de386a09ef970300243a70a444ee2a4ca62413aeaeb7097d43d2c5fac89f  order.txt
 
-
 ```
-
 
 On the AttackBox, you can find the directory for this task located at `/root/Rooms/cryptographyintro/task05`; alternatively, you can use the task file from Task 2 to work on your own machine.
 
@@ -1230,7 +1208,6 @@ Open the file `order.json` and change the amount from `1000` to `9000`. Wha
 Using SHA256 and the key `3RfDFz82`, what is the HMAC of `order.txt`?
 
 *c7e4de386a09ef970300243a70a444ee2a4ca62413aeaeb7097d43d2c5fac89f*
-
 
 ### PKI and SSL/TLS
 
@@ -1369,7 +1346,6 @@ dIkU3P94Gd8kKe4DDrwq/4SQ6R5Mmwh/8hDp13+kYsgrPV2x5RP3LL9ACpo+8W1A
 /4lSbrR/QZFK4f4bjGoElzVtJN/k
 -----END PRIVATE KEY-----
 
-
 ──(witty㉿kali)-[~/Downloads/intro-to-cryptography/task06]
 └─$ openssl x509 -in cert.pem -text
 Certificate:
@@ -1494,11 +1470,7 @@ hSYwmYINgS8/U56I9R3LMBTzQoZ7IUnMCi2pnb1u+9g235J+JxZyX6EDM6kRze6Y
 ROD7se4bgNP9k7cjCL4H
 -----END CERTIFICATE-----
 
-
 ```
-
-
-![[Pasted image 20230213224919.png]]
 
 On the AttackBox, you can find the directory for this task located at `/root/Rooms/cryptographyintro/task06`; alternatively, you can use the task file from Task 2 to work on your own machine.
 
@@ -1511,7 +1483,6 @@ openssl x509 -in cert.pem -text | less
 Till which year is this certificate valid?  
 
 *2039*
-
 
 ### Authenticating with Passwords
 
@@ -1628,6 +1599,5 @@ Answer the questions below
 Make sure you have taken notes of all the concepts and commands covered in this room.
 
 Question Done
-
 
 [[Introduction To Honeypots]]

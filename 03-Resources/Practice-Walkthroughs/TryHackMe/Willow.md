@@ -320,17 +320,11 @@ https://stackoverflow.com/questions/73795935/sign-and-send-pubkey-no-mutual-sign
 └─$ ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i id_willow willow@10.10.140.120
 Enter passphrase for key 'id_willow': 
 
-
-
-
 	"O take me in your arms, love
 	For keen doth the wind blow
 	O take me in your arms, love
 	For bitter is my deep woe."
 		 -The Willow Tree, English Folksong
-
-
-
 
 willow@willow-tree:~$ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  user.jpg  Videos
@@ -427,9 +421,6 @@ THM{find_a_red_rose_on_the_grave}
 User Flag:  
 
 https://muirlandoracle.co.uk/2020/01/29/rsa-encryption/
-
-![[Pasted image 20230422135442.png]]
-![[Pasted image 20230422141750.png]]
 
 *THM{beneath_the_weeping_willow_tree}*
 

@@ -134,25 +134,17 @@ Brim has 12 premade queries listed under the "Brim" folder. These queries help u
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/05866c647f05235deaad8a9b32dbb454.png)
 
-
 Process the "sample.pcap" file and look at the details of the first DNS log that appear on the dashboard. What is the "qclass_name"?
 You can review the details of the log files by "right-click --> "Open details".
 
-![[Pasted image 20221211104118.png]]
-
 *C_INTERNET*
-
 
 Look at the details of the first NTP log that appear on the dashboard. What is the "duration" value?
 The correlation section provides the duration value.
-![[Pasted image 20221211104332.png]]
 
 *0.005*
 
-
 Look at the details of the STATS packet log that is visible on the dashboard. What is the "reassem_tcp_size"?
-
-![[Pasted image 20221211104457.png]]
 
 *540*
 
@@ -209,13 +201,8 @@ Note: Suricata is an open-source threat detection engine that can act as a rule-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/1fa588a68ed5d635ba8842ff3ecec6ad.png)
 
-
 Investigate the files. What is the name of the detected GIF file?
 Use task4 pcap file.
-
-![[Pasted image 20221211111745.png]]
-
-![[Pasted image 20221211112014.png]]
 
 *cat01_with_hidden_text.gif*
 
@@ -225,17 +212,9 @@ Investigate the conn logfile. What is the number of the identified city names?
 
 	_path=="conn" | cut geo.resp.country_code, geo.resp.region, geo.resp.city | sort geo.resp.city
 
-![[Pasted image 20221211112359.png]]
-
-
 *2*
 
-
 Investigate the Suricata alerts. What is the Signature id of the alert category "Potential Corporate Privacy Violation"?
-
-![[Pasted image 20221211112807.png]]
-
-![[Pasted image 20221211112712.png]]
 
 *2,012,887*
 
@@ -421,7 +400,6 @@ Investigating each alarm category and signature to enhance the threat hunting ac
 
 This concludes our hunt for the given case. Now, repeat this exercise in the attached VM and ask the questions below.
 
-
 What is the name of the file downloaded from the CobaltStrike C2 connection?
 
 ```
@@ -432,7 +410,6 @@ dns count 184 , let's investigate
 hashingold.top -- lasticjugs.top (virustotal)
 
 https://www.virustotal.com/gui/domain/hashingold.top/relations
-
 
 IP
 
@@ -445,7 +422,6 @@ IP
 137.184.221.191
 
 68.183.206.22
-
 
 45.147.228.138 
 
@@ -475,33 +451,18 @@ id.resp_h 443 ---> 328
 
 ```
 
-![[Pasted image 20221211115832.png]]
-
-
-
-![[Pasted image 20221211120109.png]]
-
-![[Pasted image 20221211120403.png]]
-
-![[Pasted image 20221211121249.png]]
-
 *4564.exe*
-
 
 What is the number of CobaltStrike connections using port 443?
 The IP starting with "104" is CobaltStrike.
 
-![[Pasted image 20221211122641.png]]
-
 **
-
 
 There is an additional C2 channel in used the given case. What is the name of the secondary C2 channel?
 	 
 	 event_type=="alert" | cut alert.signature | sort -r | uniq -c | sort -r count
 
 Command and Control (C2) Infrastructure are a set of programs used to communicate with a victim machine. This is comparable to a reverse shell, but is generally more advanced and often communicate via common network protocols, like HTTP, HTTPS and DNS. 
-![[Pasted image 20221211123213.png]]
 
 *IcedID*
 
@@ -571,11 +532,7 @@ Crypto Currency Mining
 
 This concludes our hunt for the given case. Now, repeat this exercise in the attached VM and ask the questions below.
 
-
-
 How many connections used port 19999?
-
-![[Pasted image 20221211130241.png]]
 
 ```
 id.resp_p==19999 | count() by id.resp_p 
@@ -583,20 +540,15 @@ id.resp_p==19999 | count() by id.resp_p
 
 *22*
 
-
 What is the name of the service used by port 6666?
 
-![[Pasted image 20221211130652.png]]
 ```
 id.resp_p==6666 | cut id.resp_p, service | sort | uniq -c
 ```
 
 *irc*
 
-
 What is the amount of transferred total bytes to "101.201.172.235:8888"?
-
-![[Pasted image 20221211130859.png]]
 
 ```
 _path=="conn" id.resp_p==8888 id.resp_h==101.201.172.235 | put total_bytes := orig_bytes + resp_bytes | sort -r total_bytes | cut uid, id, orig_bytes, resp_bytes, total_bytes
@@ -604,14 +556,9 @@ _path=="conn" id.resp_p==8888 id.resp_h==101.201.172.235 | put total_bytes := or
 
 *3,729*
 
-
-
 What is the detected MITRE tactic id?
 Investigate the alert logs without filter and find the tactic id field.
 MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) 
-
-![[Pasted image 20221211131636.png]]
-
 
 ```
 event_type=="alert" | alert.metadata.mitre_tactic_id
@@ -619,10 +566,7 @@ event_type=="alert" | alert.metadata.mitre_tactic_id
 
 *TA0040*
 
-
 ### Conclusion 
-
-
 
 Congratulations! You just finished the Brim room.
 
@@ -630,7 +574,5 @@ In this room, we covered Brim, what it is, how it operates, and how to use it to
 
 Now, we invite you to complete the Brim challenge room: Masterminds
 https://tryhackme.com/room/mastermindsxlq (I'll do it soon)
-
-
 
 [[Zeek Exercises]]

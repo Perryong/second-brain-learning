@@ -139,7 +139,6 @@ We can try change the id variable to something else like for example 1 to see if
 users
 http://10.129.95.191/cdn-cgi/login/admin.php?content=accounts&id=1
 
-
 Indeed we got an information disclosure vulnerability, which we might be able to abuse. We now know the
 access ID of the admin user thus we can try to change the values in our cookie through the Developer tools
 so the user value to be 34322 and role value to be admin . Then we can revisit the Uploads page.
@@ -204,9 +203,7 @@ $port = 1337;       // CHANGE THIS
 
 Repair Management System
 
-
 The file revshell.php has been uploaded.
-
 
 now found where is uploaded
 ┌──(kali㉿kali)-[~/hackthebox]
@@ -360,7 +357,6 @@ robert@oopsie:/var/www/html/cdn-cgi/login$ ls -la /usr/bin/bugtracker && file /u
 -rwsr-xr-- 1 root bugtracker 8792 Jan 25  2020 /usr/bin/bugtracker
 /usr/bin/bugtracker: setuid ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l, for GNU/Linux 3.2.0, BuildID[sha1]=b87543421344c400a95cbbe34bbc885698b52b8d, not stripped
 
-
 Commonly noted as SUID (Set owner User ID), the special permission for the user access
 level has a single function: A file with SUID always executes as the user who owns the
 file, regardless of the user passing the command. If the file owner doesn't have
@@ -403,7 +399,6 @@ Provide Bug ID: 12
 ---------------
 
 cat: /root/reports/12: No such file or directory
-
 
 The tool is accepting user input as a name of the file that will be read using the cat command, however, it
 does not specifies the whole path to file cat and thus we might be able to exploit this.
@@ -471,14 +466,7 @@ more reports
 
 *** reports: directory ***
 
-
 ```
-
-![[Pasted image 20221104192209.png]]
-
-![[Pasted image 20221104192757.png]]
-
-![[Pasted image 20221104192825.png]]
 
 With what kind of tool can intercept web traffic? 
 There is an academy module for this. Also Burp can be considered such a tool.
@@ -508,25 +496,6 @@ Submit user flag
 Submit root flag 
 *af13b0bee69f8a877c3faf667f7beacf*
 
-
 [[Archetype]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [[Archetype]]

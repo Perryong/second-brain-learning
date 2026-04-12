@@ -158,14 +158,12 @@ Warning: Permanently added '10.10.11.217' (ED25519) to the list of known hosts.
 vdaisley@10.10.11.217's password: 
 Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-150-generic x86_64)
 
-
 Expanded Security Maintenance for Applications is not enabled.
 
 0 updates can be applied immediately.
 
 Enable ESM Apps to receive additional future security updates.
 See https://ubuntu.com/esm or run: sudo pro status
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -198,7 +196,6 @@ pspy64               100%[====================>]   2.96M   425KB/s    in 9.5s
 vdaisley@topology:/tmp$ chmod +x pspy64
 vdaisley@topology:/tmp$ ./pspy64
 pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -641,10 +638,6 @@ root.txt
 bash-5.0# cat root.txt
 3f61e9249baa17527ddd449996848178
 
-
 ```
-
-
-![[Pasted image 20230722175827.png]]
 
 [[Pilgrimage]]

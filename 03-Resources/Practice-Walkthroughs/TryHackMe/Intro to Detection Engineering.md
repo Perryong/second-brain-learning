@@ -363,9 +363,6 @@ THM{Sup3r-D3t3ct1v3}
 
 What is the flag?
 
-![[Pasted image 20230806172549.png]]
-
 *THM{Sup3r-D3t3ct1v3}*
-
 
 [[Hamlet]]

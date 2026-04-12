@@ -18,12 +18,9 @@ Deploy the machine attached to this task; it will be visible in the split-screen
 
 If you don't see a virtual machine load then click the Show Split View button.
 
-
 ```
 go to show split view / open challenge.eml with Thunderbird email
 ```
-
-![[Pasted image 20220926205543.png]]
 
 ![](https://www.cyb3rm3.com/web/image/832-e6b981a8/2022-01-01%2016_48_39-TryHackMe%20_%20Phishing%20Emails%205.png)
 
@@ -48,7 +45,6 @@ Received: from hwsrv-737338.hostwindsdns.com ([192.119.71.157]:51810 helo=mutawa
 	by sub.redacted.com with esmtp (Exim 4.80)
 	(envelope-from <info@mutawamarine.com>)
 
-
 ```
 What is the Originating IP?
 The answer is NOT in X-Originating-Ip
@@ -64,9 +60,7 @@ ASN	54290 - HOSTWINDS
 ISP	Hostwinds LLC.
 Connection	Hosting
 
-
 ```
-![[Pasted image 20220926210746.png]]
 
 Who is the owner of the Originating IP? (Do not include the "." in your answer.)
  Perform a WHOIS lookup for the name of the organization
@@ -79,9 +73,7 @@ enter domain
 mutawamarine.com
 survey domain
 
-
 ```
-![[Pasted image 20220926211224.png]]
 
 What is the SPF record for the Return-Path domain?
 *v=spf1 include:spf.protection.outlook.com -all*
@@ -94,7 +86,6 @@ survey domain
 v=DMARC1; p=quarantine; fo=1
 ```
 
-
 What is the DMARC record for the Return-Path domain?
 *v=DMARC1; p=quarantine; fo=1*
 
@@ -106,17 +97,10 @@ What is the name of the attachment?
 What is the SHA256 hash of the file attachment?
 *2e91c533615a9bb8929ac4bb76707b2444597ce063d84a4b33525e25074fff3f*
 
-![[Pasted image 20220926213222.png]]
-
 What is the attachments file size? (Don't forget to add "KB" to your answer, NUM KB)
 Don't go by the Linux file properties. Obtain the file hash and use an Open Source resource to help you with this.
 
-
-
 What is the actual file extension of the attachment?
 *rar*
-
-
-
 
 [[NIS - Linux Part I]]

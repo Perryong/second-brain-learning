@@ -205,19 +205,16 @@ import sqlite3
 import os
 import subprocess
 
-
 app = flask.Flask(__name__)
 cors = CORS(app)
 app.config["DEBUG"] = True
 app.config['CORS_HEADERS'] = 'Content-Type'
-
 
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
         d[col[0]] = row[idx]
     return d
-
 
 @app.route('/', methods=['GET'])
 def home():
@@ -251,7 +248,6 @@ def robots():
     return '''<p>User-agent: *<br><br>
 Disallow: /api </p> '''
 
-
 @app.route('/api/v1/resources/books/all', methods=['GET'])
 def api_all():
     conn = sqlite3.connect('books.db')
@@ -279,8 +275,6 @@ def api_random10():
 
     return jsonify(all_books)
 
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return '''<h1>404</h1>
@@ -293,7 +287,6 @@ def api_filterv2():
     id = query_parameters.get('id')
     published = query_parameters.get('published')
     author = query_parameters.get('author')
-
 
     query = "SELECT * FROM books WHERE"
     to_filter = []
@@ -320,7 +313,6 @@ def api_filterv2():
     results = cur.execute(query, to_filter).fetchall()
 
     return jsonify(results)
-
 
 @app.route('/api/v1/resources/books', methods=['GET'])
 def api_filter():
@@ -483,13 +475,7 @@ python3 /home/sid/api.py
 ls
 exit
 
-
-
 ```
-
-![[Pasted image 20230416113822.png]]
-
-![[Pasted image 20230416120917.png]]
 
 User flag  
 

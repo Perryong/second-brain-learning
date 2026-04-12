@@ -27,8 +27,6 @@ For example, an attacker scanning, exploiting a web vulnerability, and escalatin
 
 The objective is to understand an attacker's “Kill Chain” so that defensive measures can be put in place to either pre-emptively protect a system or disrupt an attacker's attempt.
 
-
-
 Where does the term "Kill Chain" originate from?
 
 For this answer, you must fill in the blank!: The ********
@@ -45,7 +43,6 @@ Threat modelling, in a cybersecurity context, is a series of steps to ultimately
     Putting in policies to prevent these vulnerabilities from occurring again where possible (for example, implementing a software development life cycle (SDLC) for an application or training employees on phishing awareness).
 
 ![|20](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/96f485220105920a6abec46dc88a118f.png)
-
 
 Threat modelling is an important procedure in reducing the risk within a system or application, as it creates a high-level overview of an organisation's IT assets (an asset in IT is a piece of software or hardware) and the procedures to resolve vulnerabilities.
 
@@ -65,7 +62,6 @@ The UKC states that there are 18 phases to an attack: Everything from reconnaiss
 
 Some large benefits of the UKC over traditional cybersecurity kill chain frameworks include the fact that it is modern and extremely detailed (reminder: it has 18 phases officially, whereas other frameworks may have a small handful)
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/6cdfd3aba41ee1b942b5a1537a1dc1ad.png)
 
 Benefits of the Unified Kill Chain (UKC) Framework	How do Other Frameworks Compare?
@@ -78,24 +74,17 @@ The UKC covers an entire attack - from reconnaissance, exploitation, post-exploi
 The UKC highlights a much more realistic attack scenario. Various stages will often re-occur. For example, after exploiting a machine, an attacker will begin reconnaissance to pivot another system.
 	Other frameworks do not account for the fact that an attacker will go back and forth between the various phases during an attack.
 
-
 In what year was the Unified Kill Chain framework released?
 *2017*
 
-
-
 According to the Unified Kill Chain, how many phases are there to an attack?
 *18*
-
-
 
 What is the name of the attack phase where an attacker employs techniques to evade detection?
 *Defense Evasion*
 
 What is the name of the attack phase where an attacker employs techniques to remove data from a network?
 *Exfiltration*
-
-
 
 What is the name of the attack phase where an attacker achieves their objectives?
 This is the end goal. For example, the attacker has managed to steal and sell data from an organisation.
@@ -110,7 +99,6 @@ The main focus of this series of phases is for an attacker to gain access to a s
 An attacker will employ numerous tactics to investigate the system for potential vulnerabilities that can be exploited to gain a foothold in the system. For example, a common tactic is the use of reconnaissance against a system to discover potential attack vectors (such as applications and services).
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/29841835d5aad57c0b5901ef1e6aca3e.png)
-
 
 Attackers employ all kinds of tactics in this stage to initiate a foothold, including:
 
@@ -189,12 +177,8 @@ Pivoting ([MITRE Tactic TA0008](https://attack.mitre.org/tactics/TA0008/))
 
 For example, an adversary can gain access to a web server that is publically accessible to attack other systems that are within the same network (but are not accessible via the internet).
 
-
-
 What is an example of a tactic to gain a foothold using emails?
 *Phishing*
-
-
 
 Impersonating an employee to request a password reset is a form of what?
 *Social Engineering*
@@ -202,15 +186,11 @@ Impersonating an employee to request a password reset is a form of what?
 An adversary setting up the Command & Control server infrastructure is what phase of the Unified Kill Chain?
 *Weaponization*
 
-
 Exploiting a vulnerability present on a system is what phase of the Unified Kill Chain?
 *Exploitation*
 
-
-
 Moving from one system to another is an example of?
 *Pivoting*
-
 
 Leaving behind a malicious service that allows the adversary to log back into the target is what?
 *Persistence*
@@ -219,11 +199,9 @@ Leaving behind a malicious service that allows the adversary to log back into th
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/41bd276389fe87a9fb10298a1742656e.png)
 
-
 This phase follows a successful foothold being established on the target network. An attacker would seek to gain additional access and privileges to systems and data to fulfil their goals. The attacker would set up a base on one of the systems to act as their pivot point and use it to gather information about the internal network.
 
 ![](https://assets.tryhackme.com/additional/unified-kill-chain/network-prop.png)
-
 
 Pivoting (MITRE Tactic TA0008)
 
@@ -253,8 +231,6 @@ With the credentials and elevated privileges, the adversary would seek to move t
  As a SOC analyst, you pick up numerous alerts pointing to failed login attempts from an administrator account. What stage of the kill chain would an attacker be seeking to achieve? 
  *privilege Scalation*
 
-
-
 Mimikatz, a known attack tool, was detected running on the IT Manager's computer. What is the mission of the tool?
 *credential dumping*
 
@@ -262,11 +238,9 @@ Mimikatz, a known attack tool, was detected running on the IT Manager's computer
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/8750a3a313da34ea609c2135722300b1.png)
 
-
 This phase wraps up the journey of an adversary’s attack on an environment, where they have critical asset access and can fulfil their attack goals. These goals are usually geared toward compromising the confidentiality, integrity and availability (CIA) triad.
 
 ![](https://assets.tryhackme.com/additional/unified-kill-chain/action-on-objectives.png)
-
 
 The tactics to be deployed by an attacker would include:
 Collection (MITRE Tactic [TA0009](https://attack.mitre.org/tactics/TA0009/))
@@ -284,8 +258,6 @@ With all the power and access to the systems and network, the adversary would se
 
 For example, if the attack was financially motivated, they may seek to encrypt files and systems with ransomware and ask for payment to release the data. In other instances, the attacker may seek to damage the reputation of the business, and they would release private and confidential information to the public.
 
-
-
 While monitoring the network as a SOC analyst, you realise that there is a spike in the network activity, and all the traffic is outbound to an unknown IP address. What stage could describe this activity?
 *Exfiltration*
 
@@ -296,10 +268,8 @@ Personally identifiable information (PII) has been released to the public by an 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/c21cdbba286bb60fe09f43c5901edbd4.png)
 
-
 Deploy the static site attached to the task. You will need to match the various actions of an attacker to the correct phase of the Unified Kill Chain framework to reveal the flag.
 
-![[Pasted image 20221018140854.png]]
 ```
 reconnaissance
 persistence
@@ -307,15 +277,6 @@ Command and Control
 pivoting
 Action and Objectives
 ```
-
-![[Pasted image 20221018140942.png]]
-![[Pasted image 20221018141026.png]]
-
-![[Pasted image 20221018141055.png]]
-
-![[Pasted image 20221018141125.png]]
-
-![[Pasted image 20221018141223.png]]
 
 Match the scenario prompt to the correct phase of the Unified Kill Chain to reveal the flag at the end. What is the flag?
 *THM{UKC_SCENARIO}*
@@ -329,7 +290,5 @@ As mentioned in this room, the UKC is a modern extension of other frameworks, su
     Principles of Security
     Pentesting Fundamentals https://tryhackme.com/room/pentestingfundamentals
     Cyber Kill Chain
-
-
 
 [[Cyber Kill Chain]]

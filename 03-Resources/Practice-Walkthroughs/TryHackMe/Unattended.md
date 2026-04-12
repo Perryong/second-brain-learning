@@ -81,23 +81,15 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
 
 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
 
-
-
-
 ```
-
 
 What file type was searched for using the search bar in Windows Explorer?
 
 Use the RegistryExplorer tool to check the "Windows Explorer Address/Search Bars" task in Windows Forensics 1 room.
 
-![[Pasted image 20230430155452.png]]
-
 *.pdf*
 
 What top-secret keyword was searched for using the search bar in Windows Explorer?  
-
-![[Pasted image 20230430155425.png]]
 
 *continental*
 
@@ -120,14 +112,9 @@ select data source type : logical files
 
 ```
 
-
 What is the name of the downloaded file to the Downloads folder?
 
 Use the Autopsy tool to view the "Web Downloads" artifacts.
-
-![[Pasted image 20230430160648.png]]
-
-![[Pasted image 20230430161214.png]]
 
 *7z2201-x64.exe*
 
@@ -138,8 +125,6 @@ When was the file from the previous question downloaded? (YYYY-MM-DD HH:MM:SS U
 Thanks to the previously downloaded file, a PNG file was opened. When was this file opened? (YYYY-MM-DD HH:MM:SS)  
 
 You can filter by file extension via the Registry Explorer tool.
-
-![[Pasted image 20230430161737.png]]
 
 *2022-11-19 12:10:21*
 
@@ -165,7 +150,6 @@ Description:
           JLECmd.exe -d "C:\Users\e\AppData\Roaming\Microsoft\Windows\Recent" --dt "ddd yyyy MM dd HH:mm:ss.fff"
 
           Short options (single letter) are prefixed with a single dash. Long commands are prefixed with two dashes
-
 
 Usage:
   JLECmd [options]
@@ -215,8 +199,6 @@ Entry #: 1
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\\
 
-
-
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\12dc1ea8e34b5a6.automaticDestinations-ms in 0.98806850 seconds ----------
 
 Processing C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\28c8b86deab549a1.automaticDestinations-ms
@@ -245,8 +227,6 @@ Entry #: 1
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Desktop\
-
-
 
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\28c8b86deab549a1.automaticDestinations-ms in 0.02864250 seconds ----------
 
@@ -277,8 +257,6 @@ Entry #: 1
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Desktop\
 
-
-
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\5d696d521de238c3.automaticDestinations-ms in 0.02968200 seconds ----------
 
 Processing C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\5f7b5f1e01b83767.automaticDestinations-ms
@@ -308,7 +286,6 @@ Entry #: 8
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\\\\\
 
-
 Entry #: 7
   MRU: 1
   Path: C:\Users\THM-RFedora\Downloads\RegistryExplorer.zip
@@ -321,7 +298,6 @@ Entry #: 7
 
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\
-
 
 Entry #: 6
   MRU: 2
@@ -336,7 +312,6 @@ Entry #: 6
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\
 
-
 Entry #: 4
   MRU: 3
   Path: C:\Program Files (x86)\Windows Media Player\Skins\tophatsecret\continental.png
@@ -350,7 +325,6 @@ Entry #: 4
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\\
 
-
 Entry #: 3
   MRU: 4
   Path: C:\Users\THM-RFedora\Desktop\WelcomeLetter.pdf
@@ -363,7 +337,6 @@ Entry #: 3
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Desktop\
-
 
 Entry #: 2
   MRU: 5
@@ -406,8 +379,6 @@ Entry #: 1
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Desktop\
-
-
 
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\9b9cdc69c1c24e2b.automaticDestinations-ms in 0.02990890 seconds ----------
 
@@ -459,7 +430,6 @@ Entry #: 1
 --- Lnk information ---
   Absolute path: My Computer\Desktop
 
-
 Entry #: 11
   MRU: 1
   Path: C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora
@@ -472,7 +442,6 @@ Entry #: 11
 
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\\\\
-
 
 Entry #: 10
   MRU: 2
@@ -487,7 +456,6 @@ Entry #: 10
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Downloads\\
 
-
 Entry #: 9
   MRU: 3
   Path: C:\Users\THM-RFedora\Downloads\RegistryExplorer
@@ -500,7 +468,6 @@ Entry #: 9
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Downloads\
-
 
 Entry #: 8
   MRU: 4
@@ -515,7 +482,6 @@ Entry #: 8
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Downloads\\
 
-
 Entry #: 7
   MRU: 5
   Path: C:\Users\THM-RFedora\Downloads\kape
@@ -528,7 +494,6 @@ Entry #: 7
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Downloads\
-
 
 Entry #: 5
   MRU: 6
@@ -543,7 +508,6 @@ Entry #: 5
 --- Lnk information ---
   Absolute path: My Computer\C:\\\\
 
-
 Entry #: 6
   MRU: 7
   Path: C:\Program Files (x86)\Windows Media Player\Skins
@@ -556,7 +520,6 @@ Entry #: 6
 
 --- Lnk information ---
   Absolute path: My Computer\C:\\\
-
 
 Entry #: 2
   MRU: 8
@@ -571,7 +534,6 @@ Entry #: 2
 --- Lnk information ---
   Absolute path: My Computer\Documents
 
-
 Entry #: 4
   MRU: 9
   Path: knownfolder:{33E28130-4E1E-4676-835A-98395C3BC3BB} ==> Pictures
@@ -585,7 +547,6 @@ Entry #: 4
 --- Lnk information ---
   Absolute path: My Computer\Pictures
 
-
 Entry #: 3
   MRU: 10
   Path: knownfolder:{374DE290-123F-4565-9164-39C4925E467B} ==> Downloads
@@ -598,8 +559,6 @@ Entry #: 3
 
 --- Lnk information ---
   Absolute path: My Computer\Downloads
-
-
 
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\f01b4d95cf55d32a.automaticDestinations-ms in 0.18639720 seconds ----------
 
@@ -629,8 +588,6 @@ Entry #: 1
 
 --- Lnk information ---
   Absolute path: My Computer\C:\Users\\Desktop\
-
-
 
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\f065ac336abcaa3e.automaticDestinations-ms in 0.05163510 seconds ----------
 
@@ -666,8 +623,6 @@ AppID: 28c8b86deab549a1, Description: Internet Explorer 8.0.7600.16385 / 9
 
   Absolute path: My Computer\C:\Program Files\\
 
-
-
 ---------- Processed C:\Users\THM-RFedora\Desktop\kape-results\C\Users\THM-RFedora\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations\28c8b86deab549a1.customDestinations-ms in 0.04525510 seconds ----------
 
 Processed 8 out of 9 files in 2.1438 seconds
@@ -692,10 +647,7 @@ https://pastebin.com/1FQASAav
 
 ```
 
-
 A text file was created in the Desktop folder. How many times was this file opened?
-
-![[Pasted image 20230430163125.png]]
 
 *2*
 
@@ -705,13 +657,9 @@ When was the text file from the previous question last modified? (MM/DD/YYYY HH
 
 The contents of the file were exfiltrated to pastebin.com. What is the generated URL of the exfiltrated data?  
 
-![[Pasted image 20230430163425.png]]
-
 	*https://pastebin.com/1fqasaav *
 
 What is the string that was copied to the pastebin URL?  
-
-![[Pasted image 20230430163653.png]]
 
 *ne7AIRhi3PdESy9RnOrN*
 
@@ -728,6 +676,5 @@ Answer the questions below
 Let's see if you can handle the next one.
 
 Question Done
-
 
 [[Olympus]]

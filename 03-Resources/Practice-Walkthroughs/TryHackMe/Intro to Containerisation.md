@@ -107,7 +107,6 @@ What is the abbreviation of the programming syntax language that Docker uses?
 
 *YAML*
 
-
 ### The History of Docker
 
 Originally created by Solomon Hykes in 2013, Docker is open-source and has become a well-renowned name within containerisation.
@@ -230,7 +229,6 @@ Read me!
 
  Completed
 
-
 ###  How does Containerisation Work?
 
 ![a picture of three gears/cogs to depict mechanical action](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/336f43a18c62d68334e86abb4cf6acb9.png)
@@ -273,12 +271,5 @@ Answer the questions below
 Containerise the applications in the static site. What is the flag? 
 
 *THM{APPLICATION_SHIPPED}*
-
-![[Pasted image 20230208112845.png]]
-![[Pasted image 20230208113123.png]]
-
-
-
-
 
 [[Holo]]

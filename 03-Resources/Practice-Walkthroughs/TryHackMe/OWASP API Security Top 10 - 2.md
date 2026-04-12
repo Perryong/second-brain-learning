@@ -93,7 +93,6 @@ end
 person = Person.new(name: "John", age: 30, gender: "male")
 person.save
 
-
 In this example, we have a `Person` model with `name`, `age`, and `gender` attributes. The `attr_accessible` line specifies which attributes can be mass-assigned. In the last line, we use the new method to create a new person, passing in a hash of attribute values, which sets the `name`, `age`, and `gender` attributes all at once.
 
 This is a very simple example, but in real-world application, you may want to be more careful and make sure the data passed in is sanitized and in the right format.
@@ -128,8 +127,6 @@ http://127.0.0.1/MHT/apirule6/user_s
 }
 
 ```
-
-![[Pasted image 20230125115731.png]]
 
 Is it a good practice to blindly insert/update user-provided data in the database (yea/nay)?
 
@@ -217,7 +214,6 @@ app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
 
-
 In this example, the server is allowing the origin "[http://example.com](http://example.com/)" to access its resources, and responding to the `GET` method, allowing the headers "Content-Type" as well. You will need to check the documentation of the framework you are using to know how to set CORS headers.
 
 CORS is a simple concept to understand but the implementation can be a bit more complex depending on the specific use case.
@@ -245,7 +241,6 @@ def factorial(n):
         return n * factorial(n-1)
 
 print(factorial(5)) # Output: 120
-
 
 And an example of a code snippet written in JavaScript that logs the current date and time:
 
@@ -312,9 +307,7 @@ Request Body
 
 Response 500 (Internal Server Error)
 
-
 ```
-
 
 Is it an excellent approach to show error logs from the stack trace to general visitors (yea/nay)?
 
@@ -331,7 +324,6 @@ What is the HTTP response code?
 What is the Error ID number in the HTTP response message?
 
 *1401*
-
 
 ### Vulnerability VIII - Injection
 
@@ -510,9 +502,7 @@ Request Body
 "username": "alice"
 }
 
-
 ```
-
 
 Is it good practice to host all APIs on the same server (yea/nay)?
 
@@ -596,7 +586,5 @@ Phew. That was simple. It would be correct to say that over **half of OWASP AP
 In a nutshell, API developers must **safeguard APIs in line with best cyber security practices**. The modules like sign-in, role-based access, user profile setting etc., must be given more importance as malicious actors tend to target known endpoints for gaining access to the system.
 
 Stay tuned! And keep developing secure APIs.
-
-
 
 [[Temple]]

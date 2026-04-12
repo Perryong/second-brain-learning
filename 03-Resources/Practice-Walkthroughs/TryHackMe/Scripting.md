@@ -21,7 +21,6 @@ download the task 30 mb b64 encoded 50 times
 
 with cyberchef takes a lot time ... so create a python script
 
-
 ┌──(kali㉿kali)-[~/scripting]
 └─$ nano b64.py   
                                                                                      
@@ -43,15 +42,10 @@ print(f"Th flag is: {msg.decode('utf8')}")
 └─$ python3 b64.py
 Th flag is: HackBack2019=
 
-
-
 ```
-
-![[Pasted image 20221026121914.png]]
 
 What is the final string?
 *HackBack2019=*
-
 
 ###  [Medium] Gotta Catch em All 
 
@@ -75,9 +69,6 @@ General Approach(it's best to do this using the sockets library in Python):
     Connect to the port 
     Send an operation
     View response and continue
-
-
-![[Pasted image 20221026123721.png]]
 
 ```
 ┌──(kali㉿kali)-[~/Downloads]
@@ -171,7 +162,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 20.30 seconds
 
-
 go to ip:3010 to see currently port
 
 ┌──(kali㉿kali)-[~/scripting]
@@ -249,8 +239,6 @@ def assignData(data):
 if __name__ == '__main__':
         Main()
 
-
-
                                                                   
 ┌──(kali㉿kali)-[~/scripting]
 └─$ python3 webClient.py 10.10.174.84
@@ -324,8 +312,6 @@ Current number is 344769.12000000005, moving onto port 9765
 The final answer is 344769.12
                                       
 
-
-
 ```
 
 Once you have done all operations, what number do you get (rounded to 2 decimal places at the end of your calculation)?
@@ -345,8 +331,6 @@ Use this general approach(use Python3 here as well):
 
     Use the Python sockets library to create a UDP socket and send the aforementioned packets to the server
     use the PyCA encyption library and follow the instructions from the server
-
-
 
 What is the flag?
 Are some of the tags intentionally corrupted.
@@ -461,8 +445,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 18.76 seconds
 
-
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ cat server_chit_chat.py 
 import socket
@@ -526,16 +508,12 @@ def decrypt(key, iv, cText, tag):
 if __name__ == '__main__':
     Main()
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ python3 server_chit_chat.py 10.10.166.103
 b"You've connected to the super secret server, send a packet with the payload ready to receive more information"
 b"key:thisisaverysecretkeyl337 iv:secureivl337 to decrypt and find the flag that has a SHA256 checksum of ]w\xf0\x18\xd2\xbfwx`T\x86U\xd8Ms\x82\xdc'\xd6\xce\x81n\xdeh\xf6]rb\x14c\xd9\xda send final in the next payload to receive all the encrypted flags"
 The flag is: b'THM{eW-sCrIpTiNg-AnD-cRyPtO}'
 
-
 ```
-
-
 
 [[The Docker Rodeo]]

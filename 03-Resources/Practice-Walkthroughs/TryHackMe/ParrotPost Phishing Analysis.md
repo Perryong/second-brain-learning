@@ -90,7 +90,6 @@ Answer the questions below
 ```
 root@ip-10-10-14-173:~/Rooms/ParrotPost# subl URGENTParrotPostAccountUpdateRequired.eml
 
-
 https://mxtoolbox.com/Public/Tools/EmailHeaders.aspx?huid=a53d8e12-e10a-48cd-8af4-fee867c7711f
 
 |Header Name|Header Value|
@@ -132,7 +131,6 @@ https://www.iplocation.net/ip-lookup
 ![](https://www.iplocation.net/assets/img/icons/latitude.png)LATITUDE:56.96113
 
 ![](https://www.iplocation.net/assets/img/icons/longitude.png)LONGITUDE:24.13235
-
 
 ```
 
@@ -537,7 +535,6 @@ button{
 }
 </style>
 
-
 ```
 
 *CSS Beautify*
@@ -670,9 +667,7 @@ http://evilparrot.thm:8080/creds.txt
 2023-08-08 01:21:55 - Email Address: 'test@test.com', Password: 'test'
 2023-08-08 01:23:08 - Email Address: 'test@test.com', Password: 'test'
 
-
 ```
-![[Pasted image 20230807202545.png]]
 
 What is the flag you receive after sending fake credentials to the /cred-capture.php endpoint?  
 
@@ -703,7 +698,5 @@ not taken Registrar Abuse Contact Email: abuse@NameBright.com
 Walkthrough complete!  
 
  Completed
-
-
 
 [[OWASP Broken Access Control]]

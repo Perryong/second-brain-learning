@@ -33,7 +33,6 @@ Illustrated below is an example of an Android Application containing sensitive c
 
 Time for a bit of research to solve the questions below!
 
-
 What is the name of the account that had the passcode of "12345678" in the intellian example discussed above?
 *Intellian* [intellian](https://www.manualslib.com/manual/1243320/Intellian-V60g.html?page=45)
 ![](https://www.manualslib.com/manual/1243320/Intellian-V60g.html?page=45)
@@ -100,8 +99,6 @@ A famous example is the "Wannacry" ransomware. The "killswitch" was a domain tha
 
 As we will later come on to discover, building a picture of the various stages a piece of malware proceeds through is essential to prevent further infection. Information such as who the software communicates to I.e. IP Addresses such as in the case of a botnet, or the payment address in the instances of ransomware is prevalent in building this picture.
 
-
-
 What is the key term to describe a server that Botnets recieve instructions from?
 *Command and Control*  (Command and Conquer Video Game)
 
@@ -113,7 +110,6 @@ What is Bitcoin?
 
 At a brief overview, Bitcoin is an "anonymous" online payment currency in the sense that there is no direct attribution between the sender and recipient. Authors of ransomware use this currency because of this trait - however, just because there is no attribution such as real names like traditional payment methods, it is traceable by Law Enforcement (albeit difficult).
 
-
 For example, Wannacry uses Bitcoin as the payment method for the decryption of files. Bitcoin uses virtual wallets, similar to a MAC address of a network interface card. MuirlandOracle explains the concept of MAC addresses in his Introductory: Networking room, these wallets have addresses who are unique.
 
 I.e. The Bitcoin address used by the authors of Wannacry was 13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94 [wannacry_bitcoin](https://live.blockcypher.com/btc/address/13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94/)
@@ -121,7 +117,6 @@ I.e. The Bitcoin address used by the authors of Wannacry was 13AM4VW2dhxYgXeQepo
 ![](https://i.imgur.com/i6m7GOI.png)
 
 In this case, the previously mentioned Bitcoin address used for Wannacry has to-date received over 20BTC (Bitcoins) from victims, which translates into over just over £158k (as of 06/04/2020).
-
 
 You can use a website such as BlockCypher to explore the Bitcoin network and transactions between wallets.
 
@@ -134,7 +129,6 @@ You need to perform a few prerequisites before you can complete this task, the s
     Deploy the VM attached to this room and wait a couple of minutes for it to deploy. In the interim, ensure you are connected to TryHackMe via OpenVPN to RDP into the machine using the details below, or alternatively, control the instance in-browser at the top of the web page!
     Open the "Sysinternals" folder located on the Desktop to proceed
 
-
 To login to the instance via RDP:
 
 MACHINE_IP
@@ -145,26 +139,20 @@ Password: tryhackme123!
 
 Domain: malstrings
 
-
 Before using the "strings" tool provided with Sysinternals, we need to accept the license agreement first. You can do this by launching the executable through the command prompt and press "Agree" on the popup dialogue box.
 
 ![](https://i.imgur.com/O6A2Ais.png)
-
 
 With this license accepted, we can now use this tool to extract the "strings" contained within the ComplexCalculatorv2.exe with the following syntax: strings.exe ComplexCalculatorv2.exe > strings.txt    
 
 ![](https://i.imgur.com/XqwKQJW.png)
 
-
 Now open up the text file created from the syntax we just entered with a text editor such as Notepad, where you will find the answer to solve Question #2.
-
 
 List the number of total transactions that the Bitcoin wallet used by the "Wannacry" author(s) *143*
 
 What is the Bitcoin Address stored within "ComplexCalculator.exe"
 *1LVB65imeojrgC3JPZGBwWhK1BdVZ2vYNC*
-
-![[Pasted image 20220828192633.png]]
 
 ###  Summary 
 
@@ -182,8 +170,6 @@ Finally, we discussed how malware variants such as ransomware rely upon "strings
 
 I hope you enjoyed the practical side and remember the tools available to you to extract these "strings" for use later on within the series!
 
-
-
 What is the name of the toolset provided by Microsoft that allows you to extract the "strings" of an application?
 *sysinternals*
 
@@ -192,6 +178,5 @@ What operator would you use to "pipe" or store the output of the strings command
 
 What is the name of the currency that ransomware often uses for payment?
 *Bitcoin*
-
 
 [[MISP]]

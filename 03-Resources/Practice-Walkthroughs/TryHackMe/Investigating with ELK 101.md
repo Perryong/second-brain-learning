@@ -26,7 +26,6 @@ A US-based company **`CyberT`** has been monitoring the VPN logs of the employ
 
 ![image of Kibana Discover tab](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/93bf216574fb435bef51b890a741e4cb.png)
 
-
 ### ElasticStack Overview
 
 **Elastic stack**
@@ -187,8 +186,6 @@ Answer the questions below
 
 Select the index **vpn_connections** and filter from 31st December 2021 to 2nd Feb 2022. How many hits are returned?
 
-![[Pasted image 20221213203917.png]]
-
 *2861*
 
 Which IP address has the max number of connections?
@@ -196,8 +193,6 @@ Which IP address has the max number of connections?
 *238.163.231.224*
 
 Which user is responsible for max traffic?
-
-![[Pasted image 20221213204135.png]]
 
 *James*
 
@@ -207,23 +202,13 @@ Create a table with the fields IP, UserName, Source_Country and save.
 
 Apply Filter on UserName Emanda; which SourceIP has max hits?
 
-![[Pasted image 20221213204313.png]]
-
-
 *107.14.1.247*
 
 On 11th Jan, which IP caused the spike observed in the time chart?
 
-![[Pasted image 20221213204448.png]]
-
-
 *172.201.60.191*
 
 How many connections were observed from IP **238.163.231.224**, excluding the **New York** state?
-
-![[Pasted image 20221213204655.png]]
-
-![[Pasted image 20221213204714.png]]
 
 *48*
 
@@ -312,14 +297,9 @@ Create a search query to filter out the logs from Source_Country as the **Unite
 
 Source_Country : United States    AND     UserName : James or Albert
 
-![[Pasted image 20221213213032.png]]
-
-
 *161*
 
 As User **Johny Brown** was terminated on 1st January 2022, create a search query to determine how many times a VPN connection was observed after his termination.
-
-![[Pasted image 20221213213211.png]]
 
 *1*
 
@@ -366,9 +346,6 @@ We will utilize the knowledge gained above to create a table to display the user
 
 Answer the questions below
 
-![[Pasted image 20221213214611.png]]
-
-
 Which user was observed with the greatest number of failed attempts?
 
 *Simon*
@@ -398,9 +375,6 @@ By now, we have saved a few searches from the Discover tab and created some visu
 
 ![steps to show how to add objects to the dashboard](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/05016a6cc1c12d40b90ce9d290525378.gif)  
 
-![[Pasted image 20221213215044.png]]
-
-
 ### Conclusion
 
 In this room, we briefly explored ELK components and then focused more on the Kibana interface and its features. While exploring Kibana Interface, we learned:
@@ -409,7 +383,5 @@ In this room, we briefly explored ELK components and then focused more on the Ki
 -   Apply filters to narrow down the results.
 -   Create Visualizations and dashboards.
 -   How to investigate VPN logs.
-
-
 
 [[Introduction to SIEM]]

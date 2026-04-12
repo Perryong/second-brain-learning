@@ -32,7 +32,6 @@ I am ready to get started.
 
  Completed
 
-
 ###  Architectural Concepts of Cloud
 
 Characteristics of Cloud   
@@ -110,7 +109,6 @@ Infrastructure as a Service (IaaS), Platform as a Service (PaaS), y Software as 
 
 En resumen, IaaS ofrece acceso a recursos informáticos básicos, PaaS ofrece una plataforma para el desarrollo de aplicaciones, y SaaS ofrece aplicaciones de software completas.
 
-
 ```
 
 In Infrastructure as a Service, what will be deployed by the vendor (Hardware or Software)?
@@ -120,7 +118,6 @@ In Infrastructure as a Service, what will be deployed by the vendor (Hardware or
 What is the type of cloud dedicated to a single customer called?
 
 *Private*
-
 
 ### Cloud Security Concepts
 
@@ -214,8 +211,6 @@ What is the first phase in the cloud data lifecycle?
 
 Click the **View Site** button at the top of the task to launch the static site in split view. What is the flag after completing the exercise?
 
-![[Pasted image 20230303160952.png]]
-![[Pasted image 20230303161118.png]]
 *THM{CLOUD_11101}*
 
 ### Cloud Security Risks Concerning Deployment Models
@@ -380,7 +375,6 @@ By creating and attaching policies to your RDS resources, you can ensure that yo
 I have completed the practical exercise.
 
  Completed
-
 
 ### Security Through Network Management
 
@@ -569,7 +563,5 @@ Answer the questions below
 I have completed the room.
 
  Completed
-
-
 
 [[Eavesdropper]]

@@ -82,13 +82,7 @@ We have already covered four of the above six elements. Let's discuss the remain
     Utility: Utility focuses on the usefulness of the information. For instance, a user might have lost the decryption key to access a laptop with encrypted storage. Although the user still has the laptop with its disk(s) intact, they cannot access them. In other words, although still available, the information is in a form that is not useful, i.e., of no utility.
     Possession: This security element requires that we protect the information from unauthorized taking, copying, or controlling. For instance, an adversary might take a backup drive, meaning we lose possession of the information as long as they have the drive. Alternatively, the adversary might succeed in encrypting our data using ransomware; this also leads to the loss of possession of the data.
 
-
 Click on "View Site" and answer the five questions. What is the flag that you obtained at the end?
-![[Pasted image 20221124075032.png]]
-![[Pasted image 20221124075121.png]]
-![[Pasted image 20221124075149.png]]
-![[Pasted image 20221124075217.png]]
-![[Pasted image 20221124075421.png]]
 
 *THM{CIA_TRIAD}*
 
@@ -114,11 +108,8 @@ Protecting against disclosure, alteration, and destruction/denial is of utter si
 
 Protecting confidentiality and integrity to an extreme can restrict availability, and increasing availability to an extreme can result in losing confidentiality and integrity. Good security principles implementation requires a balance between the three.
 
-
-
 The attacker managed to gain access to customer records and dumped them online. What is this attack?
 *Disclosure*
-
 
 A group of attackers were able to locate both the main and the backup power supply systems and switch them off. As a result, the whole network was shut down. What is this attack?
 *Destruction/Denial*
@@ -173,12 +164,7 @@ We covered only three security models. The reader can explore many additional se
     Graham-Denning model
     Harrison-Ruzzo-Ullman model
 
-
 Click on "View Site" and answer the four questions. What is the flag that you obtained at the end?
-![[Pasted image 20221125105635.png]]
-![[Pasted image 20221125105651.png]]
-![[Pasted image 20221125105714.png]]
-![[Pasted image 20221125105736.png]]
 
 *THM{SECURITY_MODELS}*
 
@@ -191,8 +177,6 @@ Defence-in-Depth refers to creating a security system of multiple levels; hence 
 Consider the following analogy: you have a locked drawer where you keep your important documents and pricey stuff. The drawer is locked; however, do you want this drawer lock to be the only thing standing between a thief and your expensive items? If we think of multi-level security, we would prefer that the drawer be locked, the relevant room be locked, the main door of the apartment be locked, the building gate be locked, and you might even want to throw in a few security cameras along the way. Although these multiple levels of security cannot stop every thief, they would block most of them and slow down the others.
 
 ### ISO/IEC 19249 
-
-
 
 The International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC) have created the ISO/IEC 19249. In this task, we will brush briefly upon ISO/IEC 19249:2017 Information technology - Security techniques - Catalogue of architectural and design principles for secure products, systems and applications. The purpose is to have a better idea of what international organizations would teach regarding security principles.
 
@@ -214,22 +198,16 @@ ISO/IEC 19249 teaches five design principles:
 
 In the following questions, refer to the ISO/IEC 19249 five design principles above. Answer with a number between 1 and 5, depending on the number of the design principle.
 
-
-
 Which principle are you applying when you turn off an insecure server that is not critical to the business?
 *2*
 
-
 Your company hired a new sales representative. Which principle are they applying when they tell you to give them access only to the company products and prices?
 *1*
-
 
 While reading the code of an ATM, you noticed a huge chunk of code to handle unexpected situations such as network disconnection and power failure. Which principle are they applying?
 *5*
 
 ### Zero Trust versus Trust but Verify 
-
-
 
 Trust is a very complex topic; in reality, we cannot function without trust. If one were to think that the laptop vendor has installed spyware on the laptop, they would most likely end up rebuilding the system. If one were to mistrust the hardware vendor, they would stop using it completely. If we think of trust on a business level, things only become more sophisticated; however, we need some guiding security principles. Two security principles that are of interest to us regarding trust:
 
@@ -262,8 +240,6 @@ We will cover threats and risks in detail in a separate room.
 
 ### Conclusion 
 
-
-
 This room covered various principles and concepts related to security. By now, you should be very familiar with CIA and DAD and other terms such as authenticity, repudiation, vulnerability, threat, and risk. We visited three security models and the ISO/IEC 19249. We have covered different security principles such as defence in depth, trust but verify, and zero trust.
 
 Finally, the Shared Responsibility Model is worth mentioning, especially with the increased reliance on cloud services. Various aspects are required to ensure proper security. They include hardware, network infrastructure, operating systems, applications, etc. However, customers using cloud services have different access levels depending on the cloud services they use. For example, an Infrastructure as a Service (IaaS) user has complete control (and responsibility) over the operating system.
@@ -273,6 +249,5 @@ On the other hand, a Software as a Service (SaaS) user has no direct access to t
 Having finished the Security Principles room, you may proceed to the Intro to Cryptography room.
 
 Make sure you have taken notes of all the key terms and acronyms we covered in this room
-
 
 [[Keldagrim]]

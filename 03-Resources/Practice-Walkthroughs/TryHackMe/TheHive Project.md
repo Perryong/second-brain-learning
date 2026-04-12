@@ -335,31 +335,20 @@ According to the Framework, what type of Detection "Data source" would our inves
 
 Research on the TTP assigned
 
-![[Pasted image 20221217130013.png]]
-
 *Network Traffic*
 
 Upload the pcap file as an observable. What is the flag obtained from [](https://10-10-82-47.p.thmlabs.com/files/flag.html)[https://10.10.82.47//files/flag.html](https://10.10.82.47//files/flag.html)
 
-![[Pasted image 20221217130033.png]]
-
-![[Pasted image 20221217130537.png]]
-
 http://10.10.82.47/files/flag.html
-
-![[Pasted image 20221217130957.png]]
 
 *THM{FILES_ARE_OBSERVABLERS}*
 
 ### Room Conclusion 
-
-
 
 We have now reached the end of TheHive Project room.
 
 This room has hopefully given you a good grasp of how incident response and management is performed using TheHive and give you a working knowledge of the tool.
 
 You are advised to experiment with these foundations until you are completely comfortable with them and to open up to more experiments with the mentioned integrations and others.
-
 
 [[Velociraptor]]

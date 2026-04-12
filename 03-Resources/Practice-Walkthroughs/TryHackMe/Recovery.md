@@ -1994,8 +1994,6 @@ Flag 4
 
 Flag 5
 
-![[Pasted image 20230724203713.png]]
-
 *THM{088a36245afc7cb935f19f030c4c28b2}*
 
 [[Metamorphosis]]

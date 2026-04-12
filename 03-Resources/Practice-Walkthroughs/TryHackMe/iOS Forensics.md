@@ -54,17 +54,13 @@ Not only this but, digital forensics serves a large role in civil and workplace 
 
 One of the only times that digital forensics is in your favour is the recovery of lost data, but the details of that are for a future room or two.
 
-
 What would look more suspicious? an empty hard drive or a full hard drive?
 *an empty hard drive*
-
-
 
 What is the definition for an abstract view of a hard drive?
 *image*
 
 ### 3. Problems Facing Digital Forensic Analysts 
-
 
 Time Consumption & Resources
 
@@ -104,11 +100,9 @@ Whilst HFS+ didn't support encryption at its entirety (a win in our books as for
 
 AFS or Apple File System (creative right...!) boasts many features, including full disk encryption, worrisome for analysts considering all devices past iOS 10.3 will have this system structure. But from a design point of view, AFS introduces smarter data management such as in the screenshot below, where a file requiring 3 blocks worth of space when copied, would require another 3 blocks again.
 
-
 ![](https://i.imgur.com/PSSKfkg.png)
 
 Instead of writing and storing the entire data again (taking up six blocks in our example), AFS simply creates another reference to the file (only taking up a total of four blocks in our example), similar to inodes in Linux.
-
 
 ### 5. Modern iOS Security 
 
@@ -134,10 +128,8 @@ iOS' "Restricted Mode"
 
 Since 2018, Apple enforced a "Restricted Mode" on all iDevices running that version and above. This feature disables the input/output of data functionality from the lightning (charge) cable until the iPhone is unlocked with a passcode. Devices must be trusted before any data can be written - or so as by design.
 
-
 Ever seen a warning like this?
 ![](https://i.imgur.com/crzaqYP.png)
-
 
 That'll be Apple's "Restricted Mode" at play. In this stage, the iPhone will charge, but any data cannot be written or read in its current state.
 
@@ -181,13 +173,11 @@ Direct acquisition covers three scenarios:
 
 Whilst this sounds appealing, applications such as the iFunbox are capable of writing to the device being analysed. Because of this, the image made will now be inadmissible as evidence due to the fact that there's a possibility data was (over)written to the device that wasn't from the suspect - a defence attorney can argue the data could have been left by the forensic analyst.
 
-
 Logical or Backup Acquisition:
 
 Also applicable to the three scenarios above, the backup acquisition is the cheapest way of acquiring data from a device such as an iPhone. By using iTunes' backup facility, analysts can simply use a computer that has been paired with the iPhone before. However, Logical acquisition is where the big money starts to roll in. You're going to be hearing of Cellebrite a lot, they're quite the giant in a very specialist field because of their incredible kit, making the actual stage of accumulating data ten-fold.
 
 After all, if you can't analyse a phone - just analyse the unlocked PC that has an entire backup upon it, right?
-
 
 iTunes Backups & Trust Certificates
 
@@ -196,7 +186,6 @@ The analysis of iPhone backups made with iTunes is an interesting topic, to say 
 iPhones will only backup to trusted computers. When plugging into a new device, the iPhone will ask the user whether or not they wish to trust the computer - as seen in the screenshot below:
 
 ![|333](https://i.imgur.com/x0biqfV.png)
-
 
 "Trusting" a computer involves generating a pair certificate on both the iPhone and computer. If the certificate matches up on both devices, the iPhone can be backed up. This process is a fantastic security measure by Apple, namely to prevent attacks such as "Juice Jacking".
 
@@ -239,22 +228,17 @@ Remembering that iTunes accesses the iPhone with elevated privileges using lockd
     Root certificates for applications
     Exchange / Mail credentials
 
-
 ![](https://i.imgur.com/ozE6wEl.png)
-
 
 Suddenly, you have the credentials to the suspect's accounts and the likes.
 
 I thoroughly encourage you to read this [excellent article](http://farleyforensics.com/2019/04/14/forensic-analysis-of-itunes-backups/) on how iTunes backups can be forensically analysed with relative ease.
-
-
 
 What is the name of a forensics tool that couldn't be used in a court of law, because data could be written to the device being analysed?
 *iFunbox*
 
 You've found an iPhone with no passcode lock, what acquisition method would you use?    
 *Direct Acquisition*
-
 
 What is the name of the certificate that gets stored on a computer when it becomes trusted?
 *Trust Certificate*
@@ -323,63 +307,38 @@ You can either use the In-browser functionality to interact with this VM or alte
 IP Address: MACHINE_IP
 Username: cmnatic
 Password: OpJustEncase!
-![[Pasted image 20221018094051.png]]
 
-![[Pasted image 20221018093610.png]]
-
-![[Pasted image 20221018093940.png]]
-![[Pasted image 20221018093957.png]]
 Who was the recepient of the SMS message sent on 23rd of August 2020?
 *Lewis Randall*
-
 
 What did the SMS message say?
 *Did you get the goods?*
 
-![[Pasted image 20221018094255.png]]
 		
 		just open with sqlitedb
 		
-![[Pasted image 20221018094237.png]]
 
 Looking at the address book, what is the first name of the other person in the contacts?
 *Jenny*
 
-![[Pasted image 20221018094418.png]]
-
 Following on from Question #3, what is their listed "Organization"
 *Transportation*
-
-![[Pasted image 20221018095123.png]]
-
-![[Pasted image 20221018095104.png]]
 
 Investigate their browsing history, what is the address of the website that they have bookmarked?    
 *https://blog.cmnatic.co.uk*
 
-![[Pasted image 20221018095406.png]]
 	
 		nop
-
-![[Pasted image 20221018103941.png]]
-
-![[Pasted image 20221018103843.png]]
 
 The suspected received an email, what is the remote_id of the sender?    
 Never rely on extensions alone, even though the file you need doesn't have the sqlite extension, it is indeed a database.
 *51.32.56.12*
 
-
-![[Pasted image 20221018104113.png]]
 What is the name of the company on one of the images stored on the suspects phone?
 *TryHackMe*
 
-
-![[Pasted image 20221018104203.png]]
-
 What is the value of the cookie that was left behind?
 *THM{COOKIES!!!}*
-
 
 ###  10. Bonus: You have the loot, but I've got the booty. 
 
@@ -413,7 +372,6 @@ Looks like our friend here is a fan of TryHackMe as well, seeing as this was sav
 At least we know they had WiFi wherever they went, with a list of every WiFi hotspot the iPhone discovered and the respective GPS coordinates! 
 
 ![](https://i.imgur.com/dhlyzRz.png)
-
 
 Data acquired!
 

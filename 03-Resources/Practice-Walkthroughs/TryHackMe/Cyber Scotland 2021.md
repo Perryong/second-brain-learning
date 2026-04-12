@@ -22,7 +22,6 @@ Let's get started!
 
  Completed
 
-
 ###   ![](https://assets.tryhackme.com/img/logo/tryhackme_logo.png) **Using TryHackMe**
 
  Start Machine
@@ -118,7 +117,6 @@ ff02::2 ip6-allrouters
 127.0.0.1 fonts.googleapis.com
 
 ```
-
 
 ###   ![](https://assets.muirlandoracle.co.uk/thm/rooms/cyberweek2021/set.png) **Social Engineering Toolkit**
 
@@ -366,7 +364,6 @@ root@ip-10-10-245-241:/etc/setoolkit# setoolkit
 [*] Update verified, config timestamp is: 2023-02-16 04:42:31.084639
 [*] SET is using the new config, no need to restart
 
-
            ..######..########.########
            .##....##.##..........##...
            .##.......##..........##...
@@ -392,7 +389,6 @@ root@ip-10-10-245-241:/etc/setoolkit# setoolkit
    It's easy to update using the PenTesters Framework! (PTF)
 Visit https://github.com/trustedsec/ptf to update all your tools!
 
-
  Select from the menu:
 
    1) Social-Engineering Attacks
@@ -403,7 +399,6 @@ Visit https://github.com/trustedsec/ptf to update all your tools!
    6) Help, Credits, and About
 
   99) Exit the Social-Engineer Toolkit
-
 
 set> 2
 
@@ -481,7 +476,6 @@ set:webattack> Enter the url to clone:http://repairshop.sbrc/wp-login.php
 
 go to 12.0.0.1:100
 
-
 [*] Cloning the website: http://repairshop.sbrc/wp-login.php
 [*] This could take a little bit...
 
@@ -498,7 +492,6 @@ PARAM: wp-submit=Log+In
 PARAM: redirect_to=http://repairshop.sbrc/wp-admin/
 PARAM: testcookie=1
 [*] WHEN YOU'RE FINISHED, HIT CONTROL-C TO GENERATE A REPORT.
-
 
 127.0.0.1 - - [16/Feb/2023 04:49:49] "POST /index.html HTTP/1.1" 302 -
 
@@ -722,7 +715,6 @@ Interesting Finding(s):
 [+] Data Received: 140.918 KB
 [+] Memory used: 141.152 MB
 [+] Elapsed time: 00:00:05
-
 
 root@ip-10-10-245-241:~# cewl http://repairshop.sbrc > wordlist
 /usr/lib/ruby/vendor_ruby/spider/spider_instance.rb:125: warning: constant ::Fixnum is deprecated
@@ -976,11 +968,6 @@ Well done! Here is the flag: SBRC{ODhiOTQ3ZTk0NzJhMWI1NTE5MGUyY2Vj}
 
 ```
 
-![[Pasted image 20230216002122.png]]
-
-![[Pasted image 20230216002209.png]]
-
 *SBRC{ODhiOTQ3ZTk0NzJhMWI1NTE5MGUyY2Vj}*
-
 
 [[Intrusion Detection]]

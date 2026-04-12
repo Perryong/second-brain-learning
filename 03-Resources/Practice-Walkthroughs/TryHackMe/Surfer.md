@@ -153,11 +153,6 @@ flag{6255c55660e292cf0116c053c9937810}
 
 Uncover the flag on the hidden application page.
 
-![[Pasted image 20230421115431.png]]
-![[Pasted image 20230421115858.png]]
-![[Pasted image 20230421120023.png]]
-
 *flag{6255c55660e292cf0116c053c9937810}*
-
 
 [[SQHell]]

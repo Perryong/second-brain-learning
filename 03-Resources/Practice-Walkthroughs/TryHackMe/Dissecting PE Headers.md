@@ -205,8 +205,6 @@ We are starting to learn to read Hex now, aren't we? To learn more about the FIL
 
 Answer the questions below
 
-![[Pasted image 20230815195906.png]]
-
 In the attached VM, there is a file Desktop\Samples\zmsuz3pinwl. Open this file in pe-tree. Is this PE file compiled for a 32-bit machine or a 64-bit machine?
 
 Check the characteristics in FILE_HEADER
@@ -284,8 +282,6 @@ Now that we know what the different types of sections are commonly found in a PE
 
 Answer the questions below
 
-![[Pasted image 20230815205254.png]]
-
 How many sections does the file Desktop\Samples\zmsuz3pinwl have?
 
 *7*
@@ -317,8 +313,6 @@ Take the redline binary from the attached VM as an example. Its IMAGE_IMPORT_D
 Answer the questions below
 
 The PE file Desktop\Samples\redline imports the function CreateWindowExW. From which dll file does it import this function?
-
-![[Pasted image 20230815213628.png]]
 
 *USER32.dll*
 

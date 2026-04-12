@@ -42,8 +42,6 @@ Accept the Certificate when prompted, and you should be logged into the remote s
 
 Note: The virtual machine may take up to 3 minutes to load.
 
-
-
 Let's begin...
 *No answer needed*
 
@@ -78,7 +76,6 @@ There are 5 types of events that can be logged. Below is a table from docs.micro
 On the left pane, the standard logs are visible under Windows Logs. Below is a table from docs.microsoft.com providing a brief description for each.
 
 ![](https://assets.tryhackme.com/additional/win-event-logs/standard-event-logs.png)
-
 
 The next section is the Applications and Services Logs. Expand this section and drill down on Microsoft > Windows > PowerShell > Operational.
 
@@ -133,8 +130,6 @@ That will conclude the general overview of the Event Viewer—time to become fam
 
 Note: Don't forget to deploy the machine for this room before proceeding. Give the room about 3 minutes to fully load.
 
-
-
 For the questions below, use Event Viewer to analyze Microsoft-Windows-PowerShell/Operational log.
 *No answer needed*
 
@@ -184,13 +179,11 @@ Ok, great! You have enough information to use this tool—time to answer some qu
 
 Note: You can get more information about using this tool further but visiting the online help documentation docs.microsoft.com. 
 
-
 ```
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> wevtutil.exe el | Measure-Object
-
 
 Count    : 1071
 Average  :
@@ -266,7 +259,6 @@ What is the log name? *Application*
 
 What is the /rd option for? *Event read direction*
 
-
 What is the /c option for? *Maximum number of events to read*
 
 ### Get-WinEvent 
@@ -328,8 +320,6 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operationa
 ```
 
 You can read more about creating hash tables in general [docs.microsoft.com](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7.2&viewFallbackFrom=powershell-7.1). 
-
-
 
 Answer the following questions using the [online](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/Get-WinEvent?view=powershell-7.2&viewFallbackFrom=powershell-7.1) help documentation for Get-WinEvent *No answer needed*
 
@@ -659,7 +649,6 @@ Execute the command from Example 1 (as is). What are the names of the logs relat
 ```
 PS C:\Users\Administrator> Get-WinEvent -ListProvider *Powershell*
 
-
 Name     : PowerShell
 LogLinks : {Windows PowerShell}
 Opcodes  : {}
@@ -880,9 +869,7 @@ PS C:\Users\Administrator> (Get-WinEvent -ListProvider Microsoft-Windows-PowerSh
 53507 Windows PowerShell IPC connect on process: %1 in AppDomain: %2 for User: %3.
 53508 Windows PowerShell IPC disconnect on process: %1 in AppDomain: %2 for User: %3.
 
-
 PS C:\Users\Administrator> (Get-WinEvent -ListProvider Microsoft-Windows-PowerShell).Events | Format-Table Id, Description | Measure-Object
-
 
 Count    : 192
 Average  :
@@ -992,7 +979,6 @@ At this point, you have enough knowledge to create XPath queries for wevtutil.ex
 
 To further this knowledge, I suggest reading the official Microsoft XPath Reference [docs.microsoft.com](https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/ms256115(v=vs.100)).
 
-
 Using Get-WinEvent and XPath, what is the query to find WLMS events with a System Time of 2020-12-15T01:09:08.940277500Z?
 `Get-WinEvent -LogName Application -FilterXPath '*/System/Provider[@Name="WLMS"] and */System/TimeCreated[@Name="SystemTime"]="2020-12-15T01:09:08.940277500Z"'`
 
@@ -1001,7 +987,6 @@ Using Get-WinEvent and XPath, what is the query to find a user named Sam with an
 
 ```
 PS C:\Users\Administrator> Get-WinEvent -LogName Security -FilterXPath '*/EventData/Data[@Name="TargetUserName"]="Sam" and */System/EventID=4720'
-
 
    ProviderName: Microsoft-Windows-Security-Auditing
 
@@ -1019,7 +1004,6 @@ Based on the output from the question #2, what is Message?
 
 Still working with Sam as the user, what time was Event ID 4724 recorded? (MM/DD/YYYY H:MM:SS [AM/PM])
 *12/17/2020 1:57:14 PM*
-
 
 What is the Provider Name?
 *Microsoft-Windows-Security-Auditing*
@@ -1088,8 +1072,6 @@ I'm ready to look at some event logs...
 
 ### Putting theory into practice 
 
-
-
 Note: To successfully answer the questions below, you may need to search online for more information. 
 
 The next scenarios/questions are based on the external event log file titled merged.evtx found on the Desktop. You can use any of the aforementioned tools to answer the questions below.
@@ -1102,13 +1084,11 @@ Scenario 3 (Questions 5, 6 & 7): The threat intel team shared its research on Em
 
 Scenario 4 (Questions 8 & 9): A report came in that an intern was suspected of running unusual commands on her machine, such as enumerating members of the Administrators group. A senior analyst suggested searching for "`C:\Windows\System32\net1.exe`". Confirm the suspicion.   
 
-
 What event ID is to detect a PowerShell downgrade attack?
 (https://www.leeholmes.com/detecting-and-preventing-powershell-downgrade-attacks/) *400*
 
 ```
 PS C:\Users\Administrator> Get-WinEvent -Path C:\Users\Administrator\Desktop\merged.evtx -FilterXPath '*/System/EventID=400'
-
 
    ProviderName: PowerShell
 
@@ -1238,18 +1218,15 @@ A Log clear event was recorded. What is the 'Event Record ID'? (104)
 
 What is the name of the computer?
 *PC01.example.corp*
-![[Pasted image 20220904223332.png]]
 
 What is the name of the first variable within the PowerShell command
 *$Va5w3n8*
 
-![[Pasted image 20220904224923.png]]
 What is the Date and Time this attack took place? (MM/DD/YYYY H:MM:SS [AM/PM])
  *8/25/2020 10:09:28 PM*
 
 ```
 PS C:\Users\Administrator> Get-WinEvent -Path C:\Users\Administrator\Desktop\merged.evtx -FilterXPath "*/System/EventID=4104 and */EventData/Data[@Name='scriptblocktext']"
-
 
    ProviderName: Microsoft-Windows-PowerShell
 
@@ -1940,15 +1917,12 @@ What is the Execution Process ID? (Check XML View)
 
 What is the Group Security ID of the group she enumerated?
 (https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4799)(https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4799)
-![[Pasted image 20220904230446.png]]
 * S-1-5-32-544 *
 
 What is the event ID?
 *4799*
 
 ### Conclusion 
-
-
 
 In this room, we covered Windows Event Logs, what they are, and how to query them using various tools and techniques. 
 
@@ -1961,7 +1935,6 @@ I'll end this room by providing additional reading material:
 [EVTX Attack Samples](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) (a few were used in this room)
     [PowerShell <3 the Blue Team](https://devblogs.microsoft.com/powershell/powershell-the-blue-team/)
     [Tampering with Windows Event Tracing: Background, Offense, and Defense](https://blog.palantir.com/tampering-with-windows-event-tracing-background-offense-and-defense-4be7ac62ac63)
-
 
 Hope you enjoyed this room and learned a thing or two.
 *No answer needed*

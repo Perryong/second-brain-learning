@@ -143,7 +143,6 @@ https://www.npmjs.com/package/racetrack
 
 Racetrack is a way to make sure that all your async calls are completed, and to find out where they went wrong if any of them are not completed.
 
-
 #!/bin/bash
 # Loop a curl request and make the request pretty much asyncronous by using &. sleep for .1
 
@@ -393,7 +392,6 @@ brian@racetrack:/tmp$ ./pspy64
 ./pspy64
 pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
 
-
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
     ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░
@@ -529,7 +527,6 @@ drwxr-xr-x 11 brian brian 4.0K Apr 23  2020 ..
 -rwxr--r--  1 root  root    17 Apr 23  2020 cleanupscript.sh.bak
 -rw-r--r--  1 brian brian    5 Jul 12 00:20 hi
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ rlwrap nc -lvp 1337
 listening on [any] 1337 ...
@@ -546,10 +543,7 @@ root@racetrack:~# cat root.txt
 cat root.txt
 THM{55a9d6099933f6c456ccb2711b8766e3}
 
-
 ```
-
-![[Pasted image 20230711190111.png]]
 
 User flag
 

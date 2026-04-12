@@ -4,7 +4,6 @@ Put your ELK knowledge together and investigate an incident.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/684f1b236b4c7ff0a1f9e246491ba63e.png)
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/be84f26c22e5a051fc003dba5ed3dcd4.png)
 
 ### troduction
@@ -31,15 +30,9 @@ Answer the questions below
 
 How many events were returned for the month of March 2022?
 
-![[Pasted image 20221214120148.png]]
-
 *1482*
 
 What is the IP associated with the suspected user in the logs?
-
-![[Pasted image 20221214124026.png]]
-
-![[Pasted image 20221214124037.png]]
 
 *192.166.65.54*
 
@@ -128,14 +121,10 @@ What is the full URL of the C2 to which the infected host is connected?
 
 A file was accessed on the filesharing site. What is the name of the file accessed?
 
-![[Pasted image 20221214124333.png]]
-
 *secret.txt*
 
 The file contains a secret code with the format THM{_____}.
 
 *THM{SECRET__CODE}*
-
-
 
 [[Investigating with ELK 101]]

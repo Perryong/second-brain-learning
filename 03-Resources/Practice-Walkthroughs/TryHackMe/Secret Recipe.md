@@ -36,10 +36,7 @@ Connect with the Lab
 
 How many Files are available in the Artifacts folder on the Desktop?
 
-![[Pasted image 20230121145600.png]]
-
 *6*
-
 
 ### Windows Registry Forensics
 
@@ -288,8 +285,6 @@ C:\Users\Administrator\Downloads\tools\Everything\Everything.exe
 
 What is the Computer Name of the Machine found in the registry?
 
-![[Pasted image 20230121152512.png]]
-
 *JAMES*
 
 When was the **Administrator** account created on this machine? (Format: yyyy-mm-dd hh:mm:ss)  
@@ -298,13 +293,9 @@ When was the **Administrator** account created on this machine? (Format: yyyy-
 
 What is the RID associated with the Administrator account?
 
-![[Pasted image 20230121154835.png]]
-
 *500*
 
 How many User accounts were observed on this machine?
-
-![[Pasted image 20230121155759.png]]
 
 *7*
 
@@ -316,10 +307,7 @@ What is the VPN connection this host connected to?
 
 Look for NetworkList in Software Hive
 
-![[Pasted image 20230121200839.png]]
-
 *ProtonVPN*
-
 
 When was the first VPN connection observed? (Format: YYYY-MM-DD HH:MM:SS)  
 
@@ -327,26 +315,19 @@ When was the first VPN connection observed? (Format: YYYY-MM-DD HH:MM:SS)
 
 There were three shared folders observed on his machine. What is the path of the third share?
 
-![[Pasted image 20230121202133.png]]
-
 	*C:\RESTRICTED FILES*
 
 What is the Last DHCP IP assigned to this host?
 
 Look for NetworkList in Software Hive
 
-![[Pasted image 20230121203452.png]]
-
 *172.31.2.197*
-
 
 The suspect seems to have accessed a file containing the secret coffee recipe. What is the name of the file?
 
 *secret-recipe.pdf*
 
 The suspect ran multiple commands in the run windows. What command was run to enumerate the network interfaces?
-
-![[Pasted image 20230121205959.png]]
 
 *pnputil /enum-interfaces*
 
@@ -360,8 +341,6 @@ What is the recent text file opened by the suspect?
 
 How many times was Powershell executed on this host?
 
-![[Pasted image 20230121211230.png]]
-
 *3*
 
 The suspect also executed a network monitoring tool. What is the name of the tool?
@@ -374,9 +353,6 @@ Registry Hives also notes the amount of time a process is in focus. Examine the 
 
 Everything.exe is a utility used to search for files in a Windows machine. What is the full path from which everything.exe was executed?
 
-![[Pasted image 20230121212431.png]]
-
 	*C:\Users\Administrator\Downloads\tools\Everything\Everything.exe*
-
 
 [[NoNameCTF]]

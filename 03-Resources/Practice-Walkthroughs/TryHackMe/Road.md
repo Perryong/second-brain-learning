@@ -460,8 +460,6 @@ mongodb:*:18772:0:99999:7:::
 
 ```
 
-![[Pasted image 20230226125734.png]]
-
 What is the user.txt flag?  
 
 *63191e4ece37523c9fe6bb62a5e64d45*
@@ -469,6 +467,5 @@ What is the user.txt flag?
 What is the root.txt flag?
 
 *3a62d897c40a815ecbe267df2f533ac6*
-
 
 [[Anonymous]]

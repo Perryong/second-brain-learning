@@ -107,7 +107,6 @@ All information classified as threatening to an organisation or information woul
 
     Campaigns: Series of attacks taking place within a given period and against specific victims initiated by advanced persistent threat actors who employ various TTPs. Campaigns usually have specified objectives and are orchestrated by threat actors from a nation state, crime syndicate or other disreputable organisation.
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/3114b7173cce09a3b74fbc750d9bff37.png)
 
 Arsenal
@@ -132,24 +131,18 @@ This tab categorises all entities based on operational sectors, countries, organ
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/307d350963bb1a7dfc0c244014e05815.gif)
 
-
 What is the name of the group that uses the 4H RAT malware?
-![[Pasted image 20221204221945.png]]
 
 *Putter Panda*
 What kill-chain execution phase is linked with the Command-Line Interface Attack Pattern? 
-![[Pasted image 20221204222440.png]]
 https://mitre-attack.github.io/attack-navigator//#layerURL=https%3A%2F%2Fattack.mitre.org%2Fgroups%2FG0024%2FG0024-enterprise-layer.json
 
-![[Pasted image 20221204224400.png]]
 *execution-ics*
 
 Within the Activities category, which tab would house the Indicators?
-![[Pasted image 20221204224513.png]]
 *Observations*
 
 ### OpenCTI Dashboard 2 
-
 
 General Tabs Navigation
 
@@ -159,17 +152,13 @@ The day-to-day usage of OpenCTI would involve navigating through different entit
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/6e2c09b6c897817f6faa45d294ea064c.png)
 
-
-
     Knowledge Tab: Presents linked information associated with the entity selected. This tab will include the reports associated, indicators, relations and attack pattern timeline of the entity. Additionally, an analyst can view fine-tuned details from the tabs on the right-hand pane, where information about the threats, attack vectors, events and observables used within the entity are presented.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/11499a63b80b9a68223de5f9d321fb3e.gif)
 
-
     Analysis Tab: Provides the reports where the identified entry has been seen. The analysis provides usable information about a threat and guides investigation tasks.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/9e519fa4a57ddb27b972dfee5c8c118b.png)
-
 
     Indicators Tab: Provides information on IOC identified for all the threats and entities.
 
@@ -177,19 +166,12 @@ The day-to-day usage of OpenCTI would involve navigating through different entit
 
     History Tab: Changes made to the element, attributes, and relations are tracked by the platform worker and this tab will outline the changes.
 
-
-
 What Intrusion sets are associated with the Cobalt Strike malware with a Good confidence level? (Intrusion1, Intrusion2)
 https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
 
-![[Pasted image 20221204225856.png]]
-
 *CopyKittens, FIN7*
 
-
 Who is the author of the entity?
-![[Pasted image 20221204230144.png]]
-![[Pasted image 20221204231211.png]]
 
 *THE MITRE CORPORATION*
 
@@ -199,63 +181,42 @@ As a SOC analyst, you have been tasked with investigations on malware and APT gr
 
 What is the earliest date recorded related to CaddyWiper?  Format: YYYY/MM/DD 
 ESET CaddyWiper March 2022 report
-![[Pasted image 20221204231746.png]]
 
 https://www.welivesecurity.com/2022/03/15/caddywiper-new-wiper-malware-discovered-ukraine/
 
  *2022/03/15*
 
-
 Which Attack technique is used by the malware for execution?
 Attack Pattern details under the Knowledge Tab of the entity
-![[Pasted image 20221204231954.png]]
 
 *Native API*
 
-
 How many malware relations are linked to this Attack technique?
 See Distribution of Relations details under the Knowledge Tab of the technique
-![[Pasted image 20221204232115.png]]
 
 *113*
-
 
 Which 3 tools were used by the Attack Technique in 2016? (Ans: Tool1, Tool2, Tool3)
 Look under Knowledge -> Tools. List tools in alphabetical order.
 
-![[Pasted image 20221204232542.png]]
-
 *BloodHound, Empire, ShimRatReporter*
-
 
 What country is APT37 associated with?
  Check Description of the Intrusion set
-![[Pasted image 20221204232744.png]]
-
-![[Pasted image 20221204232837.png]]
-
 
 https://attack.mitre.org/groups/G0067/
 
-
 *North Korean*
-
 
 Which Attack techniques are used by the group for initial access? (Ans: Technique1, Technique2)
  Technique codes details found under the Knowledge -> Global Kill Chain
- ![[Pasted image 20221204233611.png]]
- ![[Pasted image 20221204233647.png]]
- 
+   
 *T1189, T1566*
 
 ###  Room Conclusion 
 
-
-
 Fantastic work on going through and completing the OpenCTI room.
 
 In this room, we looked at the use of the OpenCTI platform when it comes to processing threat intel and assisting analysts in investigating incidents. Check out the documentation linked within the room to get more information about OpenCTI and the different tools and frameworks used.
-
-
 
 [[Intro to Cyber Threat Intel]]

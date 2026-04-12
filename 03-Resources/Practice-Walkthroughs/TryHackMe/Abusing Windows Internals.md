@@ -80,7 +80,6 @@ We will break down a basic shellcode injector to identify each of the steps and 
 
 At step one of shellcode injection, we need to open a target process using special parameters. OpenProcess is used to open the target process supplied via the command-line.
 
-
 ```
 processHandle = OpenProcess(
 	PROCESS_ALL_ACCESS, // Defines access rights
@@ -133,10 +132,8 @@ We can compile these steps together to create a basic process injector. Use the 
 
 Shellcode injection is the most basic form of process injection; in the next task, we will look at how we can modify and adapt these steps for process hollowing.
 
-
 Identify a PID of a process running as THM-Attacker to target. Once identified supply the PID as an argument to execute shellcode-injector.exe located in the Injectors directory on the desktop. 
 *No answer needed*
-![[Pasted image 20220912165905.png]]
 
 What flag is obtained after injecting the shellcode?
 *THM{1nj3c710n_15_fun!}*
@@ -155,7 +152,6 @@ At a high-level process hollowing can be broken up into six steps:
     Take the target process out of a suspended state.
 
 The steps can also be broken down graphically to depict how Windows API calls interact with process memory.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/3c36b4470fb04e3bfdbbef0674b79ec2.png)
 
@@ -196,7 +192,6 @@ HANDLE hMaliciousCode = CreateFileA(
 	NULL,
 	NULL
 );
-
 
 ```
 
@@ -342,11 +337,8 @@ ResumeThread(
 
 We can compile these steps together to create a process hollowing injector. Use the C++ injector provided and experiment with process hollowing.
 
-
 Identify a PID of a process running as THM-Attacker to target. Supply the PID and executable name as arguments to execute hollowing-injector.exe located in the injectors directory on the desktop. 
 
-
-![[Pasted image 20220912170806.png]]
 What flag is obtained after hollowing and injecting the shellcode?
 *THM{7h3r35_n07h1n6_h3r3}*
 
@@ -390,7 +382,6 @@ WriteProcessMemory(
 	NULL
 );
 
-
 ```
 
 Once the initial steps are out of the way and our shellcode is written to memory we can move to step four. At step four, we need to begin the process of hijacking the process thread by identifying the thread ID. To identify the thread ID we need to use a trio of Windows API calls: CreateToolhelp32Snapshot(), Thread32First(), and Thread32Next(). These API calls will collectively loop through a snapshot of a process and extend capabilities to enumerate process information.
@@ -431,13 +422,11 @@ if (threadEntry.th32OwnerProcessID == processID) // Verifies both parent process
 
 At step six, we must suspend the opened target thread. To suspend the thread we can use SuspendThread.
 
-
 ```
 SuspendThread(hThread);
 ```
 
 At step seven, we need to obtain the thread context to use in the upcoming API calls. This can be done using GetThreadContext to store a pointer.
-
 
 ```
 CONTEXT context;
@@ -474,10 +463,7 @@ ResumeThread(
 
 We can compile these steps together to create a process injector via thread hijacking. Use the C++ injector provided and experiment with thread hijacking.
 
-
 Identify a PID of a process running as THM-Attacker to target. Supply the PID as an argument to execute thread-injector.exe located in the Injectors directory on the desktop. 
-
-![[Pasted image 20220912171200.png]]
 
 What flag is obtained after hijacking the thread?
 *THM{w34p0n1z3d_53w1n6}*
@@ -495,7 +481,6 @@ At a high-level DLL injection can be broken up into six steps:
 We will break down a basic DLL injector to identify each of the steps and explain in more depth below.
 
 At step one of DLL injection, we must locate a target thread. A thread can be located from a process using a trio of Windows API calls: CreateToolhelp32Snapshot(), Process32First(), and Process32Next().
-
 
 ```
 DWORD getProcessId(const char *processName) {
@@ -583,11 +568,8 @@ HANDLE remoteThreadHandler = CreateRemoteThread(
 
 We can compile these steps together to create a DLL injector. Use the C++ injector provided and experiment with DLL injection.
 
-
 Identify a PID and name of a process running as THM-Attacker to target. Supply the name and malicious DLL found in the Injectors directory as arguments to execute dll-injector.exe located in the Injectors directory on the desktop. 
 
-
-![[Pasted image 20220912172020.png]]
 What flag is obtained after injecting the DLL?
 *THM{n07_4_m4l1c10u5_dll}*
 
@@ -613,9 +595,7 @@ The one-liner below is the most common form of the void function pointer, but we
 
 Function Pointer
 
-
 ((void(*)())addressPointer)();
-
 
 ```
 
@@ -668,7 +648,6 @@ At the core of each method, it is using math to move through the physical hex da
 Some of the more commonly known techniques include RVA entry point parsing, section mapping, and relocation table parsing.
 
 With all injection techniques, the ability to mix and match commonly researched methods is endless. This provides you as an attacker with a plethora of options to manipulate your malicious data and execute it.
-
 
 What protocol is used to execute asynchronously in the context of a thread?
 *Asynchronous Procedure Calls*
@@ -792,7 +771,6 @@ VirtualProtectEx(		// Return to original protect state
 
 This may still seem like a lot of code and technical knowledge being thrown and that is okay! The main takeaway of the hooking function for TrickBot is that it will inject itself into browser processes using reflective injection and hook API calls from the injected function.
 
-
 What alternative Windows API call was used by TrickBot to create a new user thread?
 *RtlCreateUserThread*
 
@@ -804,8 +782,6 @@ What function name was used to manually write hooks?
 
 ### Conclusion 
 
-
-
 Process injection is an overarching technique that can be used in many varieties and is one of the most common cases of abusing Windows Internals.
 
 It is important to note that as detection engineering and monitoring evolves injection techniques will need to evolve as well. Most of the techniques shown in this room will be detected by popular commercial EDRs but you can still easily modify your injectors to meet the cat and mouse game between the red and blue team.
@@ -814,9 +790,7 @@ When preparing to incorporate an injection technique into your own work or tools
 
 Add these techniques to your evasion toolbox and continue experimenting to identify what works best for the environment you are in.
 
-
 Read the above and continue learning!
 *No answer needed*
-
 
 [[Data Exfiltration]]

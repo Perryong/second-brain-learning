@@ -6,7 +6,6 @@ Uranium CTF
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/6e06fc3dc1d18c68538cfb064c3ec383.jpeg)
 
-
 ### Task 1  First Stage
 
  Start Machine
@@ -157,7 +156,6 @@ HELO x
 VRFY root
 252 2.0.0 root
 
-
 https://twitter.com/hakanbe40520689
 
 I really love this company uranium.thm
@@ -166,9 +164,7 @@ I really love this company uranium.thm
 └─$ tac /etc/hosts       
 10.10.18.21  uranium.thm
 
-
 Everyone can send me application files (filename: "application") from my mail account. I open and review all applications one by one in the terminal.
-
 
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-smtp
 
@@ -576,7 +572,6 @@ I give SUID to the nano file in your home folder to fix the attack on our  index
 
 ------MIME delimiter for sendEmail-992935.514616878--
 
-
 From root@uranium.thm  Wed Jul 19 02:10:19 2023
 Return-Path: <root@uranium.thm>
 X-Original-To: kral4@uranium.thm
@@ -621,7 +616,6 @@ drwxrwxr-x 3 kral4 kral4 4.0K Apr 10  2021 .local
 
 # Press Ctrl+Z
 
-
 stty raw -echo; fg; reset;
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp; alias l="ls -tuFlah --color=auto"; export SHELL=bash; export TERM=xterm-256color; stty rows 200 columns 200; reset;
@@ -664,7 +658,6 @@ nano_path = "/home/kral4/nano"
 index_hash = hashlib.md5(open(index_path, 'rb').read()).hexdigest()
 nano_hash = hashlib.md5(open("/bin/nano", 'rb').read()).hexdigest()
 
-
 def check_integrity():
     while True:
         if hashlib.md5(open(index_path, 'rb').read()).hexdigest() != index_hash:
@@ -690,10 +683,7 @@ def check_integrity():
 
 check_integrity()
 
-
 ```
-
-![[Pasted image 20230718201300.png]]
 
 What is the required password for the chat app?
 

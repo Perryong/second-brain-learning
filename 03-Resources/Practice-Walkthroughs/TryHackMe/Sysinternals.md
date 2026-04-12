@@ -37,7 +37,6 @@ User: administrator
 
 Password: letmein123!
 
-
 When did Microsoft acquire the Sysinternals tools?
 *2006*
 
@@ -51,9 +50,7 @@ Regarding local install/run, you can download the entire suite or just the tool(
 
 If you wish to download a tool or two but not the entire suite, you can navigate to the Sysinternals Utilities Index page, https://docs.microsoft.com/en-us/sysinternals/downloads/, and download the tool(s). If you know which tool you want to download, then this is fine. The tools are listed in alphabetical order are not separated by categories. 
 
-
 ![](https://assets.tryhackme.com/additional/sysinternals/sysint-util-index.png)
-
 
 Alternatively, you can use the category links to find and download the tool(s). This route is better since there are so many tools you can focus on all the tools of interest instead of the entire index.
 
@@ -68,7 +65,6 @@ Lastly, you can do the same from the Sysinternals Live URL, https://live.sysinte
 If you chose to download from this page, it is similar to the Sysinternals Utilities Index page. The tools are listed in alphabetical order and are not separated by categories. 
 
 ![](https://assets.tryhackme.com/additional/sysinternals/sysint-live-index.png)
-
 
 If you wish to download the Sysinternals Suite, you can download the zip file from here.
 
@@ -103,7 +99,6 @@ Alternatively, a PowerShell module can download and install all of the Sysintern
     PowerShell command: Download-SysInternalsTools C:\Tools\Sysint
 
 Now let's look at how to run the Sysinternals tools from the web. 
-
 
 What is the last tool listed within the Sysinternals Suite?
 *ZoomIt*
@@ -254,7 +249,6 @@ Other tools fall under the File and Disk Utilities category. I encourage you to 
 
 Link: https://docs.microsoft.com/en-us/sysinternals/downloads/file-and-disk-utilities 
 
-
 There is a txt file on the desktop named file.txt. Using one of the three discussed tools in this task, what is the text within the ADS?
 (Use the streams command to find the stream file name. Use "`notepad .\file.txt:example.txt`" to open the stream file.)
 
@@ -274,8 +268,6 @@ C:\Users\Administrator\Desktop>notepad file.txt:ads.txt
 
 in notepad I am hiding in the stream.
 ```
-
-![[Pasted image 20220902193253.png]]
 
 *I am hiding in the stream.*
 
@@ -314,7 +306,6 @@ Now the output only displays processes with an established outbound connection.
 Other tools fall under the Networking Utilities category. I encourage you to explore these tools at your own leisure.
 
 Link: https://docs.microsoft.com/en-us/sysinternals/downloads/networking-utilities
-
 
 Using WHOIS tools, what is the ISP/Organization for the remote address in the screenshots above?
 
@@ -482,7 +473,6 @@ Other tools fall under the Security Utilities category. I encourage you to explo
 
 Link: https://docs.microsoft.com/en-us/sysinternals/downloads/security-utilities
 
-
 You will check out the Sysmon room if you haven't done so already...
 *No answer needed*
 
@@ -521,7 +511,6 @@ Note: This is a high-level exposure for this tool.
 Other tools fall under the System Information category. I encourage you to explore these tools at your own leisure.
 
 Link: https://docs.microsoft.com/en-us/sysinternals/downloads/system-information
-
 
 Moving along...
 *No answer needed*
@@ -584,8 +573,6 @@ Run the Strings tool on ZoomIt.exe. What is the full path to the .pdb file?
 
 ### Conclusion 
 
-
-
 When you read the Sysinternals documentation, it might hint these tools are for troubleshooting purposes only, but that is not entirely the case.
 
 You should know or be familiar with the Sysinternals tools whether you're a Desktop Engineer, Systems Analyst, or Security Engineer. 
@@ -608,7 +595,6 @@ Below are some additional links to further your knowledge on how to use these to
     Malware Hunting with Mark Russinovich and the Sysinternals Tools - https://www.youtube.com/watch?v=vW8eAqZyWeo
 
 Note: Some of the videos/blogs are a bit outdated, but they're still good to review as it showcases how to use these tools extensively. This will build your foundation on the tools covered, along with the tools that weren't covered in this room. 
-
 
 I will definitely look into Sysinternals more in-depth and add this to my arsenal... 
 *No answer needed*

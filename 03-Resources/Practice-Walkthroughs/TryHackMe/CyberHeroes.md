@@ -4,7 +4,6 @@ Want to be a part of the elite club of CyberHeroes? Prove your merit by finding 
 
 ![|333](https://tryhackme-images.s3.amazonaws.com/room-icons/e8874c2d58c8ff0df78b5183fb828c81.png)
 
-
 ```
 ┌──(kali㉿kali)-[~]
 └─$ sudo nmap -sC -sV -T4 -A 10.10.144.202     
@@ -46,7 +45,6 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 42.02 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A 10.10.144.202
 
-
 view-source:http://10.10.144.202/login.html
 
  <script>
@@ -79,16 +77,9 @@ so h3ck3rBoi:SuperSecret@12345
 
 Congrats Hacker, you made it !! Go ahead and nail other challenges as well :D flag{edb0be532c540b1a150c3a7e85d2466e} 
 
-
-
 ```
-
-![[Pasted image 20220925125528.png]]
 
 Uncover the flag!
 *flag{edb0be532c540b1a150c3a7e85d2466e}*
-
-
-
 
 [[Archangel]]

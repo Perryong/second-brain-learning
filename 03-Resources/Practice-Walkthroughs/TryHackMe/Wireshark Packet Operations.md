@@ -66,7 +66,6 @@ Name resolution is not limited only to MAC addresses. Wireshark provides IP and 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/f19928be2591fd6aa59550e0a96f7563.png)
 
-
 Endpoint menu view with name resolution:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/fb672714d13bf9a40502134193102907.png)
@@ -78,7 +77,6 @@ Besides name resolution, Wireshark also provides an IP geolocation mapping that 
 Endpoints and GeoIP view.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/4056095d90ec25260a5538f23649e057.png)
-
 
 Note: You need an active internet connection to view the GeoIP map. The lab machine doesn't have an active internet connection!
 
@@ -131,44 +129,29 @@ GeoLite2-ASN_20221007.tar.gz  GeoLite2-Country_20221007
 └─$ ls
 COPYRIGHT.txt  GeoLite2-Country.mmdb  LICENSE.txt
 
-
 doesn't appear nothing 😔 
 
 ```
-
-![[Pasted image 20221009191510.png]]
-
 
 Investigate the resolved addresses. What is the IP address of the hostname starts with "bbc"?
 "Resolved Addresses" can help.
 *199.232.24.81*
 
-![[Pasted image 20221009203248.png]]
-
 What is the number of IPv4 conversations?
 "Conversations" can help.
 *435*
-![[Pasted image 20221009203420.png]]
-
 
 How many bytes (k) were transferred from the "Micro-St" MAC address?
 "Endpoints" and "Name Resolution" can help.
 *7474*
-![[Pasted image 20221009203546.png]]
-
 
 What is the number of IP addresses linked with "Kansas City"?
 "Endpoints" can help.
 *4*
-![[Pasted image 20221009203710.png]]
 
 Which IP address is linked with "Blicnet" AS Organisation?
 "Endpoints" can help.
 *188.246.82.7*
-![[Pasted image 20221009203925.png]]
-
-
-![[Pasted image 20221009203943.png]]
 
 ### Statistics | Protocol Details 
 
@@ -190,27 +173,18 @@ This option breaks down all HTTP packets from the capture file and helps analyst
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/6e73622f7521aba567b9c8b049c97284.png)
 
-
-
 What is the most used IPv4 destination address?
 "IPv4 Statistics" can help.
 *10.100.1.33*
-![[Pasted image 20221009222354.png]]
-
 
 What is the max service request-response time of the DNS packets?
 "DNS Statistics" can help.
 *0.467897*
-![[Pasted image 20221009222858.png]]
-
 
 What is the number of HTTP Requests accomplished by "rad[.]msn[.]com?
 "HTTP Statistics" can help.
 24+15
 *39*
-
-![[Pasted image 20221009223326.png]]
-
 
 ###  Packet Filtering | Principles 
 
@@ -347,7 +321,6 @@ TCP and UDP Filters
 
 TCP filters help analysts filter the traffic according to protocol-level information from the packets (Transport layer of the OSI model). These filters filter transport protocol level information like source and destination ports, sequence number, acknowledgement number, windows size, timestamps, flags, length and protocol errors.
 
-
 Filter
 	Description
 	Filter	Expression
@@ -407,33 +380,26 @@ Display Filter Expressions
 
 As mentioned earlier, Wireshark has a built-in option (Display Filter Expression) that stores all supported protocol structures to help analysts create display filters. When an analyst can't recall the required filter for a specific protocol or is unsure about the assignable values for a filter, the Display Filter Expressions menu provides an easy-to-use display filter builder guide. It is available under the "Analyse --> Display Filter Expression" menu.
 
-
 It is impossible to memorise all details of the display filters for each protocol. Each protocol can have different fields and can accept various types of values. The Display Filter Expressions menu shows all protocol fields, accepted value types (integer or string) and predefined values (if any). Note that it will take time and require practice to master creating filters and learning the protocol filter fields.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/08c2f3592d0b286f784d14407206bee8.png)
 
 Note: The first room introduced the "Colouring Rules" (Task-2). Now you know how to create display filters and filter the event of interest. You can use the "View --> Coloring Rules" menu to assign colours to highlight your display filter results.
 
-
 What is the number of IP packets?
 *81420*
-![[Pasted image 20221009232456.png]]
 
 What is the number of packets with a "TTL value less than 10"?
 *66*
-![[Pasted image 20221009232540.png]]
 
 What is the number of packets which uses "TCP port 4444"?
 *632*
-![[Pasted image 20221009232631.png]]
 
 What is the number of "HTTP GET" requests sent to port "80"?
 *527* (in my case 526 )
-![[Pasted image 20221009233532.png]]
 
 What is the number of "type A DNS Queries"?
 *51*
-![[Pasted image 20221009234122.png]]
 
 ### Advanced Filtering 
 
@@ -466,7 +432,6 @@ Usage
 http.host matches "\.(php || html)"
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/c7c03c7306f9965b97423f8431a944cb.png)
-
 
 Filter: "in"
 Filter
@@ -537,51 +502,36 @@ Creating and using display filter buttons.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/95212f1e231477a046950011715208ab.png)
 
-![[Pasted image 20221010000027.png]]
-
-
 Profiles
 
 Wireshark is a multifunctional tool that helps analysts to accomplish in-depth packet analysis. As we covered during the room, multiple preferences need to be configured to analyse a specific event of interest. It is cumbersome to re-change the configuration for each investigation case, which requires a different set of colouring rules and filtering buttons. This is where Wireshark profiles come into play. You can create multiple profiles for different investigation cases and use them accordingly. You can use the "Edit --> Configuration Profiles" menu or the "lower right bottom of the status bar --> Profile" section to create, modify and change the profile configuration.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/9254b0bb582c55723327550a68c9a11e.png)
 
-
 Find all Microsoft IIS servers. What is the number of packets that did not originate from "port 80"?
 "contains" operator can help.
 *21* ((http.server contains "Microsoft-IIS") and !(tcp.port == 80))
-![[Pasted image 20221010002004.png]]
 
 Find all Microsoft IIS servers. What is the number of packets that have "version 7.5"?
 "matches" operator can help.
 *http.server matches "Microsoft-IIS/7.5"*
-![[Pasted image 20221010002708.png]]
 
 What is the total number of packets that use ports 3333, 4444 or 9999?
  "in" operator can help.
 *2235* (tcp.port in {3333,4444,9999})
-![[Pasted image 20221010002844.png]]
-
 
 	What is the number of packets with "even TTL numbers"?
 	"string" and "matches" operators can help. Convert the TTL field to string with the "string" operator and filter the "[02468]$" regex value with the "matches" operator to find the even TTL numbers.
 *77289* (string(ip.ttl) matches "[02468]$") 
 
-![[Pasted image 20221010003423.png]]
-
-
 	Change the profile to "Checksum Control". What is the number of "Bad TCP Checksum" packets?
 	This new profile is customised to detect checksum errors. Bad TCP checksums are shown in red and black colours. Use the "Packet List Pane" details or the "Display Filter Expression" menu to create the required filter.
 	*34185* tcp.checksum.status=="Bad" just go to colorizing rules and search checksum errors and copy ip to use only for tcp and then go to attack box to work (change to profile Checksum Control)
 	
-![[Pasted image 20221010101148.png]]
-
-![[Pasted image 20221010101320.png]]
 
 Use the existing filtering button to filter the traffic. What is the number of displayed packets?
  The button is available in the "Checksum Control" profile.
  *261* ((http.response.code == 200 ) && (http.content_type matches "image(gif||jpeg)"))
-![[Pasted image 20221010100522.png]]
 
 ### Conclusion 
 
@@ -590,7 +540,6 @@ Congratulations!
 You just finished the "Wireshark: Packet Operations" room. In this room, we covered Wireshark statistics, filters, operators and functions. 
 
 Want to learn more? We invite you to complete the Wireshark: Traffic Analysis room to improve your Wireshark skills by investigating suspicious traffic activities. 
-
 
 Proceed to the next room and keep learning!
 

@@ -40,8 +40,6 @@ Runtime detection measures are different from a standard anti-virus because they
 
 We will primarily focus on [AMSI](https://docs.microsoft.com/en-us/windows/win32/amsi/antimalware-scan-interface-portal)(Anti-Malware Scan Interface) in this room. AMSI is a runtime detection measure shipped natively with Windows and is an interface for other products and solutions.
 
-
-
 What runtime detection measure is shipped natively with Windows?
 *AMSI*
 
@@ -54,7 +52,6 @@ For more information about AMSI, check out the Windows docs.
 AMSI will determine its actions from a response code as a result of monitoring and scanning. Below is a list of possible response codes,
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/29a13a3e9b0d64542dc9951a49ddda14.png)
-
 
     AMSI_RESULT_CLEAN = 0
     AMSI_RESULT_NOT_DETECTED = 1
@@ -90,7 +87,6 @@ As attackers, when targeting the above components, we will need to be mindful of
 
 In the next task, we will cover the technical details behind how AMSI works and is instrumented in Windows.
 
-
 What response value is assigned to 32768?
 *AMSI_RESULT_DETECTED*
 
@@ -111,11 +107,7 @@ You may also notice the "Other Applications" interface from AMSI. Third-parties 
 
 We can break down the code for AMSI PowerShell instrumentation to better understand how it is implemented and checks for suspicious content. To find where AMSI is instrumented, we can use InsecurePowerShell maintained by Cobbr. [InsecurePowerShell](https://github.com/PowerShell/PowerShell/compare/master...cobbr:master) is a GitHub fork of PowerShell with security features removed; this means we can look through the compared commits and observe any security features. AMSI is only instrumented in twelve lines of code under src/System.Management.Automation/engine/runtime/CompiledScriptBlock.cs. These twelve lines are shown below.
 
-![[Pasted image 20220917155215.png]]
-
 We can take our knowledge of how AMSI is instrumented and research from others to create and use bypasses that abuse and evade AMSI or its utilities.
-
-
 
 Will AMSI be instrumented if the file is only on disk? (Y/N)
 *N*
@@ -135,15 +127,11 @@ PowerShell -Version 2
 This attack can actively be seen exploited in tools such as Unicorn.
 https://github.com/trustedsec/unicorn
 
-![[Pasted image 20220917160029.png]]
-
 Since this attack is such low-hanging fruit and simple in technique, there are a plethora of ways for the blue team to detect and mitigate this attack.
 
 The two easiest mitigations are removing the PowerShell 2.0 engine from the device and denying access to PowerShell 2.0 via application blocklisting.
 
-
 Enter the flag obtained from the desktop after executing the command in cmd.exe.
-![[Pasted image 20220917160620.png]]
 
 *THM{p0w3r5h3ll_d0wn6r4d3!}*
 
@@ -157,32 +145,21 @@ The AMSI utilities for PowerShell are stored in the AMSIUtils .NET assembly loca
 
 Matt Graeber published a one-liner to accomplish the goal of using Reflection to modify and bypass the AMSI utility. This one-line can be seen in the code block below.
 
-![[Pasted image 20220917160734.png]]
-
 To explain the code functionality, we will break it down into smaller sections.
 
 First, the snippet will call the reflection function and specify it wants to use an assembly from [Ref.Assembly] it will then obtain the type of the AMSI utility using GetType.
 
-![[Pasted image 20220917160748.png]]
-
 The information collected from the previous section will be forwarded to the next function to obtain a specified field within the assembly using GetField.
-
-![[Pasted image 20220917160804.png]]
 
 The assembly and field information will then be forwarded to the next parameter to set the value from $false to $true using SetValue.
 
-![[Pasted image 20220917160821.png]]
-
 Once the amsiInitFailed field is set to $true, AMSI will respond with the response code: AMSI_RESULT_NOT_DETECTED = 1
-
 
 Read the above and practice leveraging the one-liner on the provided machine.
 To utilize the one-liner, you can run it in the same session as the desired malicious code or prepend it to the malicious code.
 You must already be in a PowerShell session to execute the one-liner
 
-
 Enter the flag obtained from the desktop after executing the command.
-![[Pasted image 20220917160947.png]]
 
 *THM{r3fl3c7_4ll_7h3_7h1n65}*
 
@@ -207,33 +184,20 @@ We first need to load in any external libraries or API calls we want to utilize;
 
 ![|222](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/cabcbaaf44dad4609439369608a51fd9.png)
 
-![[Pasted image 20220917161228.png]]
-
 The functions are now defined, but we need to load the API calls using Add-Type. This cmdlet will load the functions with a proper type and namespace that will allow the functions to be called.
 
-![[Pasted image 20220917161255.png]]
-
 Now that we can call our API functions, we can identify where amsi.dll is located and how to get to the function. First, we need to identify the process handle of AMSI using GetModuleHandle. The handle will then be used to identify the process address of AmsiScanBuffer using GetProcAddress.
-
-![[Pasted image 20220917161313.png]]
 
 Next, we need to modify the memory protection of the AmsiScanBuffer process region. We can specify parameters and the buffer address for VirtualProtect.
 
 Information on the parameters and their values can be found from the previously mentioned API documentation.
 
-![[Pasted image 20220917161327.png]]
-
 We need to specify what we want to overwrite the buffer with; the process to identify this buffer can be found here. Once the buffer is specified, we can use [marshal copy](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal.copy?view=net-6.0) to write to the process.
-
-![[Pasted image 20220917161403.png]]
 
 At this stage, we should have an AMSI bypass that works! It should be noted that with most tooling, signatures and detections can and are crafted to detect this script. 
 
-
 Enter the flag obtained from the desktop after executing the command.
 If the flag does not appear, navigate to the desktop in a command prompt and execute the script again.
-
-![[Pasted image 20220917162919.png]]
 
 *THM{p47ch1n6_15n7_ju57_f0r_7h3_600d_6uy5}*
 
@@ -247,21 +211,15 @@ amsi.fail will compile and generate a PowerShell bypass from a collection of kno
 
 Below is an example of an obfuscated PowerShell snippet from amsi.fail
 
-![[Pasted image 20220917163141.png]]
-
 You can attach this bypass at the beginning of your malicious code as with previous bypasses or run it in the same session before executing malicious code.
 
 [AMSITrigger](https://github.com/RythmStick/AMSITrigger) allows attackers to automatically identify strings that are flagging signatures to modify and break them. This method of bypassing AMSI is more consistent than others because you are making the file itself clean.
 
 The syntax for using amsitrigger is relatively straightforward; you need to specify the file or URL and what format to scan the file. Below is an example of running amsitrigger.
 
-![[Pasted image 20220917163229.png]]
-
 Signatures are highlighted in red; you can break these signatures by encoding, obfuscating, etc.
 
 ### Conclusion 
-
-
 
 Runtime detections and AMSI are only one of many detections and mitigations you can face when employing techniques against a hardened or up-to-date device.
 
@@ -269,8 +227,6 @@ These bypasses can be used on their own or in a chain with other exploits and te
 
 It is important to keep these tools from this room in your back pocket. You cannot solely rely on them to evade detections, but you can get around and deter a lot of detections using the discussed techniques.
 
-
 Read the above and continue learning!
-
 
 [[Signature Evasion]]

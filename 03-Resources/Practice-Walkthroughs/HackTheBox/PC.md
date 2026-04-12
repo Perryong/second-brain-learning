@@ -181,8 +181,6 @@ Content-Length: 401
 
 Connection: close
 
-
-
 {
   "headers": [
     {
@@ -444,7 +442,6 @@ then go http://localhost:8000
 
 https://huntr.dev/bounties/3fd606f7-83e1-4265-b083-2e1889a05e65/
 
-
 ┌──(witty㉿kali)-[~]
 └─$ cat bash.sh               
 #!/bin/bash
@@ -508,12 +505,6 @@ root@pc:~# cat root.txt
 cat root.txt
 daa3a04a86025c32598359a16099cfc4
 
-
-
 ```
-![[Pasted image 20230725164634.png]]
-![[Pasted image 20230725165105.png]]
-![[Pasted image 20230725165620.png]]
-![[Pasted image 20230725171241.png]]
 
 [[Topology]]

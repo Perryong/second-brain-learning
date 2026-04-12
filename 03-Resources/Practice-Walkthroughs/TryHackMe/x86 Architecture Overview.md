@@ -283,10 +283,7 @@ Drag and drop the stack pieces on the left into the correct stack position on th
 
 THM{SMASHED_THE_STACK}
 
-
 ```
-![[Pasted image 20230808220103.png]]
-![[Pasted image 20230808220305.png]]
 Follow the instructions in the attached static site and find the flag. What is the flag?
 
 *THM{SMASHED_THE_STACK}*
@@ -308,7 +305,5 @@ Answer the questions below
 Join the discussion on our social channels
 
  Completed
-
-
 
 [[ParrotPost Phishing Analysis]]

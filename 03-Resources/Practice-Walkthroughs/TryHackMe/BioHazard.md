@@ -103,7 +103,6 @@ Nmap done: 1 IP address (1 host up) scanned in 20.57 seconds
 How many open ports?
 *3*
 
-
 What is the team name in operation
 *STARS alpha team* (found in home page footer) 
 
@@ -117,8 +116,6 @@ Some of the doors are locked. Use the item flag to unlock the door.
 
 Tips: It is better to record down all the information inside a notepad
 
-
-
 What is the emblem flag
 *emblem{fec832623ea498e20bf4fe1821d58727}*
 What is the lock pick flag
@@ -127,13 +124,9 @@ What is the music sheet flag
 *music_sheet{362d72deaf65f5bdc63daece6a1f676e}* (base32)
 What is the gold emblem flag
 *gold_emblem{58a8c41a9d08b8a4e38d02a4d7ff4843}*
-![[Pasted image 20220917211219.png]]
-
-![[Pasted image 20220917211731.png]]
 
 What is the shield key flag
 *shield_key{48a7a9227cd7eb89f0a062590798cbac}*
-![[Pasted image 20220917204929.png]]
 
 What is the blue gem flag
 *blue_jewel{e1d457e96cac640f863ec7bc475d48aa}*
@@ -147,38 +140,24 @@ crest 3:
 MDAxMTAxMTAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAxMDAgMDExMDAxMDAgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMDAgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMDAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTAxMTAgMDExMDAwMTEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAxMDEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDExMDAwMDEgMDAxMDAwMDAgMDAxMTAxMDEgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMDEgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDA= (E: 3x, 19 letters)
 crest 4: gSUERauVpvKzRpyPpuYz66JDmRTbJubaoArM6CAQsnVwte6zF9J4GGYyun3k5qM9ma4s (E: 2x, 17 letters)
 
-![[Pasted image 20220917212918.png]]
-
 RlRQIHVzZXI6IG 
-
-![[Pasted image 20220917213030.png]]
-
 
 h1bnRlciwgRlRQIHBh
 
-![[Pasted image 20220917213233.png]]
-
 c3M6IHlvdV9jYW50X2h
 
-![[Pasted image 20220917213333.png]]
-
 pZGVfZm9yZXZlcg==
-
 
 now:
 
 RlRQIHVzZXI6IGh1bnRlciwgRlRQIHBhc3M6IHlvdV9jYW50X2hpZGVfZm9yZXZlcg==
 
-![[Pasted image 20220917213449.png]]
-
 FTP user: hunter, FTP pass: you_cant_hide_forever
-
 
 What is the FTP username
 *hunter*
 What is the FTP password
 *you_cant_hide_forever*
-
 
 ### The guard house 
 
@@ -300,7 +279,6 @@ Barry
 
 */hidden_closet/*
 
-
 Password for the encrypted file
 Three picture, three hints: hide, comment and walk away
 
@@ -317,7 +295,6 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
 0             0x0             JPEG image data, JFIF standard 1.01
 
-
 Scan Time:     2022-09-17 22:40:52
 Target File:   /home/kali/Downloads/biohazard/002-key.jpg
 MD5 Checksum:  060af11c5617fbc4fba1760f0dd52a0d
@@ -326,7 +303,6 @@ Signatures:    411
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
 0             0x0             JPEG image data, JFIF standard 1.01
-
 
 Scan Time:     2022-09-17 22:40:52
 Target File:   /home/kali/Downloads/biohazard/003-key.jpg
@@ -338,7 +314,6 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 0             0x0             JPEG image data, JFIF standard 1.01
 1930          0x78A           Zip archive data, at least v2.0 to extract, uncompressed size: 14, name: key-003.txt
 2124          0x84C           End of Zip archive, footer length: 22
-
 
 ┌──(kali㉿kali)-[~/Downloads/biohazard]
 └─$ unzip 003-key.jpg 
@@ -477,13 +452,10 @@ plant42_can_be_destroy_with_vjolt
 
 ```
 
-
 *plant42_can_be_destroy_with_vjolt*
 
 What is the helmet key flag
 key 1 + key 2 + key 3 is not enough. You need to do something
-
-![[Pasted image 20220917214959.png]]
 
 ```
 ┌──(kali㉿kali)-[~/Downloads/biohazard]
@@ -499,9 +471,6 @@ helmet_key{458493193501d2b94bbab2e727f8db4b}
 ### The Revisit 
 
 Done with the puzzle? There are places you have explored before but yet to access.
-
-
-![[Pasted image 20220917215239.png]]
 
 What is the SSH login username
 You missed a room yep study room :) 
@@ -543,11 +512,8 @@ SSH user: umbrella_guest
 
 hidden_Closet
 
-![[Pasted image 20220917221043.png]]
-
 What is the SSH login password
 *T_virus_rules*
-
 
 Who the STARS bravo team leader
 *Enrico*
@@ -577,7 +543,6 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-20-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
@@ -586,7 +551,6 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-20-generic x86_64)
 58 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
@@ -729,7 +693,6 @@ flag: 3c5794a00dc56c35f2bf096571edf3bf
 
 ```
 
-
 Where you found Chris
 *jailcell*
 
@@ -741,10 +704,7 @@ The login password for the traitor
 The name of the ultimate form
 *Tyrant*
 
-![[Pasted image 20220917222546.png]]
-
 The root flag
 *3c5794a00dc56c35f2bf096571edf3bf* (gtofbins env https://gtfobins.github.io/gtfobins/env/ )
-
 
 [[Credentials Harvesting]]

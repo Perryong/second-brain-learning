@@ -302,10 +302,7 @@ was really fun :)
 
 ```
 
-
 What was the alert signature for **A Network Trojan was Detected**?
-
-![[Pasted image 20230414115851.png]]
 
 *ET MALWARE Likely Evil EXE download from MSXMLHTTP non-exe extension M2*
 
@@ -317,15 +314,11 @@ What was the IP to trigger either alert? Enter your answer in a **defanged** f
 
 Cyberchef can defang.
 
-![[Pasted image 20230414120125.png]]
-
 	*185[.]118[.]164[.]8*
 
 Provide the full URI for the malicious downloaded file. In your answer, **defang** the URI. 
 
 Cyberchef can defang.
-
-![[Pasted image 20230414120426.png]]
 
 	*awh93dhkylps5ulnq-be[.]com/czwih/fxla[.]php?l=gap1[.]cab*
 
@@ -337,29 +330,19 @@ Extract the file from PCAP, get the hash, then hop to VirusTotal
 
 What is the user-agent associated with this network traffic?
 
-![[Pasted image 20230414121231.png]]
-
 *Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/8.0; .NET4.0C; .NET4.0E)*
 
 	What other domains do you see in the network traffic that are labelled as malicious by VirusTotal? Enter the domains **defanged** and in alphabetical order. (**format: domain[.]zzz,domain[.]zzz**)
 
 Check the Misc Activity alert in Brim. Cyberchef can defang.
 
-![[Pasted image 20230414121950.png]]
-
-![[Pasted image 20230414122042.png]]
-
 	*a-zcorner[.]com,knockoutlights[.]com*
 
 There are IP addresses flagged as **Not Suspicious Traffic**. What are the IP addresses? Enter your answer in numerical order and **defanged**. (format: IPADDR,IPADDR)
 
-![[Pasted image 20230414124754.png]]
-
 	*64[.]225[.]65[.]166,142[.]93[.]211[.]176*
 
 	For the first IP address flagged as Not Suspicious Traffic. According to VirusTotal, there are several domains associated with this one IP address that was flagged as malicious. What were the domains you spotted in the network traffic associated with this IP address? Enter your answer in a **defanged** format. Enter your answer in alphabetical order, in a defanged format. (**format: domain[.]zzz,domain[.]zzz,etc**)  
-
-![[Pasted image 20230414125352.png]]
 
 	*safebanktest[.]top,tocsicambar[.]xyz,ulcertification[.]xyz*
 

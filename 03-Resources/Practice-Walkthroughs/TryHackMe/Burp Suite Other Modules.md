@@ -92,13 +92,10 @@ Practical:
 
 The best way to internalise this is by putting it into practice, so here are some examples. Try to complete these questions using Burp Suite Decoder as far as possible.
 
-
-
 Base64 encode the phrase: Let's Start Simple.
 
 What is the base64 encoded version of this text?
 *TGV0J3MgU3RhcnQgU2ltcGxl* (using burpsuite decoder)
-
 
 URL Decode this data: %4e%65%78%74%3a%20%44%65%63%6f%64%69%6e%67.
 
@@ -106,12 +103,10 @@ What is the plaintext returned? *Next: Decoding*
 
 Use Smart Decode to decode this data: &#x25;&#x33;&#x34;&#x25;&#x33;&#x37;.
 
-![[Pasted image 20220822183151.png]]
 What is the decoded text? *47*
 
 Encode this phrase: Encoding Challenge.
 Start with base64 encoding. Take the output of this and convert it into ASCII Hex. Finally, encode the hex string into octal.
-![[Pasted image 20220822183311.png]]
 What is the final string? *24034214a720270024142d541357471232250253552c1162d1206c*
 
 ###  Hashing 
@@ -150,17 +145,12 @@ Practical:
 
 As before, let's put this into practice with a few examples.
 
-
-
 Using Decoder, what is the SHA-256 hashsum of the phrase: Let's get Hashing!?
 Convert this into an ASCII Hex string for the answer to this question.
-![[Pasted image 20220822184302.png]]
 *6b72350e719a8ef5af560830164b13596cb582757437e21d1879502072238abe*
-
 
 Generate an MD4 hashsum of the phrase: Insecure Algorithms.
 Encode this as base64 (not ASCII Hex) before submitting.
-![[Pasted image 20220822184454.png]]
 *TcV4QGZZN7y7lwYFRMMoeA==*
 
 Let's look at an in-context example:
@@ -169,8 +159,6 @@ Note: This file can also be downloaded from the deployed VM with  wget http://MA
 Now read the problem specification below:
 "Some joker has messed with my SSH key! There are four keys in the directory, and I have no idea which is the real one. The MD5 hashsum for my key is 3166226048d6ad776370dc105d40d9f8 -- could you find it for me?"
 Submit the correct key name as your answer. *key3*
-
-![[Pasted image 20220822190401.png]]
 
 ### Overview 
 
@@ -200,7 +188,6 @@ Once again, there are three distinct parts to this window:
 
 We are given the total number of differences found in the window title.
 
-
 Familiarise yourself with the Comparer interface. *No answer needed*
 
 ### Example 
@@ -213,13 +200,9 @@ For example, when performing a login bruteforce or credential stuffing attack wi
 
 Let's keep going with this example for a practical.
 
-
-
 Navigate to http://MACHINE_IP/support/login
 
 Try to login with an invalid username and password -- capture the request in the Burp Proxy. *No answer needed*
-
-
 
 Send the request to Repeater with Ctrl + R (or Mac equivalent), or by right-clicking on the request in Proxy and choosing to "Send to Repeater".
 *No answer needed*
@@ -228,16 +211,12 @@ Send the request, then right-click on the response and choose "Send to Comparer"
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d9e176315f8850e719252ed/room-content/f449ac6b049ffdb0491f7c872465dc01.gif)
 
-
-
 In the Repeater tab, change the credentials to:
 
     Username: support_admin
     Password: w58ySK4W
 
 Send the request again, then pass the new response into Comparer. *No answer needed*
-
-![[Pasted image 20220822205822.png]]
 
 Compare the two responses by word. Can you identify the main differences? *No answer needed*
 
@@ -288,7 +267,6 @@ It is worth noting that at this point, we could also choose to copy or save the 
 
 Having clicked the "Analyze now" button, Burp will proceed to analyse the entropy of our token and generate a report. We will look through this in the next task.
 
-
 Follow the steps above to perform entropy analysis on the loginToken set by the /admin/login route of our target web app. *No answer needed*
 
 [Bonus Question -- Optional] Try performing the capture again, but this time monitor your requests in Wireshark. Can you see why live capturing the requests for this analysis can be described as "loud"? *No answer needed*
@@ -307,14 +285,11 @@ The summary gives us an overall result; the effective entropy; an analysis of th
 
 Collectively, these will often be enough to determine whether the token is generated safely or not; however, in some instances, we may need to have a look at the test results directly -- this can be done in the "Character-level analysis" and "Bit-level analysis" tabs. As mentioned previously, we will not be going into these to avoid delving into the depths of statistical-analysis mathematics in a beginner-friendly room. In short, with an estimated 1% chance of being incorrect based on the data provided (Significance level: 1%), Burp has calculated that the effective entropy of our token should be around 117 bits. This is an excellent level of entropy to have in a secure token, although it should be noted that it is impossible to say with absolute assurance that this calculation is entirely accurate, simply due to the nature of the topic.
 
-
 Take some time to look through the tests that Burp used to generate its summary. You don't need to understand all of these, but it is important to know that they exist. *No answer needed*
 
 `The measure of randomness of data in a file is known as entropy. Entropy is very useful in identifying compressed and packed malware. Packed or compressed files usually have a high entropy. `
 ### Room Conclusion 
 
-
-![[Pasted image 20220822233620.png]]
 Decoder, Sequencer, and Comparer may not be as well known as Proxy, Repeater or Intruder; however, they are still very useful tools.
 
 You should now be comfortable using Decoder to transform data; Comparer to look for differences between two datasets; and Sequencer to perform entropy analysis on tokens.
@@ -322,7 +297,6 @@ You should now be comfortable using Decoder to transform data; Comparer to look 
 This room has covered enough to give you a fundamental understanding of these modules -- now it's up to you to go and use them!
 
 The next (and final) room in the module will go on to look at the Burp Suite Extender tool.
-
 
 I understand how to use Decoder, Sequencer, and Comparer! *No answer needed*
 

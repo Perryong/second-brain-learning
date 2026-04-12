@@ -103,24 +103,10 @@ Flag.txt:
 
 ```
 
-![[Pasted image 20230621185435.png]]
-
 Look at the error messages from the application when attempting to log in. Enumerate to discover the username (firstname). Then enumerate once more to discover the password.
 
 *7df2eabce36f02ca8ed7f237f77ea416*
  
 
 [[Valley]]
-
-
-
-
-
-
-
-
-
-
-
-
 

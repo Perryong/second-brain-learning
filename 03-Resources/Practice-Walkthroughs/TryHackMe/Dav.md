@@ -4,7 +4,6 @@ boot2root machine for FIT and bsides guatemala CTF
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/cb525f3e7944eb5eec637698f48b6844.jpeg)
 
-
 ```
 ┌──(kali㉿kali)-[~/mrphisher/commited]
 └─$ sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.137.183
@@ -65,7 +64,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 200      GET      375l      968w    11321c http://10.10.137.183/index.html
 401      GET       14l       54w      460c http://10.10.137.183/webdav
 
-
 need credentials
 
 https://xforeveryman.blogspot.com/
@@ -96,8 +94,6 @@ This branch is being used to test the code with the mysql server.
 <hr />
 <address>Apache/2.4.18 (Ubuntu) Server at 10.10.137.183 Port 80</address>
 </body></html>
-
-
 
 The file  is successfully uploaded to the server. 
 
@@ -173,17 +169,10 @@ sudo cat /root/root.txt
 
 ```
 
-![[Pasted image 20220925173236.png]]
-
-![[Pasted image 20220925174048.png]]
-
 user.txt
 *449b40fe93f78a938523b7e4dcd66d2a*
 
-
-
 root.txt
 *101101ddc16b0cdf65ba0b8a7af7afa5*
-
 
 [[Committed]]

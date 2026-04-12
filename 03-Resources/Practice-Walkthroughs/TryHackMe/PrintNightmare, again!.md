@@ -6,7 +6,6 @@ Search the artifacts on the endpoint to determine if the employee used any of th
 
 ![|333](https://i.ibb.co/ryX9w7H/businessmen-in-the-work-office-meeting-on-global-planning-and-marketing-research-vector-illustration.jpg)
 
-
 Scenario: In the weekly internal security meeting it was reported that an employee overheard two co-workers discussing the PrintNightmare exploit and how they can use it to elevate their privileges on their local computers.
 
 Task: Inspect the artifacts on the endpoint to detect the exploit they used.
@@ -105,14 +104,9 @@ dir
 exit
 ```
 
-![[Pasted image 20221116111714.png]]
-
-![[Pasted image 20221116112052.png]]
-
 The user downloaded a zip file. What was the zip file saved as?
  You can try using ProcDOT or FullEventLogView
 *levelup.zip*
-
 
 What is the full path to the exploit the user executed?
 		
@@ -134,7 +128,6 @@ What was the PID for the process that would have been blocked from loading a non
 Microsoft-Windows-Security-Mitigations
 *2600*
 
-
 What is the username of the newly created local administrator account?
 *backup*
 
@@ -142,10 +135,8 @@ What is the password for this user?
 Use ProcDOT to search for PowerShell History File
 *ucGGDMyFHkqMRWwHtQ*
 
-
 What two commands did the user execute to cover their tracks? (no space after the comma)
 		
 		*rmdir .\CVE-2021-1675-main\,del .\levelup.zip*
-
 
 [[PrintNightmare]]

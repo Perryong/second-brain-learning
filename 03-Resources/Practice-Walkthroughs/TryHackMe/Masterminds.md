@@ -78,8 +78,6 @@ https://news.sophos.com/en-us/2019/03/05/emotet-101-stage-3-the-emotet-executabl
 
 Provide the victim's IP address.
 
-![[Pasted image 20230418124746.png]]
-
 *192.168.75.249*
 
 The victim attempted to make HTTP connections to two suspicious domains with the status '404 Not Found'. Provide the hosts/domains requested. 
@@ -92,8 +90,6 @@ The victim made a successful HTTP connection to one of the domains and received 
 
 	How many unique DNS requests were made to cab[.]myfkn[.]com domain (including the capitalized domain)? 
 
-![[Pasted image 20230418130106.png]]
-
 *7*
 
 	Provide the URI of the domain bhaktivrind[.]com that the victim reached out over HTTP. 
@@ -101,8 +97,6 @@ The victim made a successful HTTP connection to one of the domains and received 
 */cgi-bin/JBbb8/*
 
 Provide the IP address of the malicious server and the executable that the victim downloaded from the server. 
-
-![[Pasted image 20230418130848.png]]
 
 *185.239.243.112, catzx.exe*
 
@@ -173,13 +167,9 @@ Provide the IP address of the domain that hosts the binary.
 
 There were 2 Suricata "A Network Trojan was detected" alerts. What were the source and destination IP addresses? 
 
-![[Pasted image 20230418134548.png]]
-
 *192.168.75.146,45.95.203.28*
 
 Taking a look at .top domain in HTTP requests, provide the name of the stealer (Trojan that gathers information from a system) involved in this packet capture using [URLhaus Database](https://urlhaus.abuse.ch/). 
-
-![[Pasted image 20230418134719.png]]
 
 *RedLine Stealer*
 
@@ -228,15 +218,11 @@ https://appriver.com/blog/phorphiextrik-botnet-campaign-leads-to-multiple-infect
 
 Provide the IP address of the victim machine.
 
-![[Pasted image 20230418135132.png]]
-
 *192.168.75.232*
 
 Provide three C2 domains from which the binaries were downloaded (starting from the earliest to the latest in the timestamp)
 
 Start from the bottom of the output and work your way up or use '| sort ts'.
-
-![[Pasted image 20230418140047.png]]
 
 *xfhoahegue.ru, afhoahegue.ru, efhoahegue.ru*
 

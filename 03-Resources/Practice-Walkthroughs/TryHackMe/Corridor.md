@@ -14,8 +14,6 @@ In this challenge, you will explore potential IDOR vulnerabilities. Examine the 
 What is the flag?
 Where do those doors take you? The numbers and letters seem to follow a pattern...
 
-![[Pasted image 20221223124602.png]]
-
 ```
 using crackstation md5 is not hex
 
@@ -59,12 +57,6 @@ http://10.10.201.112/cfcd208495d565ef66e7dff9f98764da
 
 flag{2477ef02448ad9156661ac40a6b8862e}
 ```
-
-![[Pasted image 20221223124946.png]]
-
-![[Pasted image 20221223125132.png]]
-![[Pasted image 20221223125224.png]]
-
 
 *flag{2477ef02448ad9156661ac40a6b8862e}*
 

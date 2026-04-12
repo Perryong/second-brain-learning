@@ -34,7 +34,6 @@ Windows saves these preferences to make your computer more personalized. However
 
 In the next task, we will learn about the Windows Registry and how it can help us in forensic analysis of a Windows system.
 
-
 What is the most used Desktop Operating System right now?
 *MIcrosoft Windows*
 
@@ -87,7 +86,6 @@ If you write values to a key under HKEY_CLASSES_ROOT, and the key already exists
 HKEY_CURRENT_CONFIG 	Contains information about the hardware profile that is used by the local computer at system startup.
 ```
 
-
 What is the short form for HKEY_LOCAL_MACHINE?
 *HKLM*
 
@@ -131,7 +129,6 @@ Transaction Logs and Backups:
 What is the path for the five main registry hives, DEFAULT, SAM, SECURITY, SOFTWARE, and SYSTEM? 
 ` C:\Windows\System32\Config`
 
-
 What is the path for the AmCache hive?
 `C:\Windows\AppCompat\Programs\Amcache.hve`
 
@@ -167,7 +164,6 @@ Another way you can extract Registry files from FTK Imager is through the Obtain
 
 For the purpose of this room, we will not be acquiring data ourselves, but instead, we will work with the attached VM that already has data.
 
-
 Try collecting data on your own system or the attached VM using one of the above mentioned tools
 *No answer needed*
 
@@ -199,7 +195,6 @@ One shortcoming of RegRipper is that it does not take the transaction logs into 
 
 Even though we have discussed these different tools, for the purpose of this room, we will only be using Registry Explorer and some of Eric Zimmerman's tools. The other tools mentioned here will be covered in separate rooms.
 
-
 Study the above material to understand the difference between the different tools
 *No answer needed*
 
@@ -216,7 +211,6 @@ If we only have triage data to perform forensics, we can determine the OS versio
 `SOFTWARE\Microsoft\Windows NT\CurrentVersion`
 
 This is how Registry Explorer shows this registry key. Take a look and answer Question # 1.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/1362c5a15d1879a1a5a5a5237a426108.png)
 
@@ -323,7 +317,6 @@ Take a look at the below screenshot and answer Question # 6.
 
 The information contained here includes the relative identifier (RID) of the user, number of times the user logged in, last login time, last failed login, last password change, password expiry, password policy and password hint, and any groups that the user is a part of. 
 
-
 What is the Current Build Number of the machine whose data is being investigated?
 *19044* (from above img Check the information in right pane in the image)
 
@@ -428,13 +421,11 @@ Here is how the TypedPaths key looks like in Registry Explorer:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/782204163443e8f21ddd14297ba756dd.png)
 
-
 When was EZtools opened? (Format: yyyy-mm-dd hh:mm:ss)
 *2021-12-01 13:00:34*
 
 At what time was My Computer last interacted with?
 *2021-12-01 13:00:34*
-
 
 What is the Absolute Path of the file opened using notepad.exe?
 `C:\Program Files\Amazon\Ec2ConfigService\Settings`
@@ -486,7 +477,6 @@ This is how Registry Explorer parses the AmCache hive:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/a569dfdf155c1a26fe3a693c388a44c7.png)
 
-
 BAM/DAM:
 
 Background Activity Monitor or BAM keeps a tab on the activity of background applications. Similar Desktop Activity Moderator or DAM is a part of Microsoft Windows that optimizes the power consumption of the device. Both of these are a part of the Modern Standby system in Microsoft Windows.
@@ -500,7 +490,6 @@ In the Windows registry, the following locations contain information related to 
 Below you can see how Registry Explorer parses data from BAM:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/8a672c6580ab63d757ee5c08c09c924a.png)
-
 
 How many times was the File Explorer launched? (Check the Run Counter column )
 *26*
@@ -557,7 +546,6 @@ We can compare the GUID we see here in this registry key and compare it with the
 
 Combining all of this information, we can create a fair picture of any USB devices that were connected to the machine we're investigating. 
 
-
 What is the serial number of the device from the manufacturer 'Kingston'?
 *1C6F654E59A3B0C179D366AE&0*
 
@@ -593,34 +581,23 @@ One of the Desktops in the research lab at Organization X is suspected to have b
 
 Note: When loading registry hives in RegistryExplorer, it will caution us that the hives are dirty. This is nothing to be afraid of. We just need to remember the little lesson about transaction logs and point RegistryExplorer to the .LOG1 and .LOG2 files with the same filename as the registry hive. It will automatically integrate the transaction logs and create a 'clean' hive. Once we tell RegistryExplorer where to save the clean hive, we can use that for our analysis and we won't need to load the dirty hives anymore. RegistryExplorer will guide you through this process. 
 
-![[Pasted image 20220906172030.png]]
 How many user created accounts are present on the system?( Check the SAM hive. Accounts with RIDs starting with 10xx are user created accounts) 
 *3* (load sam hive into registry explorer found in system32/config)
 
-![[Pasted image 20220906172432.png]]
 What is the username of the account that has never been logged in?(Check the account that does not have a last logged in time)
 *thm-user2*
 
-![[Pasted image 20220906172531.png]]
 What's the password hint for the user THM-4n6?(Check the Password Hint column )
 *count*
-
-
-![[Pasted image 20220906173058.png]]
 
 When was the file 'Changelog.txt' accessed?(Format: yyyy-mm-dd hh:mm:ss Check in evidence of file/folder opening)
 
 *2021-11-24 18:18:48* (/NAT yes join the two logs yes save, `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt`)
 
-![[Pasted image 20220906173804.png]]
-
 What is the complete path from where the python 3.8.2 installer was run? (Check the evidence of execution artifacts)
 `Z:\setups\python-3.8.2.exe` 
 	
 	(NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count search python)
-
-![[Pasted image 20220906180222.png]]
-
 
 When was the USB device with the friendly name 'USB' last connected? (Format: yyyy-mm-dd hh:mm:ss )
 
@@ -637,7 +614,6 @@ If it was a little harder for you to keep track of all the artifacts, download t
 You can use the links provided within Task 3 to explore more about the tools we introduced. Furthermore, if you like, you can play around with KAPE, regripper, and EZtools in the VM attached with the room.
 
 You can learn more about Windows Forensics in our Windows Forensics 2 room, where we cover even more exciting ways to perform forensics on a Windows machine, and the [KAPE room](https://tryhackme.com/room/kape) to understand how to perform forensics in a quick and efficient manner.
-
 
 Review the provided resources.
 *No answer needed*

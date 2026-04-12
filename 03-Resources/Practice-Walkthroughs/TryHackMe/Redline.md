@@ -8,9 +8,7 @@ Learn how to use Redline to perform memory analysis and to scan for IOCs on an e
 
 Many tools can aid a security analyst or incident responder in performing memory analysis on a potentially compromised endpoint. One of the most popular tools is Volatility, which will allow an analyst to dig deep into the weeds when examining memory artifacts from an endpoint. But this process can take time. Often, when an analyst is triaging, time is of the essence, and the analyst needs to perform a quick assessment to determine the nature of a security event.
 
-
 That is where the FireEye tool Redline comes in. Redline will essentially give an analyst a 30,000-foot view (10 kilometers high view) of a Windows, Linux, or macOS endpoint. Using Redline, you can analyze a potentially compromised endpoint through the memory dump, including various file structures. With a nice-looking GUI (Graphical User Interface) - you can easily find the signs of malicious activities. 
-
 
 Here is what you can do using Redline:
 
@@ -21,12 +19,9 @@ Here is what you can do using Redline:
     Look for suspicious strings
     And much more!
 
-
 Installing Redline on your local machine is straightforward. Run the MSI file and follow the installation process.
 
-
 Redline is installed in the virtual machine attached to this room. 
-
 
 Launch the attached virtual machine. If you wish to access the virtual machine via Remote Desktop, use the credentials below. 
 
@@ -36,10 +31,8 @@ User: administrator
 
 Password: letmein123!
 
-
 Who created Redline?
 *FireEye*
-
 
 ### Data Collection 
 
@@ -62,7 +55,6 @@ In this task, we will be using the Standard Collector method.
     From Redline, click on "Create a Standard Collector".
     You will have an option to choose the target platform. In our case, we will select Windows.
 
-
 ![](https://assets.tryhackme.com/additional/redline101/targetos.png)
 
     Under the Review Script Configuration, click on “Edit your script”, this is one of the crucial steps since you will be presented with the set of data to choose to collect from the host. There will be five tabs, which include Memory, Disk, System, Network, and Other.
@@ -82,7 +74,6 @@ Be sure to make changes to the settings in each tab as necessary to mirror the s
 Disk: 
 
 This is where you can collect the data on Disks partitions and Volumes along with File Enumeration.
-
 
 ![](https://assets.tryhackme.com/additional/redline101/diskkk.png)
 
@@ -121,7 +112,6 @@ Note: You can choose any folder you wish but make sure that the folder is EMPTY.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/f8ddaa960778e373c108ea2fa3ebe67f.png)
 
-
     If you go into the folder, you will notice the bat file under the name "RunRedlineAudit". This is the executable script to collect data from the host. The script needs to be run as Administrator to be able to collect the data we need.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/ef6666436c67665ba44f03f149a89320.png)
@@ -139,7 +129,6 @@ Note: This process may take between 15-20 minutes to complete.
 Tip: If you run the script multiple times, the naming convention of the analysis file will increment by 1. For example, if you run the script two times, you will see AnalysisSession1 and AnalysisSession2. 
 
 Congratulations! Now you have the data you need and are ready to dive into the investigation process in the upcoming tasks. 
-
 
 What data collection method takes the least amount of time?
 *Standard Collector *
@@ -214,7 +203,6 @@ You can find out more about each type of data analysis using the Redline User Gu
 
 Now you have learned some basics of different data types to help you during the investigation process. Let's go hunting and see if you can answer some of the questions in the next task.
 
-
 Where in the Redline UI can you view information about the Logged in User?
 *System Infomation*
 
@@ -226,16 +214,11 @@ Now you should be familiar with some of the data collection terms and techniques
 
 Note: You will analyze the .mans file you generated from the previous task to answer the questions below.
 
-![[Pasted image 20220907111416.png]]
-
-
 Provide the Operating System detected for the workstation.
 *Windows Server 2019 Standard 17763*
 
 Provide the BIOS Version for the workstation.
 *Xen 4.2.amazon*
-
-![[Pasted image 20220907111715.png]]
 
 What is the suspicious scheduled task that got created on the victim's computer? 
 *MsOfficeUpdateFa.ke*
@@ -243,30 +226,20 @@ What is the suspicious scheduled task that got created on the victim's computer?
 Find the message that the intruder left for you in the task.
 *THM-p3R5IStENCe-m3Chani$m*
 
-![[Pasted image 20220907111951.png]]
-
 There is a new System Event ID created by an intruder with the source name "THM-Redline-User" and the Type "ERROR". Find the Event ID #. *546*
 Provide the message for the Event ID.
 *Someone cracked my password. Now I need to rename my puppy-++- *
 
-
 It looks like the intruder downloaded a file containing the flag for Question 8. Provide the full URL of the website.
 *https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA*
-
-
-![[Pasted image 20220907112510.png]]
-
 
 Provide the full path to where the file was downloaded to including the filename.
 
 `C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt`
 
-![[Pasted image 20220907113029.png]]
-
 Provide the message the intruder left for you in the file.
 
 *THM{600D-C@7cH-My-FR1EnD}*
-
 
 ###  IOC Search Collector 
 
@@ -290,7 +263,6 @@ Note: Below, you may follow along with the screenshots and don't have to create 
 
 Open IOC Editor which was conveniently placed for you in the taskbar next to Redline. 
 
-
 Note: It may take ~60 seconds for the application to launch. 
 
 Before proceeding,  create the directory which will store the IOC file (IOC Directory). 
@@ -298,7 +270,6 @@ Before proceeding,  create the directory which will store the IOC file (IOC Dire
 Next, create the IOC file.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/b26d9e80ac55821643531c3a0436f633.png)
-
 
 Keylogger indicators in IOC Editor:
 
@@ -329,7 +300,6 @@ Once you select an item you can enter the value for the item directly.
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/81e9ffdb97a2ce98e8b9cec57a2be261.png)
 
 You can also add it within the Properties. 
-
 
 All the fields are read-only except for Content and Comment. To add a value to the item enter it under Content. 
 
@@ -380,7 +350,6 @@ After the analysis is finished, you will see the .mans file (AnalysisSession1 in
 
 ![](https://i.ibb.co/xhJwX1f/analysis.png)
 
-
 If Redline fails to generate the IOC Report automatically, you can manually generate it by clicking "Create a New IOC Report" and importing your .ioc file.
 
 When the report generation completes, you should see the "Hits". You can expand the list by clicking on the entries in each row.
@@ -399,7 +368,6 @@ The screenshot below is of a file with the most amount of "Hits", which means it
 
 You should be ready to answer the questions below using the screenshots provided in the task and perform these similar actions in the upcoming task!
 
-
 What is the actual filename of the Keylogger? 
 *psylog.exe*
 
@@ -409,7 +377,6 @@ What filename is the file masquerading as?
 Who is the owner of the file? 
 ( Check the "File Info" section)
 *WIN-2DET5D0NPT\charles*
-
 
 What is the file size in bytes? 
 (Check the "File Info" section)
@@ -439,14 +406,10 @@ File Size (Bytes):
 
 	Note: Open Previous Analysis, and use the existing Redline Session found in C:\Users\Administrator\Documents\Analysis\Sessions\AnalysisSession1.
 
-
-![[Pasted image 20220907123712.png]]
-
 (use mandaint to generate ioc and then redline to upload a nd create the ioc a long time )
 Provide the path of the file that matched all the artifacts along with the filename.
 
 `C:\Users\Administrator\AppData\Local\Temp\8eJv8w2id6IqN85dfC.exe`
-
 
 Provide the path where the file is located without including the filename.
 `C:\Users\Administrator\AppData\Local\Temp\`
@@ -455,7 +418,6 @@ Who is the owner of the file?
 ( Check the "File Info")
 `BUILTIN\Administrators`
 
-![[Pasted image 20220907123931.png]]
 Provide the subsystem for the file.
 (Check "PE Info")
 *Windows_CUI*
@@ -463,21 +425,13 @@ Provide the subsystem for the file.
 Provide the Device Path where the file is located.
 `\Device\HarddiskVolume2`
 
-![[Pasted image 20220907124415.png]]
-
-![[Pasted image 20220907124441.png]]
-
-
 Provide the hash (SHA-256) for the file.(Use the "Get-FileHash" command in PowerShell) (using virus total md5 then )
 *57492d33b7c0755bb411b22d2dfdfdf088cbbfcd010e30dd8d425d5fe66adff4*
-
-![[Pasted image 20220907124617.png]]
 
 The attacker managed to masquerade the real filename. Can you find it having the hash in your arsenal? 
 (Check VirusTotal)
 
 *PSExec.exe*
-
 
 ### Endpoint Investigation 
 
@@ -495,44 +449,27 @@ Task:
 
 Note: Give it up to 10 minutes for all the data import. 
 
-
-
 Can you identify the product name of the machine?
 (Check System Information.)
 *Windows 7 Home Basic*
-
-![[Pasted image 20220907125015.png]]
-
 
 Can you find the name of the note left on the Desktop for the "Charles"?
 (Take a look at the NOTEPAD.exe process. )
 *_R_E_A_D___T_H_I_S___AJYG1O_.txt*
 
-![[Pasted image 20220907125840.png]]
-
-
 Find the Windows Defender service; what is the name of its service DLL? 
 (Check the Windows Services section.)
 *MpSvc.dll*
-
-![[Pasted image 20220907130226.png]]
 
 The user manually downloaded a zip file from the web. Can you find the filename? 
 (Check File Download History.)
 *eb5489216d4361f9e3650e6a6332f7ee21b0bc9f3f3a4018c69733949be1d481.zip*
 
-![[Pasted image 20220907130401.png]]
-
 Provide the filename of the malicious executable that got dropped on the user's Desktop.
 *Endermanch@Cerber5.exe*
 
-![[Pasted image 20220907130516.png]]
-
-![[Pasted image 20220907130601.png]]
-
 Provide the MD5 hash for the dropped malicious executable.
 *Cerber*  (ransomware q encripta)
-
 
 What is the name of the ransomware? 
 
@@ -554,7 +491,6 @@ Here is the reference list for you if you missed it in the previous tasks:
 Congratulations! Now you have learned a new tool.
 
 Happy Hunting!
-
 
 Read the above.
 *No answer needed*

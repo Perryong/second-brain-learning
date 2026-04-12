@@ -24,8 +24,6 @@ SIEM: Security Information and Event Management system that is used to aggregate
 Room Machine
 Before moving forward, deploy the machine. When you deploy the machine, it will be assigned an IP. Access this room in a web browser on the AttackBox, or via the VPN at http://10.10.15.38. The machine will take up to 3-5 minutes to start. 
 
-![[Pasted image 20221125113113.png]]
-
 ### Splunk Components 
 
 Splunk has three main components, namely Forwarder, Indexer, and Search Head. These components are explained below:
@@ -57,7 +55,6 @@ Splunk Search Head is the place within the Search & Reporting App where users ca
 Search Head also provides the ability to transform the results into presentable tables, visualizations like pie-chart, bar-chart and column-chart, as shown below:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/ce38f9780efac6e22af23c2574367255.png)
-
 
 Which component is used to collect and send data over the Splunk instance?
 *Forwarder*
@@ -108,9 +105,7 @@ You can also create dashboards and add them to the Home Dashboard. The dashboard
 
 Please review the Splunk documentation on Navigating Splunk [here](https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchTutorial/NavigatingSplunk). 
 
-
 In the Add Data tab, which option is used to collect data from files and ports?
-![[Pasted image 20221125115358.png]]
 *Monitor*
 
 ### Adding Data 
@@ -122,7 +117,6 @@ The data sources can be event logs, website logs, firewall logs, etc.
 Data sources are grouped into categories. Below is a chart listing from the Splunk documentation detailing each data source category.
 
 ![777](https://assets.tryhackme.com/additional/splunk-overview/splunk-data-sources.png)
-
 
 In this room, we're going to focus on VPN logs. When we click on the Add Data link (from the Splunk home screen), we're presented with the following screen. 
 
@@ -146,27 +140,17 @@ Download the attached log file "VPN_logs" and upload this file into the Splunk i
 
 Note: In case you are using the AttackBox, the file is available in the /root/Rooms/SplunkBasic/ directory.
 
-![[Pasted image 20221125121026.png]]
-
 Upload the data attached to this task and create an index "VPN_Logs". How many events are present in the log file?
 *2862*
-
-![[Pasted image 20221125121118.png]]
 
 How many log events by the user Maleena are captured?
 *60*
 
-![[Pasted image 20221125121411.png]]
-
 What is the name associated with IP 107.14.182.38?
 *Smith*
 
-![[Pasted image 20221125121846.png]]
-
 What is the number of events that originated from all countries except France?
 *2814*
-
-![[Pasted image 20221125121945.png]]
 
 How many VPN Events were observed by the IP 107.3.206.58?
 *14*
@@ -179,6 +163,5 @@ In this room, we explored Splunk, its components, and how it works. Please check
     Investigating With Splunk  http://tryhackme.com/jr/investigatingwithsplunk
     Benign - Challenge  http://tryhackme.com/jr/benign
     PoshEclipse - Challenge  http://tryhackme.com/jr/posheclipse
-
 
 [[Security Principles]]

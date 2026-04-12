@@ -52,7 +52,6 @@ Once you choose an action, the menu disappears and opens a terminal instance to 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/5550256e1a64efe83b33535f84147ec4.png)
 
-
 Navigate to the Task-Exercises folder and run the command "./.easy.sh" and write the output
 
 ```
@@ -66,7 +65,6 @@ ubuntu@ip-10-10-228-159:~/Desktop/Task-Exercises$ ./.easy.sh
 Too Easy!
 
 ```
-
 
 *Too Easy!*
 
@@ -84,7 +82,6 @@ There are two main types of IDS systems;
 
     Network Intrusion Detection System (NIDS) - NIDS monitors the traffic flow from various areas of the network. The aim is to investigate the traffic on the entire subnet. If a signature is identified, an alert is created.
     Host-based Intrusion Detection System (HIDS) - HIDS monitors the traffic flow from a single endpoint device. The aim is to investigate the traffic on a particular device. If a signature is identified, an alert is created.
-
 
 Intrusion Prevention System (IPS)
 
@@ -104,7 +101,6 @@ The system is trained to know the "normal" to detect "abnormal". The training pe
 
 HIPS working mechanism is similar to HIDS. The difference between them is that while HIDS creates alerts for threats, HIPS stops the threats by terminating the connection.
 
-
 Detection/Prevention Techniques
 
 There are three main detection and prevention techniques used in IDS and IPS solutions;
@@ -117,14 +113,12 @@ Behaviour-Based
 	This technique identifies new threats with new patterns that pass through signatures. The model compares the known/normal with unknown/abnormal behaviours. This model helps detect previously unknown or new threats.
 Policy-Based	This technique compares detected activities with system configuration and security policies. This model helps detect policy violations.
 
-
 Summary
 
 Phew! That was a long ride and lots of information. Let's summarise the overall functions of the IDS and IPS in a nutshell.
 
     IDS can identify threats but require user assistance to stop them.
     IPS can identify and block the threats with less user assistance at the detection time.
-
 
 Now let's talk about Snort. Here is the rest of the official description of the snort;
 
@@ -149,33 +143,24 @@ Snort has three main use models;
     Packet Logger Mode - Log all IP packets (inbound and outbound) that visit the network.
     NIDS (Network Intrusion Detection System)  and NIPS (Network Intrusion Prevention System) Modes - Log/drop the packets that are deemed as malicious according to the user-defined rules.
 
-
 Which snort mode can help you stop the threats on a local machine?
 *HIPS*
-
 
 Which snort mode can help you detect threats on a local network?
 *NIDS*
 
-
 Which snort mode can help you detect the threats on a local machine?
 *HIDS*
-
 
 Which snort mode can help you stop the threats on a local network?
 *NIPS*
 
-
 Which snort mode works similar to NIPS mode?
 *NBA*
-
-![[Pasted image 20221205112803.png]]
 
 completo sistema de prevención de intrusiones en la red
 According to the official description of the snort, what kind of NIPS is it?
 *full-blown*
-
-
 
 NBA training period is also known as ...
 *baselining*
@@ -203,7 +188,6 @@ user@ubuntu$ snort -V
            Using ZLIB version: 1.2.11
 
         
-
 
 ```
 
@@ -256,7 +240,6 @@ Snort exiting
 
         
 
-
 ```
 
 Once we use a configuration file, snort got much more power! The configuration file is an all-in-one management file of the snort. Rules, plugins, detection mechanisms, default actions and output settings are identified here. It is possible to have multiple configuration files for different purposes and cases but can only use one at runtime.
@@ -269,8 +252,6 @@ Parameter	Description
 -q	Quiet mode prevents snort from displaying the default banner and initial information about your setup.
 
 That was an easy one; let's continue exploring snort modes!
-
-
 
 Run the Snort instance and check the build number.
 
@@ -289,8 +270,6 @@ ubuntu@ip-10-10-228-159:~/Desktop/Task-Exercises$ snort -V
 ```
 
 *149*
-
-
 
 Test the current instance with "/etc/snort/snort.conf" file and check how many rules are loaded with the current build.
 
@@ -2098,10 +2077,7 @@ Snort exiting
 
 ```
 
-
 *4151*
-
-
 
 Test the current instance with "/etc/snort/snortv2.conf" file and check how many rules are loaded with the current build.
 
@@ -2629,10 +2605,8 @@ colord:x:122:131:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/no
 gdm:x:123:132:Gnome Display Manager:/var/lib/gdm3:/bin/false
 snort:x:124:133:Snort IDS:/var/log/snort:/usr/sbin/nologin
 
-
 ┌──(kali㉿kali)-[~/snort]
 └─$ unshadow passwd.txt shadow.txt > hash.txt
-
 
 ┌──(kali㉿kali)-[~/snort]
 └─$ cat hash.txt  
@@ -2682,7 +2656,6 @@ saned:*:121:130::/var/lib/saned:/usr/sbin/nologin
 colord:*:122:131:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
 gdm:*:123:132:Gnome Display Manager:/var/lib/gdm3:/bin/false
 snort:*:124:133:Snort IDS:/var/log/snort:/usr/sbin/nologin
-
 
 seems salted :(
 ubuntu:!$6$vmzKXtCowJO/EvOg$PcukzMtijIm6kj56vz7m33c6KExbF7Horki4oPeujuoVsOsonzlUm/w6e/Enmb.NAcOKVNBkHEC22j.5FyqHu0:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
@@ -2801,7 +2774,6 @@ colord:*:18820:0:99999:7:::
 gdm:*:18820:0:99999:7:::
 snort:*:19000:0:99999:7:::
 
-
 ┌──(kali㉿kali)-[~/snort]
 └─$ ssh ubuntu@10.10.81.86
 ubuntu@10.10.81.86's password:  Password1234
@@ -2818,11 +2790,9 @@ Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.8.0-1038-aws x86_64)
   Memory usage: 18%                IPv4 address for eth0: 10.10.81.86
   Swap usage:   0%                 IPv4 address for eth1: 10.234.0.1
 
-
 210 updates can be applied immediately.
 104 of these updates are standard security updates.
 To see these additional updates run: apt list --upgradable
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -2842,13 +2812,7 @@ ubuntu
 ubuntu@ip-10-10-81-86:~$ sudo su
 root@ip-10-10-81-86:/home/ubuntu# :)
 
-
-
 ```
-![[Pasted image 20221205133312.png]]
-
-![[Pasted image 20221205133327.png]]
-
 
 *1*
 
@@ -2868,18 +2832,15 @@ Parameter	Description
 -X	Display the full packet details in HEX.
 -i	This parameter helps to define a specific network interface to listen/sniff. Once you have multiple interfaces, you can choose a specific interface to sniff. 
 
-
 Let's start using each parameter and see the difference between them. Snort needs active traffic on your interface, so we need to generate traffic to see Snort in action.
 
 To do this, use the traffic-generator script (find this in the Task-Exercise folder)
-
 
 Sniffing with parameter "-i"
 
 Start the Snort instance in verbose mode (-v) and use the interface (-i) "eth0"; sudo snort -v-i eth0
 
 In case you have only one interface, Snort uses it by default. The above example demonstrates to sniff on the interface named "eth0". Once you simulate the parameter -v, you will notice it will automatically use the "eth0" interface and prompt it.
-
 
 Sniffing with parameter "-v"
 
@@ -2912,12 +2873,9 @@ Snort exiting
 
         
 
-
 ```
 
-
 As you can see in the given output, verbosity mode provides tcpdump like output information. Once we interrupt the sniffing with CTRL+C, it stops and summarises the sniffed packets.
-
 
 Sniffing with parameter "-d"
 
@@ -2958,18 +2916,15 @@ FE 64 81 80 00 01 00 01 00 00 00 00 06 67 6F 6F  .d...........goo
 
         
 
-
 ```
 
 As you can see in the given output, packet data payload mode covers the verbose mode and provides more data.
-
 
 Sniffing with parameter "-de"
 
 Start the Snort instance in dump (-d) and link-layer header grabbing (-e) mode; snort -d -e
 
 Now run the traffic-generator script as sudo and start ICMP/HTTP traffic. Once the traffic is generated, snort will start showing the  packets in verbosity mode as follows;
-
 
 ```
 
@@ -3000,7 +2955,6 @@ Len: 44
 00 01 00 00 00 05 00 04 D8 3A D6 8E              .........:..
 
         
-
 
 ```
 
@@ -3059,7 +3013,6 @@ Type:0  Code:0  ID:15  Seq:1  ECHO REPLY
 
         
 
-
 ```
 
 Note that you can use the parameters both in combined and separated form as follows;
@@ -3071,7 +3024,6 @@ Note that you can use the parameters both in combined and separated form as foll
     snort -X
 
 Make sure you understand and practice each parameter with different types of traffic and discover your favourite combination.
-
 
 You can practice the parameter combinations by using the traffic-generator script.
 
@@ -3577,7 +3529,6 @@ Bad Chk Sum:           24 ( 38.710%)
 ===============================================================================
 Snort exiting
 
-
 root@ip-10-10-81-86:/home/ubuntu/Desktop/Task-Exercises# sudo snort -v 
 Running in packet dump mode
 
@@ -3796,7 +3747,6 @@ Bad Chk Sum:            6 ( 30.000%)
 ===============================================================================
 Snort exiting
 
-
 root@ip-10-10-81-86:/home/ubuntu/Desktop/Task-Exercises# sudo snort -d -q
 12/05-18:58:26.578143 10.8.19.103:48220 -> 10.10.81.86:22
 TCP TTL:63 TOS:0x10 ID:32256 IpLen:20 DgmLen:52 DF
@@ -3897,7 +3847,6 @@ TCP Options (3) => NOP NOP TS: 926028403 759977824
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 ^C*** Caught Int-Signal
-
 
 root@ip-10-10-81-86:/home/ubuntu/Desktop/Task-Exercises# sudo snort -d -e -q
 12/05-18:58:57.798504 02:C8:85:B5:5A:AA -> 02:89:23:51:E4:69 type:0x800 len:0x42
@@ -4074,7 +4023,6 @@ TCP Options (3) => NOP NOP TS: 926059434 760009056
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 ^C*** Caught Int-Signal
-
 
 root@ip-10-10-81-86:/home/ubuntu/Desktop/Task-Exercises# sudo snort -X
 Running in packet dump mode
@@ -5515,8 +5463,6 @@ Bad Chk Sum:           17 ( 26.562%)
 ===============================================================================
 Snort exiting
 
-
-
 ```
 
 ### Operation Mode 2: Packet Logger Mode 
@@ -5549,7 +5495,6 @@ Snort needs superuser (root) rights to sniff the traffic, so once you run the sn
     Elevation of privileges - You can elevate your privileges to examine the files. You can use the "sudo" command to execute your command as a superuser with the following command sudo command. You can also elevate the session privileges and switch to the superuser account to examine the generated log files with the following command: sudo su
 
     Changing the ownership of files/directories - You can also change the ownership of the file/folder to read it as your user: sudo chown username file or sudo chown username -R directory The "-R" parameter helps recursively process the files and directories.
-
 
 Logging with parameter "-l"
 
@@ -5585,7 +5530,6 @@ WARNING: No preprocessors configured for policy 0.
 
         
 
-
 ```
 
 Now, let's check the generated log file. Note that the log file names will be different in your case.
@@ -5601,7 +5545,6 @@ snort.log.1638459842
 
         
 
-
 ```
 
 As you can see, it is a single all-in-one log file. It is a binary/tcpdump format log. This is what it looks like in the folder view.
@@ -5613,8 +5556,6 @@ Logging with parameter "-K ASCII"
 Start the Snort instance in packet logger mode; sudo snort -dev -K ASCII
 
 Now run the traffic-generator script as sudo and start ICMP/HTTP traffic. Once the traffic is generated, Snort will start showing the  packets in verbosity mode as follows;
-
-
 
 ```
 
@@ -5640,7 +5581,6 @@ WARNING: No preprocessors configured for policy 0.
 
         
 
-
 ```
 
 Now, let's check the generated log file.
@@ -5655,7 +5595,6 @@ user@ubuntu$ ls .
 142.250.187.110  192.168.175.129  snort.log.1638459842
 
         
-
 
 ```
 
@@ -5675,7 +5614,6 @@ user@ubuntu$ ls ./192.168.175.129/
 ICMP_ECHO  UDP:36648-53  UDP:40757-53  UDP:47404-53  UDP:50624-123
 
         
-
 
 ```
 
@@ -5738,13 +5676,11 @@ Snort exiting
 
         
 
-
 ```
 
 Note that Snort can read and handle the binary like output (tcpdump and Wireshark also can handle this log format). However, if you create logs with "-K ASCII" parameter, Snort will not read them. As you can see in the above output, Snort read and displayed the log file just like in the sniffer mode.
 
 Opening log file with tcpdump.
-
 
 ```
 
@@ -5767,9 +5703,7 @@ IP 192.168.175.129 > 142.250.187.110: ICMP echo request, id 1, seq 53, length 64
 
         
 
-
 ```
-
 
 Opening log file with Wireshark.
 
@@ -7007,7 +6941,6 @@ IP 10.8.19.103.48220 > 10.10.81.86.22: Flags [.], ack 632, win 1846, options [no
 IP 10.10.81.86.22 > 10.8.19.103.48220: Flags [P.], seq 632:828, ack 1, win 468, options [nop,nop,TS val 764059807 ecr 928992951], length 196
 IP 10.10.81.86.22 > 10.8.19.103.48220: Flags [P.], seq 828:1024, ack 1, win 468, options [nop,nop,TS val 764059808 ecr 928992951], length 196
 
-
 root@ip-10-10-81-86:/home/ubuntu/Desktop/Task-Exercises# sudo tcpdump -r snort.log.1670270789 -ntc 5
 reading from file snort.log.1670270789, link-type EN10MB (Ethernet)
 IP 10.10.81.86.22 > 10.8.19.103.48220: Flags [P.], seq 1626954005:1626954065, ack 3731681426, win 468, options [nop,nop,TS val 764058807 ecr 928992682], length 60
@@ -7225,7 +7158,6 @@ Bad Chk Sum:            9 ( 50.000%)
 ===============================================================================
 Snort exiting
 
-
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo snort -r snort.log.1670274953 icmp
 Running in packet dump mode
 
@@ -7318,7 +7250,6 @@ Bad Chk Sum:            0 (  0.000%)
       Total:            0
 ===============================================================================
 Snort exiting
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo snort -r snort.log.1670274953 tcp
 Running in packet dump mode
@@ -7530,7 +7461,6 @@ Bad Chk Sum:            9 ( 50.000%)
 ===============================================================================
 Snort exiting
 
-
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo snort -r snort.log.1670274953 'udp and port 53'
 Running in packet dump mode
 
@@ -7623,7 +7553,6 @@ Bad Chk Sum:            0 (  0.000%)
       Total:            0
 ===============================================================================
 Snort exiting
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo snort -dvr snort.log.1670274953 -n 10
 Exiting after 10 packets
@@ -7840,11 +7769,7 @@ Bad Chk Sum:            4 ( 40.000%)
 ===============================================================================
 Snort exiting
 
-
-
 ```
-
-
 
 Investigate the traffic with the default configuration file with ASCII mode.
 
@@ -7856,7 +7781,6 @@ Now, you should have the logs in the current directory. Navigate to folder "145.
 
  You can re-generate the traffic if the expected log is not generated. "sudo ls" can help you! Check the "Logfile Ownership" part in this task to avoid the "permission denied" error.
 
-![[Pasted image 20221205162718.png]]
 ```
 ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ sudo snort -dev -K ASCII -l .
 Running in packet logging mode
@@ -9053,7 +8977,6 @@ ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ sudo ./traffic-generator.sh
 # Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
 # Use “-- ” to terminate the options and put the command line to execute after it.
 
-
 ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ ls
 10.10.52.242  142.250.187.110  172.67.27.10     Config-Sample   PACKET_NONIP
 10.100.1.202  145.254.160.237  192.168.175.129  Exercise-Files  traffic-generator.sh
@@ -9063,17 +8986,13 @@ ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ sudo ls
 10.10.52.242  142.250.187.110  172.67.27.10	Config-Sample	PACKET_NONIP
 10.100.1.202  145.254.160.237  192.168.175.129	Exercise-Files	traffic-generator.sh
 
-
 ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ sudo chown ubuntu -R 145.254.160.237/
 ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises$ cd 145.254.160.237/
 ubuntu@ip-10-10-52-242:~/Desktop/Task-Exercises/145.254.160.237$ ls
 TCP:3371-80  TCP:3372-80  UDP:3009-53
 
-
 ```
 *3009*
-
-
 
 Use snort.log.1640048004 
 
@@ -9255,8 +9174,6 @@ ID:49313
 
 *49313*
 
-
-
 Read the "snort.log.1640048004" file with Snort; what is the referer of the 4th packet?
 "-X" helps you to display the full packet details.
 
@@ -9432,13 +9349,9 @@ Snort exiting
 
 http://www.ethereal.com/development.html
 
-
 ```
 
-
 *http://www.ethereal.com/development.html*
-
-
 
 Read the "snort.log.1640048004" file with Snort; what is the Ack number of the 8th packet?
 
@@ -9595,7 +9508,6 @@ TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
 ```
 
 *0x38AFFFF3*
-
 
 Read the "snort.log.1640048004" file with Snort; what is the number of the "TCP port 80" packets?
 BPF filters will help you to filter the log file. 'tcp and port 80'
@@ -9958,7 +9870,6 @@ Capabilities of Snort are not limited to sniffing and logging the traffic. IDS/I
 
 Note that (N)IDS/IPS mode depends on the rules and configuration. TASK-10 summarises the essential paths, files and variables. Also, TASK-3 covers configuration testing. Here, we need to understand the operating logic first, and then we will be going into rules in TASK-9.
 
-
 Let's run Snort in IDS/IPS Mode
 
 NIDS mode parameters are explained in the table below;
@@ -9982,7 +9893,6 @@ cmg: CMG style, basic header details with payload in hex and text format.
 
 none: Disabling alerting.
 
-
 Let's start using each parameter and see the difference between them. Snort needs active traffic on your interface, so we need to generate traffic to see Snort in action. To do this, use the traffic-generator script and sniff the traffic. 
 
 Once you start running IDS/IPS mode, you need to use rules. As we mentioned earlier, we will use a pre-defined ICMP rule as an example. The defined rule will only generate alerts in any direction of ICMP packet activity.
@@ -9993,11 +9903,9 @@ This rule is located in "/etc/snort/rules/local.rules".
 
 Remember, in this module, we will focus only on the operating modes. The rules are covered in TASK9&10. Snort will create an "alert" file if the traffic flow triggers an alert. One last note; once you start running IPS/IDS mode, the sniffing and logging mode will be semi-passive. However, you can activate the functions using the parameters discussed in previous tasks. (-i, -v, -d, -e, -X, -l, -K ASCII) If you don't remember the purpose of these commands, please revisit TASK4.
 
-
 IDS/IPS mode with parameter "-c and -T"
 
 Start the Snort instance and test the configuration file. sudo snort -c /etc/snort/snort.conf -T  This command will check your configuration file and prompt it if there is any misconfiguratioın in your current setting. You should be familiar with this command if you covered TASK3. If you don't remember the output of this command, please revisit TASK4.
-
 
 IDS/IPS mode with parameter "-N"
 
@@ -10006,7 +9914,6 @@ Start the Snort instance and disable logging by running the following command: s
 Now run the traffic-generator script as sudo and start ICMP/HTTP traffic. This command will disable logging mode. The rest of the other functions will still be available (if activated).
 
 The command-line output will provide the information requested with the parameters. So, if you activate verbosity (-v) or full packet dump (-X) you will still have the output in the console, but there will be no logs in the log folder.
-
 
 IDS/IPS mode with parameter "-D"
 
@@ -10027,7 +9934,6 @@ Daemon parent exiting (0)
 
         
 
-
 ```
 
 The command-line output will provide the information requested with the parameters. So, if you activate verbosity (-v) or full packet dump (-X) with packet logger mode (-l) you will still have the logs in the logs folder, but there will be no output in the console.
@@ -10043,7 +9949,6 @@ user@ubuntu$ ps -ef | grep snort
 
 root        2898    1706  0 05:53 ?        00:00:00 snort -c /etc/snort/snort.conf -D
 
-
 ```
 
 If you want to stop the daemon, you can easily use the "kill" command to stop the process.
@@ -10056,7 +9961,6 @@ running in background mode
 user@ubuntu$ sudo kill -9 2898
 
         
-
 
 ```
 
@@ -10074,13 +9978,11 @@ In this section, only the "console" and "cmg" parameters provide alert informati
 
 At the end of this section, we will compare the "full", "fast" and "none" modes. Remember that these parameters don't provide console output, so we will continue to identify the differences through log formats.
 
-
 IDS/IPS mode with parameter "-A console"
 
 Console mode provides fast style alerts on the console screen. Start the Snort instance in console alert mode (-A console ) with the following command sudo snort -c /etc/snort/snort.conf -A console
 
 Now run the traffic-generator script as sudo and start ICMP/HTTP traffic. Once the traffic is generated, snort will start generating alerts according to provided ruleset defined in the configuration file. 
-
 
 ```
 
@@ -10146,11 +10048,9 @@ BC CD B5 61 00 00 00 00 CE 68 0E 00 00 00 00 00  ...a.....h......
 
         
 
-
 ```
 
 Let's compare the console and cmg outputs before moving on to other alarm types. As you can see in the given outputs above, console mode provides basic header and rule information. Cmg mode provides full packet details along with rule information. 
-
 
 IDS/IPS mode with parameter "-A fast"
 
@@ -10177,7 +10077,6 @@ Commencing packet processing (pid=3743)
 
         
 
-
 ```
 
 Let's check the alarm file;
@@ -10186,13 +10085,11 @@ Let's check the alarm file;
 
 As you can see in the given picture above, fast style alerts contain summary information on the action like direction and alert header.
 
-
 IDS/IPS mode with parameter "-A full"
 
 Full alert mode provides all possible information about the alert. Remember, there is no console output in this mode. Start the Snort instance in full alert mode (-A full ) with the following command sudo snort -c /etc/snort/snort.conf -A full
 
 Now run the traffic-generator script as sudo and start ICMP/HTTP traffic. Once the traffic is generated, snort will start generating alerts according to provided ruleset defined in the configuration file. 
-
 
 ```
 
@@ -10213,7 +10110,6 @@ Commencing packet processing (pid=3744)
 
         
 
-
 ```
 
 Let's check the alarm file;
@@ -10221,7 +10117,6 @@ Let's check the alarm file;
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/cba862ab1b89fe31fe0ac1c356fde8fa.png)
 
  As you can see in the given picture above, full style alerts contain all possible information on the action.
-
 
 IDS/IPS mode with parameter "-A none"
 
@@ -10248,7 +10143,6 @@ Commencing packet processing (pid=3745)
 
         
 
-
 ```
 
 As you can see in the picture below, there is no alert file. Snort only generated the log file.
@@ -10270,7 +10164,6 @@ Running in IDS mode
 12/12-12:13:31.172101  [**] [1:10000001:0] ICMP Packet found [**] [Priority: 0] {ICMP} 192.168.175.129 -> 142.250.187.110
 ^C*** Caught Int-Signal
 ```
-
 
 IPS mode and dropping packets
 
@@ -10297,12 +10190,9 @@ Running in IPS mode
 
         
 
-
 ```
 
 As you can see in the picture above, Snort blocked the packets this time. We used the same rule with a different action (drop/reject). Remember, for the scope of this task; our point is the operating mode, not the rule.
-
-
 
 Investigate the traffic with the default configuration file.
 
@@ -12306,10 +12196,7 @@ first execute sniff then the traffic generator task 7
   
 ```
 
-
 *2*
-
-
 
 You can practice the rest of the parameters by using the traffic-generator script.
 
@@ -12518,7 +12405,6 @@ config checksum_mode: all
 #
 # config logdir:
 
-
 ###################################################
 # Step #3: Configure the base detection engine.  For more information, see  README.decode
 ###################################################
@@ -12715,7 +12601,6 @@ preprocessor ftp_telnet_protocol: ftp client default \
     ignore_telnet_erase_cmds yes \
     telnet_cmds yes
 
-
 # SMTP normalization and anomaly detection.  For more information, see README.SMTP
 preprocessor smtp: ports { 25 465 587 691 } \
     inspection_type stateful \
@@ -12872,7 +12757,6 @@ output unified2: filename snort.log, limit 128, nostamp, mpls_event_types, vlan_
 include classification.config
 include reference.config
 
-
 ###################################################
 # Step #7: Customize your rule set
 # For more information, see Snort Manual, Writing Snort Rules
@@ -13018,7 +12902,6 @@ include $RULE_PATH/community-web-iis.rules
 include $RULE_PATH/community-web-misc.rules
 include $RULE_PATH/community-web-php.rules
 
-
 ###################################################
 # Step #8: Customize your preprocessor and decoder alerts
 # For more information, see README.decoder_preproc_rules
@@ -13069,7 +12952,6 @@ root        7297    6833  0 22:19 pts/1    00:00:00 grep --color=auto snort
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo kill -9 7294
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# ps -ef | grep snort
 root        7302    6833  0 22:19 pts/1    00:00:00 grep --color=auto snort
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises# sudo snort -c /etc/snort/snort.conf -A console
 Running in IDS mode
@@ -14875,7 +14757,6 @@ Decoding Ethernet
            Preprocessor Object: SF_SSLPP  Version 1.1  <Build 4>
 Commencing packet processing (pid=7305)
 
-
 ===============================================================================
 Run time for packet processing was 71.11677 seconds
 Snort processed 23 packets.
@@ -15071,9 +14952,7 @@ case "$selection" in
 "6) TASK-10 IPS Exercise - Torrent Traffic")gnome-terminal --hide-menubar --title="TASK-10 IPS - Torrent Traffic" --geometry=120x32 -e 'tcpreplay -v --mbps=0.009 -i eth0 /home/ubuntu/Desktop/Task-Exercises/.traffic-generator-source/torrent.pcap';;
 esac
 
-
 ```
-
 
 ###  Operation Mode 4: PCAP Investigation 
 
@@ -15093,7 +14972,6 @@ Parameter	Description
 --pcap-list=""	Read pcaps provided in command (space separated).
 --pcap-show	Show pcap name on console during processing.
 
-
 Investigating single PCAP with parameter "-r"
 
 For test purposes, you can still test the default reading option with pcap by using the following command snort -r icmp-test.pcap
@@ -15101,7 +14979,6 @@ For test purposes, you can still test the default reading option with pcap by us
 Let's investigate the pcap with our configuration file and see what will happen. sudo snort -c /etc/snort/snort.conf -q -r icmp-test.pcap -A console -n 10
 
 If you don't remember the purpose of the parameters in the given command, please revisit previous tasks and come back again!
-
 
 ```
 
@@ -15123,11 +15000,9 @@ user@ubuntu$ sudo snort -c /etc/snort/snort.conf -q -r icmp-test.pcap -A console
 
         
 
-
 ```
 
 Our ICMP rule got a hit! As you can see in the given output, snort identified the traffic and prompted the alerts according to our ruleset.
-
 
 Investigating multiple PCAPs with parameter "--pcap-list"
 
@@ -15154,18 +15029,15 @@ user@ubuntu$ sudo snort -c /etc/snort/snort.conf -q --pcap-list="icmp-test.pcap 
 
         
 
-
 ```
 
 Our ICMP rule got a hit! As you can see in the given output, snort identified the traffic and prompted the alerts according to our ruleset.
 
 Here is one point to notice: we've processed two pcaps, and there are lots of alerts, so it is impossible to match the alerts with provided pcaps without snort's help. We need to separate the pcap process to identify the source of the alerts.
 
-
 Investigating multiple PCAPs with parameter "--pcap-show"
 
 Let's investigate multiple pcaps, distinguish each one, and see what will happen. sudo snort -c /etc/snort/snort.conf -q --pcap-list="icmp-test.pcap http2.pcap" -A console --pcap-show
-
 
 ```
 investigating multiple pcap files wth pcap info
@@ -15185,14 +15057,11 @@ Reading network traffic from "http2.pcap" with snaplen = 1514
 12/12-12:13:38.223470  [**] [1:10000001:0] ICMP Packet found [**] [Priority: 0] {ICMP} 142.250.187.110 -> 192.168.175.129
 ...
 
-
 ```
 
 Our ICMP rule got a hit! As you can see in the given output, snort identified the traffic, distinguished each pcap file and prompted the alerts according to our ruleset.
 
 Now, use the attached VM and navigate to the Task-Exercises/Exercise-Files/TASK-8 folder to answer the questions!
-
-
 
 Investigate the mx-1.pcap file with the default configuration file.
 
@@ -17181,18 +17050,13 @@ Snort exiting
 
 ```
 
-
 *170*
-
-
 
 Keep reading the output. How many TCP Segments are Queued?
 *18*
 
-
 Keep reading the output.How many "HTTP response headers" were extracted?
 *3*
-
 
 Investigate the mx-1.pcap file with the second configuration file.
 
@@ -17791,12 +17655,9 @@ SIP Preprocessor Statistics
 ===============================================================================
 Snort exiting
 
-
 ```
 
-
 *68*
-
 
 Investigate the mx-2.pcap file with the default configuration file.
 
@@ -19781,15 +19642,12 @@ SIP Preprocessor Statistics
 ===============================================================================
 Snort exiting
 
-
 ```
 
 *340*
 
-
 Keep reading the output. What is the number of the detected TCP packets?
 *82*
-
 
 Investigate the mx-2.pcap and mx-3.pcap files with the default configuration file.
 
@@ -21776,7 +21634,6 @@ Snort exiting
 
 ```
 
-
 *1020*
 
 ### Snort Rule Structure 
@@ -21812,7 +21669,6 @@ Protocol
 Protocol parameter identifies the type of the protocol that filtered for the rule.
 
 Note that Snort2 supports only four protocols filters in the rules (IP, TCP, UDP and ICMP). However, you can detect the application flows using port numbers and options. For instance, if you want to detect FTP traffic, you cannot use the FTP keyword in the protocol field but filter the FTP traffic by investigating TCP traffic on port 21.
-
 
 IP and Port Numbers
 
@@ -21857,7 +21713,6 @@ Filter a port range (Type 4)
 alert icmp any 80,1024: <> any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
 This rule will create alerts for each TCP packet originating from a source port 80 and higher than or equal to 1024.
 
-
 Direction
 
 The direction operator indicates the traffic flow to be filtered by Snort. The left side of the rule shows the source, and the right side shows the destination.
@@ -21874,7 +21729,6 @@ There are three main rule options in Snort;
     General Rule Options - Fundamental rule options for Snort. 
     Payload Rule Options - Rule options that help to investigate the payload data. These options are helpful to detect specific payload patterns.
     Non-Payload Rule Options - Rule options that focus on non-payload data. These options will help create specific patterns and identify network issues.
-
 
 General Rule Options
 Msg	The message field is a basic prompt and quick identifier of the rule. Once the rule is triggered, the message filed will appear in the console or log. Usually, the message part is a one-liner that summarises the event.
@@ -21896,7 +21750,6 @@ Rev
 Snort rules can be modified and updated for performance and efficiency issues. Rev option help analysts to have the revision information of each rule. Therefore, it will be easy to understand rule improvements. Each rule has its unique rev number, and there is no auto-backup feature on the rule history. Analysts should keep the rule history themselves. Rev option is only an indicator of how many times the rule had revisions.
 
 alert icmp any any <> any any (msg: "ICMP Packet Found"; sid: 100001; reference:cve,CVE-XXXX; rev:1;)
-
 
 Payload Detection Rule Options
 Content
@@ -21921,7 +21774,6 @@ Prioritise content search to speed up the payload search operation. By default, 
 The following rule has two content options, and the fast_pattern option tells to snort to use the first content option (in this case, "GET") for the initial packet match.
 
 alert tcp any any <> any 80  (msg: "GET Request Found"; content:"GET"; fast_pattern; content:"www";  sid:100001; rev:1;)
-
 
 Non-Payload Detection Rule Options
 
@@ -21968,7 +21820,6 @@ user@ubuntu$ sudo gedit /etc/snort/rules/local.rules
 
         
 
-
 ```
 
 That is your "local.rules" file.
@@ -21982,8 +21833,6 @@ By this point, we covered the primary structure of the Snort rules. Understandin
 Wow! We have covered the fundamentals of the Snort rules!   Now, use the attached VM and navigate to the Task-Exercises/Exercise-Files/TASK-9 folder to answer the questions! Note that you can use the following command to create the logs in the current directory: -l .
 
 http://manual-snort-org.s3-website-us-east-1.amazonaws.com/
-
-
 
 Use "task9.pcap".
 
@@ -22302,7 +22151,6 @@ root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# 
 ICMP TTL:255 TOS:0x0 ID:35369 IpLen:20 DgmLen:40
 Type:13  Code:0  ID: 7  Seq: 6  TIMESTAMP REQUEST
 
-
 ```
 
 *TIMESTAMP REQUEST*
@@ -22320,7 +22168,6 @@ root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# 
 # This file intentionally does not come with signatures.  Put your local
 # additions here.
 alert tcp any any <> any any (msg: "FLAG TEST";flags:S; sid:1000004;rev:1;)
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# snort -c local.rules -A full -l . -r task9.pcap
 Running in IDS mode
@@ -22398,7 +22245,6 @@ WARNING: No preprocessors configured for policy 0.
 WARNING: No preprocessors configured for policy 0.
 WARNING: No preprocessors configured for policy 0.
 WARNING: No preprocessors configured for policy 0.
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# snort -r snort.log.1670290061 -X
 Running in packet dump mode
@@ -22507,11 +22353,9 @@ Bad Chk Sum:            0 (  0.000%)
 ===============================================================================
 Snort exiting
 
-
 ```
 
 *1*
-
 
 Clear the previous log and alarm files and deactivate/comment out the old rule.
 
@@ -22522,7 +22366,6 @@ root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# 
 alert  local.rules  snort.log.1670290061  task9.pcap
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# rm -r alert
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# rm -r snort.log.1670290061 
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# cat local.rules 
 
@@ -25399,9 +25242,7 @@ Push-Ack so Flags:PA
 
 ```
 
-
 *216*
-
 
 Clear the previous log and alarm files and deactivate/comment out the old rule.
 
@@ -25424,9 +25265,6 @@ root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# 
 #alert tcp any any <> any any (msg: "FLAG TEST";flags:PA; sid:1000005;rev:1;)
 alert tcp any any <> any any (msg: "SAME-IP TEST";  sameip; sid: 100006; rev:1;)
 alert udp any any <> any any (msg: "SAME-IP TEST";  sameip; sid: 100007; rev:1;)
-
-
-
 
 root@ip-10-10-52-242:/home/ubuntu/Desktop/Task-Exercises/Exercise-Files/TASK-9# snort -c local.rules -A full -l . -r task9.pcap
 
@@ -25686,12 +25524,9 @@ Bad Chk Sum:            0 (  0.000%)
 ===============================================================================
 Snort exiting
 
-
-
 ```
 
 *10*
-
 
 Case Example - An analyst modified an existing rule successfully. Which rule option must the analyst change after the implementation?
 
@@ -25753,7 +25588,6 @@ SO_RULE_PATH
 PREPROC_RULE_PATH
 	These rules come with registered and subscriber rules.
 	$RULE_PATH/plugin_rules
-
 
 Navigate to the "Step #2: Configure the decoder." section.
 

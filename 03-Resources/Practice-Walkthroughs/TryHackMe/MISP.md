@@ -56,7 +56,6 @@ MISP provides the following core functionalities:
     Event Graph: Showcases the relationships between objects and attributes identified from events.
     API support: Supports integration with own systems to fetch and export events and intelligence.
 
-
 The following terms are commonly used within MISP and are related to the functionalities described above and the general usage of the platform:
 
     Events: Collection of contextually linked information.
@@ -68,8 +67,6 @@ The following terms are commonly used within MISP and are related to the functio
     Taxonomies: Classification libraries are used to tag, classify and organise information.
     Galaxies: Knowledge base items used to label events/attributes.
     Indicators: Pieces of information that can detect suspicious or malicious cyber activity.
-
-
 
 Read the task on MISP and its applicable use cases and terminologies.
 *No answer needed*
@@ -132,7 +129,6 @@ Some essential options to note are:
 
 In our example below, we add an Emotet Epoch 4 C2 IP address associated with the infection as our attributes, obtained from the IOC text file.
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/7ba507e671b184bb567708993fbe136d.gif)
 
 The analyst can also add file attachments to the event. These may include malware, report files from external analysis or simply artefacts dropped by the malware. We have added the Cobalt Strike EXE binary file to our event in our example. You also have to check the Malware checkbox to mark the file as malware. This will ensure that it is zipped and passworded to protect users from accidentally downloading and executing the file.
@@ -145,10 +141,8 @@ Once the analysts have created events, the organisation admin will review and pu
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/4caf7734a850d778397cb5c86f3ae237.gif)
 
-
 How many distribution options does MISP provide to share threat information?
 *4*
-
 
 Which user has the role to publish events?
 *organisation admin*
@@ -187,10 +181,6 @@ Taxonomies are expressed in machine tags, which comprise three vital parts:
     Predicate: Specifies the property attached to the data.
     Value: Numerical or text details to map the property.
 
-
-
-
-
 (Source: MISP)
 
 Taxonomies are listed under the Event Actions tab. The site admin can enable relevant taxonomies.
@@ -220,16 +210,12 @@ The following tags can be considered a must-have to provide a well-defined event
     Origin: Describes the source of information and whether it was from automation or manual investigation.
     Permissible Actions Protocol: An advanced classification that indicates how the data can be used to search for compromises within the organisation.
 
-
 I have read about MISP Feeds and Taxonomies
 *No answer needed*
 
 ### Scenario Event 
 
 CIRCL (Computer Incident Respons Center Luxembourg) published an event associated with PupyRAT infection. Your organisation is on alert for remote access trojans and malware in the wild, and you have been tasked to investigate this event and correlate the details with your Security Information and Event Management system that is used to aggregate security information in the form of logs, alerts, artifacts and events into a centralized platform that would allow security analysts to perform near real-time analysis during security monitoring. Use what you have learned from the room to identify the event and complete this task.
-
-![[Pasted image 20220828165211.png]]
-
 
 What event ID has been assigned to the PupyRAT event? 
 *1146*
@@ -246,7 +232,6 @@ There is a taxonomy tag set with a Certainty level of 50. Which one is it?
 *OSINT*
 
 ### Conclusion 
-
 
 Recap
 Hopefully, you learned a lot about MISP and its use in sharing malware and threat information in this room. This tool is useful in the real world regarding incident reporting. You should be able to use the knowledge gained to effectively document, report and share incident information. 

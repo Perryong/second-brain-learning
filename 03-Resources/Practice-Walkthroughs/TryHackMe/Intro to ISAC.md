@@ -14,7 +14,6 @@ Malware and IOCs used in this room have been sourced from The Zoo Malware Reposi
 
 Warning: This room uses neutered malware in a virtual environment, exercise caution when interacting with samples.
 
-
 Read the above and move on to 'What are ISACs'.
 *No answer needed*
 
@@ -33,7 +32,6 @@ TTP is an acronym for Tactics, Techniques, and Procedures, but what does each of
 TI is an acronym for Threat Intelligence. Threat Intelligence is an overarching term for all collected information on adversaries and TTPs. You will also commonly hear CTI or Cyber Threat Intelligence which is just another way of saying Threat Intelligence.
 
 IOCs is an acronym for Indicators of Compromise, the indicators for malware and adversary groups. Indicators can include file hashes, IPs, names, etc.
-
 
 Read the above and familiarize yourself with the various terminology.
 *No answer needed*
@@ -70,12 +68,9 @@ Threat Intelligence is also broken up into three different types.
 
 In this room, we will mainly be focusing on Operational CTI but all forms of threat intelligence have their place and I encourage you to research each thoroughly.
 
-
 Read the above and move on to, What are ISACs *No answer needed*
 
 ###  What are ISACs 
-
-
 
 According to the National Council of ISACs, "Information Sharing and Analysis Centers (ISACs) are member-driven organizations, delivering all-hazards threat and mitigation information to asset owners and operators". ISACs can be community-centered or vendor-specific. ISACs include CTI from threat actors as well as mitigation information in the form of IOCs, YARA rules, etc. ISACs maintain situational awareness by sharing and collaborating to maintain CTI, through a National Council of ISACs.
 
@@ -138,18 +133,15 @@ We can break up the various sections of the dashboard to make it more digestible
 
 	This is a collection of the top tags used to categorize indicators. This can be useful to quickly find a topic or to identify trends within the threat landscape.
 
-
 ![](https://i.imgur.com/0llIW3Q.png)
 
     Indicator Breakdown
 
 	A breakdown of all of their intelligence combined and what indicators make up the platform. This is not super helpful for most applications as it only gives a brief overview of the platform as a whole.
 
-
 ![](https://i.imgur.com/P1VVRwk.png)
 
 For the most part, the other sections of the dashboard could be ignored as they are just overviews of what is on the platform rather than specific threat intelligence.
-
 
 Custom Dashboards
 
@@ -190,7 +182,6 @@ Pulse Overview
 
 Pulses can consist of a description, tags, indicator types (file hash, Yara, IP, domain, etc.), and threat infrastructure (country of origin). OTX uses pulses as their indicators. A majority of pulses are community-created and maintained. You need to keep this in mind when using pulses for threat intelligence as not all pulses are legit or may contain inaccurate information. Always verify and analyze the indicators used before using them for CTI.
 
-
 Breaking Down a Pulse
 
 First, we need to understand how to analyze and gather information from a pulse in order to understand how to use OTX's many categories, ways of obtaining threat intelligence, and indicators.
@@ -204,7 +195,6 @@ Pulse Description
 The Pulse Description consists of the description itself, references, tags, malware families, and ATT&CK IDs. The three most important parts are the reference section, the description itself, and the ATT&CK IDs. The references can be used to verify the pulse and get further background information on the pulse/indicators. The description can give you a brief overview of what the pulse is for and how it was gathered which can be useful when quickly looking for pulses to use. The ATT&CK IDs can be used to quickly identify what TTPs are being used by the pulse and familiarize yourself with them. For more information about ATT&CK check out Heavenraiza's MITRE room.
 
 ![](https://i.imgur.com/8xAOHxf.png)
-
 
 Indicator Overview
 
@@ -249,7 +239,6 @@ The menu for malware is by far the most detailed including features of the malwa
 
 OTX will also visualize the processes the malware is running. Overall the malware categories will allow you to quickly identify multiple aspects of malware including processes, features and pulses.
 
-
 Finding Pulses based on Adversaries
 
 To get started with identifying pulses by adversaries you need to have a foundational knowledge of adversaries and their operations. To get an introduction to adversarial operations check out the APT Groups and Operations spreadsheet. You can identify pulses based on the adversary group.
@@ -260,7 +249,6 @@ Note: Each vendor has its own naming scheme for APTs take note of this when look
 
 The adversary menu will give you a short description of the group as well as pulses related to that group.
 
-
 Finding Pulses based on Industry
 
 A common vector for adversaries to focus on is the industry of their target, for example, finance, education, aerospace, etc. Adversaries will sometimes target corporations in one specific industry. An example of this is the Ryuk malware being distributed by "one" group targeting financial corporations
@@ -270,7 +258,6 @@ A common vector for adversaries to focus on is the industry of their target, for
 When opening the industry menu you will see a general description as well as any pulses tag / related to the industry.
 
 ### Creating IOCs 
-
 
 Warning: These are live malware samples that can be destructive if taken out of this sandbox, exercise caution when analyzing.
 
@@ -289,7 +276,6 @@ Pass: alqfna22
 Please allow the machine at least five minutes to fully boot. 
 
 If you open the Tools folder on the Desktop you will see all of the tools necessary to create IOCs for both the practice binaries and the scenarios.
-
 
 ![](https://i.imgur.com/wexyGaQ.png)
 
@@ -329,7 +315,6 @@ Once you have all of your indicators prepared you can begin creating an IOC with
 
 This is an example of an IOC for the Cerber sample. If this was a real investigation you could then upload it to AlienVault OTX or another ISAC.
 
-
 Creating Pulses from IOCs
 
 Note: Please do not take malware outside of the sandbox or create a pulse on OTX without an actual investigation.
@@ -352,20 +337,15 @@ Now that we have all of our information on the unknown sample we can look for ot
 
 Let's look at the pulse in the next task for the Cryxos.B Trojan and Cerber Ransomware and see if you can connect the unknown practice sample with the pulses. This specific pulse is part of another malware known as Cryxos.B that is used as a trojan to get the Cerber ransomware onto devices.
 
-![[Pasted image 20220828003702.png]]
-
 Read the above and practice using the Cerber ransomware sample.  *No answer needed*
 
 ###  Investigation Scenarios 
-
-
 
 Scenario 1
 
 Your incident response team has quarantined a suspicious bin file. The team thinks it is a ransomware variation. Investigate and create indicators for the file.
 
 You can find the shellcode under `C:\Users\Jon\Documents\Scenarios\Scenario 1`
-
 
 Scenario 2
 
@@ -398,9 +378,4 @@ What is the MD5 hash of the file from Scenario 2?
 Create IOCs for both files using IOCe. *No answer needed*
 
 [[Wireshark 101]]
-
-
-
-
-
 

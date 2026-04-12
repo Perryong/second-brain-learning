@@ -308,7 +308,4 @@ I'm ready to proceed onto the later stages of the incident response process!
 
  Completed
 
-![[Pasted image 20230810140751.png]]
-![[Pasted image 20230810140801.png]]
-
 [[Security Engineer Intro]]

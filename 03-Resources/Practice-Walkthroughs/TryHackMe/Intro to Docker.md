@@ -246,7 +246,6 @@ REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
 jwtcrack             latest    2cbbb179013d   3 months ago   271MB
 n0madic/alpine-gcc   9.2.0     9d7f59f1263e   3 years ago    251MB
 
-
 ```
 
 If we wanted to `pull` a docker image, what would our command look like?
@@ -359,7 +358,6 @@ Answer the questions below
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sudo docker run -it jwtcrack /bin/bash                      
 /entrypoint.sh: line 2:     7 Segmentation fault      (core dumped) /opt/src/jwtcrack $@
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ sudo docker ps -a
@@ -698,11 +696,7 @@ n0madic/alpine-gcc   9.2.0     9d7f59f1263e   3 years ago          251MB
 └─$ sudo docker run -d --name webserver -p 80:80  webserver
 9e492d5d32ec0c95dfd51518aea1a837eb5923e3ef0730aba4c4eee24a3cb10f
 
-
-
 ```
-
-![[Pasted image 20230620163004.png]]
 
 What instruction would we use to specify what base image the container should be using?
 
@@ -756,8 +750,6 @@ Before we demonstrate Docker Compose, let’s cover the fundamentals of using Do
 
 I have put some of the essential Docker Compose commands into the table below:
 
-
-
 |   |   |   |
 |---|---|---|
 |**Command**|**Explanation**|**Example**|
@@ -766,7 +758,6 @@ I have put some of the essential Docker Compose commands into the table below:
 |down|This command will stop and **delete** the containers specified in the compose file.|`docker-compose down`|
 |stop|This command will stop (**not** delete) the containers specified in the compose file.|`docker-compose stop`|
 |build|This command will build (but will not start) the containers specified in the compose file.|`docker-compose build`|
-
 
 ﻿_**Note**: These are just a few of the possible commands. Check out the [compose documentation](https://docs.docker.com/compose/reference/) for all possible options._
 
@@ -841,7 +832,6 @@ services:
     ports:
       - '80:80'
 
-
   database:
     image: mysql:latest
     networks:
@@ -876,7 +866,6 @@ What is the name of the .yml file that `docker-compose` uses?
 It is the name of the program! There is a heading in this task that explains this.
 
 *docker-compose.yml*
-
 
 ### Task 6  Intro to the Docker Socket
 
@@ -971,17 +960,5 @@ If you cannot connect, double check that you have published the correct port. Yo
 *THM{WEBSERVER_CONTAINER}*
 
 [[Wreath]]
-
-
-
-
-
-
-
-
-
-
-
-
 
 [[Wreath]]

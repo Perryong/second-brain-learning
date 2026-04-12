@@ -6,7 +6,6 @@ Introducing cyber threat intelligence and related topics, such as relevant stand
 
 ### Introduction 
 
-
 Introduction
 This room will introduce you to cyber threat intelligence (CTI) and various frameworks used to share intelligence. As security analysts, CTI is vital for investigating and reporting against adversary attacks with organisational stakeholders and external communities.
 
@@ -24,7 +23,6 @@ Cyber Threat Intelligence Module
     YARA
     OpenCTI
     MISP
-
 
 ### Cyber Threat Intelligence 
 
@@ -72,11 +70,8 @@ Threat Intel is geared towards understanding the relationship between your opera
 
     Operational Intel: Looks into an adversary’s specific motives and intent to perform an attack. Security teams may use this intel to understand the critical assets available in the organisation (people, processes and technologies) that may be targeted.
 
-
 What does CTI stand for?
 *Cyber Threat Intelligence*
-
-
 
 IP addresses, Hashes and other threat artefacts would be found under which Threat Intelligence classification?
 *Technical Intel*
@@ -108,7 +103,6 @@ Once the information aggregation is complete, security analysts must derive insi
     Defining an action plan to avert an attack and defend the infrastructure.
     Strengthening security controls or justifying investment for additional resources.
 
-
 Dissemination
 
 Different organisational stakeholders will consume the intelligence in varying languages and formats. For example, C-suite members will require a concise report covering trends in adversary activities, financial implications and strategic recommendations. At the same time, analysts will more likely inform the technical team about the threat IOCs, adversary TTPs and tactical action plans.
@@ -118,14 +112,11 @@ The final phase covers the most crucial part, as analysts rely on the responses 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/556cfb96c241e5260574a2e113f10305.png)
 
-
 At which phase of the lifecycle is data made usable through sorting, organising, correlation and presentation?
 *Direction*
 
-
 During which phase do security analysts get the chance to define the questions to investigate incidents?
 *Direction*
-
 
 ### CTI Standards & Frameworks 
 
@@ -174,13 +165,10 @@ The diamond model looks at intrusion analysis and tracking attack groups over ti
     Infrastructure: The adversaries' tools, systems, and software to conduct their attack are the main focus. Additionally, the victim's systems would be crucial to providing information about the compromise.
     Capabilities: The focus here is on the adversary's approach to reaching its goal. This looks at the means of exploitation and the TTPs implemented across the attack timeline.
 
-
 An example of the diamond model in play would involve an adversary targeting a victim using phishing attacks to obtain sensitive information and compromise their system, as displayed on the diagram. As a threat intelligence analyst, the model allows you to pivot along its properties to produce a complete picture of an attack and correlate indicators.
-
 
 What sharing models are supported by TAXII?
 *Collection and Channel*
-
 
 When an adversary has obtained access to a network and is extracting data, what phase of the kill chain are they on?
 *Command & Control*
@@ -191,20 +179,13 @@ As part of the dissemination phase of the lifecycle, CTI is also distributed to 
 
 All the things we have discussed come together when mapping out an adversary based on threat intel. To better understand this, we will analyse a simplified engagement example. Click on the green “View Site” button in this task to open the Static Site Lab and navigate through the security monitoring tool on the right panel and fill in the threat details.
 
-![[Pasted image 20221204190839.png]]
-![[Pasted image 20221204190855.png]]
-
-
 What was the source email address?
 *vipivillain@badbank.com*
-
 
 What was the name of the file downloaded?
 *flbpfuh.exe*
 
-
 After building the threat profile, what message do you receive?
 *THM{NOW_I_CAN_CTI}*
-
 
 [[Learning Path]]

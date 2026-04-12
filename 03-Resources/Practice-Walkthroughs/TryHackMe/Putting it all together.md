@@ -100,7 +100,7 @@ Click the "View Site" button on the right. Using everything you've learnt from t
 
 **Note**: When placing a tile in the correct position, it will highlight in green. When a tile is in the wrong spot, it will highlight in red. Make sure **not** to refresh the page, as it will reset the tiles all to blank again!
 
-![[Pasted image 20220818092100.png]]  
+  
 
 Flag *THM{YOU_GOT_THE_ORDER}*
 

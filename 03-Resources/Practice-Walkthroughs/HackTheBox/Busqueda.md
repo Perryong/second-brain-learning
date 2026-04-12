@@ -169,7 +169,6 @@ from flask import Flask, render_template, request, redirect
 from searchor import Engine
 import subprocess
 
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -473,7 +472,6 @@ Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-69-generic x86_64)
   IPv4 address for eth0:            10.10.11.208
   IPv6 address for eth0:            dead:beef::250:56ff:feb9:6ec5
 
-
  * Introducing Expanded Security Maintenance for Applications.
    Receive updates to over 25,000 software packages with your
    Ubuntu Pro subscription. Free for personal use.
@@ -486,7 +484,6 @@ Expanded Security Maintenance for Applications is not enabled.
 
 Enable ESM Apps to receive additional future security updates.
 See https://ubuntu.com/esm or run: sudo pro status
-
 
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
@@ -522,7 +519,6 @@ def run_command(arg_list):
         output = r.stdout.decode()
 
     return output
-
 
 def process_action(action):
     if action == 'docker-inspect':
@@ -621,8 +617,5 @@ module.exports = {
 };
 
 ```
-
-![[Pasted image 20230727215923.png]]
-![[Pasted image 20230727220718.png]]
 
 [[MonitorsTwo]]

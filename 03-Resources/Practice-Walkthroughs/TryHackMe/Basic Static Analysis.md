@@ -86,11 +86,9 @@ Password: `malware`
 FLARE VM is a Windows-based VM (I don't have much space)
 ```
 
-
 Start the attached VM before proceeding
 
  Completed
-
 
 ### String search
 
@@ -249,13 +247,9 @@ Finished execution after 35.484000 seconds
 
 FLARE Tue 02/14/2023 16:26:56.74
 
-
 ```
 
-![[Pasted image 20230214193336.png]]
-
 *6*
-
 
 ### Fingerprinting malware
 
@@ -373,7 +367,6 @@ imphash,F397831B8900AFF7FBEF2FFDE97C2603
 
 so same mal familiy
 
-
 C:\Users\Administrator\Desktop>ssdeep-2.14.1\ssdeep.exe mal\*
 ssdeep,1.1--blocksize:hash:hash,filename
 3072:C3twbyJdvGwRCf/swDQheOAmN4hMRl37G:8EacOAmN6C,"C:\Users\Administrator\Desktop\mal\1"
@@ -394,8 +387,6 @@ mal\dir matches mal\cd (100)
 FLARE Tue 02/14/2023 16:49:15.63
 ```
 
-![[Pasted image 20230214194503.png]]
-
 	In the samples located at Desktop\mal\ directory in the attached VM, which of the samples has the same imphash as file 3?
 
 *1*
@@ -403,7 +394,6 @@ FLARE Tue 02/14/2023 16:49:15.63
 Using the ssdeep utility, what is the percentage match of the above-mentioned files?
 
 *93*
-
 
 ### Signature-based detection
 
@@ -561,7 +551,6 @@ matching: 100%|█████████████████████�
 | parse PE header (4 matches)                          | load-code/pe                                         |
 +------------------------------------------------------+------------------------------------------------------+
 
-
 FLARE Sun 09/18/2022 18:34:13.15
 C:\Users\Administrator\Desktop>
 ```
@@ -701,9 +690,7 @@ matching: 100%|█████████████████████�
 | persist via Run registry key                         | persistence/registry/run                             |
 +------------------------------------------------------+------------------------------------------------------+
 
-
 FLARE Tue 02/14/2023 17:14:55.10
-
 
 C:\Users\Administrator\Desktop>capa mal\4 -vv > output.txt
 loading : 100%|████████████████████████████████████████████████████████████| 485/485 [00:00<00:00, 1724.19     rules/s]
@@ -730,8 +717,6 @@ function @ 0x486921
 
 ```
 
-![[Pasted image 20230214203714.png]]
-
 How many matches for anti-VM execution techniques were identified in the sample?
 
 *86*
@@ -749,7 +734,6 @@ At what address is the function that has the capability 'Check HTTP Status Cod
 Using Powershell will help avoid cutting off the output. Use the -v or -vv flag to get very verbose output and write it into a file. In the file, navigate to 'check HTTP status code' and find the text 'function @ ...........' where the dotted line represents the address.
 
 *0x486921*
-
 
 ### Leveraging the PE header
 
@@ -789,8 +773,6 @@ Answer the questions below
 rpcrt4.dll,x,implicit,1,Remote Procedure Call Runtime
 ```
 
-![[Pasted image 20230214211153.png]]
-
 	Open the sample Desktop\mal\4 in PEstudio. Which library is blacklisted?
 
 Write the name of the dll file which has a cross mark in front of it in the blacklist column
@@ -820,6 +802,5 @@ Answer the questions below
 Join the discussion on our social channels.
 
  Completed
-
 
 [[Introduction to Cryptography]]

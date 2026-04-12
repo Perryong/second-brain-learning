@@ -8,12 +8,10 @@ Learn the applications and language that is Yara for everything threat intellige
 
 ### Introduction 
 
-
 Introduction
 This room will expect you to understand basic Linux familiarity, such as installing software and commands for general navigation of the system. Moreso, this room isn't designed to test your knowledge or for point-scoring. It is here to encourage you to follow along and experiment with what you have learned here.
 
 As always, I hope you take a few things away from this room, namely, the wonder that Yara (Yet Another Ridiculous Acronym) is and its importance in infosec today. Yara was developed by Victor M. Alvarez ([@plusvic](https://twitter.com/plusvic)) and [@VirusTotal](https://twitter.com/virustotal). Check the GitHub repo [here](https://github.com/virustotal/yara).
-
 
 ### What is Yara? 
 
@@ -27,7 +25,6 @@ Rules are used to label these patterns. For example, Yara rules are frequently w
 For example, the code snippet below prints "Hello World" in Python. The text "Hello World" would be stored as a string.
 
 print("Hello World!")
-
 
 We could write a Yara rule to search for "hello world" in every program on our operating system if we would like. 
 
@@ -45,10 +42,8 @@ Botnet		12.34.56.7
 Caveat: Malware Analysis
 Explaining the functionality of malware is vastly out of scope for this room due to the sheer size of the topic. I have covered strings in much more detail in "Task 12 - Strings" of my [MAL: Introductory room](https://tryhackme.com/room/malmalintroductory). In fact, I am creating a whole Learning Path for it. If you'd like to get a taster whilst learning the fundamentals, I'd recommend my room.
 
-
 What is the name of the base-16 numbering system that Yara can detect?
 *Hex*
-
 
 Would the text "Enter your Name" be a string in an application? (Yay/Nay)
 *Yay*
@@ -105,7 +100,6 @@ Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-163-generic x86_64)
    https://ubuntu.com/blog/microk8s-memory-optimisation
 
 0 updates can be applied immediately.
-
 
 Last login: Tue Nov 30 01:24:11 2021 from 10.9.163.253
 cmnatic@thm-yara:~$ pwd
@@ -196,9 +190,7 @@ error scanning sometextfile: could not open file
 
 Congrats! You've made your first rule.
 
-
 One rule to - well - rule them all.
-
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -296,7 +288,6 @@ Weight
 Meta
 This section of a Yara rule is reserved for descriptive information by the author of the rule. For example, you can use desc, short for description, to summarise what your rule checks for. Anything within this section does not influence the rule itself. Similar to commenting code, it is useful to summarise your rule.
 
-
 Strings
 
 Remember our discussion about strings in Task 2? Well, here we go. You can use strings to search for specific text or hexadecimal in files or programs. For example, say we wanted to search a directory for all files containing "Hello World!", we would create a rule such as below:
@@ -338,7 +329,6 @@ rule helloworld_checker{
 }
 ```
 
-
 Now, any file with the strings of:
 1. Hello World!
 2. hello world
@@ -365,7 +355,6 @@ rule helloworld_checker{
 }
 ```
 
-
 The rule will now:
 
 1. Look for the "Hello World!" string
@@ -389,7 +378,6 @@ rule helloworld_checker{
 	        $hello_world and filesize < 10KB 
 }
 ```
-
 
 The rule will only match if both conditions are true. To illustrate: below, the rule we created, in this case, did not match because although the file has "Hello World!", it has a file size larger than 10KB:
 
@@ -424,7 +412,6 @@ Anatomy of a Yara Rule
 
 Information security researcher "fr0gger_" has recently created a [handy cheatsheet](https://blog.securitybreak.io/security-infographics-9c4d3bd891ef#18dd) that breaks down and visualises the elements of a YARA rule (shown above, all image credits go to him). It's a great reference point for getting started!
 
-
 Upwards and onwards...
 
 ```
@@ -456,7 +443,6 @@ hello_world somefile
 ┌──(kali㉿kali)-[~/yara]
 └─$ yara hello_world.yar somefile11
 error scanning somefile11: could not open file
-
 
 ---
 
@@ -564,20 +550,15 @@ helloworld_times checktimes
 └─$ yara helloworld_times.yar somefile4
 error scanning somefile4: could not open file
 
-
 ```
 
-
 ### Yara Modules 
-
 
 Integrating With Other Libraries
 Frameworks such as the [Cuckoo Sandbox](https://cuckoosandbox.org/) or [Python's PE Module](https://pypi.org/project/pefile/) allow you to improve the technicality of your Yara rules ten-fold.
 
-
 Cuckoo
 Cuckoo Sandbox is an automated malware analysis environment. This module allows you to generate Yara rules based upon the behaviours discovered from Cuckoo Sandbox. As this environment executes malware, you can create rules on specific behaviours such as runtime strings and the like.
-
 
 Python PE
 Python's PE module allows you to create Yara rules from the various sections and elements of the Windows Portable Executable (PE) structure.
@@ -633,8 +614,6 @@ optional arguments:
 
         
 
-
-
 ```
 
 THOR (superhero named programs for a superhero blue teamer)
@@ -666,7 +645,6 @@ Lite Version
                   This is equivalent to: --noeventlog --nofirewall --noprofiles --nowebdirscan --nologscan --noevtx --nohotfixes --nomft --lookback 3 --lookback-modules filescan
 
         
-
 
 ```
 
@@ -718,7 +696,6 @@ Commands:
    scan - perform a yara scan on the directory at 
 
         
-
 
 ```
 
@@ -2866,7 +2843,6 @@ MATCHES: Str1: <? Str2: <?php Str3: _REQUEST[ Str4: _SERVER["HTTP_ Str5: eval(e 
 [INFO] Please report false positives via https://github.com/Neo23x0/signature-base     
 [NOTICE] Finished LOKI Scan SYSTEM: kali TIME: 20221127T19:16:21Z                      
 
-
 cmnatic@thm-yara:~/suspicious-files/file1$ python ../../tools/Loki/loki.py -p .
                                                                                
       __   ____  __ ______                                                             
@@ -2929,7 +2905,6 @@ https://github.com/tennc/webshell
 
 http://tennc.github.io/page/2/
 
-
 cmnatic@thm-yara:~/suspicious-files/file2$ python ../../tools/Loki/loki.py -p .
                                                                                
       __   ____  __ ______                                                             
@@ -2983,9 +2958,7 @@ cmnatic@thm-yara:~/suspicious-files/file2$ python ../../tools/Loki/loki.py -p .
 
 */
 
-
 ```
-
 
 Scan file 1. Does Loki detect this file as suspicious/malicious or benign?
 *suspicious*
@@ -3003,15 +2976,12 @@ What is the name and version of this hack tool?
 Check first_bytes
 *b374k 2.2*
 
-
 Inspect the actual Yara file that flagged file 1. Within this rule, how many strings are there to flag this file?
 yara/thor-webshells.yar
 *1*
 
-
 Scan file 2. Does Loki detect this file as suspicious/malicious or benign?
 *benign*
-
 
 Inspect file 2. What is the name and version of this web shell?
 *b374k 3.2.3*
@@ -3080,7 +3050,6 @@ ulFilename = (ulType=='comp')? $('.ulFilenameComp')[i].value:$('.ulFilenameUrl')
 
         
 
-
 ```
 
 Luckily, we can use [yarGen](https://github.com/Neo23x0/yarGen) (yes, another tool created by Florian Roth) to aid us with this task.
@@ -3091,11 +3060,9 @@ From the README - "The main principle is the creation of yara rules from strings
 
 Navigate to the yarGen directory, which is within tools. If you are running yarGen on your own system, you need to update it first by running the following command: python3 yarGen.py --update.
 
-
 This will update the good-opcodes and good-strings DB's from the online repository. This update will take a few minutes. 
 
  Once it has been updated successfully, you'll see the following message at the end of the output.
-
 
 ```
 
@@ -3117,7 +3084,6 @@ cmnatic@thm-yara:~/tools/yarGen$ python3 yarGen.py --update
 Downloading good-opcodes-part1.db from https://www.bsk-consulting.de/yargen/good-opcodes-part1.db ...
 
         
-
 
 ```
 
@@ -3145,7 +3111,6 @@ Using yarGen to generate a rule for file2
 
         
 
-
 ```
 
 Generally, you would examine the Yara rule and remove any strings that you feel might generate false positives. For this exercise, we will leave the generated Yara rule as is and test to see if Yara will flag file 2 or no. 
@@ -3157,7 +3122,6 @@ Further Reading on creating Yara rules and using yarGen:
     https://www.bsk-consulting.de/2015/02/16/write-simple-sound-yara-rules/
     https://www.bsk-consulting.de/2015/10/17/how-to-write-simple-but-sound-yara-rules-part-2/
     https://www.bsk-consulting.de/2016/04/15/how-to-write-simple-but-sound-yara-rules-part-3/
-
 
 ```
 ┌──(kali㉿kali)-[~/Downloads]
@@ -3259,7 +3223,6 @@ Downloading good-imphashes-part7.db from https://www.bsk-consulting.de/yargen/go
 Downloading good-imphashes-part8.db from https://www.bsk-consulting.de/yargen/good-imphashes-part8.db ...
 Downloading good-imphashes-part9.db from https://www.bsk-consulting.de/yargen/good-imphashes-part9.db ...
 [+] Updated databases - you can now start creating YARA rules
-
 
 cmnatic@thm-yara:~/tools/yarGen$ python3 yarGen.py -m /home/cmnatic/suspicious-files/file2 --excludegood -o /home/cmnatic/suspicious-files/file2.yar
 ------------------------------------------------------------------------
@@ -3450,37 +3413,26 @@ MATCHES: Str1: var Zepto=function(){function G(a){return a==null?String(a):z[A.c
 [INFO] Please report false positives via https://github.com/Neo23x0/signature-base     
 [NOTICE] Finished LOKI Scan SYSTEM: thm-yara TIME: 20221127T22:01:52Z  
 
-
-
-
 ```
-
-
 
 From within the root of the suspicious files directory, what command would you run to test Yara and your Yara rule against file 2?
 Use the same name I called the Yara file to answer this question
 *yara file2.yar file2/1ndex.php*
 
-
 Did Yara rule flag file 2? (Yay/Nay)
 *Yay*
 
-
 Copy the Yara rule you created into the Loki signatures directory.
-
 
 Test the Yara rule with Loki, does it flag file 2? (Yay/Nay)
 *Yay*
-
 
 What is the name of the variable for the string that it matched on?
 Look at $x1
 *Zepto*
 
-
 Inspect the Yara rule, how many strings were generated?
 *20*
-
 
 One of the conditions to match on the Yara rule specifies file size. The file has to be less than what amount?
 *700KB*
@@ -3578,32 +3530,20 @@ https://github.com/b374k/b374k
 /* JAVASCRIPT AND CSS FILES START */
 $zepto_code = packer_read_file($GLOBALS['packer']['base_dir']."zepto.js");
 
-
 ```
-
-![[Pasted image 20221127174955.png]]
-![[Pasted image 20221127175021.png]]
 
 Enter the SHA256 hash of file 1 into Valhalla. Is this file attributed to an APT group? (Yay/Nay)
 *Yay*
 
-![[Pasted image 20221127175458.png]]
-
 Do the same for file 2. What is the name of the first Yara rule to detect file 2?
 *Webshell_b374k_rule1*
-
-![[Pasted image 20221127175621.png]]
-![[Pasted image 20221127175633.png]]
 
 Examine the information for file 2 from Virus Total (VT). The Yara Signature Match is from what scanner?
 This information is on the Community tab of the VirusTotal page, and not on the Detection tab.
 *THOR APT Scanner
 
-![[Pasted image 20221127175744.png]]
-
 Enter the SHA256 hash of file 2 into Virus Total. Did every AV detect this as malicious? (Yay/Nay)
 *Nay*
-
 
 Besides .PHP, what other extension is recorded for this file?
 Look under the "details" tab in Virustotal to find out the extensions for this submission. 
@@ -3626,6 +3566,5 @@ By going through the room scenario, you should understand the need (as a blue te
 If it is not clear, the reason why file 2 was not detected is that the Yara rule was not in the Yara file used by Loki to detect the hack tool (web shell) even though its the hack tool has been around for years and has even been attributed to at least 1 nation-state. The Yara rule is present in the commercial variant of Loki, which is Thor. 
 
 There is more that can be done with Yara and Yara rules. We encourage you to explore this tool further at your own leisure. 
-
 
 [[Autopsy]]

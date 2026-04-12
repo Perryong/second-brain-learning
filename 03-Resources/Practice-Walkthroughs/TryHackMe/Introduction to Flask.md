@@ -26,7 +26,6 @@ Let's go!
 
  Completed
 
-
 ###  Installation and Deployment basics
 
 Let's proceed with basic installation. For this room, we are going to use Python3. You can get it for both Windows and Linux here:  
@@ -109,9 +108,7 @@ Try 'flask run --help' for help.
 
 Error: Could not import 'hello'.
 
-
 ```
-
 
 Which environment variable do you need to change in order to run Flask?
 
@@ -188,12 +185,9 @@ def hello_world():
 def admin():
 	return 'Hello Admin :)'
 
-
 http://127.0.0.1:1337/admin
 
 ```
-
-![[Pasted image 20230217113055.png]]
 
 What's the default deployment port used by Flask?
 
@@ -202,7 +196,6 @@ What's the default deployment port used by Flask?
 Is it possible to change that port? (yay/nay)
 
 *yay*
-
 
 ### HTTP Methods and Template Rendering
 
@@ -256,7 +249,6 @@ Press CTRL+C to quit
 127.0.0.1 - - [17/Feb/2023 11:51:07] "GET / HTTP/1.1" 404 -
 127.0.0.1 - - [17/Feb/2023 11:51:11] "GET /login HTTP/1.1" 200 -
 127.0.0.1 - - [17/Feb/2023 11:52:05] "GET /login HTTP/1.1" 200 -
-
 
 ┌──(witty㉿kali)-[~/Programacion]
 └─$ curl -X POST http://127.0.0.1:1337/login                                                                  
@@ -322,7 +314,6 @@ view-source:http://127.0.0.1:1337/rendered
 </html>
 
 ```
-
 
 Does Flask support POST requests? (yay/nay)
 
@@ -420,8 +411,6 @@ Was really fun!
 
 ```
 
-![[Pasted image 20230217130807.png]]
-
 Awesome!
 
  Completed
@@ -515,7 +504,6 @@ Hello ['THM{flask_1njected}\n']!
 
 ```
 
-
 What's inside **/home/flask/flag.txt** ?
 
 *THM{flask_1njected}*
@@ -544,6 +532,5 @@ Answer the questions below
 See you in the next room!
 
  Completed
-
 
 [[MD2PDF]]

@@ -132,7 +132,6 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^
 document.getElementById('clicked').value='yes';
 console.log('@fred I turned on php file syntax highlighting for you to review... jason');
 
-
 https://www.php.net/manual/en/function.highlight-file.php
 
 Many servers are configured to automatically highlight files with a _phps_ extension. For example, example.phps when viewed will show the syntax highlighted source of the file.
@@ -552,10 +551,7 @@ systemd-private-3e4e476e6d18475fbd0b7b5792be96dc-systemd-timesyncd.service-HLvIm
 jason@biteme:/tmp$ cat root.txt 
 THM{0e355b5c907ef7741f40f4a41cc6678d}
 
-
 ```
-
-![[Pasted image 20230623114704.png]]
 
 What is the user flag?
 
@@ -564,6 +560,5 @@ What is the user flag?
 What is the root flag?
 
 *THM{0e355b5c907ef7741f40f4a41cc6678d}*
-
 
 [[HaskHell]]

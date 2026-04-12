@@ -418,8 +418,6 @@ Writable folder: /dev/shm
 [+] /bin/bash is available for network discovery, port scanning and port forwarding (linpeas can discover hosts, scan ports, and forward ports. Learn more with -h)
 [+] /bin/nc is available for network discovery & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
 
-
-
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
                               ╔════════════════════╗
@@ -439,8 +437,6 @@ Sudo version 1.8.16
 
 ╔══════════╣ CVEs Check
 Potentially Vulnerable to CVE-2022-2588
-
-
 
 ╔══════════╣ PATH
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-path-abuses
@@ -662,7 +658,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
    Download URL: https://www.exploit-db.com/download/40003
    Comments: Exploit takes about ~30 minutes to run. Exploit is not reliable, see: https://cyseclabs.com/blog/cve-2016-0728-poc-not-working
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
   [1] af_packet
@@ -674,7 +669,6 @@ https://blog.theori.io/research/CVE-2022-32250-linux-kernel-lpe-2022/
   [3] get_rekt
       CVE-2017-16695
       Source: http://www.exploit-db.com/exploits/45010
-
 
 ╔══════════╣ Protections
 ═╣ AppArmor enabled? .............. You do not have enough privilege to read the profile set.
@@ -699,7 +693,6 @@ apparmor module is loaded.
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                                      ╔═══════╗
 ═════════════════════════════════════╣ Cloud ╠═════════════════════════════════════
@@ -737,13 +730,9 @@ PrivateIPv6s:
 Subnet IPv6: 
 Public IPv4s:
 
-
-
 ══╣ IAM Role
 
-
 ══╣ User Data
-
 
                 ╔════════════════════════════════════════════════╗
 ════════════════╣ Processes, Crons, Timers, Services and Sockets ╠════════════════
@@ -952,7 +941,6 @@ org.freedesktop.resolve1             - -               -                (activat
 org.freedesktop.systemd1             1 systemd         root             :1.0          init.scope                -          -                  
 org.freedesktop.timedate1            - -               -                (activatable) -                         -         
 
-
                               ╔═════════════════════╗
 ══════════════════════════════╣ Network Information ╠══════════════════════════════
                               ╚═════════════════════╝
@@ -989,7 +977,6 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:1 
           RX bytes:156180 (156.1 KB)  TX bytes:156180 (156.1 KB)
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -               
@@ -999,8 +986,6 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Users Information ╠═══════════════════════════════
@@ -1087,8 +1072,6 @@ mandre            pts/0    10.0.0.20        Thu Feb 13 15:02:43 -0800 2020
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                              ╔══════════════════════╗
 ═════════════════════════════╣ Software Information ╠═════════════════════════════
                              ╚══════════════════════╝
@@ -1108,7 +1091,6 @@ mandre            pts/0    10.0.0.20        Thu Feb 13 15:02:43 -0800 2020
 
 ╔══════════╣ MySQL version
 mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
-
 
 ═╣ MySQL connection using default root/root ........... No
 ═╣ MySQL connection using root/toor ................... No
@@ -1162,7 +1144,6 @@ lrwxrwxrwx 1 root root 35 Feb  6  2020 /etc/apache2/sites-enabled/000-default.co
 	DocumentRoot /var/www/dev
 	
 </VirtualHost>
-
 
 -rw-r--r-- 1 root root 1516 Feb  6  2020 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
@@ -1221,8 +1202,6 @@ ibase.allow_persistent = 1
 mysqli.allow_persistent = On
 pgsql.allow_persistent = On
 
-
-
 ╔══════════╣ Analyzing Rsync Files (limit 70)
 -rw-r--r-- 1 root root 1044 Sep 30  2013 /usr/share/doc/rsync/examples/rsyncd.conf
 [ftp]
@@ -1242,11 +1221,9 @@ pgsql.allow_persistent = On
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Feb  6  2020 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 Port 22
@@ -1263,7 +1240,6 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -1275,15 +1251,9 @@ Host *
 drwxr-xr-x 2 root root 4096 Feb  6  2020 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Mar  4  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwxr-xr-x 2 root root 4096 Feb  6  2020 /usr/share/keyrings
 drwxr-xr-x 2 root root 4096 Feb  6  2020 /var/lib/apt/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -1306,26 +1276,17 @@ netpgp Not Found
 -rw-r--r-- 1 root root 2256 Feb 26  2016 /usr/share/popularity-contest/debian-popcon.gpg
 -rw-r--r-- 1 root root 12335 Feb 26  2019 /var/lib/apt/keyrings/ubuntu-archive-keyring.gpg
 
-
 ╔══════════╣ Searching docker files (limit 70)
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation
 -rwxrwxrwx 1 root root 639 Jul 10  2019 /var/www/html/Dockerfile
 
-
 ╔══════════╣ Analyzing Postfix Files (limit 70)
 -rw-r--r-- 1 root root 694 May 18  2016 /usr/share/bash-completion/completions/postfix
 
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
-
 
 -rw-r--r-- 1 root root 69 Jan 14  2020 /etc/php/7.0/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Jan 14  2020 /usr/share/php7.0-common/common/ftp.ini
-
-
-
-
-
 
 ╔══════════╣ Analyzing Interesting logs Files (limit 70)
 
@@ -1333,70 +1294,14 @@ netpgp Not Found
 
 ╔══════════╣ Analyzing Windows Files (limit 70)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 lrwxrwxrwx 1 root root 20 Feb  6  2020 /etc/alternatives/my.cnf -> /etc/mysql/mysql.cnf
 lrwxrwxrwx 1 root root 24 Feb  6  2020 /etc/mysql/my.cnf -> /etc/alternatives/my.cnf
 -rw-r--r-- 1 root root 81 Feb  6  2020 /var/lib/dpkg/alternatives/my.cnf
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3771 Aug 31  2015 /etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 655 May 16  2017 /etc/skel/.profile
-
-
-
-
-
 
                                ╔═══════════════════╗
 ═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════
@@ -1633,7 +1538,6 @@ grep: write error: Broken pipe
 
 ╔══════════╣ Searching tables inside readable .db/.sql/.sqlite files (limit 100)
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
-
 
 ╔══════════╣ Web files?(output limit)
 /var/www/:
@@ -2186,13 +2090,10 @@ Unpacking base-passwd (3.5.39) over (3.5.39) ...
 Unpacking passwd (1:4.2-3.1ubuntu5) ...
 dpkg: base-passwd: dependency problems, but configuring anyway as you requested:
 
-
-
                                 ╔════════════════╗
 ════════════════════════════════╣ API Keys Regex ╠════════════════════════════════
                                 ╚════════════════╝
 Regexes to search for API keys aren't activated, use param '-r' 
-
 
 ╔══════════╣ Executable files potentially added by user (limit 70)
 2020-02-06+18:54:07.1196134090 /opt/.password.bak
@@ -2318,13 +2219,11 @@ andre:$6$GeMRsVKt$KEQmO.oV7yzpLOVXjDXG/8M/rbw1bngT/VOoRQSn2saquzhMTMl5J8rstkFQ1Q
 mysql:!:18299:0:99999:7:::
 sshd:*:18299:0:99999:7:::
 
-
 using symbolic links
 
 Symbolic links, also known as soft links, are special types of files that point to another file or directory in the filesystem. Unlike hard links, symbolic links can span across different filesystems and can even link to files or directories that do not exist yet. Symbolic links are commonly used to create shortcuts or aliases to files or directories, or to link to shared resources across multiple systems.
 
 For example, if you want to create a symbolic link named "mylink" in the current directory that points to a file named "myfile" in the same directory, you can use the following command:
-
 
 ln -s myfile mylink
 
@@ -2381,10 +2280,7 @@ andre@cmess:/tmp$ cat root.txt
 cat root.txt
 thm{9f85b7fdeb2cf96985bf5761a93546a2}
 
-
 ```
-
-![[Pasted image 20230314114754.png]]
 
 Compromise this machine and obtain user.txt
 

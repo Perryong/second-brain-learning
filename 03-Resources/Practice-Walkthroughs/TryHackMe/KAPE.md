@@ -61,8 +61,6 @@ Which binary is used to run GUI version of KAPE?
 
 The GUI version is symbolized by the 'g' prefix
 
-![[Pasted image 20221216151729.png]]
-
 *gkape.exe*
 
 ### Target Options
@@ -239,7 +237,6 @@ Executing remaining modules...
 Executed 18 processors in 192.2738 seconds
 
 Total execution time: 258.1812 seconds
-
 
 Press any key to exit
 ```
@@ -678,10 +675,7 @@ Executed 18 processors in 682.6135 seconds
 
 Total execution time: 791.1128 seconds
 
-
 ```
-
-![[Pasted image 20221216165317.png]]
 
 *KapeTriage*
 
@@ -698,8 +692,6 @@ What option has to be checked to append date and time information to triage fold
 What option needs to be checked to add machine information to the triage folder name?
 
 *%m*
-
-![[Pasted image 20221216165725.png]]
 
 ### KAPE CLI
 
@@ -785,7 +777,6 @@ KAPE version 1.1.0.1 Author: Eric Zimmerman (kape@kroll.com)
 
         ifw             If false, KAPE will warn if a process related to FTK is found, then exit. Set to true to ignore this warning and attempt to proceed. Default is FALSE
 
-
         Variables: %d = Timestamp (yyyyMMddTHHmmss)
                    %s = System drive letter
                    %m = Machine name
@@ -798,7 +789,6 @@ Examples: kape.exe --tsource L: --target RegistryHives --tdest "c:\temp\Registry
           Short options (single letter) are prefixed with a single dash. Long commands are prefixed with two dashes
 
           Full documentation: https://ericzimmerman.github.io/KapeDocs/
-
 
 D:\KAPE>
 ```
@@ -931,7 +921,6 @@ KAPE version 1.1.0.1 Author: Eric Zimmerman (kape@kroll.com)
 
         ifw             If false, KAPE will warn if a process related to FTK is found, then exit. Set to true to ignore this warning and attempt to proceed. Default is FALSE
 
-
         Variables: %d = Timestamp (yyyyMMddTHHmmss)
                    %s = System drive letter
                    %m = Machine name
@@ -944,7 +933,6 @@ Examples: kape.exe --tsource L: --target RegistryHives --tdest "c:\temp\Registry
           Short options (single letter) are prefixed with a single dash. Long commands are prefixed with two dashes
 
           Full documentation: https://ericzimmerman.github.io/KapeDocs/
-
 
 C:\Users\THM-4n6\Desktop\KAPE>kape.exe --tsource C: --target KapeTriage --tdest C:\Users\THM-4n6\Desktop\target --mdest C:\Users\THM-4n6\Desktop\module --module !EZParser
 KAPE version 1.1.0.1 Author: Eric Zimmerman (kape@kroll.com)
@@ -1383,7 +1371,6 @@ Read the content shown in the image above
 
 *cu*
 
-
 ### Hands-on Challenge
 
 So, now that we have learned how to use KAPE let's put it into practice. For this task, you will need to utilize your skills gained in this room and the previous [Windows Forensics 1](https://tryhackme.com/room/windowsforensics1) and [Windows Forensics 2](https://tryhackme.com/room/windowsforensics2) rooms.
@@ -1400,26 +1387,9 @@ Two USB Mass Storage devices were attached to this Virtual Machine. One had a Se
 
 Check out the registry folder, and any artifacts related to USB Mass Storage Devices. Ignore the Input devices, bluetooth devices or Root hubs.
 
-![[Pasted image 20221216172931.png]]
-
-![[Pasted image 20221216173017.png]]
-
-![[Pasted image 20221216174436.png]]
-
 *1C6F654E59A3B0C179D366AE*
 
 7zip, Google Chrome and Mozilla Firefox were installed from a Network drive location on the Virtual Machine. What was the drive letter and path of the directory from where these software were installed?
-
-![[Pasted image 20221216174245.png]]
-
-![[Pasted image 20221216174721.png]]
-
-![[Pasted image 20221216175007.png]]
-
-
-![[Pasted image 20221216175043.png]]
-
-![[Pasted image 20221216175256.png]]
 
 	*Z:\setups*
 
@@ -1427,20 +1397,11 @@ What is the execution date and time of CHROMESETUP.EXE in MM/DD/YYYY HH:MM?
 
 Check out Recent Apps in Registry
 
-![[Pasted image 20221216175153.png]]
-
-
-![[Pasted image 20221216175333.png]]
-
 *11/25/2021 3:33*
 
 What search query was run on the system?
 
 Check out WordWheelQuery
-
-![[Pasted image 20221216175517.png]]
-
-![[Pasted image 20221216175609.png]]
 
 *RunWallpaperSetup.cmd*
 
@@ -1448,17 +1409,11 @@ When was the network named Network 3 First connected to?
 
 MM/DD/YYYY HH:MM Check out Last known networks
 
-![[Pasted image 20221216175746.png]]
-
 *11/30/2021 15:44*
 
 KAPE was copied from a removable drive. Can you find out what was the drive letter of the drive where KAPE was copied from?
 
 Check out Automatic Destinations in FIleFolderAccess
-
-![[Pasted image 20221216175830.png]]
-
-![[Pasted image 20221216175920.png]]
 
 *E:*
 
@@ -1469,7 +1424,5 @@ Phew! Windows Forensics keeps on getting interesting. 
 You can stick around and find out what other exciting artifacts you found in the VM. You can let us know what you found interesting in this room using our [Discord channel](https://discord.gg/tryhackme) or [Twitter account](http://twitter.com/realtryhackme).
 
 Furthermore, you can try running KAPE on your machine and see what information you can find.
-
-
 
 [[Linux Forensics]]

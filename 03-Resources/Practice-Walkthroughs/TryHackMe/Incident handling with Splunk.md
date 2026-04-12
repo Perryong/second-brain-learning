@@ -35,7 +35,6 @@ It is good to understand the following before completing this lesson:
 
 Website defacements are the **unauthorized modification of web pages, including the addition, removal, or alteration of existing content**. These attacks are commonly carried out by hacktivists, who compromise a website or web server and replace or alter the hosted website information with their own messages.
 
-
 ### Incident Handling - Life Cycle
 
 **Incident Handling Life Cycle**
@@ -172,7 +171,6 @@ Room Machine
 
 Before moving forward, deploy the machine. When you deploy the machine, it will be assigned an IP **Machine IP**: `MACHINE_IP`. The machine will take up to 3-5 minutes to start.
 
-
 ### Reconnaissance Phase
 
 **Reconnaissance Phase  
@@ -236,11 +234,6 @@ One suricata alert highlighted the CVE value associated with the attack attempt.
 
 index=botsv1 imreallynotbatman.com src_ip="40.80.148.42" sourcetype=suricata
 
-![[Pasted image 20221214192506.png]]
-
-
-![[Pasted image 20221214192453.png]]
-
 https://www.exploit-db.com/exploits/34766
 
 *CVE-2014-6271*
@@ -250,14 +243,9 @@ Content Management System (CMS). These web applications are used to manage conte
 
 Joomla is the mobile-ready and user-friendly way to build your website. Choose from thousands of features and designs. 
 
-![[Pasted image 20221214193043.png]]
-![[Pasted image 20221214193059.png]]
-
 *joomla*
 
 What is the web scanner, the attacker used to perform the scanning attempts?  
-
-![[Pasted image 20221214193402.png]]
 
 _Acunetix_ is an end-to-end web security scanner that offers a 360 view of an organization's security.
 https://rci-c.com/en/technology/acunetix-vulnerability-scanner/
@@ -270,10 +258,6 @@ What is the IP address of the server imreallynotbatman.com?
 Examine stream:http
 
 index=botsv1 imreallynotbatman.com source="stream:http"
-
-![[Pasted image 20221214194354.png]]
-
-![[Pasted image 20221214194338.png]]
 
 *192.168.250.70*
 
@@ -440,8 +424,6 @@ What was the correct password for admin access to the content management system 
 
 How many unique passwords were attempted in the brute force attempt?  
 
-![[Pasted image 20221214202452.png]]
-
 *412*
 
 After finding the correct password, which IP did the attacker use to log in to the admin panel?
@@ -508,20 +490,13 @@ Answer the questions below
 
 Sysmon also collects the Hash value of the processes being created. What is the MD5 HASH of the program 3791.exe?
 
-![[Pasted image 20221214210313.png]]
-
 *AAE3F5A29935E6ABCC2C2754D12A9AF0*
 
 Looking at the logs, which user executed the program 3791.exe on the server?
 
-![[Pasted image 20221214210603.png]]
-
-
 	*NT AUTHORITY\IUSR*
 
 Search hash on the virustotal. What other name is associated with this file 3791.exe?
-
-![[Pasted image 20221214210738.png]]
 
 Some comments a ctf in 2016
 
@@ -584,9 +559,6 @@ Fortigate Firewall 'fortigate_utm' detected SQL attempt from the attacker's IP 4
 attack field
 
 index=botsv1 src=40.80.148.42 sourcetype=fortigate_utm
-
-![[Pasted image 20221214221614.png]]
-
 
 *HTTP.URI.SQL.Injection*
 
@@ -841,7 +813,6 @@ In this phase, we again leveraged online Threat Intel sites to find malware asso
 
 -   A malware name `MirandaTateScreensaver.scr.exe` was found associated with the adversary.
 -   MD5 of the malware was `c99131e0169171935c5ac32615ed6261`
-
 
 Useful!! :) 
 

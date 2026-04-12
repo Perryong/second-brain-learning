@@ -2,8 +2,6 @@
 Learn how to bypass common logging and system monitoring, such as ETW, using modern tool-agnostic approaches.
 ---
 
-![[Pasted image 20220917163748.png]]
-
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/c77e1c5ff6a6ab412828ef7cfa8cbb50.png)
 
 ###  Introduction 
@@ -77,7 +75,6 @@ Due to the visibility of ETW, an attacker should always be mindful of the events
 
 In the upcoming tasks, we will cover ETW instrumentation, ETW evasion, and other ETW-based solutions.
 
-
 What ETW component will build and configure sessions?
 Found in table x.
 *Controllers*
@@ -87,8 +84,6 @@ What event ID logs when a user account was deleted?
 *4726*  Event ID 4726 - A user account was deleted
 
 ### Approaches to Log Evasion 
-
-
 
 Before diving deep into the more modern and technical evasion techniques, let’s look at the various approaches available and their impacts on attackers and defenders.
 
@@ -115,10 +110,8 @@ Most published techniques will target ETW components since that will allow an at
 
 This room will break down some of the most common published techniques and a more modern technique that allows for a wide range of control.
 
-
 How many total events can be used to track event tampering? 
 *3*
-
 
 What event ID logs when the log file was cleared?
 *104*
@@ -147,7 +140,6 @@ Event Consumers are used to interpret events. To expand on this definition, the 
 Each of these components can be brought together to fully understand and depict the data/session flow within ETW.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5e73cca6ec4fcf1309f2df86/room-content/dc8217f5aecbcc08d609c3299756da08.png)
-
 
 From start to finish, events originate from the providers. Controllers will determine where the data is sent and how it is processed through sessions. Consumers will save or deliver logs to be interpreted or analyzed.
 
@@ -179,15 +171,9 @@ At a high level, PowerShell reflection can be broken up into four steps:
 
 At step one, we need to obtain the type for the PSEtwLogProvider assembly. The assembly is stored in order to access its internal fields in the next step.
 
-![[Pasted image 20220917164803.png]]
-
 At step two, we are storing a value ($null) from the previous assembly to be used.
 
-![[Pasted image 20220917164816.png]]
-
 At step three, we compile our steps together to overwrite the m_enabled field with the value stored in the previous line.
-
-![[Pasted image 20220917164829.png]]
 
 We can compile these steps together and append them to a malicious PowerShell script. Use the PowerShell script provided and experiment with this technique.
 
@@ -207,7 +193,6 @@ PS C:\Users\Administrator> Get-WinEvent -FilterHashtable @{ProviderName="Microso
 
         
 
-
 ```
 
 ```
@@ -225,16 +210,13 @@ PS C:\Users\Administrator> Get-WinEvent -FilterHashtable @{ProviderName="Microso
 
         
 
-
 ```
 
 In the first terminal, we see four events generated when the whoami command is run. After the script is executed in the second terminal, we see no events generated from running a command. From this comparison, we can also see that the PowerShell script creates seven events; this should be considered when evaluating an approach. 
 
-
 What reflection assembly is used?
  Found in step 1
 *PSEtwLogProvider*
-
 
 What field is overwritten to disable ETW?
 Found in step 3
@@ -298,23 +280,13 @@ At a high level, ETW patching can be broken up into five steps:
 
 At step one, we need to obtain a handle for the address of EtwEventWrite. This function is stored within ntdll. We will first load the library using LoadLibrary then obtain the handle using GetProcAddress.
 
-![[Pasted image 20220917165534.png]]
-
 At step two, we need to modify the memory permissions of the function to allow us to write to the function. The permission of the function is defined by the flNewProtect parameter; 0x40 enables X, R, or RW access ([memory protection constraints](https://learn.microsoft.com/en-us/windows/win32/memory/memory-protection-constants)).
-
-![[Pasted image 20220917165605.png]]
 
 At step three, the function has the permissions we need to write to it, and we have the pre-defined opcode to patch it. Because we are writing to a function and not a process, we can use the infamous Marshal.Copy to write our opcode.
 
-![[Pasted image 20220917165623.png]]
-
 At step four, we can begin cleaning our steps to restore memory permissions as they were.
 
-![[Pasted image 20220917165637.png]]
-
 At step five, we can ensure the patched function will be executed from the instruction cache.
-
-![[Pasted image 20220917165651.png]]
 
 We can compile these steps together and append them to a malicious script or session. Use the C# script provided and experiment with this technique.
 
@@ -331,12 +303,9 @@ Once the function is patched in memory, it will always return when EtwEventWrite
 
 Although this is a beautifully crafted technique, it might not be the best approach depending on your environment since it may restrict more logs than you want for integrity.
 
-
 What is the base address for the ETW security check before it is patched?
 Found in the 3rd code block.
 *779f245b*
-
-
 
 What is the non-delimited opcode used to patch ETW for x64 architecture?
 *c21400*
@@ -399,8 +368,6 @@ The general goal of disabling these providers is to limit the visibility of comp
  How many total events are enabled through script block and module providers?
 *2* Found in the table above.
 
-
-
 What event ID will log script block execution?
 *4104*
 
@@ -418,15 +385,9 @@ We will break down an example PowerShell script to identify each step and explai
 
 At step one, we must use reflection to obtain the type of System.Management.Automation.Utils and identify the GPO cache field: cachedGroupPolicySettings.
 
-![[Pasted image 20220917170455.png]]
-
 At step two, we can leverage the GPO variable to modify either event provider setting to 0. EnableScriptBlockLogging will control 4104 events, limiting the visibility of script execution. Modification can be accomplished by writing to the object or registry directly.
 
-![[Pasted image 20220917170508.png]]
-
 At step three, we can repeat the previous step with any other provider settings we want to EnableScriptBlockInvocationLogging will control 4103 events, limiting the visibility of cmdlet and pipeline execution.
-
-![[Pasted image 20220917170522.png]]
 
 We can compile these steps together and append them to a malicious PowerShell script. Use the PowerShell script provided and experiment with this technique.
 
@@ -462,7 +423,6 @@ PS C:\Users\Administrator\Desktop> Get-WinEvent -FilterHashtable @{ProviderName=
 
         
 
-
 Before
 
            
@@ -489,19 +449,15 @@ PS C:\Users\Administrator\Desktop> Get-WinEvent -FilterHashtable @{ProviderName=
 
         
 
-
 ```
 
 In the first terminal, we see there are three events generated when the PowerShell script is run. In the second terminal, after the script is executed we see that there are no events generated from running a command.
-
 
 What event IDs can be disabled using this technique? (lowest to highest separated by a comma)
 *4103, 4104*
 
 What provider setting controls 4104 events?
 *EnableScriptBlockInvocationLogging *
-
-![[Pasted image 20220917171335.png]]
 
 ###  Abusing Log Pipeline 
 
@@ -515,14 +471,10 @@ At a high-level the log pipeline technique can be broken up into four steps:
     Obtain the module snap-in.
     Set snap-in execution details to $false.
 
-![[Pasted image 20220917171412.png]]
-
 The script block above can be appended to any PowerShell script or run in a session to disable module logging of currently imported modules.
-
 
 What type of logging will this method prevent?
 *module logging*
-
 
 What target module will disable logging for all Microsoft utility modules?
 *Microsoft.PowerShell.Utility*
@@ -548,21 +500,15 @@ At this point, we should have all the parameters met:
 Now we can test our methodology by running the binary "agent.exe". If properly implemented a flag will be returned to the desktop.  If not properly implemented, "Binary leaked, you got caught" will appear, meaning that the binary appeared in the logs at some point, and you failed the scenario.
 
 Enter the flag obtained from the desktop after executing the binary.
-![[Pasted image 20220917174253.png]]
 
 *THM{51l3n7_l1k3_4_5n4k3}*
 
-
 ### Conclusion 
-
-
 
 As mentioned throughout this room, the main goal of evading event detections is to keep the environment as clean and intact as possible while preventing the logging of your session or code.
 
 We have covered a few notable techniques, most of which are aggressive in their approach. To obtain a proper level of “normal” logs, you will need to modify or combine several of these scripts to manipulate other normal functionality.
 
-
 Read the above and continue learning!
-
 
 [[Runtime Detection Evasion]]

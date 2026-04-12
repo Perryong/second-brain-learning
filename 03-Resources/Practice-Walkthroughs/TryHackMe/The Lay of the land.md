@@ -5,12 +5,9 @@ Learn about and get hands-on with common technologies and security products used
 ![|222](https://tryhackme-images.s3.amazonaws.com/room-icons/d8dcc12c59983f2ba6492eefe0454626.png)
 ### Introduction 
 
-
-
 It is essential to be familiar with the environment where you have initial access to a compromised machine during a red team engagement. Therefore, performing reconnaissance and enumeration is a significant part, and the primary goal is to gather as much information as possible to be used in the next stage. 
 
 With an initial foothold established, the post-exploitation process begins! 
-
 
 This room introduces commonly-used concepts, technologies, and security products that we need to be aware of.
 
@@ -83,7 +80,6 @@ Active Connections
 
 	    
 
-
 ```
 
 The output reveals the open ports as well as the established connections. Next, let's list the ARP table, which contains the IP address and the physical address of the computers that communicated with the target machines within the network. This could be helpful to see the communications within the network to scan the other machines for open ports and vulnerabilities.
@@ -104,7 +100,6 @@ Interface: 10.10.141.51 --- 0xa
   10.10.255.255         ff-ff-ff-ff-ff-ff     static
 
 	    
-
 
 ```
 
@@ -152,15 +147,11 @@ AD domains are a collection of Microsoft components within an AD network.
 
 AD Forest is a collection of domains that trust each other. 
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/bb4bec81a78f745e8cbc38f7879002dd.png)
 
 For more information about the basics of Active Directory, we suggest trying the following TryHackMe room: Active Directory Basics.
 
-
-
 Once Initial Access has been achieved, finding an AD environment in a corporate network is significant as the Active Directory environment provides a lot of information to joined users about the environment. As a red teamer, we take advantage of this by enumerating the AD environment and gaining access to various details, which can then be used in the lateral movement stage.
-
 
 In order to check whether the Windows machine is part of the AD environment or not, one way, we can use the command prompt systeminfo command. The output of the systeminfo provides information about the machine, including the operating system name and version, hostname, and other hardware information as well as the AD domain.
 
@@ -184,8 +175,6 @@ Before going any further, ensure the attached machine is deployed and try what w
 
 *Y*
 
-![[Pasted image 20220910180951.png]]
-
 If it is part of an AD environment, what is the domain name of the AD?
 *thmredteam.com*
 
@@ -202,7 +191,6 @@ An Active Directory environment contains various accounts with the necessary per
     Domain Administrators are user accounts that can manage information in an Active Directory environment, including AD configurations, users, groups, permissions, roles, services, etc. One of the red team goals in engagement is to hunt for information that leads to a domain administrator having complete control over the AD environment.
 
 The following are Active Directory Administrators accounts:
-
 
 	BUILTIN\Administrator	Local admin access on a domain controller
 Domain Admins	Administrative access to all resources in the domain
@@ -240,7 +228,6 @@ PS C:\Users\thm>
 
 	    
 
-
 ```
 
 We can also use the LDAP hierarchical tree structure to find a user within the AD environment. The Distinguished Name (DN) is a collection of comma-separated key and value pairs used to identify unique records within the directory. The DN consists of Domain Component (DC), OrganizationalUnitName (OU), Common Name (CN), and others. The following "CN=User1,CN=Users,DC=thmredteam,DC=com" is an example of DN, which can be visualized as follow:
@@ -257,7 +244,6 @@ PowerShell
 			
 PS C:\Users\thm> Get-ADUser -Filter * -SearchBase "CN=Users,DC=THMREDTEAM,DC=COM"
 
-
 DistinguishedName : CN=Administrator,CN=Users,DC=thmredteam,DC=com
 Enabled           : True
 GivenName         :
@@ -271,18 +257,15 @@ UserPrincipalName :
 
 	    
 
-
 ```
 
 Note that the result may contain more than one user depending on the configuration of the CN. Try the command to find all users within the THM OU and answer question 1 below.
-
 
 Use the Get-ADUser -Filter * -SearchBase command to list the available user accounts within THM OU in the thmredteam.com domain. How many users are available?
 (Swap OU=THM and CN=Users in the searchBase string "CN=Users,DC=THMREDTEAM,DC=COM".)
 
 ```
 PS C:\Users\kkidd> Get-ADUser -Filter * -SearchBase "OU=THM,DC=THMREDTEAM,DC=COM"
-
 
 DistinguishedName : CN=Pierre Pittman,OU=THM,DC=thmredteam,DC=com
 GivenName         : Pierre
@@ -352,7 +335,6 @@ Once you run the previous command, what is the UserPrincipalName (email) of the 
 
 *thmadmin@thmredteam.com*
 
-
 ### Host Security Solution #1 
 
 Before performing further actions, we need to obtain general knowledge about the security solutions in place. Remember, it is important to enumerate antivirus and security detection methods on an endpoint in order to stay as undetected as possible and reduce the chance of getting caught.
@@ -410,7 +392,6 @@ PowerShell
            
 			
 PS C:\Users\thm> Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct
-
 
 displayName              : Bitdefender Antivirus
 instanceGuid             : {BAF124F4-FA00-8560-3FDE-6C380446AEFB}
@@ -547,7 +528,6 @@ PowerShell
 			
 PS C:\Users\thm> Test-NetConnection -ComputerName 127.0.0.1 -Port 80
 
-
 ComputerName     : 127.0.0.1
 RemoteAddress    : 127.0.0.1
 RemotePort       : 80
@@ -563,15 +543,11 @@ True
 
 As a result, we can confirm the inbound connection on port 80 is open and allowed in the firewall. Note that we can also test for remote targets in the same network or domain names by specifying in the -ComputerName argument for the Test-NetConnection. 
 
-
-![[Pasted image 20220910183447.png]]
-
 Enumerate the attached Windows machine and check whether the host-based firewall is enabled or not! (Y|N)
 *N*
 
 ```
 PS C:\Users\kkidd> Get-MpThreat
-
 
 CategoryID       : 8
 DidThreatExecute : False
@@ -731,7 +707,6 @@ PS C:\Users\thm> reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT
 	    
 ```
 
-
 All these commands confirm if the sysmon tool is installed. Once we detect it, we can try to find the sysmon configuration file if we have readable permission to understand what system administrators are monitoring.
 
 ```
@@ -759,9 +734,7 @@ HIDS stands for Host-based Intrusion Detection System. It is software that has t
 
 Host-based Intrusion Prevention Systems (HIPS) works by securing the operating system activities which where is installed. It is a detecting and prevention solution against well-known attacks and abnormal behaviors. HIPS is capable of auditing log files of the host, monitoring processes, and protecting system resources. HIPS is a mixture of best product features such as antivirus, behavior analysis, network, application firewall, etc.
 
-
 There is also a network-based IDS/IPS, which we will be covering in the next task. 
-
 
 Endpoint Detection and Response (EDR)
 
@@ -786,7 +759,6 @@ Below are some common EDR software for endpoints
 Even though an attacker successfully delivered their payload and bypassed EDR in receiving reverse shell, EDR is still running and monitors the system. It may block us from doing something else if it flags an alert.
 
 We can use scripts for enumerating security products within the machine, such as [Invoke-EDRChecker](https://github.com/PwnDexter/Invoke-EDRChecker) and [SharpEDRChecker](https://github.com/PwnDexter/SharpEDRChecker). They check for commonly used Antivirus, EDR, logging monitor products by checking file metadata, processes, DLL loaded into current processes, Services, and drivers, directories.
-
 
 We covered some of the common security endpoints we may encounter during the red team engagement. Let's discuss the network-based security solutions in the next task!
 *No answer needed*
@@ -926,8 +898,6 @@ The following are some of the internal services that are commonly used that we a
     Web application
     Database service
 
-
-
 Let's try listing the running services using the Windows command prompt net start to check if there are any interesting running services.
 
 ```
@@ -1004,7 +974,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
      78       9    12676       5716              2692   0 thm-service
 
-
 PS C:\Users\kkidd> netstat -ano | findstr "LISTENING" | findstr "2692"
   TCP    0.0.0.0:13337          0.0.0.0:0              LISTENING       2692
   TCP    [::]:13337             [::]:0                 LISTENING       2692
@@ -1015,7 +984,6 @@ Finally, we can see it is listening on port 8080. Now try to apply what we discu
 
 ```
 PS C:\Users\kkidd> curl 127.0.0.1:13337
-
 
 StatusCode        : 200
 StatusDescription : OK
@@ -1127,12 +1095,9 @@ Address:  10.10.198.178
 >
 ```
 
-
 *THM{DNS-15-Enumerated!}*
 
 ### Conclusion 
-
-
 
 This room is an introduction to client systems in corporate environments. The student should have a better understanding of how clients are used in a corporate network including:
 
@@ -1141,8 +1106,6 @@ This room is an introduction to client systems in corporate environments. The st
     security measures (HIPS, AV, etc.)
     Internal applications and services
 
-
 Hope you enjoyed the room and keep learning!
-
 
 [[Phishing]]

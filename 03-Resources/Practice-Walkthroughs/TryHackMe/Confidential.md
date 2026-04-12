@@ -8,7 +8,6 @@ We got our hands on a confidential case file from some self-declared "black hat 
 
 We got our hands on a confidential case file from some self-declared "black hat hackers"... it looks like they have a secret invite code available within a QR code, but it's covered by some image in this PDF! If we want to thwart whatever it is they are planning, we need your help to uncover what that QR code says!
 
-
 Access this challenge by deploying the machine attached to this task by pressing the green "Start Machine" button. This machine shows in Split View in your browser, if it doesn't automatically display you may need to click "Show Split View" in the top right.
 
 The file you need is located in /home/ubuntu/confidential on the VM.
@@ -28,7 +27,6 @@ total 112K
 drwxrwxr-x  2 ubuntu ubuntu 4.0K Mar 11  2022 .
 drwxr-xr-x 15 ubuntu ubuntu 4.0K Sep 19 17:02 ..
 -rw-rw-r--  1 ubuntu ubuntu 101K Mar 11  2022 Repdf.pdf
-
 
 ┌──(kali㉿kali)-[~/confidential]
 └─$ ls
@@ -118,20 +116,11 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 └─$ ls             
 ext-000.png  ext-001.png  ext-002.png  sus.pdf
 
-
 now qr
-
-
-
 
 ```
 
-![[Pasted image 20220919122720.png]]
-
-![[Pasted image 20220919122803.png]]
-
 Uncover and scan the QR code to retrieve the flag!
 *flag{e08e6ce2f077a1b420cfd4a5d1a57a8d}*  (now just scan the qr)
-
 
 [[Chill Hack]]

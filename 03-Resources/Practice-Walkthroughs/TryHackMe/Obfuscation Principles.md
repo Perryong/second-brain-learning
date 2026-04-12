@@ -47,7 +47,6 @@ Code Element Layer > Obfuscating Layout > Junk Codes.
 
 But how could this be used maliciously? Adversaries and malware developers can leverage obfuscation to break signatures or prevent program analysis. In the upcoming tasks, we will discuss both perspectives of malware obfuscation, including the purpose and underlying techniques of each.
 
-
 How many core layers make up the Layered Obfuscation Taxonomy?
 *4*
 
@@ -80,11 +79,8 @@ In the upcoming tasks, we will primarily focus on data splitting/merging; becaus
 
 Check out the Encoding/Packing/Binder/Crypters room for more information about data encoding, and the Signature Evasion room for more information about data procedurization and transformation.
 
-
 What obfuscation method will break or split an object?
 *Data Splitting*
-
-
 
 What obfuscation method is used to rewrite static data with a procedure call?
 *Data Procedurization*
@@ -191,20 +187,13 @@ dOwnLoAdsTRing
 
 Using the knowledge you have accrued throughout this task, obfuscate the following PowerShell snippet until it evades Defender’s detections.
 
-![[Pasted image 20220916165550.png]]
-
 To get you started, we recommend breaking up each section of the code and observe how it interacts or is detected. You can then break the signature present in the independent section and add another section to it until you have a clean snippet.
 
 Once you think your snippet is sufficiently obfuscated, submit it to the webserver at http://10.10.25.43 ; if successful a flag will appear in a pop-up.
 
 If you are still stuck we have provided a walkthrough of the solution below.
 
-
 What flag is found after uploading a properly obfuscated snippet?
-
-![[Pasted image 20220916193019.png]]
-
-![[Pasted image 20220916193004.png]]
 
 *THM{koNC473n473_4Ll_7H3_7H1n95}*
 
@@ -243,8 +232,6 @@ In the upcoming tasks, we will demonstrate several of the above methods in an ag
 
 Check out the Sandbox Evasion room for more information about anti-analysis and anti-reversing
 
-
-
 What are junk instructions referred to as in junk code?
 *Code stubs*
 
@@ -270,7 +257,6 @@ for/while loop
 
 To make this concept concrete, we can observe an example function and its corresponding CFG (Control Flow Graph) to depict it’s possible control flow paths.
 
-
 ```
 x = 10 
 if(x > 7):
@@ -284,7 +270,6 @@ else:
 What does this mean for attackers? An analyst can attempt to understand a program’s function through its control flow; while problematic, logic and control flow is almost effortless to manipulate and make arbitrarily confusing. When dealing with control flow, an attacker aims to introduce enough obscure and arbitrary logic to confuse an analyst but not too much to raise further suspicion or potentially be detected by a platform as malicious.
 
 In the upcoming task, we will discuss different control flow patterns an attacker can use to confuse an analyst.
-
 
 Can logic change and impact the control flow of a program? (T/F)
 *T*
@@ -378,8 +363,6 @@ while (x > 1):
                     break
             i = i + 1 
 ```
-
-![[Pasted image 20220916202903.png]]
 
 What flag is found after properly reversing the provided snippet?
 *THM{D3cod3d!!}*
@@ -478,7 +461,6 @@ Notice that all of the iostream was written to strings, and even the shellcode b
 
 We can remove comments and replace the meaningful identifiers to resolve this problem.
 
-
 ```
 #include "windows.h"
 
@@ -528,7 +510,6 @@ If we need to remove symbols from a pre-compiled image, we can use the command-l
 The aforementioned white paper: Layered Obfuscation Taxonomy, summarizes these practices well under the code-element layer’s stripping redundant symbols method.
 
 Below is an example of using strip to remove the symbols from a binary compiled in gcc with debugging enabled.
-
 
 Several other properties should be considered before actively using a tool, such as entropy or hash. These concepts are covered in task 5 of the Signature Evasion room.
 
@@ -717,13 +698,9 @@ int main(int argc, char* argv[])
 
 ```
 
-![[Pasted image 20220916210810.png]]
-
 *THM{Y0Ur_1NF0_15_M1N3}*
 
 ### Conclusion 
-
-
 
 Obfuscation can be one of the most lucrative tools in an attackers arsenal when it comes to evasion. Both attackers and defenders alike should understand and assess not only its uses but also its impacts.
 
@@ -732,7 +709,6 @@ In this room, we covered the principles of obfuscation as it relates to both sig
 The techniques shown in this room are generally tool-agnostic and can be applied to many use cases as both tooling and defenses shift.
 
 At this point, you can take obfuscation a step further into signature evasion where it is directly applied to signatures or use it at a higher-level with obfuscators.
-
 
 Read the above and continue learning!
 

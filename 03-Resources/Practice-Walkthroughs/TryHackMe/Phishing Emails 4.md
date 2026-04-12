@@ -27,7 +27,6 @@ In this room, we will focus specifically on Email Security (SPF, DKIM, DMARC) fr
 
 Let's begin...
 
-
 What is the MITRE ID for Software Configuration?
 *M1054*
 
@@ -71,11 +70,9 @@ The above image shows the status of an SPF record check. It reports back as soft
 
 Note: Even though this task uses [dmarcian](https://dmarcian.com/) for SPF-related information and online checks, many other companies do the same. 
 
-
 What is the SPF rule to use if you wish to ensure an operator rejects emails without potentially discarding a legitimate email?
  https://dmarcian.com/what-is-the-difference-between-spf-all-and-all/
 *v=spf1 ~all*
-
 
 What is the meaning of the -all tag?
 *fail*
@@ -133,9 +130,6 @@ And the results are...
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/72bc9ea8efe179361c958a951f9db9fb.png)
 
-
-![[Pasted image 20221017115800.png]]
-
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/72bc9ea8efe179361c958a951f9db9fb.png)
 
 Microsoft passed all checks. We can drill down into DMARC, SPF, or DKIM to get more details.
@@ -145,7 +139,6 @@ DMARC:
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5de58e2bfac4a912bcc7a3e9/room-content/d0b2fc15e23d1466ff98efc98afef61e.png)
 
 In the details above, we can see that all emails that fail the DMARC check will be rejected.
-
 
 Which DMARC policy would you use not to accept an email if the message fails the DMARC check?
 *p=reject*
@@ -175,7 +168,6 @@ The illustration below will help you understand how public key cryptography work
 
 Refer to this Microsoft documentation here for more information on S/MIME and steps on how to configure Office 365 to send/receive S/MIME emails.
 
-
 What is nonrepudiation? (The answer is a full sentence, including the ".")
 Check the Microsoft reference shared in the task.
 *The uniqueness of a signature prevents the owner of the signature from disowning the signature.*
@@ -190,7 +182,6 @@ Here are two resources to assist you with this task:
 
     https://www.wireshark.org/docs/dfref/s/smtp.html
     https://www.mailersend.com/blog/smtp-codes
-
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -224,39 +215,28 @@ drwxr-xr-x 21 ubuntu ubuntu 4.0K Oct 17 17:11 ..
 drwxrwxr-x  3 ubuntu ubuntu 4.0K Jul 27  2021 Tools
 -rw-r--r--  1 ubuntu ubuntu 354K Apr 21  2019 traffic.pcap
 
-
 ```
 
 What Wireshark filter can you use to narrow down the packet output using SMTP status codes?
 *smtp.response.code*
 
-![[Pasted image 20221017122323.png]]
-
-
-
 	Per the network traffic, what was the message for status code 220? (Do not include the status code (220) in the answer)
 	*<domain> Service ready*
 
-![[Pasted image 20221017122909.png]]
-
 One packet shows a response that an email was blocked using spamhaus.org. What were the packet number and status code? (no spaces in your answer)
-![[Pasted image 20221017123745.png]]
 
 *156,553* (No is packet number and info the 1st number is status code)
 
 Based on the packet from the previous question, what was the message regarding the mailbox?
 Answer is the 2nd part only, without the ".".
-![[Pasted image 20221017124150.png]]
 
 *mailbox name not allowed*
 
 What is the status code that will typically precede a SMTP DATA command?
 The server is now waiting for the 'body' of the message.
 *354*
-![[Pasted image 20221017124732.png]]
 
 ### SMTP Traffic Analysis 
-
 
 In this task, you'll move beyond SMTP codes and analyze trivial SMTP traffic. 
 
@@ -264,34 +244,22 @@ The reference below may assist you with this task:
 
     https://www.wireshark.org/docs/dfref/i/imf.html
 
-
-![[Pasted image 20221017125524.png]]
 What port is the SMTP traffic using?
 *25*
-
-![[Pasted image 20221017125822.png]]
 
 How many packets are specifically SMTP?
 *512*
 
-![[Pasted image 20221017125416.png]]
-
 What is the source IP address for all the SMTP traffic?
 *10.12.19.101*
 
-![[Pasted image 20221017130201.png]]
-
 What is the filename of the third file attachment?
 *attachment.scr*
-
-![[Pasted image 20221017125930.png]]
 
 How about the last file attachment?
 *.zip*
 
 ### SMTP and C&C Communication 
-
-
 
 Now we'll take a look at how SMTP has been abused by adversaries for C2 (Command and Control) communications. 
 
@@ -312,7 +280,6 @@ Detection opportunity (per MITRE):
 "Analyze packet contents to detect application layer protocols that do not follow the expected protocol standards regarding syntax, structure, or any other variable adversaries could leverage to conceal data."
 
 Note: We will cover Network Intrusion Prevention and Detection in future rooms. 
-
 
 Per MITRE ATT&CK, which software is associated with using SMTP and POP3 for C2 communications?
  Zebrocy
@@ -338,10 +305,7 @@ SMTP PCAP Credit:
 
 El Instituto Nacional de Normas y Tecnología (NIST, por sus siglas en inglés) está autorizado en proporcionar servicios de medida, incluyendo servicios de calibración, para organizaciones o personas ubicadas fuera de los Estados Unidos.
 
-
 Per the playbook, what framework was used for the IR process?
 *NIST*
-
-
 
 [[Phishing Emails 3]]

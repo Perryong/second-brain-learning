@@ -4,7 +4,6 @@ TopTierConversions LTD is proud to present its latest product launch.
 
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/c53da808dba7b45a03b79dacf587ebb6.png)
 
-
 ###  Challenge
 
  Start Machine
@@ -341,9 +340,7 @@ http://10.10.47.162:5000/
 
 conveting to pdf just get blank
 
-
 https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting/iframes-in-xss-and-csp
-
 
 <html>
   <script>
@@ -378,12 +375,8 @@ and get it :)
 
 ```
 
-![[Pasted image 20230216180135.png]]
-![[Pasted image 20230216180145.png]]
-
 What is the flag?
 
 *flag{1f4a2b6ffeaf4707c43885d704eaee4b}*
-
 
 [[AD Certificate Templates]]

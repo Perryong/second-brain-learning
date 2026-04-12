@@ -258,8 +258,6 @@ Answer the questions below
 
 What is the hostname for the client?
 
-![[Pasted image 20221216214238.png]]
-
 *THM-VELOCIRAPTOR.eu-west-1.compute.internal*
 
 What is listed as the agent version?
@@ -270,8 +268,6 @@ In the Collected tab, what was the VQL command to query the client user accounts
 
 Check Requests. Focus on the VQL query with Artifact. Windows.Sys.Users().
 
-![[Pasted image 20221216214442.png]]
-
 *LET Generic_Client_Info_Users_0_0=SELECT Name, Description, Mtime AS LastLogin FROM Artifact.Windows.Sys.Users()*
 
 In the Collected tab, check the results for the PowerShell whoami command you executed previously. What is the column header that shows the output of the command?
@@ -280,15 +276,11 @@ PowerShell is a task automation and configuration management program from Micros
 
 Check Results.
 
-![[Pasted image 20221216214628.png]]
-
 *Stdout*
 
 In the Shell, run the following PowerShell command Get-Date. What was the PowerShell command executed with VQL to retrieve the result?
 
 Check Log.
-
-![[Pasted image 20221216214849.png]]
 
 *powershell -ExecutionPolicy Unrestricted -encodedCommand RwBlAHQALQBEAGEAdABlAA==*
 
@@ -368,13 +360,9 @@ Answer the questions below
 
 Earlier you created a new artifact collection for Windows.KapeFiles.Targets. You configured the parameters to include Ubuntu artifacts. Review the parameter description for this setting. What is this parameter specifically looking for?
 
-![[Pasted image 20221216220757.png]]
-
 *Ubuntu on Windows Subsystem for Linux*
 
 Review the output. How many files were uploaded?
-
-![[Pasted image 20221216220957.png]]
 
 *20*
 
@@ -417,8 +405,6 @@ Which accessor can access hidden NTFS files and Alternate Data Streams? (**forma
 
 https://docs.velociraptor.app/docs/gui/vfs/
 
-![[Pasted image 20221216221353.png]]
-
 *ntfs accessor*
 
 Which accessor provides file-like access to the registry? (**format: xyz accessor**)
@@ -431,8 +417,6 @@ What is the name of the file in $Recycle.Bin?
 
 In VFS navigate 'file'.
 
-![[Pasted image 20221216221603.png]]
-
 *desktop.ini*
 
 There is hidden text in a file located in the Admin's Documents folder. What is the flag?
@@ -443,12 +427,7 @@ Download (collect from the client)
 
 	Found in ntfs cz is hidden > \\.\C:\Users\Administrator\Documents\flag.txt:hidden (refreshing) after collected go to textview and the flag is there.
 
-
-![[Pasted image 20221216222028.png]]
-
-
 *THM{VkVMT0NJUkFQVE9S} *
-
 
 ### VQL (Velociraptor Query Language)
 
@@ -510,15 +489,11 @@ What is followed after the **SELECT** keyword in a standard VQL query?
 
 https://docs.velociraptor.app/docs/vql/
 
-![[Pasted image 20221216235834.png]]
-
 *COLUMN SELECTORS*
 
 What goes after the **FROM**  keyword?  
 
 https://docs.velociraptor.app/docs/vql/
-
-![[Pasted image 20221216235916.png]]
 
 *VQL Plugin*
 
@@ -526,23 +501,17 @@ What is followed by the **WHERE** keyword?
 
 https://docs.velociraptor.app/docs/vql/
 
-![[Pasted image 20221217000448.png]]
-
 *filter expression*
 
 What can you type in the Notepad interface to view a list of possible completions for a keyword?
 
 https://docs.velociraptor.app/docs/vql/
 
-![[Pasted image 20221217000558.png]]
-
 *?*
 
 What plugin would you use to run PowerShell code from Velociraptor?
 
 https://docs.velociraptor.app/docs/extending_vql/
-
-![[Pasted image 20221217000718.png]]
 
 *execve()*
 
@@ -572,15 +541,11 @@ What are the arguments for **parse_mft()**?
 
 https://docs.velociraptor.app/docs/forensic/ntfs/
 
-![[Pasted image 20221217001430.png]]
-
 *parse_mft(filename="C:/$MFT", accessor="ntfs")*
 
 What filter expression will ensure that no directories are returned in the results?
 
 https://docs.velociraptor.app/docs/forensic/filesystem/
-
-![[Pasted image 20221217001736.png]]
 
 *IsDir*
 
@@ -621,8 +586,6 @@ Answer the questions below
 
 What is the name in the Artifact Exchange to detect Printnightmare?
 
-![[Pasted image 20221217003002.png]]
-
 *Windows.Detection.PrintNightmare*
 
 Per the above instructions, what is your Select clause? (no spaces after commas)
@@ -639,16 +602,9 @@ AND FullPath =~ "Windows/System32/spool/drivers" 
 AND PE
 ```
 
-
 *SELECT "C:/" + FullPath AS Full_Path,FileName AS File_Name,parse_pe(file="C:/" + FullPath) AS PE*
 
 What is the name of the DLL that was  placed by the attacker?
-
-![[Pasted image 20221217004316.png]]
-
-![[Pasted image 20221217004504.png]]
-
-![[Pasted image 20221217004938.png]]
 
 *nightmare.dll*
 
@@ -667,6 +623,5 @@ Additional Resources:
 -   [https://docs.velociraptor.app/training/](https://docs.velociraptor.app/training/)
 -   [https://docs.velociraptor.app/blog/](https://docs.velociraptor.app/blog/)
 -   [https://docs.velociraptor.app/presentations/](https://docs.velociraptor.app/presentations/)
-
 
 [[KAPE]]

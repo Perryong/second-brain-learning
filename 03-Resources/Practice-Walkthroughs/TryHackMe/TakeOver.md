@@ -66,7 +66,6 @@ Progress: 113788 / 220561 (51.59%)^C
 
 looking subdomains
 
-
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ gobuster vhost -u https://futurevera.thm/ -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain false -k -t 64
 
@@ -166,12 +165,7 @@ going to https://secrethelpdesk934752.support.futurevera.thm
 
 http://flag{beea0d6edfcee06a59b83fb50ae81b2f}.s3-website-us-west-3.amazonaws.com/
 
-
-
 ```
-
-![[Pasted image 20230203174646.png]]
-![[Pasted image 20230203174807.png]]
 
 This is an enumeration challenge, once you will find it, it will straight up give you the flag.
 

@@ -81,7 +81,6 @@ Is the API documentation a trivial item and not used after API development (yea/
 
 I understand the APIs and am ready to learn OWASP Top 10 Principles.
 
-
 ### Vulnerability I - Broken Object Level Authorisation (BOLA)
 
 **How does it Happen?**
@@ -158,7 +157,6 @@ No Content
 
 There are 3 users
 
-
 ```
 
 Suppose the employee ID is an integer with incrementing value. Can you check through the vulnerable API endpoint the total number of employees in the company?
@@ -172,7 +170,6 @@ What is the flag associated with employee ID 2?
 What is the username of employee ID 3?
 
 *Bob*
-
 
 ### Vulnerability II - Broken User Authentication (BUA)
 
@@ -232,7 +229,6 @@ The keys in a JSON object are strings and the values can be strings, numbers, bo
 
 A simple example of a JSON object is as follows:
 
-
 {
     "name": "John Smith",
     "age": 35,
@@ -253,7 +249,6 @@ A simple example of a JSON object is as follows:
         }
     ]
 }
-
 
 This JSON object represents information about a person named John Smith, including his name, age, address and phone numbers. The address and phone numbers are represented as nested JSON objects. JSON objects are widely used in web development, in RESTful API, and in other services that require the exchange of data between different systems.
 
@@ -375,9 +370,7 @@ Request Body
 "country": "China"
 }
 
-
 ```
-
 
 Can you find the token of hr@mht.com?
 
@@ -392,7 +385,6 @@ Get a valid token from a vulnerable endpoint and pass it to /apirule2/user/detai
 Is it a good practice to send a username and password in a GET request (yea/nay)?
 
 *nay*
-
 
 ###  Vulnerability III - Excessive Data Exposure
 
@@ -517,7 +509,6 @@ In summary, load balancer is a device or software that distributes incoming netw
 
 ```
 
-
 What is the device ID value for post-ID 2?
 
 *iOS15.411*
@@ -625,9 +616,7 @@ Request Body
 "msg": "Invalid Email"
 }
 
-
 ```
-
 
 Can rate limiting be carried out at the network level through firewall etc. (yea/nay)?
 
@@ -640,7 +629,6 @@ What is the HTTP response code when you send a POST request to **/apirule4/send
 What is the "msg key" value after an HTTP POST request to **/apirule4/sendOTP_s** using the email address sale@mht.com?  
 
 *Invalid Email*
-
 
 ### Vulnerability V - Broken Function Level Authorisation
 
@@ -692,7 +680,6 @@ There are two types of non-repudiation: proof of origin and proof of receipt. Pr
 An example of non-repudiation in practice is the use of digital signatures in email communications. A digital signature is a mathematical technique used to verify the authenticity of a digital message or document. A sender can use a digital signature to prove that they were the originator of the message and that it has not been tampered with. The recipient can use the digital signature to prove that the message was indeed sent by the sender.
 
 In summary, non-repudiation is a principle of security that refers to the ability to prove that a specific individual or system was responsible for a particular action or event, it is used to ensure that parties cannot deny having performed an action, and it's a critical aspect of many security systems. There are two types of non-repudiation: proof of origin and proof of receipt. An example of non-repudiation in practice is the use of digital signatures in email communications.
-
 
 Method Get
 
@@ -748,7 +735,6 @@ Response
 
 403 Forbidden
 
-
 ```
 
 What is the mobile number for the username Alice?
@@ -763,8 +749,6 @@ What is the address flag of username admin?
 
 *THM{3432$@#2!}*
 
-![[Pasted image 20230123135918.png]]
-
 ### Conclusion
 
 That's all for this room. In this room, we have studied the basic API development principles for Authorisation and Authentication and how excessive data exposure can lead to a complete account takeover.
@@ -774,6 +758,5 @@ Now, we will see you in Part 2 (coming soon) of this room, where we will go thro
 Answer the questions below
 
 I have completed the room (Part 1).
-
 
 [[Secret Recipe]]

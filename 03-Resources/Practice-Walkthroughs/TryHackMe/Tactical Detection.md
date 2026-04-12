@@ -22,7 +22,6 @@ There are no hard prerequisites in order to gain value from this room; however,
 
 This room will touch upon some of the most efficient ways to bolster an organization's security posture by leveraging detection mechanisms and walking the user through setting them up tactically. This should serve as a baseline where the user will be able to learn the basics, implement them in their functions, and make them truly their own.
 
-
 ###  Unique Threat Intel
 
 _You stumbled upon documentation of a previous incident containing a couple of unique Indicators of Compromise (IOCs)_ 
@@ -91,7 +90,6 @@ What is the full file path of the malicious file downloaded from the internet?
 In the Sigma Rule baddomains.yml, what is the logsource category used by the author?
 
 *proxy*
-
 
 ### Publicly Generated IOCs
 
@@ -277,7 +275,6 @@ action.notable.param.rule_title = Suspicious Shells Spawned by Java
 action.notable.param.rule_description = Detects suspicious shell spawned from Java host process (e.g. log4j exploitation) (Rule ID: 0d34ed8b-1c12-4ff2-828c-16fc860b766d)
 action.correlationsearch.label = Suspicious Shells Spawned by Java
 
-
 ```
 
 *3*
@@ -294,7 +291,6 @@ The `dispatch.earliest_time` parameter is used to specify the earliest time for 
 So the `-60m@m` means 60 minutes ago from the current minute. This alert will check the logs from 60 minutes ago from the current minute and trigger the alert if the search criteria is met.
 ```
 
-
 *-60m@m*
 
 Change the Uncoder output to Splunk.
@@ -306,8 +302,6 @@ source="WinEventLog:*" AND (ParentImage="*\\java.exe" AND (Image="*\\sh.exe" OR 
 ```
 
 	*WinEventLog:**
-
-![[Pasted image 20230114195839.png]]
 
 https://www.kitploit.com/2022/12/top-20-most-popular-hacking-tools-in.html
 
@@ -382,7 +376,6 @@ C:\Users\Administrator\Desktop>type "Secret Document.txt"
 
 then use eventlogviewer, after that find Secret
 
-
 An attempt was made to access an object.
 
 Subject:
@@ -404,7 +397,6 @@ Process Information:
 
 Access Request Information:
 	Accesses:		ReadAttributes
-
 
 An attempt was made to access an object.
 
@@ -448,18 +440,7 @@ Process Information:
 	Process ID:		0x12c4
 	Process Name:		C:\Windows\System32\cmd.exe
 
-
 ```
-
-![[Pasted image 20230114235239.png]]
-![[Pasted image 20230114235450.png]]
-![[Pasted image 20230114235503.png]]
-![[Pasted image 20230114235635.png]]
-![[Pasted image 20230114235807.png]]
-
-![[Pasted image 20230115105242.png]]
-
-![[Pasted image 20230115105431.png]]
 
 The FullEventLogView application comes installed on your Windows machine. Use it for the following questions.
 
@@ -482,7 +463,6 @@ Event ID 4658 helps determine how long a specific object was open. What descript
 Read through the external resource at the end of the task
 
 *Handle ID*
-
 
 ### Purple Teaming
 
@@ -533,6 +513,5 @@ Finally, a couple of rooms that leverage purple team tactics have been the chose
 Answer the questions below
 
 See you again soon, and happy detection!
-
 
 [[Jurassic Park]]

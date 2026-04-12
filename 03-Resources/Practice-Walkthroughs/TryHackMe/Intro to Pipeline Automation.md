@@ -43,7 +43,6 @@ Look at the last block in the diagram
 
 *Environment*
 
-
 ### Source Code and Version Control
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6093e17fa004d20049b6933e/room-content/3804e1b22987fc90c27d19e511ead12e.png)  
@@ -193,7 +192,6 @@ What dependency 0day vulnerability set the world ablaze in 2021?
 
 *Log4j*
 
-
 ### Automated Testing
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6093e17fa004d20049b6933e/room-content/d532d7168eaa7553b54464a6736f42fd.png)  
@@ -276,7 +274,6 @@ Can SAST and DAST be used as a replacement for penetration tests? (Yea,Nay)
 
 *Nay*
 
-
 ### Continuous Integration and Delivery
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/6093e17fa004d20049b6933e/room-content/678d09b2f788f32a2766556cb4730701.png)  
@@ -329,7 +326,6 @@ What do we call the build infrastructure element that controls all builds?
 What do we call the build infrastructure element that performs the build?
 
 *build agent*
-
 
 ### Environments
 
@@ -456,7 +452,6 @@ Think about who is introducing this vulnerability
 
 *Developer Bypasses*
 
-
 ### Challenge
 
  View SiteOpen the site and build your own pipeline to get your flag. Use what you learned to determine which concerns are valid at which stages of the pipeline!  
@@ -466,13 +461,7 @@ Answer the questions below
 What is the flag received after successfully building your pipeline?
 
 *THM{Pipeline.Automation.Is.Fun}*
-![[Pasted image 20230208162317.png]].
-![[Pasted image 20230208162359.png]]
-![[Pasted image 20230208162427.png]]
-![[Pasted image 20230208162505.png]]
-![[Pasted image 20230208162527.png]]
-![[Pasted image 20230208162551.png]]
-![[Pasted image 20230208162602.png]]
+.
 
 ### Conclusion
 
@@ -485,6 +474,5 @@ Answer the questions below
 I understand the basic pipeline structure, and I'm ready to do a deep dive into each element!  
 
  Completed
-
 
 [[Intro to Containerisation]]

@@ -278,7 +278,6 @@ MySQL [runornot]> select run from runcheck;
 MySQL [runornot]> exit;
 Bye
 
-
 command executer : which nc
 Command Executer Mode :1
 /bin/nc 
@@ -409,7 +408,6 @@ total 12K
 drwxr-xr-x 2 adam adam 4.0K Feb 28  2021 .
 drwxr-xr-x 3 adam adam 4.0K Feb 28  2021 ..
 -rw-r--r-- 1 adam adam  273 Feb 28  2021 bcrypt_encryption.py
-
 
 www-data@lunizz:/proct/pass$ cat bcrypt_encryption.py
 cat bcrypt_encryption.py
@@ -663,12 +661,6 @@ Was really fun :)
 
 ```
 
-![[Pasted image 20230417095525.png]]
-
-![[Pasted image 20230417100518.png]]
-
-![[Pasted image 20230417112614.png]]
-
 What is the default password for mysql  
 
 admin forgot to delete a .txt file that contains credentials. can you find it
@@ -700,6 +692,5 @@ root.txt
 mason made a backdoor to root. so silly,
 
 **
-
 
 [[Bookstore]]

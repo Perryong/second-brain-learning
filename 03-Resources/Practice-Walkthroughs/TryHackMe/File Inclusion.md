@@ -82,7 +82,6 @@ What function causes path traversal vulnerabilities in PHP? *file_get_contents *
 
 ###  Local File Inclusion - LFI 
 
-
 Local File Inclusion (﻿LFI)
 
 LFI attacks against web applications are often due to a developers' lack of security awareness. With PHP, using functions such as include, require, include_once, and require_once often contribute to vulnerable web applications. In this room, we'll be picking on PHP, but it's worth noting LFI vulnerabilities also occur when using other languages such as ASP, JSP, or even in Node.js apps. LFI exploits follow the same concepts as path traversal.
@@ -102,7 +101,6 @@ Theoretically, we can access and display any readable file on the server from th
 In this case, it works because there isn't a directory specified in the include function and no input validation.
 
 Now apply what we discussed and try to read /etc/passwd file. Also, answer question #1 below.
-
 
 2. Next, In the following code, the developer decided to specify the directory inside the function.
 
@@ -189,7 +187,6 @@ NOTE: the %00 trick is fixed and not working with PHP 5.3.4 and above.
 
 Now apply what we showed in Lab #3, and try to read files /etc/passwd, answer question #1 below.
 
-
 2. In this section, the developer decided to filter keywords to avoid disclosing sensitive information! The /etc/passwd file is being filtered. There are two possible methods to bypass the filter. First, by using the NullByte %00 or the current directory trick at the end of the filtered keyword /.. The exploit will be similar to http://webapp.thm/index.php?lang=/etc/passwd/. We could also use http://webapp.thm/index.php?lang=/etc/passwd%00.
 
 To make it clearer, if we try this concept in the file system using cd .., it will get you back one step; however, if you do cd ., It stays in the current directory.  Similarly, if we try  /etc/passwd/.., it results to be  /etc/ and that's because we moved one to the root.  Now if we try  /etc/passwd/., the result will be  /etc/passwd since dot refers to the current directory.
@@ -204,7 +201,6 @@ We got the following error!
 
 Warning: include(languages/etc/passwd): failed to open stream: No such file or directory in /var/www/html/THM-5/index.php on line 15
 
-
 If we check the warning message in the include(languages/etc/passwd) section, we know that the web application replaces the ../ with the empty string. There are a couple of techniques we can use to bypass this.
 
 First, we can send the following payload to bypass it: ....//....//....//....//....//etc/passwd
@@ -216,7 +212,6 @@ This works because the PHP filter only matches and replaces the first subset str
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png)
 
 Try out Lab #5 and try to read /etc/passwd and bypass the filter!
-
 
 4. Finally, we'll discuss the case where the developer forces the include to read from a defined directory! For example, if the web application asks to supply input that has to include a directory such as: http://webapp.thm/index.php?lang=languages/EN.php then, to exploit this, we need to include the directory in the payload like so: ?lang=languages/../../../../../etc/passwd.
 
@@ -311,13 +306,11 @@ Remote File Inclusion - RFI
 
 Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application. Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. One requirement for RFI is that the allow_url_fopen option needs to be on.
 
-
 The risk of RFI is higher than LFI since RFI vulnerabilities allow an attacker to gain Remote Command Execution (RCE) on the server. Other consequences of a successful RFI attack include:
 
     Sensitive Information Disclosure
     Cross-site Scripting (XSS)
     Denial of Service (DoS)
-
 
 An external server must communicate with the application server for a successful RFI attack where the attacker hosts malicious files on their server. Then the malicious file is injected into the include function via HTTP requests, and the content of the malicious file executes on the vulnerable application server.
 
@@ -333,13 +326,10 @@ First, the attacker injects the malicious URL, which points to the attacker's se
 
 Visit the following lab URL: http://10.10.61.224/playground.php to try out an RFI attack.
 
-
 We showed how to include PHP pages via RFI. Do research on how to get remote command execution (RCE), and answer the question in the challenge section.
 *No answer needed*
 
 ### Remediation 
-
-
 
 As a developer, it's important to be aware of web application vulnerabilities, how to find them, and prevention methods. To prevent the file inclusion vulnerabilities, some common suggestions include:
 
@@ -351,13 +341,10 @@ As a developer, it's important to be aware of web application vulnerabilities, h
     Never trust user input, and make sure to implement proper input validation against file inclusion.
     Implement whitelisting for file names and locations as well as blacklisting.
 
-
 Ready for the challenges? 
 *No answer needed*
 
 ###  Challenge 
-
-
 
 Great Job! Now apply the techniques you've learned to capture the flags! Familiarizing yourself with HTTP Web basics could help you complete these challenges.
 
@@ -391,18 +378,12 @@ curl -X POST http://10.10.61.224/challenges/chall1.php -d 'file=../../../../etc/
 
 `visit http://10.10.61.224/challenges/index.php`
 
-![[Pasted image 20220821122714.png]]
-
 `POST/Content-Type: application/x-www-form-urlencoded/file=/etc/flag1`
 Capture Flag1 at /etc/flag1 *F1x3d-iNpu7-f0rrn*
 
 `First, change cookie parameter; THM to admin and then after once you login as Admin, change THM to ../../../../etc/flag2%00`
 
-![[Pasted image 20220821123458.png]]
-
 Capture Flag2 at /etc/flag2 *c00k13_i5_yuMmy1*
-
-![[Pasted image 20220821123952.png]]
 
 Capture Flag3 at /etc/flag3 *P0st_1s_w0rk1in9*
 

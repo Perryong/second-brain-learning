@@ -18,7 +18,6 @@ Hack your way into this simulated vulnerable infrastructure. No puzzles. Enumera
 
   Deploy the vulnerable machine by clicking the "Start Machine" button. Access the system at [http://10.10.246.2](http://10.10.246.2/) and [http://vulnnet.thm](http://vulnnet.thm/) domain. Answer the task questions to complete the challenge.
 
-
 Answer the questions below
 
 ```
@@ -993,7 +992,6 @@ ntswwsY
 nUpdnCZW1cqr
 ...
 
-
 let's use wordlist with john
 
 ┌──(witty㉿kali)-[~/Downloads]
@@ -1113,8 +1111,6 @@ https://github.com/unode/firefox_decrypt
 ┌──(witty㉿kali)-[~/Downloads]
 └─$ locate firefox_decrypt.py                              
 /home/witty/Downloads/firefox_decrypt/firefox_decrypt.py
-
-
 
 </system/.mozilla/firefox/2fjnrwth.default-release$ zip -r /tmp/browser.zip /home/system/.mozilla/
 zip warning: Not all files were readable
@@ -1250,14 +1246,6 @@ root@vulnnet-endgame:/root/thm-flag# cat root.txt
 THM{1d42edbb03c0b287a8d0d8a265dce012}
 
 ```
-![[Pasted image 20230421124510.png]]
-![[Pasted image 20230421124829.png]]
-![[Pasted image 20230421125350.png]]
-![[Pasted image 20230421132601.png]]
-![[Pasted image 20230421133644.png]]
-![[Pasted image 20230421134037.png]]
-![[Pasted image 20230421134333.png]]
-![[Pasted image 20230421134454.png]]
 
 What is the password of the CMS administrator?
 

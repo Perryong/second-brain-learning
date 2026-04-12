@@ -34,15 +34,11 @@ Answer the questions below
 
 How many logs are ingested from the month of March?
 
-![[Pasted image 20221215133527.png]]
-
 *13959*
 
 Imposter Alert: There seems to be an imposter account observed in the logs, what is the name of that user?
 
 index=win_eventlogs| rare limit=20 UserName
-
-![[Pasted image 20221215133941.png]]
 
 *Amel1a*
 
@@ -56,9 +52,6 @@ or
 
 index=win_eventlogs "schtasks"
 
-![[Pasted image 20221215140145.png]]
-
-![[Pasted image 20221215143204.png]]
 *Chris.fort*
 
 Which user from the HR department executed a system process (LOLBIN) to download a payload from a file-sharing host.
@@ -66,17 +59,11 @@ Explore lolbas-project.github.io/ to find binaries used to download payloads
 
 index=win_eventlogs| rare limit=20 ProcessName
 
-![[Pasted image 20221215143345.png]]
-
 https://lolbas-project.github.io/#certu
 
 to download
 
-![[Pasted image 20221215143445.png]]
-
 index=win_eventlogs certutil.exe
-
-![[Pasted image 20221215143555.png]]
 
 *haroon*
 
@@ -85,8 +72,6 @@ To bypass the security controls, which system process (lolbin) was used to downl
 *certutil.exe*
 
 What was the date that this binary was executed by the infected host? format (YYYY-MM-DD)
-
-![[Pasted image 20221215143654.png]]
 
 *2022-03-04*
 

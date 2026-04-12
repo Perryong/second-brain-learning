@@ -4,8 +4,6 @@ Easy level CTF.  Capture the flags and have fun!
 
 ![](https://tryhackme-images.s3.amazonaws.com/room-icons/897a124df0a70ad86502193b83f46658.png)
 
-
-
 ```
 ┌──(kali㉿kali)-[~]
 └─$ rustscan -a 10.10.207.86 --ulimit 5000 -b 65535 -- -A 
@@ -297,15 +295,12 @@ www-data@ubuntu:/var/www/files/images$ ls
 ls
 002d7e638fb463fb7a266f5ffc7ac47d.gif  hacker-with-laptop_23-2147985341.jpg
 
-
-
 to download an image
 
 www-data@ubuntu:/var/www/files/images$ python3 -m http.server
 python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 10.18.1.77 - - [19/Sep/2022 16:10:53] "GET /hacker-with-laptop_23-2147985341.jpg HTTP/1.1" 200 -
-
 
 ──(kali㉿kali)-[~/chill_hack]
 └─$ wget http://10.10.207.86:8000/hacker-with-laptop_23-2147985341.jpg 
@@ -323,7 +318,6 @@ hacker-with-laptop_23- 100%[==========================>]  67.23K  22.5KB/s    in
 ┌──(kali㉿kali)-[~/chill_hack]
 └─$ ls
 hacker-with-laptop_23-2147985341.jpg
-
 
 ┌──(kali㉿kali)-[~/chill_hack]
 └─$ steghide extract -sf hacker-with-laptop_23-2147985341.jpg 
@@ -433,15 +427,12 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-118-generic x86_64)
   Memory usage: 22%                IP address for eth0:    10.10.207.86
   Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
-
  * Canonical Livepatch is available for installation.
    - Reduce system reboots and improve kernel security. Activate at:
      https://ubuntu.com/livepatch
 
 19 packages can be updated.
 0 updates are security updates.
-
-
 
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
@@ -506,7 +497,6 @@ drwxr-xr-x 2 apaar apaar 4096 Oct  3  2020 .ssh
 apaar@ubuntu:/home/apaar$ cat local.txt
 {USER-FLAG: e8vpd3323cfvlp0qpxxx9qtr5iq37oww}
 
-
 apaar@ubuntu:/home/apaar$ id
 uid=1001(apaar) gid=1001(apaar) groups=1001(apaar)
 apaar@ubuntu:/home/apaar$ exit
@@ -547,12 +537,9 @@ drwxr-xr-x  2 root root  4096 Oct  3  2020 .vim
 -rw-r--r--  1 root root  1385 Oct  4  2020 proof.txt
 # cat proof.txt
 
-
 {ROOT-FLAG: w18gfpn9xehsgd3tovhk0hby4gdp89bg}
 
-
 Congratulations! You have successfully completed the challenge.
-
 
          ,-.-.     ,----.                                             _,.---._    .-._           ,----.  
 ,-..-.-./  \==\ ,-.--` , \   _.-.      _.-.             _,..---._   ,-.' , -  `. /==/ \  .-._ ,-.--` , \ 
@@ -563,7 +550,6 @@ Congratulations! You have successfully completed the challenge.
   \  ,  - /==/|==|_  ,`-._|==|- `-._|==|- `-._        |==|  '='   /\==\ -    ,_ /|==|  /\ , |==|_  ,`-._ 
   |-  /\ /==/ /==/ ,     //==/ - , ,/==/ - , ,/       |==|-,   _`/  '.='. -   .' /==/, | |- /==/ ,     / 
   `--`  `--`  `--`-----`` `--`-----'`--`-----'        `-.`.____.'     `--`--''   `--`./  `--`--`-----``  
-
 
 --------------------------------------------Designed By -------------------------------------------------------
                                         |  Anurodh Acharya |
@@ -576,17 +562,12 @@ Twitter
 Linkedin
         - www.linkedin.com/in/anurodh-acharya-b1937116a
 
-
-
 ```
-
-![[Pasted image 20220919105400.png]]
 
 User Flag
 *{USER-FLAG: e8vpd3323cfvlp0qpxxx9qtr5iq37oww}*
 
 Root Flag
 *{ROOT-FLAG: w18gfpn9xehsgd3tovhk0hby4gdp89bg}*
-
 
 [[Intermediate Nmap]]
